@@ -1,0 +1,10 @@
+
+.await-spinner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .v-spinner {
+    display: flex;
+  }
+}

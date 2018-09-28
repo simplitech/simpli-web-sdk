@@ -1,0 +1,116 @@
+@import "../variables/main";
+
+.modal {
+  .modal-scroll {
+    overflow-y: scroll;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    z-index: $modal-depth + 1;
+
+    .modal-view {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: min-content;
+
+      padding: $modal-padding-base;
+      width: 100vw;
+      height: 100vh;
+
+      .modal-content {
+        position: relative;
+        background: white;
+        border-radius: $modal-radius;
+        box-shadow: $modal-shadow;
+        max-width: 100%;
+
+        & {
+          width: $modal-default-width;
+
+          @media screen and (max-width: $display-medium) {
+            width: $modal-default-width-tablet;
+          }
+        }
+
+        &.large {
+          width: $modal-large-width;
+
+          @media screen and (max-width: $display-medium) {
+            width: $modal-large-width-tablet;
+          }
+        }
+
+        &.small {
+          width: $modal-small-width;
+
+          @media screen and (max-width: $display-medium) {
+            width: $modal-small-width-tablet;
+          }
+        }
+
+        @media screen and (max-width: $display-small) {
+          width: 100%;
+        }
+
+        &.full {
+          width: 100%;
+        }
+
+        .modal-header {
+          display: flex;
+          justify-content: center;
+          background: $primary-color;
+          border-radius: $modal-radius $modal-radius 0 0;
+          border-bottom: 3px solid darken($primary-color, 10);
+          padding: $modal-padding-base;
+
+          .modal-title {
+            flex: 1;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            text-transform: uppercase;
+            cursor: default;
+            user-select: none;
+          }
+
+          .close-icon {
+            flex: 0;
+            text-decoration: none;
+            font-size: 21px;
+            line-height: 16px;
+            margin: auto;
+            transition: opacity ease-out 0.4s;
+            color: white;
+            opacity: 0.6;
+            &:before {
+              content: '×';
+            }
+            &:hover {
+              opacity: 0.9;
+            }
+          }
+        }
+
+        .modal-body {
+          padding: $modal-padding-base;
+        }
+      }
+    }
+  }
+
+  .modal-bg {
+    background: $modal-backdrop;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    z-index: $modal-depth;
+  }
+}
+

@@ -1,0 +1,25 @@
+.adap-orderby {
+  display: flex;
+  flex-flow: row nowrap;
+  cursor: pointer;
+
+  .caret {
+    margin-left: 10px;
+    align-self: center;
+  }
+
+  &.asc > .caret {
+    font-family: "simple-line-icons";
+    &:before {
+      content: '\E604';
+    }
+  }
+
+  &.desc > .caret {
+    font-family: "simple-line-icons";
+    &:before {
+      content: '\E607';
+    }
+  }
+}
+

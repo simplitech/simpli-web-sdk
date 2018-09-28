@@ -1,0 +1,12 @@
+
+.material-theme {
+  @import "~vue-snotify/styles/material.scss";
+}
+
+.simple-theme {
+  @import "~vue-snotify/styles/simple.scss";
+}
+
+.dark-theme {
+  @import "~vue-snotify/styles/dark.scss";
+}
