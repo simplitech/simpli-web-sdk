@@ -1,22 +1,24 @@
+/**
+ * @file
+ * VUE Snotify
+ * Used in library: vue-snotify
+ *
+ * Use this file to configure the toast behaviour
+ * The standard configuration can be found below
+ * See https://artemsky.github.io/vue-snotify/
+ */
+
 import { SnotifyPosition } from 'vue-snotify'
 import { ToastBackdrop, ToastStyle } from '../enums/toast.enum'
 
-/*
- * ===================================================== *
- *** This TOAST was provided by a Third-Party project ***
- * ===================================================== *
- * Access docs in https://github.com/artemsky/vue-snotify
- * The standard configuration can be found below
- * You can use this toast globally by using vm.$snotify or helper
- */
-
-/*
- *** CHOSE HERE YOUR STYLE ***
+/**
+ * Toast Default Style
+ * @type {ToastStyle.MATERIAL}
  */
 export const ToastDefaultStyle: ToastStyle = ToastStyle.MATERIAL
 
-/*
- *** MODIFY HERE THE TOAST GLOBAL CONFIG ***
+/**
+ * Toast Global Config
  */
 export const ToastGlobalConfig = {
   newOnTop: true, // true = stack, false = queue
@@ -24,8 +26,8 @@ export const ToastGlobalConfig = {
   maxAtPosition: 5,
 }
 
-/*
- *** MODIFY HERE THE TOAST DEFAULT CONFIG ***
+/**
+ * Toast Default Config
  */
 export const ToastDefaultConfig = {
   timeout: 5000, // 0 is infinite
@@ -39,7 +41,7 @@ export const ToastDefaultConfig = {
 }
 
 /*
- *** ADD HERE YOUR CUSTOM CONFIGS ***
+ * ADD HERE YOUR CUSTOM CONFIGS
  * Note1: you can import these configs and use in vm.$snotify(..., YOUR_CONFIG)
  * Example:
  * import {MyToast} from 'config/toast.config
