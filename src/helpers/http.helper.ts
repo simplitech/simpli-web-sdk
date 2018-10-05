@@ -67,13 +67,13 @@ export const call = (classOrObject: any, promise: PromiseLike<HttpResponse>): Pr
     } else if (typeof classOrObject === 'function') {
       // Class (Number, String, Boolean, etc.)
 
-      if (classOrObject() === '') {
+      if ((classOrObject as Function).name === 'String') {
         // Special case for func 'String'
         response.data = resp['bodyText'] as typeof classOrObject
       } else {
         response.data = plainToClass(classOrObject, resp.data) as typeof classOrObject
       }
-    } else throw new Error('Error: Entity should be either Class or ClassObject')
+    } else throw TypeError('Error: Entity should be either Class or ClassObject')
 
     return response
   })
