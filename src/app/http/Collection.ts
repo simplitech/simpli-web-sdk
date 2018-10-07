@@ -52,7 +52,7 @@ export class Collection<T extends Resource> extends HttpBody {
    */
   async query(params?: any, spinner?: string): Promise<Resp<T[]>> {
     const fetch = async () => await this.call($.resource(apiFullURL(this.resource.$endpoint)).query(params))
-    return await $.await.run(fetch, spinner || `query${this.type.$name}`)
+    return await $.await.run(fetch, spinner || `query${this.resource.$name}`)
   }
 
   /**
