@@ -14,7 +14,7 @@ export class Collection<T extends Resource> extends HttpBody {
    * Items of the collection
    * @type {Array}
    */
-  @Type((options) => (options!.newObject as Collection<T>).type)
+  @Type(options => (options!.newObject as Collection<T>).type)
   items: T[] = []
 
   /**
@@ -48,9 +48,11 @@ export class Collection<T extends Resource> extends HttpBody {
   /**
    * Lists resource from WebServer
    * @param params
+   * @param spinner
    */
-  async query(params?: any): Promise<Resp<any>> {
-    return await this.call($.resource(apiFullURL(this.resource.$endpoint)).query(params))
+  async query(params?: any, spinner?: string): Promise<Resp<T[]>> {
+    const fetch = async () => await this.call($.resource(apiFullURL(this.resource.$endpoint)).query(params))
+    return await $.await.run(fetch, spinner || `query${this.type.$name}`)
   }
 
   /**
@@ -59,7 +61,7 @@ export class Collection<T extends Resource> extends HttpBody {
   get headers() {
     return mapValues(
       this.resource.scheme(),
-      (val: any, key: string) => $.t(`classes.${this.resource.$name}.columns.${key}`) as string,
+      (val: any, key: string) => $.t(`classes.${this.resource.$name}.columns.${key}`) as string
     )
   }
 
@@ -89,7 +91,7 @@ export class Collection<T extends Resource> extends HttpBody {
     const data: Scheme[] = this.items
       .map((item: T) => item.csvScheme())
       .map((scheme: Scheme) =>
-        mapKeys(scheme, (val: any, key: string) => $.t(`classes.${this.resource.$name}.columns.${key}`) as string),
+        mapKeys(scheme, (val: any, key: string) => $.t(`classes.${this.resource.$name}.columns.${key}`) as string)
       )
     createCsvFile(title, unparse(data))
   }

@@ -18,7 +18,6 @@ const template = `
            :placeholder="placeholder"
            v-mask="mask"
            v-model.lazy="computedModel"
-           :autofocus="autofocus"
            :disabled="disabled"
            class="form-control"/>
 
@@ -30,7 +29,6 @@ const template = `
            :step="step"
            :placeholder="placeholder"
            v-model="computedModel"
-           :autofocus="autofocus"
            :disabled="disabled"
            class="form-control"/>
 
@@ -42,7 +40,6 @@ const template = `
            :step="step"
            :placeholder="placeholder"
            v-model="computedModel"
-           :autofocus="autofocus"
            :disabled="disabled"
            class="form-control"/>
 
@@ -54,7 +51,6 @@ const template = `
            :step="step"
            :placeholder="placeholder"
            v-model="computedModel"
-           :autofocus="autofocus"
            :disabled="disabled"
            class="form-control"/>
 
@@ -66,7 +62,6 @@ const template = `
            :step="step"
            :placeholder="placeholder"
            v-model.number="computedModel"
-           :autofocus="autofocus"
            :disabled="disabled"
            class="form-control"/>
 
@@ -76,7 +71,6 @@ const template = `
            :maxlength="maxlength"
            :required="required != null"
            :placeholder="placeholder"
-           :autofocus="autofocus"
            :disabled="disabled"
            class="form-control"
     ></money>
@@ -92,20 +86,28 @@ import moment from 'moment'
 export class InputGroup extends Vue {
   @Prop({ type: [String, Number] })
   value?: string | number
+
   @Prop({ type: Boolean })
   required?: boolean
+
   @Prop({ type: String })
   type?: string
+
   @Prop({ type: String })
   maxlength?: string
+
   @Prop({ type: String })
   label?: string
+
   @Prop({ type: String })
   step?: string
+
   @Prop({ type: String })
   placeholder?: string
+
   @Prop({ type: Boolean })
   autofocus?: boolean
+
   @Prop({ type: Boolean })
   disabled?: boolean
 
@@ -156,6 +158,13 @@ export class InputGroup extends Vue {
       this.populateWithoutDelimiters(val as string)
     } else {
       this.updateValue(val)
+    }
+  }
+
+  mounted() {
+    if (this.autofocus) {
+      const el = this.$el.getElementsByTagName('input')[0] as HTMLElement
+      el.focus()
     }
   }
 

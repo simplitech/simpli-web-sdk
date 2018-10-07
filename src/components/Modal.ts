@@ -92,9 +92,9 @@ export class Modal extends Vue {
     }
   }
 
-  show() {
+  open() {
     this.state = State.SHOWN
-    this.$emit('show')
+    this.$emit('open')
   }
 
   close(force: boolean = false) {
@@ -120,7 +120,7 @@ export class Modal extends Vue {
     this.bodyOverflowY = this.body.style.overflowY
 
     Event.$on('open', (name?: string) => {
-      if (name === this.name) this.show()
+      if (name === this.name) this.open()
     })
 
     Event.$on('close', (name?: string) => {
@@ -130,7 +130,7 @@ export class Modal extends Vue {
     Event.$on('toggle', (name?: string) => {
       if (name === this.name) {
         if (this.state === State.SHOWN) this.close(true)
-        else if (this.state === State.HIDDEN) this.show()
+        else if (this.state === State.HIDDEN) this.open()
       }
     })
 

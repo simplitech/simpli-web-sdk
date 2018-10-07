@@ -28,41 +28,51 @@ export abstract class Resource extends Model {
   /**
    * Finds and return a entity from WebServer
    * @param id entity ID
+   * @param spinner
    */
-  async find(id: ID): Promise<Resp<any>> {
-    return await this.call($.resource(apiFullURL(this.$endpoint)).get({ id }))
+  async find(id: ID, spinner?: string): Promise<Resp<this>> {
+    const fetch = async () => await this.call($.resource(apiFullURL(this.$endpoint)).get({ id }))
+    return await $.await.run(fetch, spinner || `find${this.$name}`)
   }
 
   /**
    * Finds and return a entity from WebServer by query
    * @param query
+   * @param spinner
    */
-  async findByQuery(query: any): Promise<Resp<any>> {
-    return await this.call($.resource(apiFullURL(this.$endpoint)).get(query))
+  async findByQuery(query: any, spinner?: string): Promise<Resp<this>> {
+    const fetch = async () => await this.call($.resource(apiFullURL(this.$endpoint)).get(query))
+    return await $.await.run(fetch, spinner || `find${this.$name}`)
   }
 
   /**
    * Saves this entity and post it into WebServer
    * @param modelResp
+   * @param spinner
    */
-  async save(modelResp: HttpBody = new HttpBody(Number)): Promise<Resp<any>> {
-    return await modelResp.call($.resource(apiFullURL(this.$endpoint)).save(this))
+  async save(modelResp: HttpBody = new HttpBody(Number), spinner?: string): Promise<Resp<any>> {
+    const fetch = async () => await modelResp.call($.resource(apiFullURL(this.$endpoint)).save(this))
+    return await $.await.run(fetch, spinner || `save${this.$name}`)
   }
 
   /**
    * Updates this entity and post it into WebServer
    * @param modelResp
+   * @param spinner
    */
-  async update(modelResp: HttpBody = new HttpBody(Number)): Promise<Resp<any>> {
-    return await modelResp.call($.resource(apiFullURL(this.$endpoint)).update(this))
+  async update(modelResp: HttpBody = new HttpBody(Number), spinner?: string): Promise<Resp<any>> {
+    const fetch = async () => await modelResp.call($.resource(apiFullURL(this.$endpoint)).update(this))
+    return await $.await.run(fetch, spinner || `update${this.$name}`)
   }
 
   /**
    * Removes a entity from WebServer
    * @param modelResp
+   * @param spinner
    */
-  async remove(modelResp: HttpBody = new HttpBody(Number)): Promise<Resp<any>> {
-    return await modelResp.call($.resource(apiFullURL(this.$endpoint)).remove({ id: this.$id }))
+  async remove(modelResp: HttpBody = new HttpBody(Number), spinner?: string): Promise<Resp<any>> {
+    const fetch = async () => await modelResp.call($.resource(apiFullURL(this.$endpoint)).remove({ id: this.$id }))
+    return await $.await.run(fetch, spinner || `remove${this.$name}`)
   }
 
   /**
