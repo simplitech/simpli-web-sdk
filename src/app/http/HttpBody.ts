@@ -1,6 +1,6 @@
-import {HttpOptions, HttpResponse} from 'vue-resource'
+import { HttpOptions, HttpResponse } from 'vue-resource'
 import { $, call, clone, apiFullURL } from '../../helpers'
-import { Resp } from '../../types'
+import { Resp } from '../../misc'
 
 export class HttpBody {
   private cls?: any

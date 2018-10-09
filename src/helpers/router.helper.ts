@@ -1,5 +1,5 @@
 import { $ } from '../simpli'
-import { ID } from '../types/app'
+import { ID } from '../misc/app'
 
 /**
  * Go to a given uri of vue-router

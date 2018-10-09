@@ -1,17 +1,17 @@
 import * as moment from 'moment'
 import Vue from 'vue'
 import VueSnotify from 'vue-snotify'
-import VueResource, {HttpInterceptor} from 'vue-resource'
-import VueRouter, {RouterOptions} from 'vue-router'
+import VueResource, { HttpInterceptor } from 'vue-resource'
+import VueRouter, { RouterOptions } from 'vue-router'
 import VueI18n from 'vue-i18n'
 import VueMask from 'v-mask'
 import VueMoney from 'v-money'
-import {Lang, Currency} from './enums'
-import {currencyConfig} from './helpers'
-import {AwaitController} from './components/Await'
-import {ModalController} from './components/Modal'
-import {defaultFilters, defaultComponents} from './config'
-import {$Prototype, ComponentOptions, FilterOptions, LocaleOptions} from './types'
+import { Lang, Currency } from './enums'
+import { currencyConfig } from './helpers'
+import { AwaitController } from './components/Await'
+import { ModalController } from './components/Modal'
+import { defaultFilters, defaultComponents } from './config'
+import { $Prototype, ComponentOptions, FilterOptions, LocaleOptions } from './misc'
 
 Vue.use(VueSnotify)
 Vue.use(VueResource)
@@ -21,7 +21,7 @@ Vue.use(VueMask)
 
 const router = new VueRouter()
 const i18n = new VueI18n()
-const bus = new Vue({i18n, router})
+const bus = new Vue({ i18n, router })
 
 export const $: $Prototype = {
   apiURL: '',
@@ -61,7 +61,6 @@ export abstract class Simpli {
   static router?: RouterOptions
 
   static init() {
-
     if (this.httpInterceptor) {
       Vue.http.interceptors[7] = Simpli.httpInterceptor as HttpInterceptor
     }
@@ -70,15 +69,15 @@ export abstract class Simpli {
     const regex = Simpli.apiURL.match(/(.*)[^\/$]/g)
     if (regex) $.apiURL = regex[0] || defaultApiURL
 
-    $.component = {...defaultComponents, ...(Simpli.components)}
-    $.filter = {...defaultFilters, ...(Simpli.filters)}
+    $.component = { ...defaultComponents, ...Simpli.components }
+    $.filter = { ...defaultFilters, ...Simpli.filters }
 
     $.router = new VueRouter(Simpli.router)
     $.i18n = new VueI18n({
       locale: Simpli.lang,
       messages: Simpli.locale,
     })
-    $.bus = new Vue({router: $.router, i18n: $.i18n})
+    $.bus = new Vue({ router: $.router, i18n: $.i18n })
 
     const component = $.component
     const filter = $.filter
@@ -112,6 +111,5 @@ export abstract class Simpli {
     Vue.prototype.$bus = $.bus
     Vue.prototype.$await = $.await
     Vue.prototype.$modal = $.modal
-
   }
 }

@@ -1,6 +1,6 @@
 import { HttpBody } from './HttpBody'
 import { Validator } from '../Validator'
-import { IValidator } from '../../types'
+import { IValidator } from '../../misc'
 
 export abstract class Model extends HttpBody implements IValidator {
   /**

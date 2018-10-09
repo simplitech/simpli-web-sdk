@@ -6,7 +6,7 @@ import { unparse } from 'papaparse'
 import { Type } from 'class-transformer'
 import { Resource } from './Resource'
 import { HttpBody } from './HttpBody'
-import { Resp, Scheme } from '../../types'
+import { Resp, Scheme } from '../../misc'
 import { $, apiFullURL, call, createCsvFile } from '../../helpers'
 
 export class Collection<T extends Resource> extends HttpBody {

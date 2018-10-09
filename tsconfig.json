@@ -20,9 +20,13 @@
     "emitDecoratorMetadata": true,
     "outDir": "lib",
     "declaration": true,
-    "declarationDir": "typings",
+    "declarationDir": "lib",
     "stripInternal": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types/"
+    ]
   },
   "include": [
     "src/**/*.ts"

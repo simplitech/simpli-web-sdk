@@ -24,7 +24,7 @@ const template = `
 
 import includes from 'lodash/includes'
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { ID } from '../../types'
+import { ID } from '../../misc'
 import { Resource } from '../../app'
 import { plainToClassFromExist } from 'class-transformer'
 
@@ -32,7 +32,8 @@ import { plainToClassFromExist } from 'class-transformer'
 export class MultiselectGroup extends Vue {
   @Prop({ type: Boolean })
   required?: boolean
-  @Prop() label?: string
+  @Prop()
+  label?: string
   @Prop({ type: [Array, Object] })
   value?: Resource[] | Resource
   @Prop({ default: () => [] })

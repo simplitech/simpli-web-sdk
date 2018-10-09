@@ -3,7 +3,7 @@ import { Collection } from './Collection'
 import { Resource } from './Resource'
 import { Query } from '../params/Query'
 import { call } from '../../helpers'
-import { Resp } from '../../types'
+import { Resp } from '../../misc'
 
 export class PageCollection<T extends Resource> extends Collection<T> {
   total: number = 0
@@ -39,9 +39,9 @@ export class PageCollection<T extends Resource> extends Collection<T> {
    * Lists and Paginates the collection according to the config
    */
   async search(): Promise<Resp<any>> {
-    const {filter} = this
+    const { filter } = this
     const params = new Query(this.querySearch, this.currentPage, this.perPage, this.orderBy, this.asc)
-    return await this.query({...(params as object), ...(filter as object)})
+    return await this.query({ ...(params as object), ...(filter as object) })
   }
 
   /**

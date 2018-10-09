@@ -1,6 +1,6 @@
 import { HttpBody } from './HttpBody'
 import { Model } from './Model'
-import { ID, TAG, Resp } from '../../types'
+import { ID, TAG, Resp } from '../../misc'
 import { $, apiFullURL } from '../../helpers'
 
 export abstract class Resource extends Model {

@@ -1,6 +1,6 @@
 import { HttpOptions, HttpResponse } from 'vue-resource'
 import { Exclude, Expose, plainToClass, plainToClassFromExist, Type } from 'class-transformer'
-import { Resp } from '../types'
+import { Resp } from '../misc'
 import { $ } from '../simpli'
 
 /**
