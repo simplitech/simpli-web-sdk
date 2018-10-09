@@ -22,11 +22,7 @@
     "declaration": true,
     "declarationDir": "lib",
     "stripInternal": true,
-    "baseUrl": ".",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./src/types/"
-    ]
+    "baseUrl": "."
   },
   "include": [
     "src/**/*.ts"
