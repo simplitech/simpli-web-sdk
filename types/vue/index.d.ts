@@ -1,6 +1,6 @@
 import { Http } from 'vue-resource'
-import { AwaitController } from '../../components/Await'
-import { ModalController } from '../../components/Modal'
+import { AwaitController } from './Await'
+import { ModalController } from './Modal'
 import { SnotifyService } from 'vue-snotify/SnotifyService'
 
 declare module 'vue/types/vue' {
