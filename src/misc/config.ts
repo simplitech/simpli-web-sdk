@@ -1,4 +1,4 @@
-import { $http, $resource, HttpOptions, HttpResponse } from 'vue-resource'
+import { $http, $resource, HttpOptions, HttpResponse } from 'vue-resource/types/vue_resource'
 import { Vue } from 'vue-property-decorator'
 import VueRouter, { Route } from 'vue-router'
 import VueI18n from 'vue-i18n'

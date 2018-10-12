@@ -1,4 +1,4 @@
-import { HttpOptions, HttpResponse } from 'vue-resource'
+import { HttpOptions, HttpResponse } from 'vue-resource/types/vue_resource'
 import { $, call, clone, apiFullURL } from '../../helpers'
 import { Resp } from '../../misc'
 

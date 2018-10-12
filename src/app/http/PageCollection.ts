@@ -1,4 +1,4 @@
-import { HttpResponse } from 'vue-resource'
+import { HttpResponse } from 'vue-resource/types/vue_resource'
 import { Collection } from './Collection'
 import { Resource } from './Resource'
 import { Query } from '../params/Query'

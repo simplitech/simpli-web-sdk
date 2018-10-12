@@ -1,7 +1,8 @@
 import * as moment from 'moment'
-import Vue from 'vue'
+import Vue, { PluginObject } from 'vue'
 import VueSnotify from 'vue-snotify'
-import VueResource, { HttpInterceptor } from 'vue-resource'
+import VueResource from 'vue-resource'
+import { HttpInterceptor } from 'vue-resource/types/vue_resource'
 import VueRouter, { RouterOptions } from 'vue-router'
 import VueI18n from 'vue-i18n'
 import VueMask from 'v-mask'
@@ -14,7 +15,7 @@ import { defaultFilters, defaultComponents } from './config'
 import { $Prototype, ComponentOptions, FilterOptions, LocaleOptions } from './misc'
 
 Vue.use(VueSnotify)
-Vue.use(VueResource)
+Vue.use(VueResource as PluginObject<never>)
 Vue.use(VueRouter)
 Vue.use(VueI18n)
 Vue.use(VueMask)

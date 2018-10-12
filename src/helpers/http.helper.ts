@@ -1,4 +1,4 @@
-import { HttpOptions, HttpResponse } from 'vue-resource'
+import { HttpOptions, HttpResponse } from 'vue-resource/types/vue_resource'
 import { Exclude, Expose, plainToClass, plainToClassFromExist, Type } from 'class-transformer'
 import { Resp } from '../misc'
 import { $ } from '../simpli'

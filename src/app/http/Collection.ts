@@ -1,7 +1,7 @@
 import values from 'lodash/values'
 import mapValues from 'lodash/mapValues'
 import mapKeys from 'lodash/mapKeys'
-import { HttpResponse } from 'vue-resource'
+import { HttpResponse } from 'vue-resource/types/vue_resource'
 import { unparse } from 'papaparse'
 import { Type } from 'class-transformer'
 import { Resource } from './Resource'

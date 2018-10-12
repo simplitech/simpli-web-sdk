@@ -1,4 +1,4 @@
-import { Http } from 'vue-resource'
+import { Http } from 'vue-resource/types/vue_resource'
 import { AwaitController } from './Await'
 import { ModalController } from './Modal'
 import { SnotifyService } from 'vue-snotify/SnotifyService'
