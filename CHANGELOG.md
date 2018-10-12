@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.11"></a>
+## [0.1.11](https://github.com/simplitech/simpli-web-sdk/compare/v0.1.10...v0.1.11) (2018-10-12)
+
+
+### Bug Fixes
+
+* Resolved vue-resource conflict ([3f729f5](https://github.com/simplitech/simpli-web-sdk/commit/3f729f5))
+
+
+
 <a name="0.1.10"></a>
 ## [0.1.10](https://github.com/simplitech/simpli-web-sdk/compare/v0.1.9...v0.1.10) (2018-10-11)
 
