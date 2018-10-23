@@ -1,15 +1,15 @@
 const template = `
-  <transition :name="transition" mode="out-in">
+  <transition :name="$effect" mode="out-in">
     <div v-if="view === 0" :key="0" class="await-default" ref="defaultRef">
       <slot></slot>
     </div>
 
     <div v-else-if="view === 1" :key="1" class="await-spinner" :style="{minHeight}">
       <component
-        v-if="loader && !hasLoadingSlot"
-        :is="loader"
-        :color="color"
-        :style="{padding, zoom}"
+        v-if="$spinner && !hasLoadingSlot"
+        :is="$spinner"
+        :color="$spinnerColor"
+        :style="{padding: $spinnerPadding, zoom: $spinnerScale}"
       />
       <slot name="loading" v-else></slot>
     </div>
@@ -89,12 +89,14 @@ export class Await extends Vue {
   spinnerPadding?: string
   @Prop({ type: Number })
   spinnerScale?: number
+  @Prop({ type: Boolean })
+  init?: boolean
 
-  transition: string | null = null
-  loader: string | null = null
-  color: string | null = null
-  padding: string | null = null
-  zoom: number | null = null
+  private $effect: string | null = null
+  private $spinner: string | null = null
+  private $spinnerColor: string | null = null
+  private $spinnerPadding: string | null = null
+  private $spinnerScale: number | null = null
 
   view = View.DEFAULT
   height?: number
@@ -112,22 +114,33 @@ export class Await extends Vue {
   }
 
   mounted() {
-    if (this.$refs.defaultRef) {
-      this.height = (this.$refs.defaultRef as HTMLElement).offsetHeight
-    }
+    if (this.$refs.defaultRef) this.height = (this.$refs.defaultRef as HTMLElement).offsetHeight
   }
 
   beforeMount() {
-    this.transition = this.effect || $.await.defaultTransition
-    this.loader = this.spinner || $.await.defaultSpinner
-    this.color = this.spinnerColor || $.await.defaultSpinnerColor
-    this.padding = this.spinnerPadding || $.await.defaultSpinnerPadding
-    this.zoom = this.spinnerScale || $.await.defaultSpinnerScale
+    if (this.init) this.view = View.LOADING
+
+    this.$effect = this.effect || $.await.defaultTransition
+    this.$spinner = this.spinner || $.await.defaultSpinner
+    this.$spinnerColor = this.spinnerColor || $.await.defaultSpinnerColor
+    this.$spinnerPadding = this.spinnerPadding || $.await.defaultSpinnerPadding
+    this.$spinnerScale = this.spinnerScale || $.await.defaultSpinnerScale
+
     this.$options.components = Object.assign(this.$options.components, $.await.loaders)
+
     Event.$on('toggle', (name?: string, view: View = View.DEFAULT) => {
       if (name === this.name) {
         if (view === View.ERROR && !this.hasErrorSlot) this.view = View.DEFAULT
         else this.view = view
+
+        switch (view) {
+          case View.LOADING:
+            this.$emit('loading')
+            break
+          case View.ERROR:
+            this.$emit('error')
+            break
+        }
       }
     })
   }

@@ -1,7 +1,7 @@
 const template = `
   <transition name="fade" mode="out-in" v-if="collection">
     <div class="m-20" v-if="!collection.items.length" :key="0">
-      <await name="adapTable" spinner="MoonLoader">
+      <await name="query" spinner="MoonLoader">
         <h3 class="text-center">
           {{ $t("app.noDataToShow") }}
         </h3>
@@ -39,72 +39,19 @@ const template = `
   </transition>
 `
 
-import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
+import { Component, Prop, Watch, Mixins, Vue } from 'vue-property-decorator'
 import { PageCollection, Resource } from '../../app'
-import { $ } from '../../simpli'
+import { MixinQueryRouter } from '../mixins/MixinQueryRouter'
 
-export interface Dictionary<T> { [key: string]: T }
-
-@Component({ template })
-export class AdapTable extends Vue {
+@Component({
+  template,
+  mixins: [MixinQueryRouter],
+})
+export class AdapTable extends Mixins<MixinQueryRouter>() {
   @Prop({ required: true })
   collection?: PageCollection<Resource>
 
-  async queryEvent(query: Dictionary<string>) {
-    const {q, page, name, asc} = query
-
-    this.collection!.querySearch = q || ''
-    this.collection!.currentPage = (Number(page) || 1) - 1
-    this.collection!.orderBy = name || ''
-    this.collection!.asc = !!(Number(asc))
-
-    await $.await.run(() => this.collection!.search(), 'adapTable')
-  }
-
-  @Watch('collection.querySearch')
-  querySearchEvent(querySearch?: string) {
-    const query = { ...this.$route.query }
-
-    if (querySearch) query.q = `${querySearch}`
-    else delete query.q
-
-    this.$router.push({ query })
-  }
-
-  @Watch('collection.currentPage')
-  currentPageEvent(currentPage?: number) {
-    const query = { ...this.$route.query }
-
-    if (currentPage) query.page = `${currentPage + 1}`
-    else delete query.page
-
-    this.$router.push({ query })
-  }
-
-  @Watch('collection.orderBy')
-  orderByEvent(orderBy?: string) {
-    const query = { ...this.$route.query }
-
-    if (orderBy) query.name = `${orderBy}`
-    else {
-      delete query.name
-      delete query.asc
-    }
-
-    this.$router.push({ query })
-  }
-
-  @Watch('collection.asc')
-  ascEvent(asc?: boolean) {
-    const query = { ...this.$route.query }
-
-    if (query.name) query.asc = `${asc ? 1 : 0}`
-    else delete query.asc
-
-    this.$router.push({ query })
-  }
-
   async mounted() {
-    await this.queryEvent(this.$route.query)
+    await this.query()
   }
 }

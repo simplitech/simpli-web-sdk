@@ -1,6 +1,6 @@
 const template = `
   <div class="modal">
-    <transition :name="transition" mode="out-in">
+    <transition :name="$effect" mode="out-in">
       <div v-if="state === 1" class="modal-scroll">
         <div class="modal-view" @click="closeFromView" ref="view">
           <div class="modal-content" :class="innerClass">
@@ -8,7 +8,7 @@ const template = `
               <div class="modal-title">
                 {{title}}
               </div>
-              <a v-if="isClosable" class="close-icon" @click="close"></a>
+              <a v-if="$closable" class="close-icon" @click="close"></a>
             </div>
             <div class="modal-body">
               <slot></slot>
@@ -17,7 +17,7 @@ const template = `
         </div>
       </div>
     </transition>
-    <transition :name="backgroundTransition" mode="out-in">
+    <transition :name="$backgroundEffect" mode="out-in">
       <div v-if="state === 1" class="modal-bg"></div>
     </transition>
   </div>
@@ -76,10 +76,11 @@ export class Modal extends Vue {
 
   state = State.HIDDEN
 
-  transition: string | null = null
-  backgroundTransition: string | null = null
-  isClosable: boolean = true
-  isCloseOutside: boolean = true
+  private $effect: string | null = null
+  private $backgroundEffect: string | null = null
+  private $closable: boolean = true
+  private $closeOutside: boolean = true
+
   body: HTMLElement | null = null
   bodyOverflowY: string | null = null
 
@@ -98,23 +99,23 @@ export class Modal extends Vue {
   }
 
   close(force: boolean = false) {
-    if (this.isClosable || force) {
+    if (this.$closable || force) {
       this.state = State.HIDDEN
       this.$emit('close')
     }
   }
 
   closeFromView(e: Event) {
-    if (e.target === this.$refs.view && this.isCloseOutside) {
+    if (e.target === this.$refs.view && this.$closeOutside) {
       this.close()
     }
   }
 
   beforeMount() {
-    this.transition = this.effect || $.modal.defaultTransition
-    this.backgroundTransition = this.backgroundEffect || $.modal.defaultBackgroundTransition
-    this.isClosable = this.closable !== undefined ? this.closable : $.modal.defaultClosable
-    this.isCloseOutside = this.closeOutside !== undefined ? this.closeOutside : $.modal.defaultCloseOutside
+    this.$effect = this.effect || $.modal.defaultTransition
+    this.$backgroundEffect = this.backgroundEffect || $.modal.defaultBackgroundTransition
+    this.$closable = this.closable !== undefined ? this.closable : $.modal.defaultClosable
+    this.$closeOutside = this.closeOutside !== undefined ? this.closeOutside : $.modal.defaultCloseOutside
 
     this.body = $.modal.defaultBody
     this.bodyOverflowY = this.body.style.overflowY
