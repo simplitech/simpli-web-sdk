@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/simplitech/simpli-web-sdk/compare/v0.1.11...v0.2.0) (2018-10-24)
+
+
+### Features
+
+* Added init prop in Await Component & Added QueryRouter Mixin ([172b30e](https://github.com/simplitech/simpli-web-sdk/commit/172b30e))
+
+
+
 <a name="0.1.11"></a>
 ## [0.1.11](https://github.com/simplitech/simpli-web-sdk/compare/v0.1.10...v0.1.11) (2018-10-12)
 
