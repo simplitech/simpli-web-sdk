@@ -15,7 +15,7 @@ export class PageCollection<R extends Resource> extends Collection<R> {
   filter: object = {}
 
   // Set T as type
-  constructor(type: Resource, filter?: object) {
+  constructor(type: typeof Resource, filter?: object) {
     super(type)
     if (filter) this.filter = filter
   }
