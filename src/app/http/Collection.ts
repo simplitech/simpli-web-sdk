@@ -14,13 +14,13 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
    * Items of the collection
    * @type {Array}
    */
-  @Type(options => (options!.newObject as Collection<R>).type as any)
+  @Type(options => (options!.newObject as Collection<R>).type)
   items: R[] = []
 
   /**
    * Collection Class of list
    */
-  readonly type: Resource
+  readonly type: typeof Resource
 
   /**
    * Collection ClassObject of list
@@ -31,7 +31,7 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
   }
 
   // Set R as type
-  constructor(type: Resource) {
+  constructor(type: typeof Resource) {
     super()
     this.type = type
   }
