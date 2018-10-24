@@ -43,11 +43,8 @@ import { Component, Prop, Watch, Mixins, Vue } from 'vue-property-decorator'
 import { PageCollection, Resource } from '../../app'
 import { MixinQueryRouter } from '../mixins/MixinQueryRouter'
 
-@Component({
-  template,
-  mixins: [MixinQueryRouter],
-})
-export class AdapTable extends Mixins<MixinQueryRouter>() {
+@Component({ template })
+export class AdapTable extends Mixins<MixinQueryRouter>(MixinQueryRouter) {
   @Prop({ required: true })
   collection?: PageCollection<Resource>
 

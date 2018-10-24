@@ -9,28 +9,29 @@ import { HttpBody } from './HttpBody'
 import { Resp, Scheme } from '../../misc'
 import { $, apiFullURL, call, createCsvFile } from '../../helpers'
 
-export class Collection<T extends Resource> extends HttpBody {
+export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
   /**
    * Items of the collection
    * @type {Array}
    */
-  @Type(options => (options!.newObject as Collection<T>).type)
-  items: T[] = []
+  @Type(options => (options!.newObject as Collection<R>).type as any)
+  items: R[] = []
 
   /**
    * Collection Class of list
    */
-  readonly type: any
+  readonly type: Resource
 
   /**
    * Collection ClassObject of list
    */
   get resource() {
-    return new this.type() as T
+    const entity = this.type as any
+    return new entity() as R
   }
 
-  // Set T as type
-  constructor(type: any) {
+  // Set R as type
+  constructor(type: Resource) {
     super()
     this.type = type
   }
@@ -39,7 +40,7 @@ export class Collection<T extends Resource> extends HttpBody {
    * Serializes the response body of a call to the WebServer
    * @param promise Any call of VUE RESOURCE
    */
-  async call(promise: PromiseLike<HttpResponse>): Promise<Resp<any>> {
+  async call(promise: PromiseLike<HttpResponse>): Promise<Resp<this>> {
     const resp = await call(this.type, promise)
     this.items = resp.data
     return resp
@@ -50,7 +51,7 @@ export class Collection<T extends Resource> extends HttpBody {
    * @param params
    * @param spinner
    */
-  async query(params?: any, spinner?: string): Promise<Resp<T[]>> {
+  async query(params?: any, spinner?: string): Promise<Resp<R[]>> {
     const fetch = async () => await this.call($.resource(apiFullURL(this.resource.$endpoint)).query(params))
     return await $.await.run(fetch, spinner || `query${this.resource.$name}`)
   }
@@ -69,7 +70,7 @@ export class Collection<T extends Resource> extends HttpBody {
    * Returns a matrix of rows and columns
    */
   get rows() {
-    return this.items.map((item: T) => item.scheme()).map((scheme: Scheme) => values(scheme))
+    return this.items.map((item: R) => item.scheme()).map((scheme: Scheme) => values(scheme))
   }
 
   /**
@@ -89,7 +90,7 @@ export class Collection<T extends Resource> extends HttpBody {
     }
     const title = $.t(`classes.${this.resource.$name}.title`) as string
     const data: Scheme[] = this.items
-      .map((item: T) => item.csvScheme())
+      .map((item: R) => item.csvScheme())
       .map((scheme: Scheme) =>
         mapKeys(scheme, (val: any, key: string) => $.t(`classes.${this.resource.$name}.columns.${key}`) as string)
       )
