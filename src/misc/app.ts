@@ -1,8 +1,27 @@
+import { InputType } from '../enums'
+
 export type ID = number | string
 export type TAG = string
-export interface Scheme {
-  readonly [column: string]: string | number | undefined
+
+export interface Schema {
+  readonly [key: string]: SchemaVal
 }
+
+export type SchemaVal = SchemaRow | SchemaContent
+
+export interface SchemaRow {
+  content?: SchemaContent
+  csvContent?: SchemaContent
+  hidden?: boolean
+  editable?: boolean
+  model?: string
+  inputType?: InputType
+  meta?: {
+    readonly [key: string]: any
+  }
+}
+
+export type SchemaContent = string | number | null | undefined
 
 export interface Resp<T> {
   data: T

@@ -9,7 +9,7 @@ const template = `
                       :placeholder="$t('app.search')"
                       class="search w-200 ml-10"/>
 
-    <await name="adapTable"></await>
+    <await name="query"></await>
 
     <div class="weight-1"></div>
 
@@ -23,9 +23,7 @@ const template = `
       </button>
     </await>
 
-    <router-link v-if="persistUrl"
-                 :to="persistUrl"
-                 class="btn primary">
+    <router-link v-if="persistUrl" :to="persistUrl" class="btn primary">
       {{ $t("app.add") }}
     </router-link>
   </div>

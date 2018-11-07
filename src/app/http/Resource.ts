@@ -1,6 +1,7 @@
+import { filter } from 'lodash'
 import { HttpBody } from './HttpBody'
 import { Model } from './Model'
-import { ID, TAG, Resp } from '../../misc'
+import { ID, TAG, Resp, Schema, SchemaVal, SchemaRow } from '../../misc'
 import { $, apiFullURL } from '../../helpers'
 
 export abstract class Resource extends Model {
@@ -8,6 +9,17 @@ export abstract class Resource extends Model {
    * API URI endpoint
    */
   abstract readonly $endpoint: string
+
+  /**
+   * Normalizes what will be showed as entity or list
+   */
+  get $schema(): Schema {
+    const json = JSON.stringify(this)
+    const data = JSON.parse(json)
+    delete data.$endpoint
+    delete data.$name
+    return data as Schema
+  }
 
   /**
    * ID of entity
@@ -74,24 +86,6 @@ export abstract class Resource extends Model {
     const fetch = async () =>
       await new HttpBody<T>(cls).call($.resource(apiFullURL(this.$endpoint)).remove({ id: this.$id }))
     return await $.await.run(fetch, spinner || `remove${this.$name}`)
-  }
-
-  /**
-   * Normalizes what will be showed as entity or list
-   */
-  scheme() {
-    const json = JSON.stringify(this)
-    const data = JSON.parse(json)
-    delete data.$endpoint
-    delete data.$name
-    return data
-  }
-
-  /**
-   * Normalizes what will be showed as entity or list when a CSV is generated
-   */
-  csvScheme() {
-    return this.scheme()
   }
 
   /**

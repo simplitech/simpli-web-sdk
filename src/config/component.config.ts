@@ -11,6 +11,7 @@ import { Await } from '../components/Await'
 import { Modal } from '../components/Modal'
 import { AdapHeader } from '../components/adap/AdapHeader'
 import { AdapTable } from '../components/adap/AdapTable'
+import { AdapForm } from '../components/adap/AdapForm'
 import { AdapOrderby } from '../components/adap/AdapOrderby'
 import { AdapPagination } from '../components/adap/AdapPagination'
 import { AdapSearchfield } from '../components/adap/AdapSearchfield'
@@ -27,6 +28,7 @@ export const defaultComponents: any = {
   Modal,
   AdapHeader,
   AdapTable,
+  AdapForm,
   AdapOrderby,
   AdapPagination,
   AdapSearchfield,

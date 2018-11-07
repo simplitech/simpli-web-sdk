@@ -1,0 +1,12 @@
+.adap-table {
+  .table-empty {
+    padding: 20px;
+    text-align: center;
+  }
+  .table-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: white;
+    box-shadow: 2px 4px 10px -4px rgba(0, 0, 0, .3);
+  }
+}

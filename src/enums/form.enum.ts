@@ -1,0 +1,17 @@
+export enum InputType {
+  SELECT,
+  TEXT,
+  TEXTAREA,
+  EMAIL,
+  PASSWORD,
+  NUMBER,
+  CHECKBOX,
+  RADIO,
+  DATETIME,
+  PHONE,
+  CEP,
+  CPF,
+  CNPJ,
+  RG,
+  CUSTOM,
+}

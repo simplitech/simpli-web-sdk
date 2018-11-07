@@ -2,24 +2,26 @@
 
 .adap-pagination {
   display: flex;
+  justify-content: center;
   padding-left: 0;
   list-style: none;
-  border-radius: .25rem;
+  margin: 10px;
+  user-select: none;
 
   li {
     a {
+      box-shadow: 2px 4px 20px -4px rgba(0, 0, 0, .6);
       position: relative;
       display: block;
       padding: .5rem .75rem;
-      margin-left: -1px;
       line-height: 1.25;
       background-color: #fff;
-      border: 1px solid #ddd;
       text-decoration: none;
+      margin: 0;
 
       &:hover {
-        background-color: #e9ecef;
-        border-color: #ddd;
+        color: white;
+        background-color: lighten($primary-color, 10%);
       }
     }
 
@@ -30,14 +32,13 @@
     }
 
     &:first-child a {
-      margin-left: 0;
-      border-top-left-radius: .25rem;
-      border-bottom-left-radius: .25rem;
+      border-top-left-radius: 50%;
+      border-bottom-left-radius: 50%;
     }
 
     &:last-child a {
-      border-top-right-radius: .25rem;
-      border-bottom-right-radius: .25rem;
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
     }
   }
 }

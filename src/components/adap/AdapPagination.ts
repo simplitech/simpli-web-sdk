@@ -1,6 +1,10 @@
 const template = `
   <ul v-if="collection" class="adap-pagination">
-    <li><a @click="prev">&laquo;</a></li>
+    <li>
+      <a @click="prev">
+        <i class="icon icon-arrow-left"></i>
+      </a>
+    </li>
 
     <li :class="current === first ? 'active' : ''">
       <a @click="goto(first)">{{first}}</a>
@@ -18,7 +22,11 @@ const template = `
       <a @click="goto(last)">{{last}}</a>
     </li>
 
-    <li><a @click="next">&raquo;</a></li>
+    <li>
+      <a @click="next">
+        <i class="icon icon-arrow-right"></i>
+      </a>
+    </li>
   </ul>
 `
 
