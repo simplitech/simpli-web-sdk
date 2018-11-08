@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/simplitech/simpli-web-sdk/compare/v0.2.2...v1.0.0) (2018-11-08)
+
+
+### Bug Fixes
+
+* Fixed bugs ([33df35c](https://github.com/simplitech/simpli-web-sdk/commit/33df35c))
+
+
+### Features
+
+* **Collection:** Refactored schema from resource ([b7a7f0d](https://github.com/simplitech/simpli-web-sdk/commit/b7a7f0d))
+* **Resource:** Added <resource-input> and <resource-render> component ([4a63342](https://github.com/simplitech/simpli-web-sdk/commit/4a63342))
+
+
+### BREAKING CHANGES
+
+* **Resource:** Renamed some components
+* **Collection:** Removed the scheme property
+
+
+
 <a name="0.2.2"></a>
 ## [0.2.2](https://github.com/simplitech/simpli-web-sdk/compare/v0.2.1...v0.2.2) (2018-10-24)
 
