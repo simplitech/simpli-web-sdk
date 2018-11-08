@@ -9,7 +9,3 @@ export { Resource } from './http/Resource'
 
 // Params
 export { Query } from './params/Query'
-
-// Render
-export { AnchorRender } from './render/AnchorRender'
-export { ImageRender } from './render/ImageRender'

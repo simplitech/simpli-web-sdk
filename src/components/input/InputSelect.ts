@@ -1,6 +1,7 @@
 const template = `
   <div class="form-group" :class="{ required: !!required }">
     <label class="multiselect-label">
+      {{ label }}
       <slot></slot>
     </label>
     <div>
@@ -12,6 +13,7 @@ const template = `
                    :close-on-select="!multiple"
                    :hide-selected="multiple"
                    :placeholder="$t('app.select')"
+                   :disabled="disabled"
                    selectLabel=""
                    selectedLabel=""
                    deselectLabel=""
@@ -29,15 +31,18 @@ import { Resource } from '../../app'
 import { plainToClassFromExist } from 'class-transformer'
 
 @Component({ template })
-export class MultiselectGroup extends Vue {
+export class InputSelect extends Vue {
   @Prop({ type: Boolean })
   required?: boolean
-  @Prop()
+  @Prop({ type: String })
   label?: string
+  @Prop({ type: Boolean })
+  disabled?: boolean
   @Prop({ type: [Array, Object] })
   value?: Resource[] | Resource
   @Prop({ default: () => [] })
   items?: Resource[]
+
   multiple: boolean = false
 
   created() {
@@ -48,16 +53,16 @@ export class MultiselectGroup extends Vue {
 
   get computedModel() {
     if (this.value instanceof Array) {
-      const resource = this.value! as Resource[]
+      const resource = (this.value || []) as Resource[]
       const ids = resource.map((item: Resource) => item.$id) as ID[]
-      const selected = this.items!.filter((item: Resource) => includes(ids, item.$id))
+      const selected = (this.items || []).filter((item: Resource) => includes(ids, item.$id))
       return selected.map((item: Resource) => ({
         $id: item.$id,
         $tag: item.$tag,
       }))
     }
-    const resource = this.value! as Resource
-    const selected = this.items!.find((item: Resource) => item.$id === resource.$id)
+    const resource = (this.value || {}) as Resource
+    const selected = (this.items || []).find((item: Resource) => item.$id === resource.$id)
     if (selected) {
       return {
         $id: selected.$id,
@@ -71,7 +76,7 @@ export class MultiselectGroup extends Vue {
     if (this.value instanceof Array) {
       const values = val as Resource[]
       const ids = values.map((item: Resource) => item.$id) as ID[]
-      const selected = this.items!.filter((item: Resource) => includes(ids, item.$id))
+      const selected = (this.items || []).filter((item: Resource) => includes(ids, item.$id))
       this.$emit('input', selected)
     } else {
       const nullOption = {
@@ -83,7 +88,7 @@ export class MultiselectGroup extends Vue {
   }
 
   get computedItems() {
-    return this.items!.map((item: Resource) => ({
+    return (this.items || []).map((item: Resource) => ({
       $id: item.$id,
       $tag: item.$tag,
     })) as object[]

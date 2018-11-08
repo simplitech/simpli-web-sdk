@@ -54,15 +54,15 @@ export class AdapPagination extends Vue {
   }
 
   async goto(n: number) {
-    await $.await.run(() => this.collection!.setCurrentPage(n - 1), 'adapTable')
+    await $.await.run(() => this.collection!.setCurrentPage(n - 1), 'query')
   }
 
   async next() {
-    await $.await.run(() => this.collection!.nextPage(), 'adapTable')
+    await $.await.run(() => this.collection!.nextPage(), 'query')
   }
 
   async prev() {
-    await $.await.run(() => this.collection!.prevPage(), 'adapTable')
+    await $.await.run(() => this.collection!.prevPage(), 'query')
   }
 
   index(n: number) {

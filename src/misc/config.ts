@@ -3,8 +3,8 @@ import { Vue } from 'vue-property-decorator'
 import VueRouter, { Route } from 'vue-router'
 import VueI18n from 'vue-i18n'
 import { SnotifyService } from 'vue-snotify/SnotifyService'
-import { AwaitController } from '../components/Await'
-import { ModalController } from '../components/Modal'
+import { AwaitController } from '../components/utils/Await'
+import { ModalController } from '../components/utils/Modal'
 
 export interface FilterOptions {
   readonly [key: string]: (val?: string, ...params: any[]) => string

@@ -48,10 +48,8 @@ export class AdapHeader extends Vue {
 
   async downloadCsv() {
     const type = this.collection!.type
-    const csv = new PageCollection(type)
+    const csv = new PageCollection(type, {}, undefined, undefined)
     csv.clone(this.collection)
-    csv.currentPage = undefined
-    csv.perPage = undefined
 
     await $.await.run(async () => await csv.search(), 'downloadCsv')
 

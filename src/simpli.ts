@@ -5,20 +5,21 @@ import VueResource from 'vue-resource'
 import { HttpInterceptor } from 'vue-resource/types/vue_resource'
 import VueRouter, { RouterOptions } from 'vue-router'
 import VueI18n from 'vue-i18n'
-import VueMask from 'v-mask'
-import VueMoney from 'v-money'
 import { Lang, Currency } from './enums'
 import { currencyConfig } from './helpers'
-import { AwaitController } from './components/Await'
-import { ModalController } from './components/Modal'
+import { AwaitController } from './components/utils/Await'
+import { ModalController } from './components/utils/Modal'
 import { defaultFilters, defaultComponents } from './config'
 import { $Prototype, ComponentOptions, FilterOptions, LocaleOptions } from './misc'
+
+const VueTheMask = require('vue-the-mask')
+const VueMoney = require('v-money')
 
 Vue.use(VueSnotify)
 Vue.use(VueResource as PluginObject<never>)
 Vue.use(VueRouter)
 Vue.use(VueI18n)
-Vue.use(VueMask)
+Vue.use(VueTheMask)
 
 const router = new VueRouter()
 const i18n = new VueI18n()

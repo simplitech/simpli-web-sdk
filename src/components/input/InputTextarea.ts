@@ -16,7 +16,7 @@ const template = `
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({ template })
-export class TextareaGroup extends Vue {
+export class InputTextarea extends Vue {
   @Prop({ type: String })
   label?: string
   @Prop({ type: String })

@@ -3,6 +3,7 @@ const template = `
        @click="orderBy"
        class="adap-orderby"
        :class="{ 'asc': collection.asc, 'desc': !collection.asc }">
+    {{ label }}
     <slot></slot>
     <span :class="{ 'caret': collection.orderBy === name }"></span>
   </div>
@@ -18,6 +19,8 @@ export class AdapOrderby extends Vue {
   collection?: PageCollection<Resource>
   @Prop({ required: true })
   name?: string
+  @Prop({ type: String })
+  label?: string
 
   async orderBy() {
     await $.await.run(() => this.collection!.setOrderBy(this.name!), 'adapTable')

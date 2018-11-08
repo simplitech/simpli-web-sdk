@@ -4,7 +4,7 @@ import { unparse } from 'papaparse'
 import { Type } from 'class-transformer'
 import { Resource } from './Resource'
 import { HttpBody } from './HttpBody'
-import { Resp, Schema, SchemaVal, SchemaRow, SchemaContent } from '../../misc'
+import { Resp, Schema, SchemaVal, SchemaRow, SchemaContent, SchemaVue } from '../../misc'
 import { $, apiFullURL, call, createCsvFile } from '../../helpers'
 
 export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
@@ -92,9 +92,30 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
   }
 
   /**
+   * Returns all schemas keys from the matrix [row] [column]
+   */
+  get schemaKeys(): string[][] {
+    return this.items.map((item: R) => keys(item.$schema))
+  }
+
+  /**
+   * Returns all non-hidden schemas keys from the matrix [row] [column]
+   */
+  get schemaValidKeys(): string[][] {
+    return this.items.map((item: R) =>
+      keys(
+        chain(item.$schema)
+          // Hide hidden properties
+          .pickBy((val: SchemaVal) => (val ? (val as SchemaRow).hidden !== true : true))
+          .value()
+      )
+    )
+  }
+
+  /**
    * Returns all schemas values from the matrix [row] [column]
    */
-  get schemasValues(): SchemaVal[][] {
+  get schemaValues(): SchemaVal[][] {
     return this.items.map((item: R) => values(item.$schema))
   }
 
@@ -104,14 +125,14 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
   get values(): SchemaContent[][] {
     const getContent = (val: SchemaRow): SchemaContent => val && val.content
 
-    return this.schemasValues.map((row: SchemaVal[]) =>
+    return this.schemaValues.map((row: SchemaVal[]) =>
       row
         // Hide hidden properties
         .filter((val: SchemaVal) => (val ? (val as SchemaRow).hidden !== true : true))
         // Map the schema to get only the content
         .map((val: SchemaVal) => getContent(val as SchemaRow) || (val as SchemaContent))
         // Transform the null content
-        .map((val: SchemaContent) => (typeof val === 'object' ? '' : val))
+        .map((val: SchemaContent) => (typeof val === 'object' && !(val as SchemaVue).component ? '' : val))
     )
   }
 
@@ -119,20 +140,20 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
    * Returns CSV data
    */
   get csvData(): Schema[] {
-    const getContent = (val: SchemaRow): SchemaContent => (val && val.csvContent) || val.content
+    const getContent = (val: SchemaRow): SchemaContent => (val && val.textContent) || val.content
 
     return this.schemas.map((schema: Schema) =>
       chain(schema)
         // Translate the keys
         .mapKeys((val: SchemaVal, key: string) => $.t(`classes.${this.resource.$name}.columns.${key}`) as string)
         // Hide null content
-        .pickBy((val: SchemaVal, key: string) => val && (val as SchemaRow).csvContent !== null)
+        .pickBy((val: SchemaVal) => val && (val as SchemaRow).textContent !== null)
         // Hide hidden properties
         .pickBy((val: SchemaVal) => (val ? (val as SchemaRow).hidden !== true : true))
         // Map the schema to get only the content
         .mapValues((val: SchemaVal) => getContent(val as SchemaRow) || (val as SchemaContent))
         // Transform the null content
-        .mapValues((val: SchemaContent) => (typeof val === 'object' ? '' : val))
+        .mapValues((val: SchemaContent) => (typeof val === 'object' && !(val as SchemaVue).component ? '' : val))
         // Get the result
         .value()
     )

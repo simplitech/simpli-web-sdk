@@ -5,24 +5,22 @@ const template = `
       <slot></slot>
     </label>
 
-    <!--
-    I HAD TO MAKE 5 REPEATED INPUTS WITH V-IF TO CHANGE THE THINGS THAT CAN'T BE DYNAMIC
-    -->
-
     <input :id="\`input-group\${_uid}\`"
            v-if="['text', 'email', 'password', 'number', 'money'].indexOf(type) == -1"
-           type="text"
+           type="tel"
            :maxlength="maxlength"
            :required="!!required"
            :step="step"
            :placeholder="placeholder"
            v-mask="mask"
-           v-model.lazy="computedModel"
+           v-model="computedModel"
            :disabled="disabled"
-           class="form-control"/>
+           class="form-control"
+           @focus="focusEvent"
+           :key="1"/>
 
     <input :id="\`input-group\${_uid}\`"
-           v-if="type == 'text'"
+           v-else-if="type == 'text'"
            type="text"
            :maxlength="maxlength"
            :required="!!required"
@@ -30,10 +28,12 @@ const template = `
            :placeholder="placeholder"
            v-model="computedModel"
            :disabled="disabled"
-           class="form-control"/>
+           class="form-control"
+           @focus="focusEvent"
+           :key="2"/>
 
     <input :id="\`input-group\${_uid}\`"
-           v-if="type == 'email'"
+           v-else-if="type == 'email'"
            type="email"
            :maxlength="maxlength"
            :required="!!required"
@@ -41,10 +41,12 @@ const template = `
            :placeholder="placeholder"
            v-model="computedModel"
            :disabled="disabled"
-           class="form-control"/>
+           class="form-control"
+           @focus="focusEvent"
+           :key="3"/>
 
     <input :id="\`input-group\${_uid}\`"
-           v-if="type == 'password'"
+           v-else-if="type == 'password'"
            type="password"
            :maxlength="maxlength"
            :required="!!required"
@@ -52,10 +54,12 @@ const template = `
            :placeholder="placeholder"
            v-model="computedModel"
            :disabled="disabled"
-           class="form-control"/>
+           class="form-control"
+           @focus="focusEvent"
+           :key="4"/>
 
     <input :id="\`input-group\${_uid}\`"
-           v-if="type == 'number'"
+           v-else-if="type == 'number'"
            type="number"
            :maxlength="maxlength"
            :required="!!required"
@@ -63,17 +67,20 @@ const template = `
            :placeholder="placeholder"
            v-model.number="computedModel"
            :disabled="disabled"
-           class="form-control"/>
+           class="form-control"
+           @focus="focusEvent"
+           :key="5"/>
 
     <money :id="\`input-group\${_uid}\`"
-           v-if="type == 'money'"
+           v-else-if="type == 'money'"
            v-model="computedModel"
            :maxlength="maxlength"
-           :required="required != null"
+           :required="!!required"
            :placeholder="placeholder"
            :disabled="disabled"
            class="form-control"
-    ></money>
+           @focus.native="focusEvent"
+           :key="6"/>
 
   </div>
 `
@@ -83,7 +90,7 @@ import { $ } from '../../simpli'
 import moment from 'moment'
 
 @Component({ template })
-export class InputGroup extends Vue {
+export class InputText extends Vue {
   @Prop({ type: [String, Number] })
   value?: string | number
 
@@ -109,6 +116,9 @@ export class InputGroup extends Vue {
   autofocus?: boolean
 
   @Prop({ type: Boolean })
+  selectall?: boolean
+
+  @Prop({ type: Boolean })
   disabled?: boolean
 
   get mask() {
@@ -123,7 +133,7 @@ export class InputGroup extends Vue {
     } else if (this.type === 'rg') {
       return $.t('format.rg') as string
     } else if (this.type === 'phone') {
-      return $.t('format.phone') as string
+      return [$.t('format.phone'), $.t('format.phoneAlt')]
     } else if (this.type === 'cep') {
       return $.t('format.cep') as string
     }
@@ -162,10 +172,13 @@ export class InputGroup extends Vue {
   }
 
   mounted() {
-    if (this.autofocus) {
-      const el = this.$el.getElementsByTagName('input')[0] as HTMLElement
-      el.focus()
-    }
+    const el = this.$el.getElementsByTagName('input')[0] as HTMLInputElement
+    if (el && this.autofocus) el.focus()
+  }
+
+  focusEvent() {
+    const el = this.$el.getElementsByTagName('input')[0] as HTMLInputElement
+    if (el && this.selectall) el.select()
   }
 
   updateValue(val?: string | number) {

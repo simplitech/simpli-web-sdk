@@ -1,28 +1,64 @@
+import { Vue } from 'vue-property-decorator'
 import { InputType } from '../enums'
 
+/**
+ * Resource ID
+ */
 export type ID = number | string
+
+/**
+ * Resource TAG
+ */
 export type TAG = string
 
+/**
+ * Resource Schema
+ */
 export interface Schema {
   readonly [key: string]: SchemaVal
 }
 
+/**
+ * Resource Schema Values
+ */
 export type SchemaVal = SchemaRow | SchemaContent
 
+/**
+ * Resource Schema Row
+ */
 export interface SchemaRow {
+  // For <resource-render>
   content?: SchemaContent
-  csvContent?: SchemaContent
+  textContent?: string | null
   hidden?: boolean
-  editable?: boolean
-  model?: string
+
+  // For <resource-input>
   inputType?: InputType
+  editable?: boolean
+  model?: string // if undefined then use the key value as model
+
+  // Custom data
   meta?: {
     readonly [key: string]: any
   }
 }
 
-export type SchemaContent = string | number | null | undefined
+/**
+ * Resource Schema Content
+ */
+export type SchemaContent = string | number | null | undefined | SchemaVue
 
+/**
+ * Resource Schema Content Component
+ */
+export interface SchemaVue {
+  component: typeof Vue
+  props: object
+}
+
+/**
+ * Response format for all http requests
+ */
 export interface Resp<T> {
   data: T
   ok: boolean

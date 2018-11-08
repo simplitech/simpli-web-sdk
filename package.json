@@ -84,7 +84,6 @@
     "papaparse": "^4.6.1",
     "reflect-metadata": "^0.1.12",
     "shortid": "2.2.13",
-    "v-mask": "1.0.4",
     "v-money": "0.8.1",
     "vue": "^2.5.17",
     "vue-class-component": "^6.2.0",
@@ -92,7 +91,8 @@
     "vue-property-decorator": "^7.2.0",
     "vue-resource": "^1.5.0",
     "vue-router": "^3.0.1",
-    "vue-snotify": "^3.0.4"
+    "vue-snotify": "^3.0.4",
+    "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {
     "@types/jest": "23.3.5",

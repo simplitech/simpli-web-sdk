@@ -15,9 +15,11 @@ export class PageCollection<R extends Resource> extends Collection<R> {
   filter: object = {}
 
   // Set T as type
-  constructor(type: typeof Resource, filter?: object) {
+  constructor(type: typeof Resource, filter?: object, perPage?: number, currentPage?: number) {
     super(type)
     if (filter) this.filter = filter
+    if (perPage) this.perPage = perPage
+    if (currentPage) this.currentPage = currentPage
   }
 
   /**

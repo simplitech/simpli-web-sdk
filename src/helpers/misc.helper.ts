@@ -1,5 +1,7 @@
 import { plainToClassFromExist } from 'class-transformer'
 import { $ } from '../simpli'
+import { Collection, Resource } from '../app'
+
 const shortid = require('shortid')
 
 /**
@@ -17,6 +19,20 @@ export const uid = (prefix?: string, suffix?: string) => `${prefix || ''}${short
  */
 export function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+/**
+ * Transform a given array of Resource into Collection
+ * @param list
+ * @param type
+ * @returns Collection<T>
+ */
+export function collect<T extends Resource>(type: typeof Resource, list?: T[]): Collection<T> {
+  const collection = new Collection<T>(type)
+  if (list) {
+    collection.items = list
+  }
+  return collection
 }
 
 /**

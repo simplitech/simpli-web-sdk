@@ -19,9 +19,7 @@ const template = `
               <th></th>
 
               <th v-for="(value, key) in collection.header" :key="key">
-                <adap-orderby :collection="collection" :name="key">
-                  {{ value }}
-                </adap-orderby>
+                <adap-orderby :collection="collection" :name="key" :label="value"/>
               </th>
             </tr>
             </thead>
@@ -32,21 +30,25 @@ const template = `
                 <slot name="options" :item="item" :i="i"></slot>
               </td>
 
-              <td v-for="(value, j) in collection.values[i]" :key="j" v-html="value"></td>
+              <td v-for="(field, j) in collection.schemaValidKeys[i]" :key="j">
+                <resource-render v-model="collection.items[i]" :field="field"/>
+              </td>
             </tr>
             </tbody>
           </table>
         </div>
 
-        <adap-pagination :collection="collection"></adap-pagination>
+        <adap-pagination :collection="collection"/>
       </div>
     </transition>
   </div>
 `
 
 import { Component, Prop, Watch, Mixins, Vue } from 'vue-property-decorator'
+import { flatten } from 'lodash'
 import { PageCollection, Resource } from '../../app'
 import { MixinQueryRouter } from '../mixins/MixinQueryRouter'
+import { sleep } from '../../main'
 
 @Component({ template })
 export class AdapTable extends Mixins<MixinQueryRouter>(MixinQueryRouter) {

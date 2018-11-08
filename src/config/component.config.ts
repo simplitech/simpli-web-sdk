@@ -7,18 +7,25 @@
  * This configuration will be set in @/bootstrap/app.ts
  */
 
-import { Await } from '../components/Await'
-import { Modal } from '../components/Modal'
+import { Await } from '../components/utils/Await'
+import { Modal } from '../components/utils/Modal'
+import { ResourceInput } from '../components/utils/ResourceInput'
+import { ResourceRender } from '../components/utils/ResourceRender'
+
 import { AdapHeader } from '../components/adap/AdapHeader'
 import { AdapTable } from '../components/adap/AdapTable'
 import { AdapForm } from '../components/adap/AdapForm'
 import { AdapOrderby } from '../components/adap/AdapOrderby'
 import { AdapPagination } from '../components/adap/AdapPagination'
 import { AdapSearchfield } from '../components/adap/AdapSearchfield'
-import { InputGroup } from '../components/formGroup/InputGroup'
-import { CheckboxGroup } from '../components/formGroup/CheckboxGroup'
-import { MultiselectGroup } from '../components/formGroup/MultiselectGroup'
-import { TextareaGroup } from '../components/formGroup/TextareaGroup'
+
+import { InputCheckbox } from '../components/input/InputCheckbox'
+import { InputSelect } from '../components/input/InputSelect'
+import { InputText } from '../components/input/InputText'
+import { InputTextarea } from '../components/input/InputTextarea'
+
+import { RenderAnchor } from '../components/render/RenderAnchor'
+import { RenderImage } from '../components/render/RenderImage'
 
 /**
  * Global VUE Components
@@ -26,14 +33,18 @@ import { TextareaGroup } from '../components/formGroup/TextareaGroup'
 export const defaultComponents: any = {
   Await,
   Modal,
+  ResourceInput,
+  ResourceRender,
   AdapHeader,
   AdapTable,
   AdapForm,
   AdapOrderby,
   AdapPagination,
   AdapSearchfield,
-  InputGroup,
-  CheckboxGroup,
-  MultiselectGroup,
-  TextareaGroup,
+  InputCheckbox,
+  InputSelect,
+  InputText,
+  InputTextarea,
+  RenderAnchor,
+  RenderImage,
 }

@@ -24,7 +24,7 @@ const template = `
 `
 
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
-import { $ } from '../simpli'
+import { $ } from '../../simpli'
 
 export const Event = new Vue()
 

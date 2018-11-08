@@ -8,6 +8,8 @@
  * This configuration will be set in @/bootstrap/app.ts
  */
 
+import { $ } from '../simpli'
+
 /**
  * VUE Filters
  */
@@ -49,14 +51,14 @@ export const defaultFilters = {
   phone: (value?: string): string => {
     if (!value) return ''
     let v = value.replace(/\D/g, '')
-    v = v.replace(/(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3')
+    v = v.replace(new RegExp($.t('filter.phone.regex')), $.t('filter.phone.format'))
     return v
   },
 
   cep: (value?: string): string => {
     if (!value) return ''
     let v = value.replace(/\D/g, '')
-    v = v.replace(/(\d{5})(\d{3})$/, '$1-$2')
+    v = v.replace(new RegExp($.t('filter.cep.regex')), $.t('filter.cep.format'))
     return v
   },
 }
