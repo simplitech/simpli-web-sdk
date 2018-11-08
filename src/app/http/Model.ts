@@ -34,6 +34,6 @@ export abstract class Model extends HttpBody<Model> implements IValidator {
    * @returns {Promise<void>}
    */
   async validate(): Promise<void> {
-    await Validator.toastValidator(this)
+    await Validator.toastValidate(this)
   }
 }

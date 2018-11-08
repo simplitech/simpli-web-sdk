@@ -1,25 +1,24 @@
 import { HttpResponse } from 'vue-resource/types/vue_resource'
 import { Collection } from './Collection'
 import { Resource } from './Resource'
-import { Query } from '../params/Query'
 import { call } from '../../helpers'
-import { Resp } from '../../misc'
+import { Resp, QueryRequest } from '../../misc'
 
 export class PageCollection<R extends Resource> extends Collection<R> {
+  filter: object = {}
+  currentPage: number | null = null
+  perPage: number | null = null
   total: number = 0
   querySearch: string = ''
-  currentPage?: number = 0
-  perPage?: number = 20
   orderBy: string = ''
   asc: boolean = true
-  filter: object = {}
 
   // Set T as type
-  constructor(type: typeof Resource, filter?: object, perPage?: number, currentPage?: number) {
+  constructor(type: typeof Resource, filter = {}, perPage: number | null = 20, currentPage: number | null = 0) {
     super(type)
-    if (filter) this.filter = filter
-    if (perPage) this.perPage = perPage
-    if (currentPage) this.currentPage = currentPage
+    this.filter = filter
+    this.perPage = perPage
+    this.currentPage = currentPage
   }
 
   /**
@@ -41,8 +40,16 @@ export class PageCollection<R extends Resource> extends Collection<R> {
    * Lists and Paginates the collection according to the config
    */
   async search(): Promise<Resp<R[]>> {
-    const { filter } = this
-    const params = new Query(this.querySearch, this.currentPage, this.perPage, this.orderBy, this.asc)
+    const { querySearch, currentPage, perPage, orderBy, asc, filter } = this
+
+    const params: QueryRequest = {
+      query: querySearch,
+      page: currentPage !== null ? currentPage : undefined,
+      limit: perPage || undefined,
+      orderBy: orderBy,
+      ascending: asc,
+    }
+
     return await this.query({ ...(params as object), ...(filter as object) })
   }
 
@@ -80,28 +87,25 @@ export class PageCollection<R extends Resource> extends Collection<R> {
       this.currentPage = 0
       return await this.search()
     }
-    return Promise.reject('Can\'t search at this condition')
   }
 
   /**
    * Moves to the previous page
    */
   async prevPage() {
-    if (this.currentPage !== undefined && this.currentPage > 0) {
+    if (this.currentPage !== null && this.currentPage > 0) {
       this.currentPage--
       return await this.search()
     }
-    return Promise.reject('First page')
   }
 
   /**
    * Moves to the next page
    */
   async nextPage() {
-    if (this.currentPage !== undefined && this.currentPage < this.lastPage) {
+    if (this.currentPage !== null && this.currentPage < this.lastPage) {
       this.currentPage++
       return await this.search()
     }
-    return Promise.reject('Last page')
   }
 }

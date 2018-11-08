@@ -57,6 +57,17 @@ export interface SchemaVue {
 }
 
 /**
+ * Standard format of paged request
+ */
+export interface QueryRequest {
+  query?: string
+  page?: number
+  limit?: number
+  orderBy?: string
+  ascending?: boolean
+}
+
+/**
  * Response format for all http requests
  */
 export interface Resp<T> {

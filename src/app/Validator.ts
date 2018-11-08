@@ -3,7 +3,7 @@ import { IValidator } from '../misc'
 import { errorValidation } from '../helpers'
 
 export class Validator implements IValidator {
-  static async toastValidator(entity: object) {
+  static async toastValidate(entity: object) {
     try {
       await new Validator(entity).validateFirstError()
     } catch (e) {

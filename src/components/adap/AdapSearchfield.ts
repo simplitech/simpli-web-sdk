@@ -14,12 +14,17 @@ import { $ } from '../../simpli'
 
 @Component({ template })
 export class AdapSearchfield extends Vue {
-  @Prop({ required: true }) collection?: PageCollection<Resource>
-  @Prop({ default: 500 }) debounceTimer?: number
+  @Prop({ required: true })
+  collection?: PageCollection<Resource>
+  @Prop({ default: 500 })
+  debounceTimer?: number
 
   get debounce() {
-    return debounce(async () => {
-      await $.await.run(() => this.collection!.searchByQuery(), 'adapTable')
-    }, this.debounceTimer) as any
+    const { collection } = this
+
+    if (collection) {
+      const fetch = async () => await $.await.run(() => collection.searchByQuery(), 'query')
+      return debounce(fetch, this.debounceTimer)
+    }
   }
 }

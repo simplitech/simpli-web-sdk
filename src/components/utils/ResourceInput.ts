@@ -160,7 +160,7 @@ const template = `
   </div>
 `
 
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import { Resource } from '../../app'
 import { InputType } from '../../enums'
 import { SchemaVal, SchemaRow, SchemaContent } from '../../misc'
@@ -179,7 +179,9 @@ export class ResourceInput extends Vue {
   schemaVal: SchemaVal | null = null
   schemaRow: SchemaRow | null = null
 
-  created() {
+  @Watch('value')
+  @Watch('field')
+  inputEvent() {
     const { value, field } = this
 
     if (!value || !field) {
@@ -195,5 +197,9 @@ export class ResourceInput extends Vue {
     if (typeof this.schemaVal === 'object') {
       this.schemaRow = this.schemaVal as SchemaRow
     }
+  }
+
+  created() {
+    this.inputEvent()
   }
 }

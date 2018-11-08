@@ -7,7 +7,7 @@ const template = `
   </div>
 `
 
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import { Resource } from '../../app'
 import { SchemaVal, SchemaRow, SchemaContent } from '../../misc'
 
@@ -21,7 +21,9 @@ export class ResourceRender extends Vue {
   schemaVal: SchemaVal | null = null
   content: SchemaContent | null = null
 
-  created() {
+  @Watch('value')
+  @Watch('field')
+  inputEvent() {
     const { value, field } = this
 
     if (!value || !field) {
@@ -52,5 +54,9 @@ export class ResourceRender extends Vue {
   get isComponent() {
     const { content } = this
     return content && typeof content === 'object' && content.component && content.component.prototype instanceof Vue
+  }
+
+  created() {
+    this.inputEvent()
   }
 }

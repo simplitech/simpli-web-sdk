@@ -12,9 +12,6 @@ import { Modal } from '../components/utils/Modal'
 import { ResourceInput } from '../components/utils/ResourceInput'
 import { ResourceRender } from '../components/utils/ResourceRender'
 
-import { AdapHeader } from '../components/adap/AdapHeader'
-import { AdapTable } from '../components/adap/AdapTable'
-import { AdapForm } from '../components/adap/AdapForm'
 import { AdapOrderby } from '../components/adap/AdapOrderby'
 import { AdapPagination } from '../components/adap/AdapPagination'
 import { AdapSearchfield } from '../components/adap/AdapSearchfield'
@@ -35,9 +32,6 @@ export const defaultComponents: any = {
   Modal,
   ResourceInput,
   ResourceRender,
-  AdapHeader,
-  AdapTable,
-  AdapForm,
   AdapOrderby,
   AdapPagination,
   AdapSearchfield,
