@@ -12,6 +12,15 @@ export type ID = number | string
 export type TAG = string
 
 /**
+ * Resource Schema Options
+ */
+export interface SchemaOptions {
+  field?: string
+  index?: number
+  textContent?: boolean
+}
+
+/**
  * Resource Schema
  */
 export interface Schema {
@@ -21,15 +30,15 @@ export interface Schema {
 /**
  * Resource Schema Values
  */
-export type SchemaVal = SchemaRow | SchemaContent
+export type SchemaVal = SchemaRow | SchemaContent | SchemaContent[]
 
 /**
  * Resource Schema Row
  */
 export interface SchemaRow {
   // For <resource-render>
-  content?: SchemaContent
-  textContent?: string | null
+  content?: SchemaContent | SchemaContent[]
+  textContent?: SchemaTextContent // used for csv
   hidden?: boolean
 
   // For <resource-input>
@@ -44,9 +53,14 @@ export interface SchemaRow {
 }
 
 /**
+ * Resource Schema Text Content
+ */
+export type SchemaTextContent = string | number | null | undefined
+
+/**
  * Resource Schema Content
  */
-export type SchemaContent = string | number | null | undefined | SchemaVue
+export type SchemaContent = SchemaTextContent | SchemaVue
 
 /**
  * Resource Schema Content Component
@@ -54,6 +68,10 @@ export type SchemaContent = string | number | null | undefined | SchemaVue
 export interface SchemaVue {
   component: typeof Vue
   props: object
+}
+
+export interface SchemaData {
+  [field: string]: SchemaContent
 }
 
 /**

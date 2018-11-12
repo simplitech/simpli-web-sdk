@@ -6,7 +6,7 @@ const template = `
 
     <div v-else-if="view === 1" :key="1" class="await-spinner" :style="{minHeight}">
       <component
-        v-if="$spinner && !hasLoadingSlot"
+        v-if="$spinner && $spinner !== 'none' && !hasLoadingSlot"
         :is="$spinner"
         :color="$spinnerColor"
         :style="{padding: $spinnerPadding, zoom: $spinnerScale}"

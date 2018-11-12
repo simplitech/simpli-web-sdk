@@ -1,7 +1,18 @@
-import { filter } from 'lodash'
+import { chain } from 'lodash'
 import { HttpBody } from './HttpBody'
 import { Model } from './Model'
-import { ID, TAG, Resp, Schema, SchemaVal, SchemaRow } from '../../misc'
+import {
+  ID,
+  TAG,
+  Resp,
+  SchemaOptions,
+  Schema,
+  SchemaVal,
+  SchemaRow,
+  SchemaContent,
+  SchemaVue,
+  SchemaData,
+} from '../../misc'
 import { $, apiFullURL } from '../../helpers'
 
 export abstract class Resource extends Model {
@@ -35,6 +46,91 @@ export abstract class Resource extends Model {
   }
   set $tag(val: TAG) {
     /**/
+  }
+
+  /**
+   * Get render fields from schema
+   */
+  get fieldsToRender(): string[] {
+    return (
+      chain(this.$schema)
+        // Hide hidden properties
+        .pickBy((val: SchemaVal) => (val ? (val as SchemaRow).hidden !== true : true))
+        // Get the keys value
+        .keys()
+        // Get the result
+        .value()
+    )
+  }
+
+  /**
+   * Get input fields from schema
+   */
+  get fieldsToInput(): string[] {
+    return (
+      chain(this.$schema)
+        // Hide undefined inputType properties
+        .pickBy((val: SchemaVal) => val && (val as SchemaRow).inputType !== undefined)
+        // Get the keys value
+        .keys()
+        // Get the result
+        .value()
+    )
+  }
+
+  /**
+   * Transform schema into data
+   * @param field Get the content of a given field. If it is not set then get the content of all fields
+   * @param index Used to select the index of the content if it is an array
+   * @param textContent If true then use the text format instead the component as content
+   */
+  resolveSchema({ field, index = 0, textContent = false }: SchemaOptions = {}): SchemaData | SchemaContent {
+    const filterContent = (val: SchemaRow): boolean => {
+      return val ? val.hidden !== true : true
+    }
+
+    const filterTextContent = (val: SchemaRow): boolean => {
+      return textContent ? !!(val && val.textContent !== null) : true
+    }
+
+    const getContent = (val: SchemaRow): SchemaContent => {
+      let preContent = val && val.content
+      // get content from textContent if it is set
+      if (textContent) preContent = val && (val.textContent || val.content)
+
+      let content = (preContent || val) as SchemaContent | SchemaContent[]
+      // if the content is an array then get the item from index (default is the first)
+      if (content instanceof Array) content = content[index]
+
+      return content
+    }
+
+    const validateContent = (val: SchemaContent): SchemaContent => {
+      return typeof val === 'object' && !(val && (val as SchemaVue).component) ? '' : val
+    }
+
+    const filteredContent = (val: SchemaVal) => filterContent(val as SchemaRow) && filterTextContent(val as SchemaRow)
+    const mappedContent = (val: SchemaVal) => validateContent(getContent(val as SchemaRow))
+
+    // if the field is set then return the schema content
+    if (field) {
+      const schemaVal = this.$schema[field]
+      if (filteredContent(schemaVal)) {
+        return mappedContent(schemaVal)
+      }
+      return null as SchemaContent
+    }
+
+    // otherwise return the schema data
+    return (
+      chain(this.$schema)
+        // Hide hidden properties and null textContent
+        .pickBy(filteredContent)
+        // Map the schema to get only the content and transform invalid content into empty string
+        .mapValues(mappedContent)
+        // Get the result
+        .value()
+    )
   }
 
   /**

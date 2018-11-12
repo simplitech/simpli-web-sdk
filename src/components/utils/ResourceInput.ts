@@ -163,7 +163,7 @@ const template = `
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import { Resource } from '../../app'
 import { InputType } from '../../enums'
-import { SchemaVal, SchemaRow, SchemaContent } from '../../misc'
+import { SchemaRow } from '../../misc'
 
 @Component({ template })
 export class ResourceInput extends Vue {
@@ -176,30 +176,17 @@ export class ResourceInput extends Vue {
 
   InputType = InputType
 
-  schemaVal: SchemaVal | null = null
-  schemaRow: SchemaRow | null = null
-
-  @Watch('value')
-  @Watch('field')
-  inputEvent() {
+  get schemaRow() {
     const { value, field } = this
 
-    if (!value || !field) {
-      return console.warn(`[warn] The resource and field must be defined in <ResourceOutput>`)
+    if (value && field) {
+      const schemaVal = value.$schema[field]
+
+      if (schemaVal && typeof schemaVal === 'object') {
+        return schemaVal as SchemaRow
+      }
     }
 
-    this.schemaVal = value.$schema[field]
-
-    if (!this.schemaVal) {
-      return console.warn(`[warn] The field '${field}' of the schema from resource '${value.$name}' was not found`)
-    }
-
-    if (typeof this.schemaVal === 'object') {
-      this.schemaRow = this.schemaVal as SchemaRow
-    }
-  }
-
-  created() {
-    this.inputEvent()
+    return null
   }
 }

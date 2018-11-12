@@ -1,10 +1,10 @@
-import { chain, keys, values, mapKeys, mapValues, pickBy } from 'lodash'
+import { chain, values, mapKeys } from 'lodash'
 import { HttpResponse } from 'vue-resource/types/vue_resource'
 import { unparse } from 'papaparse'
 import { Type } from 'class-transformer'
 import { Resource } from './Resource'
 import { HttpBody } from './HttpBody'
-import { Resp, Schema, SchemaVal, SchemaRow, SchemaContent, SchemaVue } from '../../misc'
+import { Resp, SchemaOptions, Schema, SchemaVal, SchemaRow, SchemaContent, SchemaData } from '../../misc'
 import { $, apiFullURL, call, createCsvFile } from '../../helpers'
 
 export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
@@ -91,44 +91,25 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
   }
 
   /**
-   * Returns formated data
+   * Returns formatted data
    */
-  get data(): object[] {
-    const getContent = (val: SchemaRow): SchemaContent => (val && val.content) || (val as SchemaContent)
-    const validateContent = (val: SchemaContent): SchemaContent =>
-      typeof val === 'object' && !(val as SchemaVue).component ? '' : val
-
-    return this.schemas.map((schema: Schema) =>
-      chain(schema)
-        // Hide hidden properties
-        .pickBy((val: SchemaVal) => (val ? (val as SchemaRow).hidden !== true : true))
-        // Map the schema to get only the content and transform invalid content into empty string
-        .mapValues((val: SchemaRow) => validateContent(getContent(val)))
-        // Get the result
-        .value()
-    )
+  get data(): SchemaData[] {
+    return this.resolveSchema() as SchemaData[]
   }
 
   /**
-   * Returns formated CSV data
+   * Returns formatted CSV data
    */
-  get textData(): object[] {
-    const getContent = (val: SchemaRow): SchemaContent =>
-      (val && val.textContent) || val.content || (val as SchemaContent)
-    const validateContent = (val: SchemaContent): SchemaContent =>
-      typeof val === 'object' && !(val as SchemaVue).component ? '' : val
+  get textData(): SchemaData[] {
+    return this.resolveSchema({ textContent: true }) as SchemaData[]
+  }
 
-    return this.schemas.map((schema: Schema) =>
-      chain(schema)
-        // Hide null content
-        .pickBy((val: SchemaVal) => val && (val as SchemaRow).textContent !== null)
-        // Hide hidden properties
-        .pickBy((val: SchemaVal) => (val ? (val as SchemaRow).hidden !== true : true))
-        // Map the schema to get only the content and transform invalid content into empty string
-        .mapValues((val: SchemaRow) => validateContent(getContent(val)))
-        // Get the result
-        .value()
-    )
+  /**
+   * Returns formatted data
+   * @param options SchemaOptions
+   */
+  resolveSchema(options: SchemaOptions = {}): (SchemaData | SchemaContent)[] {
+    return this.items.map((item: R) => item.resolveSchema(options))
   }
 
   /**
@@ -138,7 +119,7 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
     if (this.items.length <= 0) return
 
     const title = $.t(`classes.${this.resource.$name}.title`) as string
-    const data = this.textData.map((schema: object) =>
+    const data = this.textData.map((schema: SchemaData) =>
       // Translate the keys
       mapKeys(schema, (val: SchemaVal, key: string) => $.t(`classes.${this.resource.$name}.columns.${key}`) as string)
     )
