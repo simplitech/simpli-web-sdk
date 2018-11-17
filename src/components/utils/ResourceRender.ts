@@ -24,7 +24,7 @@ export class ResourceRender extends Vue {
     const { value, field, index } = this
 
     if (value && field) {
-      return value.resolveSchema({ field, index }) as SchemaContent
+      return value.renderSchema({ field, index }) as SchemaContent
     }
 
     return null
@@ -32,7 +32,7 @@ export class ResourceRender extends Vue {
 
   get isComponent() {
     const contentData = this.contentData
-    return (
+    return !!(
       contentData &&
       typeof contentData === 'object' &&
       contentData.component &&

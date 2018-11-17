@@ -97,7 +97,7 @@ export class InputText extends Vue {
   @Prop({ type: Boolean })
   required?: boolean
 
-  @Prop({ type: String })
+  @Prop({ type: String, default: 'text' })
   type?: string
 
   @Prop({ type: String })

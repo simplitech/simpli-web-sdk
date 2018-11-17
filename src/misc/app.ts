@@ -17,14 +17,14 @@ export type TAG = string
 export interface SchemaOptions {
   field?: string
   index?: number
-  textContent?: boolean
+  asText?: boolean
 }
 
 /**
  * Resource Schema
  */
 export interface Schema {
-  readonly [key: string]: SchemaVal
+  readonly [field: string]: SchemaVal
 }
 
 /**
@@ -42,9 +42,9 @@ export interface SchemaRow {
   hidden?: boolean
 
   // For <resource-input>
-  inputType?: InputType
-  editable?: boolean
+  input?: SchemaInput // use default inputs or create a custom one
   model?: string // if undefined then use the key value as model
+  editable?: boolean
 
   // Custom data
   meta?: {
@@ -53,14 +53,19 @@ export interface SchemaRow {
 }
 
 /**
+ * Resource Schema Content
+ */
+export type SchemaContent = SchemaTextContent | SchemaVue
+
+/**
  * Resource Schema Text Content
  */
 export type SchemaTextContent = string | number | null | undefined
 
 /**
- * Resource Schema Content
+ * Resource Schema Input
  */
-export type SchemaContent = SchemaTextContent | SchemaVue
+export type SchemaInput = InputType | SchemaVue | typeof Vue
 
 /**
  * Resource Schema Content Component
@@ -70,6 +75,9 @@ export interface SchemaVue {
   props: object
 }
 
+/**
+ * Resource Schema normalized as data
+ */
 export interface SchemaData {
   [field: string]: SchemaContent
 }

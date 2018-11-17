@@ -94,22 +94,22 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
    * Returns formatted data
    */
   get data(): SchemaData[] {
-    return this.resolveSchema() as SchemaData[]
+    return this.renderSchema() as SchemaData[]
   }
 
   /**
    * Returns formatted CSV data
    */
   get textData(): SchemaData[] {
-    return this.resolveSchema({ textContent: true }) as SchemaData[]
+    return this.renderSchema({ asText: true }) as SchemaData[]
   }
 
   /**
    * Returns formatted data
    * @param options SchemaOptions
    */
-  resolveSchema(options: SchemaOptions = {}): (SchemaData | SchemaContent)[] {
-    return this.items.map((item: R) => item.resolveSchema(options))
+  renderSchema(options: SchemaOptions = {}): (SchemaData | SchemaContent)[] {
+    return this.items.map((item: R) => item.renderSchema(options))
   }
 
   /**

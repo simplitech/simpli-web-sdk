@@ -70,7 +70,7 @@ export abstract class Resource extends Model {
     return (
       chain(this.$schema)
         // Hide undefined inputType properties
-        .pickBy((val: SchemaVal) => val && (val as SchemaRow).inputType !== undefined)
+        .pickBy((val: SchemaVal) => val && (val as SchemaRow).input !== undefined)
         // Get the keys value
         .keys()
         // Get the result
@@ -84,19 +84,19 @@ export abstract class Resource extends Model {
    * @param index Used to select the index of the content if it is an array
    * @param textContent If true then use the text format instead the component as content
    */
-  resolveSchema({ field, index = 0, textContent = false }: SchemaOptions = {}): SchemaData | SchemaContent {
+  renderSchema({ field, index = 0, asText = false }: SchemaOptions = {}): SchemaData | SchemaContent {
     const filterContent = (val: SchemaRow): boolean => {
       return val ? val.hidden !== true : true
     }
 
     const filterTextContent = (val: SchemaRow): boolean => {
-      return textContent ? !!(val && val.textContent !== null) : true
+      return asText ? !!(val && val.textContent !== null) : true
     }
 
     const getContent = (val: SchemaRow): SchemaContent => {
       let preContent = val && val.content
       // get content from textContent if it is set
-      if (textContent) preContent = val && (val.textContent || val.content)
+      if (asText) preContent = val && (val.textContent || val.content)
 
       let content = (preContent || val) as SchemaContent | SchemaContent[]
       // if the content is an array then get the item from index (default is the first)

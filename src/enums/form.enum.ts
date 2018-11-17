@@ -7,6 +7,7 @@ export enum InputType {
   NUMBER,
   EMAIL,
   PASSWORD,
+  DATE,
   DATETIME,
   CURRENCY,
   PHONE,

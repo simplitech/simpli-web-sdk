@@ -1,0 +1,280 @@
+@import "variables/main";
+
+.display {
+  color: #000000;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  &.contrast {
+    color: #ffffff;
+  }
+
+  @media screen and (max-width: $display-large) {
+    font-size: 32px;
+  }
+
+  @media screen and (max-width: $display-medium) {
+    font-size: 28px;
+  }
+
+  @media screen and (max-width: $display-small) {
+    font-size: 4.5vw;
+  }
+
+  &.huge {
+    font-size: 48px;
+
+    @media screen and (max-width: $display-large) {
+      font-size: 42px;
+    }
+
+    @media screen and (max-width: $display-medium) {
+      font-size: 36px;
+    }
+
+    @media screen and (max-width: $display-small) {
+      font-size: 5.5vw;
+    }
+  }
+
+  &.big {
+    font-size: 42px;
+
+    @media screen and (max-width: $display-large) {
+      font-size: 37px;
+    }
+
+    @media screen and (max-width: $display-medium) {
+      font-size: 32px;
+    }
+
+    @media screen and (max-width: $display-small) {
+      font-size: 5vw;
+    }
+  }
+
+  &.small {
+    font-size: 30px;
+    font-weight: 300;
+
+    @media screen and (max-width: $display-large) {
+      font-size: 27px;
+    }
+
+    @media screen and (max-width: $display-medium) {
+      font-size: 24px;
+    }
+
+    @media screen and (max-width: $display-small) {
+      font-size: 21px;
+    }
+  }
+
+  &.tiny {
+    font-size: 24px;
+    font-weight: 300;
+
+    @media screen and (max-width: $display-large) {
+      font-size: 22px;
+    }
+
+    @media screen and (max-width: $display-medium) {
+      font-size: 20px;
+    }
+
+    @media screen and (max-width: $display-small) {
+      font-size: 18px;
+    }
+  }
+
+  &.mini {
+    font-size: 18px;
+    font-weight: 300;
+
+    @media screen and (max-width: $display-large) {
+      font-size: 17px;
+    }
+
+    @media screen and (max-width: $display-medium) {
+      font-size: 16px;
+    }
+
+    @media screen and (max-width: $display-small) {
+      font-size: 15px;
+    }
+  }
+}
+
+.row {
+  max-width: calc(100% + #{2 * $padding-base});
+  margin: -$padding-base;
+  margin-bottom: $padding-base;
+
+  .col {
+    padding: $padding-base;
+    margin: 0;
+
+    &.inline {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    &.col-1 {
+      flex-basis: calc(1/12 * 100%);
+      max-width: calc(1/12 * 100%);
+    }
+    &.col-2 {
+      flex-basis: calc(2/12 * 100%);
+      max-width: calc(2/12 * 100%);
+    }
+    &.col-3 {
+      flex-basis: 25%;
+      max-width: 25%
+    }
+    &.col-4 {
+      flex-basis: calc(4/12 * 100%);
+      max-width: calc(4/12 * 100%);
+    }
+    &.col-5 {
+      flex-basis: calc(5/12 * 100%);
+      max-width: calc(5/12 * 100%);
+    }
+    &.col-6 {
+      flex-basis: 50%;
+      max-width: 50%;
+    }
+    &.col-7 {
+      flex-basis: calc(7/12 * 100%);
+      max-width: calc(7/12 * 100%);
+    }
+    &.col-8 {
+      flex-basis: calc(8/12 * 100%);
+      max-width: calc(8/12 * 100%);
+    }
+    &.col-9 {
+      flex-basis: 75%;
+      max-width: 75%;
+    }
+    &.col-10 {
+      flex-basis: calc(10/12 * 100%);
+      max-width: calc(10/12 * 100%);
+    }
+    &.col-11 {
+      flex-basis: calc(11/12 * 100%);
+      max-width: calc(11/12 * 100%);
+    }
+    &.col-12 {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &.wide {
+    max-width: calc(100% + #{$padding-base * 4});
+    margin: -#{$padding-base * 2};
+    margin-bottom: #{$padding-base * 2};
+
+    .col {
+      padding: #{$padding-base * 2};
+
+      &.inline {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &.compact {
+    max-width: calc(100% + #{$padding-base});
+    margin: -#{$padding-base / 2};
+    margin-bottom: #{$padding-base / 2};
+
+    .col {
+      padding: #{$padding-base / 2};
+
+      &.inline {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  @media only screen and (max-width: $display-small) {
+    &, &.compact, &.wide {
+      max-width: calc(100% + #{$padding-base / 2});
+      margin: -#{$padding-base / 4};
+      margin-bottom: #{$padding-base / 4};
+
+      .col {
+        padding: #{$padding-base / 4};
+
+        &.inline {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.container {
+  max-width: calc(100% - #{$padding-base * 3});
+  width: $container-large-desktop;
+  margin: auto;
+
+  &.medium {
+    width: $container-desktop;
+  }
+
+  &.small {
+    width: $container-tablet;
+  }
+
+  @media screen and (max-width: $display-extra-large) {
+    max-width: calc(100% - #{$padding-base * 2});
+    width: $container-desktop;
+  }
+
+  @media screen and (max-width: $display-large) {
+    max-width: calc(100% - #{$padding-base * 1});
+    width: $container-tablet;
+  }
+
+  @media screen and (max-width: $display-medium) {
+    max-width: calc(100% - #{$padding-base / 2});
+    width: auto;
+    margin: auto 10px;
+  }
+
+  &.fluid {
+    width: auto;
+    margin: auto 80px;
+
+    &.wide {
+      margin: auto 200px;
+    }
+
+    @media screen and (max-width: $display-large) {
+      &.center-mobile {
+        text-align: center;
+      }
+
+      margin: auto 40px;
+      &.wide {
+        margin: auto 100px;
+      }
+    }
+
+    @media screen and (max-width: $display-medium) {
+      &.center-mobile {
+        text-align: center;
+      }
+
+      margin: auto 10px;
+      &.wide {
+        margin: auto 20px;
+      }
+    }
+  }
+}
