@@ -25,8 +25,8 @@ export abstract class Model extends HttpBody<Model> implements IValidator {
     return super.PUT(uri, body, options, endpoint) as Promise<Resp<this>>
   }
 
-  async DELETE(uri: string, endpoint: boolean = true, options?: HttpOptions): Promise<Resp<this>> {
-    return super.DELETE(uri, endpoint, options) as Promise<Resp<this>>
+  async DELETE(uri: string, options?: HttpOptions, endpoint: boolean = true): Promise<Resp<this>> {
+    return super.DELETE(uri, options, endpoint) as Promise<Resp<this>>
   }
 
   /**

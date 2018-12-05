@@ -57,7 +57,7 @@ export class HttpBody<T> {
    * @param endpoint
    * @param options
    */
-  async DELETE(uri: string, endpoint: boolean = true, options?: HttpOptions) {
+  async DELETE(uri: string, options?: HttpOptions, endpoint: boolean = true) {
     return this.call($.http.delete(endpoint ? apiFullURL(uri) : uri, options))
   }
 
