@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/simplitech/simpli-web-sdk/compare/v1.1.0...v1.1.1) (2018-12-05)
+
+
+### Bug Fixes
+
+* Switched DELETE params (wrong position) ([764f8cd](https://github.com/simplitech/simpli-web-sdk/commit/764f8cd))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/simplitech/simpli-web-sdk/compare/v1.0.1...v1.1.0) (2018-11-17)
 
