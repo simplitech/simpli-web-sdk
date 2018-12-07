@@ -10,9 +10,9 @@ export class MixinQueryRouter extends Vue {
     const { q, page, name, asc } = query
     if (!this.collection) return
 
-    this.collection.querySearch = q || ''
+    this.collection.querySearch = (q as string) || ''
     this.collection.currentPage = (Number(page) || 1) - 1
-    this.collection.orderBy = name || ''
+    this.collection.orderBy = (name as string) || ''
     this.collection.asc = !!Number(asc)
 
     const fetch = async () => {
