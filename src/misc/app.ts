@@ -107,6 +107,14 @@ export interface Resp<T> {
   blob(): Blob
 }
 
+/**
+ * Used for input-select
+ */
+export interface ResourceObject {
+  $id?: number
+  $tag?: string
+}
+
 export interface IValidator {
   validateFirstError?(): Promise<void>
   validate(): Promise<void>

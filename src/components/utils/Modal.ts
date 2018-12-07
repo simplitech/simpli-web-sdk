@@ -40,15 +40,15 @@ export class ModalController {
   defaultClosable: boolean = true
   defaultCloseOutside: boolean = true
 
-  open(name?: string) {
-    Event.$emit('open', name)
+  open(name?: string, payload?: any) {
+    Event.$emit('open', name, payload)
   }
 
   close(name?: string) {
     Event.$emit('close', name)
   }
 
-  toggle(name?: string) {
+  toggle(name?: string, payload?: any) {
     Event.$emit('toggle', name)
   }
 
@@ -93,9 +93,9 @@ export class Modal extends Vue {
     }
   }
 
-  open() {
+  open(payload: any) {
     this.state = State.SHOWN
-    this.$emit('open')
+    this.$emit('open', payload)
   }
 
   close(force: boolean = false) {
@@ -120,18 +120,18 @@ export class Modal extends Vue {
     this.body = $.modal.defaultBody
     this.bodyOverflowY = this.body.style.overflowY
 
-    Event.$on('open', (name?: string) => {
-      if (name === this.name) this.open()
+    Event.$on('open', (name?: string, payload?: any) => {
+      if (name === this.name) this.open(payload)
     })
 
     Event.$on('close', (name?: string) => {
       if (name === this.name) this.close(true)
     })
 
-    Event.$on('toggle', (name?: string) => {
+    Event.$on('toggle', (name?: string, payload?: any) => {
       if (name === this.name) {
         if (this.state === State.SHOWN) this.close(true)
-        else if (this.state === State.HIDDEN) this.open()
+        else if (this.state === State.HIDDEN) this.open(payload)
       }
     })
 
