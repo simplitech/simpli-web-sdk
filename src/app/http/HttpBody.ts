@@ -1,4 +1,5 @@
 import { HttpOptions, HttpResponse } from 'vue-resource/types/vue_resource'
+import { classToPlain } from 'class-transformer'
 import { $, call, clone, apiFullURL } from '../../helpers'
 import { Resp } from '../../misc'
 
@@ -37,7 +38,7 @@ export class HttpBody<T> {
    * @param endpoint
    */
   async POST(uri: string, body?: any, options?: HttpOptions, endpoint: boolean = true) {
-    return this.call($.http.post(endpoint ? apiFullURL(uri) : uri, body, options))
+    return this.call($.http.post(endpoint ? apiFullURL(uri) : uri, classToPlain(body), options))
   }
 
   /**
@@ -48,7 +49,7 @@ export class HttpBody<T> {
    * @param endpoint
    */
   async PUT(uri: string, body?: any, options?: HttpOptions, endpoint: boolean = true) {
-    return this.call($.http.put(endpoint ? apiFullURL(uri) : uri, body, options))
+    return this.call($.http.put(endpoint ? apiFullURL(uri) : uri, classToPlain(body), options))
   }
 
   /**

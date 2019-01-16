@@ -1,5 +1,5 @@
 import { HttpOptions, HttpResponse } from 'vue-resource/types/vue_resource'
-import { Exclude, Expose, plainToClass, plainToClassFromExist, Type } from 'class-transformer'
+import { Exclude, Expose, plainToClass, classToPlain, plainToClassFromExist, Type } from 'class-transformer'
 import { Resp } from '../misc'
 import { $ } from '../simpli'
 
@@ -18,18 +18,32 @@ export function ResponseSerialize(func: Function) {
  * Note: this decorator is set by default
  * @param {string} name
  * @returns {(object: (Object | Function), propertyName?: string) => void}
- * @constructor
  */
 export function ResponseFill(name?: string) {
   return Expose({ name })
 }
 
 /**
- * Hide a property during the serialization
+ * Exclude a property during the serialization
  * @returns {(object: (Object | Function), propertyName?: string) => void}
- * @constructor
+ */
+export function RequestExclude() {
+  return Exclude({ toPlainOnly: true })
+}
+
+/**
+ * Hide a property during the deserialization
+ * @returns {(object: (Object | Function), propertyName?: string) => void}
  */
 export function ResponseHidden() {
+  return Exclude({ toClassOnly: true })
+}
+
+/**
+ * Ignore the request and response of a property
+ * @returns {(object: (Object | Function), propertyName?: string) => void}
+ */
+export function HttpIgnore() {
   return Exclude()
 }
 
@@ -110,7 +124,7 @@ export const POST = (
   body?: any,
   options?: HttpOptions
 ): PromiseLike<Resp<typeof classOrObject>> => {
-  return call(classOrObject, $.http.post(apiFullURL(uri), body, options))
+  return call(classOrObject, $.http.post(apiFullURL(uri), classToPlain(body), options))
 }
 
 /**
@@ -128,7 +142,7 @@ export const PUT = (
   body?: any,
   options?: HttpOptions
 ): PromiseLike<Resp<typeof classOrObject>> => {
-  return call(classOrObject, $.http.put(apiFullURL(uri), body, options))
+  return call(classOrObject, $.http.put(apiFullURL(uri), classToPlain(body), options))
 }
 
 /**

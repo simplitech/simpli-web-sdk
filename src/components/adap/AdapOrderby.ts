@@ -16,13 +16,13 @@ import { $ } from '../../simpli'
 @Component({ template })
 export class AdapOrderby extends Vue {
   @Prop({ required: true })
-  collection?: PageCollection<Resource>
+  collection!: PageCollection<Resource>
   @Prop({ required: true })
-  name?: string
+  name!: string
   @Prop({ type: String })
   label?: string
 
   async orderBy() {
-    await $.await.run(() => this.collection!.setOrderBy(this.name!), 'adapTable')
+    await $.await.run(() => this.collection.setOrderBy(this.name))
   }
 }

@@ -1,4 +1,5 @@
 import { chain } from 'lodash'
+import { classToPlain } from 'class-transformer'
 import { HttpBody } from './HttpBody'
 import { Model } from './Model'
 import {
@@ -159,7 +160,8 @@ export abstract class Resource extends Model {
    * @param spinner
    */
   async save<T>(cls?: any, spinner?: string): Promise<Resp<T>> {
-    const fetch = async () => await new HttpBody<T>(cls).call($.resource(apiFullURL(this.$endpoint)).save(this))
+    const body = classToPlain(this)
+    const fetch = async () => await new HttpBody<T>(cls).call($.resource(apiFullURL(this.$endpoint)).save(body))
     return await $.await.run(fetch, spinner || `save${this.$name}`)
   }
 
@@ -169,7 +171,8 @@ export abstract class Resource extends Model {
    * @param spinner
    */
   async update<T>(cls?: any, spinner?: string): Promise<Resp<T>> {
-    const fetch = async () => await new HttpBody<T>(cls).call($.resource(apiFullURL(this.$endpoint)).update(this))
+    const body = classToPlain(this)
+    const fetch = async () => await new HttpBody<T>(cls).call($.resource(apiFullURL(this.$endpoint)).update(body))
     return await $.await.run(fetch, spinner || `update${this.$name}`)
   }
 

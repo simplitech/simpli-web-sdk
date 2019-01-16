@@ -1,52 +1,96 @@
 @import "../variables/main";
 
 .multiselect {
-  .multiselect__option--highlight {
-    background: $primary-color !important;
-    &:after {
-      background: $primary-color !important;
-    }
-  }
-
-  .multiselect__tag {
-    background: $primary-color !important;
-
-    .multiselect__tag-icon {
-      margin: 2px;
-      line-height: 20px;
-      &:hover {
-        background: lighten($primary-color, 15%) !important;
-      }
-      &:after {
-        color: white !important;
-      }
-    }
-  }
+  color: rgba(0,0,0, 0.7);
 
   .multiselect__select {
-    right: 1px;
-    bottom: 1px;
+    height: 43px;
     top: auto;
+    bottom: 0;
   }
 
   .multiselect__tags {
-    padding-right: 0;
-    padding-left: 0;
-    background: none;
+    color: rgba(0,0,0, 0.7);
     border: none;
-    box-shadow: none;
-    input {
-      display: block;
-      position: static !important;
+    padding: 0;
+
+    .multiselect__input {
       width: 100% !important;
+      position: static !important;
+      padding: 0 8px !important;
+      display: block;
+      margin: 0;
+    }
+
+    .multiselect__single {
+      &:empty {
+        background: none;
+      }
+
+      color: white;
+      background: $primary-color;
+      position: absolute;
+      top: 7px;
+      bottom: 7px;
+      left: 7px;
+      width: calc(100% - 50px);
+      line-height: 31px;
+      height: 31px;
+      padding: 0 8px;
+      margin: 0;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .multiselect__tag {
+      background: $primary-color !important;
+
+      .multiselect__tag-icon {
+        margin: 2px;
+        line-height: 20px;
+        &:hover {
+          background: lighten($primary-color, 15%) !important;
+        }
+        &:after {
+          color: white !important;
+        }
+      }
+    }
+
+    .multiselect__placeholder {
+      display: none;
     }
   }
 
   .multiselect__content-wrapper {
-    border-radius: 4px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 8px !important;
     padding: 0;
     border: none;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+
+    &::-webkit-scrollbar {
+      width: 15px;
+    }
+
+    &::-webkit-scrollbar-track {
+      color: rgba(0,0,0, 0.1);
+      border-radius: 0 $radius-base $radius-base 0;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      color: rgba(0,0,0, 0.4);
+      border-radius: 0 $radius-base $radius-base 0;
+    }
+
+    .multiselect__option--highlight {
+      background: $primary-color !important;
+      &:after {
+        background: $primary-color !important;
+      }
+    }
   }
 }
-

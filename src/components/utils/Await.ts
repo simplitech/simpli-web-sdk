@@ -130,8 +130,11 @@ export class Await extends Vue {
 
     Event.$on('toggle', (name?: string, view: View = View.DEFAULT) => {
       if (name === this.name) {
-        if (view === View.ERROR && !this.hasErrorSlot) this.view = View.DEFAULT
-        else this.view = view
+        if (view === View.ERROR && !this.hasErrorSlot) {
+          this.view = View.DEFAULT
+        } else {
+          this.view = view
+        }
 
         switch (view) {
           case View.LOADING:

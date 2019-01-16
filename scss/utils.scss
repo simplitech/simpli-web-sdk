@@ -234,17 +234,38 @@
   @media screen and (max-width: $display-extra-large) {
     max-width: calc(100% - #{$padding-base * 2});
     width: $container-desktop;
+    &.medium {
+      width: $container-tablet;
+    }
+
+    &.small {
+      width: $container-tablet;
+    }
   }
 
   @media screen and (max-width: $display-large) {
     max-width: calc(100% - #{$padding-base * 1});
     width: $container-tablet;
+    &.medium {
+      width: auto;
+    }
+
+    &.small {
+      width: auto;
+    }
   }
 
   @media screen and (max-width: $display-medium) {
     max-width: calc(100% - #{$padding-base / 2});
     width: auto;
     margin: auto 10px;
+    &.medium {
+      width: auto;
+    }
+
+    &.small {
+      width: auto;
+    }
   }
 
   &.fluid {
