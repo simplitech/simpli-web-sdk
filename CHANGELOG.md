@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/simplitech/simpli-web-sdk/compare/v1.1.3...v1.2.0) (2019-01-16)
+
+
+### Features
+
+* Added RequestExclude decorator ([ff42d5d](https://github.com/simplitech/simpli-web-sdk/commit/ff42d5d))
+
+
+
 <a name="1.1.3"></a>
 ## [1.1.3](https://github.com/simplitech/simpli-web-sdk/compare/v1.1.2...v1.1.3) (2018-12-11)
 
