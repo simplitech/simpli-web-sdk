@@ -28,6 +28,8 @@ export interface HttpBus {
 
 export interface $Prototype {
   apiURL: string
+  socketURL: string
+
   component: ComponentOptions
   filter: FilterOptions
 

@@ -6,6 +6,7 @@ import { Resource } from './Resource'
 import { HttpBody } from './HttpBody'
 import { Resp, SchemaOptions, Schema, SchemaVal, SchemaRow, SchemaContent, SchemaData } from '../../misc'
 import { $, apiFullURL, call, createCsvFile } from '../../helpers'
+import { ClassType } from '../../misc'
 
 export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
   /**
@@ -18,18 +19,17 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
   /**
    * Collection Class of list
    */
-  readonly type: typeof Resource
+  readonly type: ClassType<R>
 
   /**
    * Collection ClassObject of list
    */
   get resource() {
-    const entity = this.type as any
-    return new entity() as R
+    return new this.type()
   }
 
   // Set R as type
-  constructor(type: typeof Resource) {
+  constructor(type: ClassType<R>) {
     super()
     this.type = type
   }

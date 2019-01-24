@@ -1,12 +1,12 @@
 import { HttpOptions, HttpResponse } from 'vue-resource/types/vue_resource'
 import { classToPlain } from 'class-transformer'
 import { $, call, clone, apiFullURL } from '../../helpers'
-import { Resp } from '../../misc'
+import { Resp, ClassType } from '../../misc'
 
 export class HttpBody<T> {
   private cls?: any
 
-  constructor(cls?: any) {
+  constructor(cls?: ClassType<T>) {
     if (cls) this.cls = cls
     else delete this.cls
   }
@@ -63,10 +63,9 @@ export class HttpBody<T> {
   }
 
   /**
-   * Clone a given entity
-   * @param entity
+   * Clone this entity
    */
-  clone(entity: any) {
-    clone(this, entity)
+  clone(): this {
+    return clone(this)
   }
 }

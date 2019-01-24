@@ -26,6 +26,8 @@ const bus = new Vue({ i18n, router })
 
 export const $: $Prototype = {
   apiURL: '',
+  socketURL: '',
+
   component: {},
   filter: {},
 
@@ -48,11 +50,14 @@ export const $: $Prototype = {
 }
 
 const defaultApiURL: string = 'http://localhost/api'
+const defaultSocketURL: string = 'ws://localhost/ws'
+
 const defaultLang: Lang = Lang.EN_US
 const defaultCurrency: Currency = Currency.USD
 
 export abstract class Simpli {
   static apiURL: string = defaultApiURL
+  static socketURL: string = defaultSocketURL
   static httpInterceptor?: Function
   static lang: Lang = defaultLang
   static currency: Currency = defaultCurrency
@@ -67,8 +72,12 @@ export abstract class Simpli {
     }
 
     // Ignore last slash (/)
-    const regex = Simpli.apiURL.match(/(.*)[^\/$]/g)
-    if (regex) $.apiURL = regex[0] || defaultApiURL
+    const regexApi = Simpli.apiURL.match(/(.*)[^\/$]/g)
+    if (regexApi) $.apiURL = regexApi[0] || defaultApiURL
+
+    // Ignore last slash (/)
+    const regexSocket = Simpli.socketURL.match(/(.*)[^\/$]/g)
+    if (regexSocket) $.socketURL = regexSocket[0] || defaultSocketURL
 
     $.component = { ...defaultComponents, ...Simpli.components }
     $.filter = { ...defaultFilters, ...Simpli.filters }
@@ -109,6 +118,7 @@ export abstract class Simpli {
     }
 
     Vue.prototype.$apiURL = $.apiURL
+    Vue.prototype.$socketURL = $.socketURL
     Vue.prototype.$bus = $.bus
     Vue.prototype.$await = $.await
     Vue.prototype.$modal = $.modal

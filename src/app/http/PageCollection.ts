@@ -2,7 +2,7 @@ import { HttpResponse } from 'vue-resource/types/vue_resource'
 import { Collection } from './Collection'
 import { Resource } from './Resource'
 import { call } from '../../helpers'
-import { Resp, QueryRequest } from '../../misc'
+import { Resp, QueryRequest, ClassType } from '../../misc'
 
 export class PageCollection<R extends Resource> extends Collection<R> {
   filter: object = {}
@@ -14,7 +14,7 @@ export class PageCollection<R extends Resource> extends Collection<R> {
   asc: boolean = true
 
   // Set T as type
-  constructor(type: typeof Resource, filter = {}, perPage: number | null = 20, currentPage: number | null = 0) {
+  constructor(type: ClassType<R>, filter = {}, perPage: number | null = 20, currentPage: number | null = 0) {
     super(type)
     this.filter = filter
     this.perPage = perPage

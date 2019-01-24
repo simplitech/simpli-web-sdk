@@ -2,6 +2,11 @@ import { Vue } from 'vue-property-decorator'
 import { InputType } from '../enums'
 
 /**
+ * ClassType
+ */
+export { ClassType } from 'class-transformer/ClassTransformer'
+
+/**
  * Resource ID
  */
 export type ID = number | string

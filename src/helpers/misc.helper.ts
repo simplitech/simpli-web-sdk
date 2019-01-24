@@ -1,6 +1,7 @@
-import { plainToClassFromExist } from 'class-transformer'
+import { classToClass } from 'class-transformer'
 import { $ } from '../simpli'
 import { Collection, Resource } from '../app'
+import { ClassType } from '../misc'
 
 const shortid = require('shortid')
 
@@ -24,11 +25,11 @@ export function sleep(ms: number) {
 /**
  * Transform a given array of Resource into Collection
  * @param list
- * @param type
+ * @param cls
  * @returns Collection<T>
  */
-export function collect<T extends Resource>(type: typeof Resource, list?: T[]): Collection<T> {
-  const collection = new Collection<T>(type)
+export function collect<T extends Resource>(cls: ClassType<T>, list?: T[]): Collection<T> {
+  const collection = new Collection<T>(cls)
   if (list) {
     collection.items = list
   }
@@ -37,14 +38,11 @@ export function collect<T extends Resource>(type: typeof Resource, list?: T[]): 
 
 /**
  * Clone an entity
- * @param newEntity
  * @param fromEntity
  * @returns {any}
  */
-export function clone(newEntity: any, fromEntity: any) {
-  const json = JSON.stringify(fromEntity)
-  const data = JSON.parse(json)
-  return plainToClassFromExist(newEntity, data) as typeof newEntity
+export function clone<T>(fromEntity: T): T {
+  return classToClass(fromEntity)
 }
 
 /**

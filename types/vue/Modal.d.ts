@@ -4,8 +4,8 @@ export declare class ModalController {
   defaultBackgroundTransition: string | null
   defaultClosable: boolean
   defaultCloseOutside: boolean
-  open(name?: string): void
+  open(name?: string, payload?: any): void
   close(name?: string): void
-  toggle(name?: string): void
+  toggle(name?: string, payload?: any): void
   closeAll(): void
 }

@@ -28,8 +28,10 @@ export abstract class Resource extends Model {
   get $schema(): Schema {
     const json = JSON.stringify(this)
     const data = JSON.parse(json)
+
     delete data.$endpoint
     delete data.$name
+
     return data as Schema
   }
 

@@ -6,6 +6,7 @@ import { SnotifyService } from 'vue-snotify/SnotifyService'
 declare module 'vue/types/vue' {
   interface Vue {
     $apiURL: string
+    $socketURL: string
     $bus: Vue
     $snotify: SnotifyService | any
     $await: AwaitController
