@@ -116,7 +116,7 @@ export interface Resp<T> {
  * Used for input-select
  */
 export interface ResourceObject {
-  $id?: number
+  $id?: ID
   $tag?: string
 }
 
