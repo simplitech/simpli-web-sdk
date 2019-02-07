@@ -1,0 +1,7 @@
+@import "../variables";
+
+.vue-popover {
+  position: absolute;
+  max-height: 300px;
+  overflow-y: auto;
+}
