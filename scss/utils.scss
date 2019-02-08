@@ -299,3 +299,39 @@
     }
   }
 }
+
+.elevated {
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+
+  border-radius: $radius-base;
+  padding: 0;
+
+  &.intense {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+
+  &.square {
+    border-radius: 0;
+  }
+
+  &.padded {
+    padding: #{$padding-base * 2};
+
+    @media screen and (max-width: $display-small) {
+      padding: #{$padding-base};
+    }
+
+    &.wide {
+      padding: #{$padding-base * 3};
+
+      @media screen and (max-width: $display-medium) {
+        padding: #{$padding-base * 2};
+      }
+
+      @media screen and (max-width: $display-small) {
+        padding: #{$padding-base};
+      }
+    }
+  }
+}
