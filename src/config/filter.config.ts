@@ -61,4 +61,10 @@ export const defaultFilters = {
     v = v.replace(new RegExp($.t('filter.cep.regex')), $.t('filter.cep.format'))
     return v
   },
+
+  pad: (value?: string, length = 2): string => {
+    let str = `${value || ''}`
+    while (str.length < length) str = `0${str}`
+    return str
+  },
 }

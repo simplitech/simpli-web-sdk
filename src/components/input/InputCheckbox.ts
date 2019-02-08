@@ -2,8 +2,8 @@ const template = `
   <div class="form-group">
     <div class="checkbox">
       <label>
-        <input type="checkbox" v-model="computedModel" :disabled="disabled">
-        <span>
+        <input :type="radio ? '' : 'checkbox'" v-model="computedModel" :disabled="disabled" :value="radioValue" :class="innerClass">
+        <span :class="labelClass">
           {{ label }}
           <slot></slot>
         </span>
@@ -20,8 +20,16 @@ export class InputCheckbox extends Vue {
   value?: boolean
   @Prop({ type: String })
   label?: string
+  @Prop({ type: String })
+  labelClass?: boolean
+  @Prop({ type: String })
+  innerClass?: boolean
   @Prop({ type: Boolean })
   disabled?: boolean
+  @Prop({ type: Boolean })
+  radio?: boolean
+  @Prop({ type: [String, Number] })
+  radioValue?: boolean
 
   get computedModel() {
     return this.value || false
