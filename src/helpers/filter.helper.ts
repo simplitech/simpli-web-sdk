@@ -21,4 +21,4 @@ export const cpf = (val?: string | null) => (val ? $.filter.cpf(val) : '')
 
 export const cnpj = (val?: string | null) => (val ? $.filter.cnpj(val) : '')
 
-export const pad = (val?: string | number | null) => (val ? $.filter.pad(val.toString()) : '')
+export const pad = (val?: string | number | null, length?: number) => (val ? $.filter.pad(val.toString(), length) : '')

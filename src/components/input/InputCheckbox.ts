@@ -16,8 +16,8 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({ template })
 export class InputCheckbox extends Vue {
-  @Prop({ type: Boolean })
-  value?: boolean
+  @Prop({ type: [Boolean, String, Number] })
+  value?: boolean | string | number
   @Prop({ type: String })
   label?: string
   @Prop({ type: String })
@@ -35,11 +35,11 @@ export class InputCheckbox extends Vue {
     return this.value || false
   }
 
-  set computedModel(val: boolean) {
+  set computedModel(val: boolean | string | number) {
     this.updateValue(val)
   }
 
-  updateValue(val: boolean) {
+  updateValue(val: boolean | string | number) {
     this.$emit('input', val)
   }
 }
