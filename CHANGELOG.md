@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.3"></a>
+## [1.4.3](https://github.com/simplitech/simpli-web-sdk/compare/v1.4.2...v1.4.3) (2019-02-13)
+
+
+### Bug Fixes
+
+* Fixed PageCollection filter not using classToPlain ([4d7e872](https://github.com/simplitech/simpli-web-sdk/commit/4d7e872))
+
+
+
 <a name="1.4.2"></a>
 ## [1.4.2](https://github.com/simplitech/simpli-web-sdk/compare/v1.4.1...v1.4.2) (2019-02-11)
 
