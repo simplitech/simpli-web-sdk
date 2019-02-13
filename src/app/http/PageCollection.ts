@@ -3,6 +3,7 @@ import { Collection } from './Collection'
 import { Resource } from './Resource'
 import { call } from '../../helpers'
 import { Resp, QueryRequest, ClassType } from '../../misc'
+import { classToPlain } from 'class-transformer'
 
 export class PageCollection<R extends Resource> extends Collection<R> {
   filter: object = {}
@@ -42,6 +43,8 @@ export class PageCollection<R extends Resource> extends Collection<R> {
   async search(): Promise<Resp<R[]>> {
     const { querySearch, currentPage, perPage, orderBy, asc, filter } = this
 
+    const filterParams = classToPlain(filter)
+
     const params: QueryRequest = {
       query: querySearch,
       page: currentPage !== null ? currentPage : undefined,
@@ -50,7 +53,7 @@ export class PageCollection<R extends Resource> extends Collection<R> {
       ascending: asc,
     }
 
-    return await this.query({ ...(params as object), ...(filter as object) })
+    return await this.query({ ...params, ...filterParams })
   }
 
   /**
