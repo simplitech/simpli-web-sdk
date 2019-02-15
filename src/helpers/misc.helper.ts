@@ -1,8 +1,4 @@
-import { classToClass } from 'class-transformer'
 import { $ } from '../simpli'
-import { Collection, Resource } from '../app'
-import { ClassType, ResourceObject } from '../misc'
-
 const shortid = require('shortid')
 
 /**
@@ -21,39 +17,6 @@ export const uid = (prefix?: string, suffix?: string) => `${prefix || ''}${short
 export function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
-
-/**
- * Transform a given array of Resource into Collection
- * @param list
- * @param cls
- * @returns Collection<T>
- */
-export function collect<T extends Resource>(cls: ClassType<T>, list?: T[]): Collection<T> {
-  const collection = new Collection<T>(cls)
-  if (list) {
-    collection.items = list
-  }
-  return collection
-}
-
-/**
- * Clone an entity
- * @param fromEntity
- * @returns {any}
- */
-export function clone<T>(fromEntity: T): T {
-  return classToClass(fromEntity)
-}
-
-/**
- * Lists the enums and mapped it into ResourceObject
- * @param objEnum
- * @param i18nPath
- */
-export const listEnum = (objEnum: any, i18nPath?: string): ResourceObject[] =>
-  Object.keys(objEnum)
-    .filter(val => isNaN(Number(val)))
-    .map(key => ({ $id: objEnum[key], $tag: i18nPath ? $.t(`${i18nPath}.${key}`) : key }))
 
 /**
  * Generate a download file from a CSV string

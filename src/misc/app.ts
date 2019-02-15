@@ -117,7 +117,7 @@ export interface Resp<T> {
  */
 export interface ResourceObject {
   $id?: ID
-  $tag?: string
+  $tag?: TAG
 }
 
 export interface IValidator {

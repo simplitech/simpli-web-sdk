@@ -4,9 +4,19 @@ import { unparse } from 'papaparse'
 import { Type } from 'class-transformer'
 import { Resource } from './Resource'
 import { HttpBody } from './HttpBody'
-import { Resp, SchemaOptions, Schema, SchemaVal, SchemaRow, SchemaContent, SchemaData } from '../../misc'
-import { $, apiFullURL, call, createCsvFile } from '../../helpers'
-import { ClassType } from '../../misc'
+import {
+  ID,
+  Resp,
+  ClassType,
+  SchemaOptions,
+  Schema,
+  SchemaVal,
+  SchemaRow,
+  SchemaContent,
+  SchemaData,
+  ResourceObject,
+} from '../../misc'
+import { $, apiFullURL, itemsForSelect, getResource, filterResource, call, createCsvFile } from '../../helpers'
 
 export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
   /**
@@ -28,10 +38,32 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
     return new this.type()
   }
 
-  // Set R as type
   constructor(type: ClassType<R>) {
     super()
     this.type = type
+  }
+
+  /**
+   * Prepends a empty value into the resource list
+   */
+  itemsForSelect(val: R | ResourceObject | string | null = null): R[] {
+    return itemsForSelect(this.items, val) as R[]
+  }
+
+  /**
+   * Get Resource by ID
+   * @param id
+   */
+  getResource(id: ID): R | null {
+    return getResource(this.items, id) as R | null
+  }
+
+  /**
+   * Filter Resource by IDs
+   * @param ids
+   */
+  filterResource(ids: ID[]): R[] {
+    return filterResource(this.items, ids) as R[]
   }
 
   /**
@@ -105,7 +137,7 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
   }
 
   /**
-   * Returns formatted data
+   * Transform all schemas into data
    * @param options SchemaOptions
    */
   renderSchema(options: SchemaOptions = {}): (SchemaData | SchemaContent)[] {

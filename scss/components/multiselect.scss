@@ -1,7 +1,7 @@
 @import "../variables/main";
 
 .multiselect {
-  color: rgba(0,0,0, 0.7);
+  color: rgba(0, 0, 0, 0.7);
 
   .multiselect__select {
     height: 43px;
@@ -10,9 +10,15 @@
   }
 
   .multiselect__tags {
-    color: rgba(0,0,0, 0.7);
+    color: rgba(0, 0, 0, 0.7);
     border: none;
     padding: 0;
+
+    .multiselect__tags-wrap {
+      .multiselect__tag {
+        margin: 4px 8px 4px 0;
+      }
+    }
 
     .multiselect__input {
       width: 100% !important;
@@ -50,9 +56,11 @@
       .multiselect__tag-icon {
         margin: 2px;
         line-height: 20px;
+
         &:hover {
           background: lighten($primary-color, 15%) !important;
         }
+
         &:after {
           color: white !important;
         }
@@ -77,20 +85,38 @@
     }
 
     &::-webkit-scrollbar-track {
-      background: rgba(0,0,0, 0.1);
+      background: rgba(0, 0, 0, 0.1);
       border-radius: 0 $radius-base $radius-base 0;
     }
 
     &::-webkit-scrollbar-thumb {
-      background: rgba(0,0,0, 0.4);
+      background: rgba(0, 0, 0, 0.4);
       border-radius: 0 $radius-base $radius-base 0;
     }
 
-    .multiselect__option--highlight {
-      background: $primary-color !important;
-      &:after {
-        background: $primary-color !important;
+    ul.multiselect__content {
+      li.multiselect__element {
+        .multiselect__option {
+          background: white;
+          color: rgba(0, 0, 0, 0.7);
+
+          &.multiselect__option--highlight {
+            transition: all 100ms ease-in-out;
+            background: $primary-color;
+          }
+
+          &.multiselect__option--selected {
+            transition: all 100ms ease-in-out;
+            background: lighten($primary-color, 10%);
+          }
+
+          &:after {
+            color: rgba(0, 0, 0, 0.4);
+            background: none;
+          }
+        }
       }
     }
+
   }
 }
