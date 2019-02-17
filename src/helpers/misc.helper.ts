@@ -1,6 +1,6 @@
 import { $ } from '../simpli'
 import { classToClass } from 'class-transformer'
-import { ID, ResourceObject, TAG } from '../misc'
+import { ID, IResource, TAG } from '../misc'
 const shortid = require('shortid')
 
 /**
@@ -21,18 +21,18 @@ export function sleep(ms: number) {
 }
 
 /**
- * Build a ResourceObject
+ * Build an IResource
  * @param $id
  * @param $tag
  */
-export const buildResource = ($id: ID, $tag: TAG): ResourceObject => ({ $id, $tag })
+export const buildResource = ($id: ID, $tag: TAG): IResource => ({ $id, $tag })
 
 /**
- * Lists the enums and mapped it into an array ResourceObject
+ * Lists the enums and mapped it into an array of IResource
  * @param obj
  * @param i18nPath
  */
-export function listOfObject(obj: object, i18nPath?: string): ResourceObject[] {
+export function listOfResource(obj: object, i18nPath?: string): IResource[] {
   return Object.keys(obj)
     .filter(val => isNaN(Number(val)))
     .map(key => ({ $id: obj[key], $tag: i18nPath ? $.t(`${i18nPath}.${key}`) : key }))

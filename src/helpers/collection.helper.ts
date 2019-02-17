@@ -1,5 +1,5 @@
-import { Collection, CollectionObject, Resource } from '../app'
-import { ClassType, ID, ResourceObject } from '../misc'
+import { Collection, ObjectCollection, Resource } from '../app'
+import { ClassType, ID, IResource } from '../misc'
 import { buildResource, clone } from './misc.helper'
 
 /**
@@ -20,10 +20,10 @@ export function collect<R extends Resource>(cls: ClassType<R>, list?: R[]): Coll
  * Transform a given array of Resource Object into Collection
  * @param list
  * @param i18nPath
- * @returns CollectionObject
+ * @returns ObjectCollection
  */
-export function collectObject(list: ResourceObject[] | object, i18nPath?: string): CollectionObject {
-  return new CollectionObject(list, i18nPath)
+export function objectCollect(list: IResource[] | object, i18nPath?: string): ObjectCollection {
+  return new ObjectCollection(list, i18nPath)
 }
 
 /**
@@ -32,9 +32,9 @@ export function collectObject(list: ResourceObject[] | object, i18nPath?: string
  * @param val
  */
 export function nullableItems<R extends Resource>(
-  list: Array<R | ResourceObject>,
-  val: R | ResourceObject | string | null = null
-): Array<R | ResourceObject> {
+  list: Array<R | IResource>,
+  val: R | IResource | string | null = null
+): Array<R | IResource> {
   let item = val
 
   if (val instanceof String) item = buildResource(0, val as string)
@@ -43,25 +43,19 @@ export function nullableItems<R extends Resource>(
 }
 
 /**
- * Get ResourceObject by ID
+ * Get IResource by ID
  * @param list
  * @param id
  */
-export function getResource<R extends Resource>(
-  list: Array<R | ResourceObject>,
-  id: ID | null
-): R | ResourceObject | null {
-  return clone(list).find((item: R | ResourceObject) => item.$id === id) || null
+export function getResource<R extends Resource>(list: Array<R | IResource>, id: ID | null): R | IResource | null {
+  return list.find((item: R | IResource) => item.$id === id) || null
 }
 
 /**
- * Filter ResourceObject by IDs
+ * Filter IResource by IDs
  * @param list
  * @param ids
  */
-export function filterResource<R extends Resource>(
-  list: Array<R | ResourceObject>,
-  ids: ID[]
-): Array<R | ResourceObject> {
-  return clone(list).filter((item: R | ResourceObject) => ids.find((id: ID) => item.$id === id))
+export function filterResource<R extends Resource>(list: Array<R | IResource>, ids: ID[]): Array<R | IResource> {
+  return clone(list).filter((item: R | IResource) => ids.find((id: ID) => item.$id === id))
 }

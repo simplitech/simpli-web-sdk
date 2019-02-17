@@ -14,7 +14,7 @@ import {
   SchemaRow,
   SchemaContent,
   SchemaData,
-  ResourceObject,
+  IResource,
   ICollection,
 } from '../../misc'
 import { $, apiFullURL, nullableItems, getResource, filterResource, call, createCsvFile } from '../../helpers'
@@ -47,7 +47,7 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
   /**
    * Prepends a empty value into the resource list
    */
-  nullableItems(val: R | ResourceObject | string | null = null): R[] {
+  nullableItems(val: R | IResource | string | null = null): R[] {
     return nullableItems(this.items, val) as R[]
   }
 
@@ -56,7 +56,7 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
    * @param id
    */
   getResource(id: ID | null): R | null {
-    return getResource(this.items, id) as R | null
+    return getResource(this.clone().items, id) as R | null
   }
 
   /**

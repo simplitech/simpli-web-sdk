@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* Added CollectionObject ([1a88ec6](https://github.com/simplitech/simpli-web-sdk/commit/1a88ec6))
+* Added ObjectCollection ([1a88ec6](https://github.com/simplitech/simpli-web-sdk/commit/1a88ec6))
 
 
 

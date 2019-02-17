@@ -1,9 +1,10 @@
 import { HttpResponse } from 'vue-resource/types/vue_resource'
+import { omitBy } from 'lodash'
+import { classToPlain } from 'class-transformer'
 import { Collection } from './Collection'
 import { Resource } from './Resource'
 import { call } from '../../helpers'
 import { Resp, QueryRequest, ClassType } from '../../misc'
-import { classToPlain } from 'class-transformer'
 
 export class PageCollection<R extends Resource> extends Collection<R> {
   filter: object = {}
@@ -43,7 +44,7 @@ export class PageCollection<R extends Resource> extends Collection<R> {
   async search(): Promise<Resp<R[]>> {
     const { querySearch, currentPage, perPage, orderBy, asc, filter } = this
 
-    const filterParams = Object.keys(classToPlain(filter)).filter((item: any) => item !== null && item !== '')
+    const filterParams = omitBy(classToPlain(filter), (item: any) => item === null || item === '')
 
     const params: QueryRequest = {
       query: querySearch,

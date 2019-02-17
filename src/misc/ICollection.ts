@@ -1,27 +1,26 @@
-import { ID, ResourceObject } from '.'
-import { Resource } from '../app'
+import { ID, IResource } from '../misc'
 
 export interface ICollection {
   /**
    * Items of the collection
    * @type {Array}
    */
-  items: Array<ResourceObject | Resource>
+  readonly items: IResource[]
 
   /**
    * Prepends a empty value into the resource list
    */
-  nullableItems(val: ResourceObject | Resource | string | null): Array<ResourceObject | Resource>
+  nullableItems(val: IResource | string | null): IResource[]
 
   /**
    * Get Resource by ID
    * @param id
    */
-  getResource(id: ID | null): ResourceObject | null
+  getResource(id: ID | null): IResource | null
 
   /**
    * Filter Resource by IDs
    * @param ids
    */
-  filterResource(ids: ID[]): ResourceObject[]
+  filterResource(ids: ID[]): IResource[]
 }

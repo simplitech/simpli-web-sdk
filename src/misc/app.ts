@@ -112,14 +112,6 @@ export interface Resp<T> {
   blob(): Blob
 }
 
-/**
- * Used for input-select
- */
-export interface ResourceObject {
-  $id?: ID
-  $tag?: TAG
-}
-
 export interface IValidator {
   validateFirstError?(): Promise<void>
   validate(): Promise<void>

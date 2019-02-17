@@ -13,11 +13,11 @@ import {
   SchemaContent,
   SchemaVue,
   SchemaData,
-  ResourceObject,
+  IResource,
 } from '../../misc'
 import { $, apiFullURL } from '../../helpers'
 
-export abstract class Resource extends Model implements ResourceObject {
+export abstract class Resource extends Model implements IResource {
   /**
    * API URI endpoint
    */
