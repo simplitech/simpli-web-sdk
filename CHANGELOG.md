@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.6.0"></a>
+# [1.6.0](https://github.com/simplitech/simpli-web-sdk/compare/v1.5.0...v1.6.0) (2019-02-17)
+
+
+### Features
+
+* Added CollectionObject ([1a88ec6](https://github.com/simplitech/simpli-web-sdk/commit/1a88ec6))
+
+
+
 <a name="1.5.0"></a>
 # [1.5.0](https://github.com/simplitech/simpli-web-sdk/compare/v1.4.4...v1.5.0) (2019-02-15)
 
