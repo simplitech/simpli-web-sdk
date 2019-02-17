@@ -23,6 +23,6 @@ export class AdapOrderby extends Vue {
   label?: string
 
   async orderBy() {
-    await $.await.run(() => this.collection.setOrderBy(this.name))
+    await this.collection.setOrderBy(this.name)
   }
 }

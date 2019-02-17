@@ -43,7 +43,7 @@ export class PageCollection<R extends Resource> extends Collection<R> {
   async search(): Promise<Resp<R[]>> {
     const { querySearch, currentPage, perPage, orderBy, asc, filter } = this
 
-    const filterParams = classToPlain(filter)
+    const filterParams = Object.keys(classToPlain(filter)).filter((item: any) => item !== null && item !== '')
 
     const params: QueryRequest = {
       query: querySearch,

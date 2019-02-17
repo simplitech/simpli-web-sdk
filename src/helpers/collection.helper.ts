@@ -11,6 +11,17 @@ import { ClassType, ID, ResourceObject, TAG } from '../misc'
 export const buildResource = ($id: ID, $tag: TAG): ResourceObject => ({ $id, $tag })
 
 /**
+ * Lists the enums and mapped it into an array ResourceObject
+ * @param objEnum
+ * @param i18nPath
+ */
+export function listOfEnum(objEnum: any, i18nPath?: string): ResourceObject[] {
+  return Object.keys(objEnum)
+    .filter(val => isNaN(Number(val)))
+    .map(key => ({ $id: objEnum[key], $tag: i18nPath ? $.t(`${i18nPath}.${key}`) : key }))
+}
+
+/**
  * Transform a given array of Resource into Collection
  * @param list
  * @param cls
@@ -25,14 +36,22 @@ export function collect<R extends Resource>(cls: ClassType<R>, list?: R[]): Coll
 }
 
 /**
- * Lists the enums and mapped it into ResourceObject
+ * Transform a given array of Resource Object into Collection
+ * @param list
+ * @returns Collection<T>
+ */
+export function collectResource(list?: ResourceObject[]): Collection<Resource> {
+  // @ts-ignore
+  return collect(Resource, list as Resource[])
+}
+
+/**
+ * Lists the enums and mapped it into a collection
  * @param objEnum
  * @param i18nPath
  */
-export function listOfEnum(objEnum: any, i18nPath?: string): ResourceObject[] {
-  return Object.keys(objEnum)
-    .filter(val => isNaN(Number(val)))
-    .map(key => ({ $id: objEnum[key], $tag: i18nPath ? $.t(`${i18nPath}.${key}`) : key }))
+export function collectEnum(objEnum: any, i18nPath?: string): Collection<Resource> {
+  return collectResource(listOfEnum(objEnum, i18nPath))
 }
 
 /**
@@ -40,7 +59,7 @@ export function listOfEnum(objEnum: any, i18nPath?: string): ResourceObject[] {
  * @param list
  * @param val
  */
-export function itemsForSelect<R extends Resource>(
+export function nullableItems<R extends Resource>(
   list: Array<R | ResourceObject>,
   val: R | ResourceObject | string | null = null
 ): Array<R | ResourceObject> {

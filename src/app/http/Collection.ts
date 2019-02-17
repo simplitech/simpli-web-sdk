@@ -16,7 +16,7 @@ import {
   SchemaData,
   ResourceObject,
 } from '../../misc'
-import { $, apiFullURL, itemsForSelect, getResource, filterResource, call, createCsvFile } from '../../helpers'
+import { $, apiFullURL, nullableItems, getResource, filterResource, call, createCsvFile } from '../../helpers'
 
 export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
   /**
@@ -46,15 +46,15 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
   /**
    * Prepends a empty value into the resource list
    */
-  itemsForSelect(val: R | ResourceObject | string | null = null): R[] {
-    return itemsForSelect(this.items, val) as R[]
+  nullableItems(val: R | ResourceObject | string | null = null): R[] {
+    return nullableItems(this.items, val) as R[]
   }
 
   /**
    * Get Resource by ID
    * @param id
    */
-  getResource(id: ID): R | null {
+  getResource(id: ID | null): R | null {
     return getResource(this.items, id) as R | null
   }
 
