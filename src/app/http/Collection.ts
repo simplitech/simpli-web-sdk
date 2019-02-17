@@ -15,10 +15,11 @@ import {
   SchemaContent,
   SchemaData,
   ResourceObject,
+  ICollection,
 } from '../../misc'
 import { $, apiFullURL, nullableItems, getResource, filterResource, call, createCsvFile } from '../../helpers'
 
-export class Collection<R extends Resource> extends HttpBody<Collection<R>> {
+export class Collection<R extends Resource> extends HttpBody<Collection<R>> implements ICollection {
   /**
    * Items of the collection
    * @type {Array}

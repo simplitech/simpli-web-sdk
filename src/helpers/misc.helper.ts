@@ -1,4 +1,6 @@
 import { $ } from '../simpli'
+import { classToClass } from 'class-transformer'
+import { ID, ResourceObject, TAG } from '../misc'
 const shortid = require('shortid')
 
 /**
@@ -16,6 +18,24 @@ export const uid = (prefix?: string, suffix?: string) => `${prefix || ''}${short
  */
 export function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+/**
+ * Build a ResourceObject
+ * @param $id
+ * @param $tag
+ */
+export const buildResource = ($id: ID, $tag: TAG): ResourceObject => ({ $id, $tag })
+
+/**
+ * Lists the enums and mapped it into an array ResourceObject
+ * @param obj
+ * @param i18nPath
+ */
+export function listOfObject(obj: object, i18nPath?: string): ResourceObject[] {
+  return Object.keys(obj)
+    .filter(val => isNaN(Number(val)))
+    .map(key => ({ $id: obj[key], $tag: i18nPath ? $.t(`${i18nPath}.${key}`) : key }))
 }
 
 /**
@@ -54,4 +74,12 @@ export function currencyConfig(currency: string) {
     prefix: $.t(`currency.${currency}.prefix`) as string,
     precision: Number($.t(`currency.${currency}.precision`) as string),
   }
+}
+
+/**
+ * Clone an entity
+ * @param fromEntity
+ */
+export function clone<T>(fromEntity: T): T {
+  return classToClass(fromEntity)
 }

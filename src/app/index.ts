@@ -6,6 +6,8 @@ export { PageCollection } from './http/PageCollection'
 export { Resource } from './http/Resource'
 export { WholeCollection } from './http/WholeCollection'
 
+export { CollectionObject } from './CollectionObject'
+
 export { Validator } from './Validator'
 
 export { SocketConnection } from './SocketConnection'
