@@ -5,7 +5,7 @@ export interface ICollection {
    * Items of the collection
    * @type {Array}
    */
-  readonly items: IResource[]
+  items: IResource[]
 
   /**
    * Prepends a empty value into the resource list

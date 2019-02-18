@@ -6,7 +6,7 @@ export class ObjectCollection implements ICollection {
    * Items of the collection
    * @type {Array}
    */
-  readonly items: IResource[]
+  items: IResource[]
 
   constructor(list: IResource[] | object, i18nPath?: string) {
     if (list instanceof Array) {

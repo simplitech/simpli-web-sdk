@@ -17,7 +17,7 @@ import {
   IResource,
   ICollection,
 } from '../../misc'
-import { $, apiFullURL, nullableItems, getResource, filterResource, call, createCsvFile } from '../../helpers'
+import { $, apiFullURL, nullableItems, getResource, filterResource, call, createCsvFile, clone } from '../../helpers'
 
 export class Collection<R extends Resource> extends HttpBody<Collection<R>> implements ICollection {
   /**
@@ -56,7 +56,7 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
    * @param id
    */
   getResource(id: ID | null): R | null {
-    return getResource(this.clone().items, id) as R | null
+    return getResource(clone(this.items), id) as R | null
   }
 
   /**
