@@ -1,6 +1,6 @@
 import { shuffle, reverse } from 'lodash'
 import { Collection, ObjectCollection, Resource } from '../app'
-import { ClassType, ID, IResource } from '../misc'
+import { ClassType, Enum, ID, IResource } from '../misc'
 import { buildResource, clone } from './misc.helper'
 
 /**
@@ -23,7 +23,7 @@ export function collect<R extends Resource>(cls: ClassType<R>, list?: R[]): Coll
  * @param i18nPath
  * @returns ObjectCollection
  */
-export function objectCollect(list: IResource[] | { [key: string]: ID }, i18nPath?: string): ObjectCollection {
+export function objectCollect<E extends Enum<E>>(list: IResource[] | E, i18nPath?: string): ObjectCollection<E> {
   return new ObjectCollection(list, i18nPath)
 }
 
