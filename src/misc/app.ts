@@ -99,6 +99,11 @@ export interface QueryRequest {
 }
 
 /**
+ * This type represent any Enum type
+ */
+export type Enum<E> = Record<keyof E, number | string> & { [k: number]: string }
+
+/**
  * Response format for all http requests
  */
 export interface Resp<T> {

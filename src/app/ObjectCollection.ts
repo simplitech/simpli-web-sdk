@@ -1,14 +1,14 @@
-import { ID, TAG, ICollection, IResource } from '../misc'
+import { ID, TAG, Enum, ICollection, IResource } from '../misc'
 import * as Helper from '../helpers'
 
-export class ObjectCollection implements ICollection {
+export class ObjectCollection<E extends Enum<E>> implements ICollection {
   /**
    * Items of the collection
    * @type {Array}
    */
   items: IResource[] = []
 
-  constructor(list?: IResource[] | { [key: string]: ID }, i18nPath?: string) {
+  constructor(list?: IResource[] | E, i18nPath?: string) {
     if (list instanceof Array) {
       this.items = list as IResource[]
     } else if (typeof list === 'object') {
