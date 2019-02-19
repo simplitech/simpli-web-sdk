@@ -36,6 +36,13 @@ export interface ICollection {
   last(): IResource | null
 
   /**
+   * Add a null item into the begin of the list
+   * @param tag
+   * @param useI18n
+   */
+  prependNull(tag: TAG, useI18n: boolean): this
+
+  /**
    * Add an item into the begin of the list
    * @param id
    * @param tag

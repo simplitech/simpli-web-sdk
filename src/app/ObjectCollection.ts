@@ -1,3 +1,4 @@
+import { $ } from '../simpli'
 import { ID, TAG, Enum, ICollection, IResource } from '../misc'
 import * as Helper from '../helpers'
 
@@ -55,9 +56,18 @@ export class ObjectCollection<E extends Enum<E>> implements ICollection {
   }
 
   /**
+   * Add a null item into the begin of the list
+   * @param tag
+   * @param useI18n
+   */
+  prependNull(tag: TAG, useI18n = true): this {
+    return this.prepend(0, useI18n ? $.t(tag) : tag)
+  }
+
+  /**
    * Add an item into the begin of the list
-   * @param list
-   * @param item
+   * @param id
+   * @param tag
    */
   prepend(id: ID, tag: TAG): this {
     Helper.prependResource(this.items, Helper.buildResource(id, tag))
@@ -66,8 +76,8 @@ export class ObjectCollection<E extends Enum<E>> implements ICollection {
 
   /**
    * Add an item into the end of the list
-   * @param list
-   * @param item
+   * @param id
+   * @param tag
    */
   append(id: ID, tag: TAG): this {
     Helper.appendResource(this.items, Helper.buildResource(id, tag))
@@ -76,7 +86,6 @@ export class ObjectCollection<E extends Enum<E>> implements ICollection {
 
   /**
    * Shuffle a list of Resource
-   * @param list
    */
   shuffle(): this {
     this.items = Helper.shuffleResource(this.items) as IResource[]

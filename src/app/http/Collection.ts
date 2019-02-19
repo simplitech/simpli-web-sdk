@@ -164,6 +164,15 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
   }
 
   /**
+   * Add a null item into the begin of the list
+   * @param tag
+   * @param useI18n
+   */
+  prependNull(tag: TAG, useI18n = true): this {
+    return this.prepend(0, useI18n ? $.t(tag) : tag)
+  }
+
+  /**
    * Add an item into the begin of the list
    * @param id
    * @param tag
