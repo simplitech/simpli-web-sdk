@@ -24,11 +24,11 @@ const template = `
   </div>
 `
 
+import { plainToClassFromExist } from 'class-transformer'
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import { ID, TAG } from '../../misc'
 import { Resource } from '../../app'
-import { plainToClassFromExist } from 'class-transformer'
-import { buildResource } from '../../helpers'
+import { buildResource, objectCollect } from '../../helpers'
 
 type InputModel = Resource | null | Resource[]
 type InputItems = Array<Resource | null>
@@ -70,7 +70,7 @@ export class InputSelect extends Vue {
     if (val instanceof Array) {
       this.model = val as Resource[]
     } else {
-      this.model = (val as Resource | null) || this.emptyResource
+      this.model = (val as Resource) || this.emptyResource
     }
   }
 
@@ -84,12 +84,43 @@ export class InputSelect extends Vue {
   }
 
   get computedModel() {
-    return this.model
+    const model = this.model
+    const options = this.options.filter((item: Resource | null) => !!item) as Resource[]
+
+    if (this.isTaggable) {
+      return model
+    }
+
+    if (model instanceof Array) {
+      const ids = (model as Resource[]).map((item: Resource) => item.$id)
+      return objectCollect(options).getMany(ids) as Resource[]
+    }
+
+    const id = (model as Resource).$id
+    return objectCollect(options).get(id) as Resource | null
   }
 
   set computedModel(val: InputModel) {
     this.model = val || this.emptyResource
-    this.$emit('input', plainToClassFromExist(this.value, val || null))
+    const options = this.options.filter((item: Resource | null) => !!item) as Resource[]
+
+    if (this.isTaggable) {
+      this.$emit('input', plainToClassFromExist(this.value, val || null))
+      return
+    }
+
+    const model = this.model
+
+    if (model instanceof Array) {
+      const ids = (model as Resource[]).map((item: Resource) => item.$id)
+      const resources = objectCollect(options).getMany(ids) as Resource[]
+      this.$emit('input', plainToClassFromExist(this.value, resources))
+      return
+    }
+
+    const id = (model as Resource).$id
+    const resource = objectCollect(options).get(id) as Resource | null
+    this.$emit('input', plainToClassFromExist(this.value, resource))
   }
 
   get isMultiple() {

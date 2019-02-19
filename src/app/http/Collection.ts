@@ -6,6 +6,7 @@ import { Resource } from './Resource'
 import { HttpBody } from './HttpBody'
 import {
   ID,
+  TAG,
   Resp,
   ClassType,
   SchemaOptions,
@@ -17,7 +18,8 @@ import {
   IResource,
   ICollection,
 } from '../../misc'
-import { $, apiFullURL, nullableItems, getResource, filterResource, call, createCsvFile, clone } from '../../helpers'
+import { $, apiFullURL, call, nullableItems, createCsvFile } from '../../helpers'
+import * as Helper from '../../helpers'
 
 export class Collection<R extends Resource> extends HttpBody<Collection<R>> implements ICollection {
   /**
@@ -42,29 +44,6 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
   constructor(type: ClassType<R>) {
     super()
     this.type = type
-  }
-
-  /**
-   * Prepends a empty value into the resource list
-   */
-  nullableItems(val: R | IResource | string | null = null): R[] {
-    return nullableItems(this.items, val) as R[]
-  }
-
-  /**
-   * Get Resource by ID
-   * @param id
-   */
-  getResource(id: ID | null): R | null {
-    return getResource(clone(this.items), id) as R | null
-  }
-
-  /**
-   * Filter Resource by IDs
-   * @param ids
-   */
-  filterResource(ids: ID[]): R[] {
-    return filterResource(this.items, ids) as R[]
   }
 
   /**
@@ -158,5 +137,97 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
     )
 
     createCsvFile(title, unparse(data))
+  }
+
+  /**
+   * Prepends a empty value into the resource list
+   * @param placeholder
+   */
+  nullableItems(placeholder: string | null = null): Array<R | null> {
+    return nullableItems(this.items, placeholder) as Array<R | null>
+  }
+
+  /**
+   * Get Resource by ID
+   * @param id
+   */
+  get(id: ID | null): R | null {
+    return Helper.getResource(this.items, id) as R | null
+  }
+
+  /**
+   * Filter Resource by IDs
+   * @param ids
+   */
+  getMany(ids: ID[]): R[] {
+    return Helper.getManyResource(this.items, ids) as R[]
+  }
+
+  /**
+   * Add an item into the begin of the list
+   * @param id
+   * @param tag
+   */
+  prepend(id: ID, tag: TAG): this {
+    Helper.prependResource(this.items, Helper.buildResource(id, tag))
+    return this
+  }
+
+  /**
+   * Add an item into the end of the list
+   * @param id
+   * @param tag
+   */
+  append(id: ID, tag: TAG): this {
+    Helper.appendResource(this.items, Helper.buildResource(id, tag))
+    return this
+  }
+
+  /**
+   * Get the first item of the list
+   */
+  first(): R | null {
+    return Helper.firstResource(this.items) as R | null
+  }
+
+  /**
+   * Get the last item of the list
+   */
+  last(): R | null {
+    return Helper.lastResource(this.items) as R | null
+  }
+
+  /**
+   * Shuffle a list of Resource
+   */
+  shuffle(): this {
+    this.items = Helper.shuffleResource(this.items) as R[]
+    return this
+  }
+
+  /**
+   * Reverse a list of Resource
+   */
+  reverse(): this {
+    this.items = Helper.reverseResource(this.items) as R[]
+    return this
+  }
+
+  /**
+   * Add a Resource
+   * @param id
+   * @param tag
+   * @param index
+   */
+  add(id: ID, tag: TAG, index?: number) {
+    Helper.addResource(this.items, Helper.buildResource(id, tag), index)
+  }
+
+  /**
+   * Remove a Resource by ID
+   * @param id
+   */
+  remove(id: ID) {
+    Helper.removeResource(this.items, id)
   }
 }

@@ -28,11 +28,11 @@ export function sleep(ms: number) {
 export const buildResource = ($id: ID, $tag: TAG): IResource => ({ $id, $tag })
 
 /**
- * Lists the enums and mapped it into an array of IResource
+ * Lists the objects keys and mapped it into an array of Resource
  * @param obj
  * @param i18nPath
  */
-export function listOfResource(obj: object, i18nPath?: string): IResource[] {
+export function listObject(obj: { [key: string]: ID }, i18nPath?: string): IResource[] {
   return Object.keys(obj)
     .filter(val => isNaN(Number(val)))
     .map(key => ({ $id: obj[key], $tag: i18nPath ? $.t(`${i18nPath}.${key}`) : key }))
