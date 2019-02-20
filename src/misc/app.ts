@@ -104,6 +104,18 @@ export interface QueryRequest {
 export type Enum<E> = Record<keyof E, number | string> & { [k: number]: string }
 
 /**
+ * Data blueprint
+ */
+export interface DataBlueprint {
+  [key: string]: string[]
+}
+
+/**
+ * Normalized item
+ */
+export type NormalizedItem<B extends DataBlueprint> = Record<keyof B, string> & { [k: number]: string }
+
+/**
  * Response format for all http requests
  */
 export interface Resp<T> {

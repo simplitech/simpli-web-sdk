@@ -61,7 +61,7 @@ export class AwaitController {
     Event.$emit('toggle', name, View.ERROR)
   }
 
-  async run(func: Function, name?: string, delay?: number) {
+  async run<T>(func: (...args: any[]) => Promise<T>, name?: string, delay?: number): Promise<T> {
     try {
       this.init(name)
       if (delay) await sleep(delay)

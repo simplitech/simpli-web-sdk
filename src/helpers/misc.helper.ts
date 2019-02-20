@@ -1,6 +1,7 @@
 import { $ } from '../simpli'
 import { classToClass } from 'class-transformer'
-import { ID, IResource, TAG } from '../misc'
+import Papa, { ParseError, ParseResult } from 'papaparse'
+import { ID, TAG, IResource, DataBlueprint, NormalizedItem } from '../misc'
 const shortid = require('shortid')
 
 /**
@@ -60,6 +61,70 @@ export function createCsvFile(filename: string, csvStr: string) {
     link.click()
     document.body.removeChild(link)
   }
+}
+
+/**
+ * Transform a csv file into a normalized data object
+ * @param urlOrFile
+ * @param blueprint
+ */
+export const csvToNormalizedData = async <T extends DataBlueprint>(
+  urlOrFile: string | File,
+  blueprint: T
+): Promise<Array<NormalizedItem<T>>> => {
+  const resp = await csvToData(urlOrFile)
+  return normalizeData(resp.data, blueprint) as Array<NormalizedItem<T>>
+}
+
+/**
+ * Transform a csv file into a data object
+ * @param urlOrFile
+ */
+export const csvToData = async (urlOrFile: string | File): Promise<ParseResult> => {
+  const promiseFunc = (resolve: Function, reject: Function) => {
+    const defaultConfig = {
+      header: true,
+      skipEmptyLines: true,
+      complete: (results: ParseResult) => resolve(results),
+      error: (error: ParseError) => reject(error),
+    }
+
+    if (urlOrFile instanceof File) {
+      Papa.parse(urlOrFile, { ...defaultConfig })
+    } else {
+      Papa.parse(urlOrFile, { download: true, ...defaultConfig })
+    }
+  }
+
+  return new Promise<ParseResult>(promiseFunc)
+}
+
+/**
+ * Normalize a generic data based on CSV Blueprint
+ * @param data
+ * @param blueprint
+ */
+export const normalizeData = <T extends DataBlueprint>(data: any[], blueprint: T): Array<NormalizedItem<T>> => {
+  return (
+    data
+      .map((dataItem: any) => {
+        const normDataItem: any = {}
+
+        for (const key in blueprint) {
+          if (blueprint.hasOwnProperty(key)) {
+            const allowedKeys = blueprint[key]
+            const keyFromData = allowedKeys.find((k: string) => dataItem[k])
+            if (keyFromData) {
+              normDataItem[key] = dataItem[keyFromData]
+            }
+          }
+        }
+
+        return normDataItem as NormalizedItem<T>
+      })
+      // clean invalid rows
+      .filter((item: any) => item !== undefined && item !== null)
+  )
 }
 
 /**
