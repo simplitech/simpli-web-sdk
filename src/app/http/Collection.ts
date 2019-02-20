@@ -50,7 +50,7 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
    * Serializes the response body of a call to the WebServer
    * @param promise Any call of VUE RESOURCE
    */
-  async call(promise: PromiseLike<HttpResponse>): Promise<Resp<this>> {
+  async call(promise: PromiseLike<HttpResponse>) {
     const resp = await call(this.type, promise)
     this.items = resp.data
     return resp
