@@ -15,16 +15,14 @@ import { $ } from '../../simpli'
 @Component({ template })
 export class AdapSearchfield extends Vue {
   @Prop({ required: true })
-  collection?: PageCollection<Resource>
-  @Prop({ default: 500 })
-  debounceTimer?: number
+  collection!: PageCollection<Resource>
+  @Prop({ type: Number, default: 500 })
+  debounceTimer!: number
+  @Prop({ type: String, default: 'adapQuery' })
+  spinner!: string
 
   get debounce() {
-    const { collection } = this
-
-    if (collection) {
-      const fetch = async () => await $.await.run(() => collection.searchByQuery(), 'query')
-      return debounce(fetch, this.debounceTimer)
-    }
+    const fetch = async () => await $.await.run(() => this.collection.searchByQuery(), this.spinner)
+    return debounce(fetch, this.debounceTimer)
   }
 }

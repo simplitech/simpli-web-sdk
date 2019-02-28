@@ -48,6 +48,24 @@ export const defaultFilters = {
     return v
   },
 
+  cpfOrCnpj(val?: string): string {
+    if (val) {
+      const str = val.replace(/\D/g, '')
+
+      if (str.length === 11) {
+        return str.replace(/(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4')
+      }
+
+      if (str.length === 14) {
+        return str.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5')
+      }
+
+      return str
+    }
+
+    return ''
+  },
+
   phone: (value?: string): string => {
     if (!value) return ''
     let v = value.replace(/\D/g, '')

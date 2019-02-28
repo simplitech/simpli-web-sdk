@@ -199,9 +199,22 @@ const template = `
         :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
       />
+
+      <input-text
+        v-else-if="schemaRow.input === InputType.CPF_OR_CNPJ" :key="16"
+        type="cpfCnpj"
+        v-model="value[schemaRow.model || field]"
+        :required="required || (schemaRow.meta && schemaRow.meta.required)"
+        :disabled="disabled || schemaRow.editable === false"
+        :selectall="selectall || (schemaRow.meta && schemaRow.meta.selectall)"
+        :autofocus="autofocus || (schemaRow.meta && schemaRow.meta.autofocus)"
+        :label="label || $t(\`classes.\${value.$name}.columns.\${field}\`)"
+        :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder)"
+        :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+      />
       
       <input-text
-        v-else-if="schemaRow.input === InputType.RG" :key="16"
+        v-else-if="schemaRow.input === InputType.RG" :key="17"
         type="rg"
         v-model="value[schemaRow.model || field]"
         :required="required || (schemaRow.meta && schemaRow.meta.required)"

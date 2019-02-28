@@ -15,6 +15,7 @@ export enum InputType {
   CEP,
   CPF,
   CNPJ,
+  CPF_OR_CNPJ,
   RG,
   CUSTOM,
 }

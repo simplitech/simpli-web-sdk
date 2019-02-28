@@ -130,6 +130,12 @@ export class InputText extends Vue {
       return $.t('format.cpf') as string
     } else if (this.type === 'cnpj') {
       return $.t('format.cnpj') as string
+    } else if (this.type === 'cpfCnpj') {
+      if (String(this.value).length <= 11) {
+        return `${$.t('format.cpf')}#`
+      } else {
+        return $.t('format.cnpj') as string
+      }
     } else if (this.type === 'rg') {
       return $.t('format.rg') as string
     } else if (this.type === 'phone') {
@@ -149,6 +155,8 @@ export class InputText extends Vue {
       return $.filter.cpf(this.value as string)
     } else if (this.type === 'cnpj') {
       return $.filter.cnpj(this.value as string)
+    } else if (this.type === 'cpfCnpj') {
+      return $.filter.cpfOrCnpj(this.value as string)
     } else if (this.type === 'rg') {
       return $.filter.rg(this.value as string)
     } else if (this.type === 'phone') {
@@ -164,7 +172,7 @@ export class InputText extends Vue {
       this.populateDateValue(val as string)
     } else if (this.type === 'datetime') {
       this.populateDatetimeValue(val as string)
-    } else if (['cpf', 'cnpj', 'rg', 'phone', 'cep'].indexOf(this.type!) > -1) {
+    } else if (['cpf', 'cnpj', 'cpfCnpj', 'rg', 'phone', 'cep'].indexOf(this.type!) > -1) {
       this.populateWithoutDelimiters(val as string)
     } else {
       this.updateValue(val)
@@ -181,7 +189,7 @@ export class InputText extends Vue {
     if (el && this.selectall) el.select()
   }
 
-  updateValue(val?: string | number) {
+  updateValue(val: string | number | null) {
     this.$emit('input', val)
   }
 
@@ -197,8 +205,8 @@ export class InputText extends Vue {
   }
 
   populateDateValue(visual?: string) {
-    if (!visual || !visual.length) {
-      this.updateValue()
+    if (!visual || visual.length < 10) {
+      this.updateValue(null)
       return
     }
 
@@ -206,6 +214,8 @@ export class InputText extends Vue {
 
     if (date.isValid()) {
       this.updateValue(date.format())
+    } else {
+      this.$forceUpdate()
     }
   }
 
@@ -217,8 +227,8 @@ export class InputText extends Vue {
   }
 
   populateDatetimeValue(visual?: string) {
-    if (!visual || !visual.length) {
-      this.updateValue()
+    if (!visual || visual.length < 16) {
+      this.updateValue(null)
       return
     }
 
@@ -226,6 +236,8 @@ export class InputText extends Vue {
 
     if (date.isValid()) {
       this.updateValue(date.format())
+    } else {
+      this.$forceUpdate()
     }
   }
 }

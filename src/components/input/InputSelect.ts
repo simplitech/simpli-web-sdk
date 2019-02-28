@@ -20,20 +20,22 @@ const template = `
                  :hide-selected="isHideSelected"
                  @tag="tagEvent"
                  @remove="removeEvent"
-    />
+    >
+      <div slot="noResult">{{ noResultLabel || $t('app.noResultFound') }}</div>
+      <div slot="noOptions">{{ noOptionsLabel || $t('app.emptyList') }}</div>
+    </multiselect>
   </div>
 `
 
 import { plainToClassFromExist } from 'class-transformer'
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
-import { ID, TAG } from '../../misc'
-import { Resource } from '../../app'
-import { buildResource, objectCollect } from '../../helpers'
+import { ID, TAG, IResource } from '../../misc'
+import { buildResource } from '../../helpers'
 
-type InputModel = Resource | null | Resource[]
-type InputItems = Array<Resource | null>
+type InputModel = IResource | null | IResource[]
+type InputItems = Array<IResource | null>
 
-const build = ($id: ID, $tag: TAG) => buildResource($id, $tag) as Resource
+const build = ($id: ID, $tag: TAG) => buildResource($id, $tag) as IResource
 
 @Component({ template })
 export class InputSelect extends Vue {
@@ -50,59 +52,61 @@ export class InputSelect extends Vue {
   @Prop({ type: Boolean })
   taggable?: boolean
   @Prop({ type: String, default: '' })
-  placeholder?: boolean
+  placeholder!: string
   @Prop({ type: String, default: '' })
-  tagPlaceholder?: boolean
+  tagPlaceholder!: string
   @Prop({ type: String, default: '' })
-  selectLabel?: boolean
+  selectLabel!: string
   @Prop({ type: String, default: '' })
-  selectedLabel?: boolean
+  selectedLabel!: string
   @Prop({ type: String, default: '' })
-  deselectLabel?: boolean
+  deselectLabel!: string
+  @Prop({ type: String, default: null })
+  noResultLabel!: string | null
+  @Prop({ type: String, default: null })
+  noOptionsLabel!: string | null
 
   readonly emptyResource = build(0, '')
 
-  model: Resource | Resource[] = []
+  model: IResource | IResource[] = []
   options: InputItems = []
 
   @Watch('value', { immediate: true })
   valueEvent(val: InputItems) {
     if (val instanceof Array) {
-      this.model = val as Resource[]
+      this.model = val as IResource[]
     } else {
-      this.model = (val as Resource) || this.emptyResource
+      this.model = (val as IResource) || this.emptyResource
     }
   }
 
   @Watch('items', { immediate: true })
   itemsEvent(val: InputItems) {
     if (!this.isTaggable) {
-      this.options = val.map((item: Resource | null) => {
-        return item ? (buildResource(item.$id, item.$tag) as Resource) : this.emptyResource
-      })
+      this.options = val.map((item: IResource | null) => item || this.emptyResource)
     }
   }
 
   get computedModel() {
     const model = this.model
-    const options = this.options.filter((item: Resource | null) => !!item) as Resource[]
+    const options = this.options.filter((item: IResource | null) => !!item) as IResource[]
 
     if (this.isTaggable) {
       return model
     }
 
     if (model instanceof Array) {
-      const ids = (model as Resource[]).map((item: Resource) => item.$id)
-      return objectCollect(options).getMany(ids) as Resource[]
+      const ids = (model as IResource[]).map((item: IResource) => item.$id)
+      return options.filter((item: IResource) => ids.find((id: ID) => item.$id === id))
     }
 
-    const id = (model as Resource).$id
-    return objectCollect(options).get(id) as Resource | null
+    const id = (model as IResource).$id
+    return options.find((item: IResource) => item.$id === id) || null
   }
 
   set computedModel(val: InputModel) {
     this.model = val || this.emptyResource
-    const options = this.options.filter((item: Resource | null) => !!item) as Resource[]
+    const options = this.options.filter((item: IResource | null) => !!item) as IResource[]
 
     if (this.isTaggable) {
       this.$emit('input', plainToClassFromExist(this.value, val || null))
@@ -112,14 +116,14 @@ export class InputSelect extends Vue {
     const model = this.model
 
     if (model instanceof Array) {
-      const ids = (model as Resource[]).map((item: Resource) => item.$id)
-      const resources = objectCollect(options).getMany(ids) as Resource[]
+      const ids = (model as IResource[]).map((item: IResource) => item.$id)
+      const resources = options.filter((item: IResource) => ids.find((id: ID) => item.$id === id))
       this.$emit('input', plainToClassFromExist(this.value, resources))
       return
     }
 
-    const id = (model as Resource).$id
-    const resource = objectCollect(options).get(id) as Resource | null
+    const id = (model as IResource).$id
+    const resource = options.find((item: IResource) => item.$id === id) || null
     this.$emit('input', plainToClassFromExist(this.value, resource))
   }
 
@@ -150,12 +154,12 @@ export class InputSelect extends Vue {
   tagEvent(val: string) {
     if (!(this.model instanceof Array)) throw Error('The v-model must be an Array for taggable selects')
 
-    const model = this.model as Resource[]
+    const model = this.model as IResource[]
 
-    const items: Resource[] = val
+    const items: IResource[] = val
       .split(',')
       .map((value: string) => build(value.trim(), value.trim()))
-      .filter((item: Resource) => !model.find((value: Resource) => value.$id === item.$id))
+      .filter((item: IResource) => !model.find((value: IResource) => value.$id === item.$id))
 
     model.push(...items)
     this.options.push(...items)
@@ -164,7 +168,7 @@ export class InputSelect extends Vue {
     this.$emit('input', this.model)
   }
 
-  removeEvent(val: Resource) {
+  removeEvent(val: IResource) {
     this.$emit('remove', val, this.options)
   }
 }

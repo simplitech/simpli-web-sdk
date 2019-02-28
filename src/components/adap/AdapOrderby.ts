@@ -19,10 +19,12 @@ export class AdapOrderby extends Vue {
   collection!: PageCollection<Resource>
   @Prop({ required: true })
   name!: string
-  @Prop({ type: String })
-  label?: string
+  @Prop({ type: String, default: '' })
+  label!: string
+  @Prop({ type: String, default: 'adapQuery' })
+  spinner!: string
 
   async orderBy() {
-    await this.collection.setOrderBy(this.name)
+    await this.$await.run(() => this.collection.setOrderBy(this.name), this.spinner)
   }
 }
