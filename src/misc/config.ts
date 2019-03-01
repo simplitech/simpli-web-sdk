@@ -5,6 +5,7 @@ import VueI18n from 'vue-i18n'
 import { SnotifyService } from 'vue-snotify/SnotifyService'
 import { AwaitController } from '../components/utils/Await'
 import { ModalController } from '../components/utils/Modal'
+import { TipController } from '../components/utils/Tip'
 
 export interface FilterOptions {
   readonly [key: string]: (val?: string, ...params: any[]) => string
@@ -48,4 +49,5 @@ export interface $Prototype {
   snotify: SnotifyService | any
   await: AwaitController
   modal: ModalController
+  tip: TipController
 }

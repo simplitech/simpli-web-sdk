@@ -49,7 +49,7 @@ export class ModalController {
   }
 
   toggle(name?: string, payload?: any) {
-    Event.$emit('toggle', name)
+    Event.$emit('toggle', name, payload)
   }
 
   closeAll() {

@@ -11,6 +11,7 @@ import { Lang, Currency } from './enums'
 import { currencyConfig } from './helpers'
 import { AwaitController } from './components/utils/Await'
 import { ModalController } from './components/utils/Modal'
+import { TipController } from './components/utils/Tip'
 import { defaultFilters, defaultComponents } from './config'
 import { $Prototype, ComponentOptions, FilterOptions, LocaleOptions } from './misc'
 
@@ -47,6 +48,7 @@ export const $: $Prototype = {
 
   await: new AwaitController(),
   modal: new ModalController(),
+  tip: new TipController(),
 }
 
 const defaultApiURL: string = 'http://localhost/api'
@@ -122,5 +124,6 @@ export abstract class Simpli {
     Vue.prototype.$bus = $.bus
     Vue.prototype.$await = $.await
     Vue.prototype.$modal = $.modal
+    Vue.prototype.$tip = $.tip
   }
 }

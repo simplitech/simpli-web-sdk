@@ -9,6 +9,7 @@
 
 import { Await } from '../components/utils/Await'
 import { Modal } from '../components/utils/Modal'
+import { Tip } from '../components/utils/Tip'
 import { ResourceInput } from '../components/utils/ResourceInput'
 import { ResourceRender } from '../components/utils/ResourceRender'
 
@@ -30,6 +31,7 @@ import { RenderImage } from '../components/render/RenderImage'
 export const defaultComponents: any = {
   Await,
   Modal,
+  Tip,
   ResourceInput,
   ResourceRender,
   AdapOrderby,
