@@ -168,6 +168,8 @@ export class InputText extends Vue {
 
   valid: boolean | null = null
 
+  updateNext = true
+
   get presetMasked(): string | string[] {
     const preset = this.type === 'mask' ? this.preset : this.type
 
@@ -205,7 +207,6 @@ export class InputText extends Vue {
     const preset = isMask ? this.preset || '' : this.type
 
     if (isMask) {
-      this.modelEvent(val)
       this.inputEvent(val)
     } else if (preset === 'date') {
       this.populateDateValue(val)
@@ -214,18 +215,19 @@ export class InputText extends Vue {
     } else if (['cpf', 'cnpj', 'cpfCnpj', 'rg', 'phone', 'cep'].indexOf(preset) > -1) {
       this.populateWithoutMask(val)
     } else {
-      this.modelEvent(val)
       this.inputEvent(val)
+    }
+  }
+
+  created() {
+    if (this.value === null) {
+      this.inputEvent(this.value)
     }
   }
 
   mounted() {
     const el = this.$el.getElementsByTagName('input')[0] as HTMLInputElement
     if (el && this.autofocus) el.focus()
-
-    if (this.required && this.value === null) {
-      this.$emit('input', '')
-    }
   }
 
   focusEvent() {
@@ -234,21 +236,26 @@ export class InputText extends Vue {
     this.$emit('focus')
   }
 
-  inputEvent(val: string | number | null) {
+  inputEvent(val: string | number | null, updateModel = true) {
     if (this.required) {
       this.$emit('input', val || '')
     } else {
       this.$emit('input', val || null)
     }
+
+    this.updateNext = updateModel
   }
 
+  @Watch('value', { immediate: true })
   modelEvent(val: string | number | null) {
-    this.model = val || ''
+    if (this.updateNext) {
+      this.model = val || ''
+    }
+    this.updateNext = true
   }
 
   populateWithoutMask(val?: string | number | null) {
     const value = $.filter.removeDelimiters(Helper.toString(val))
-    this.modelEvent(value)
     this.inputEvent(value)
   }
 
@@ -257,7 +264,7 @@ export class InputText extends Vue {
     this.modelEvent(value)
 
     if (value.length < 10) {
-      this.inputEvent(null)
+      this.inputEvent(null, false)
       if (value.length === 0) {
         this.valid = null
       } else {
@@ -268,7 +275,7 @@ export class InputText extends Vue {
 
     const date = moment(value, $.t('dateFormat.date') as string)
     if (date.isValid()) {
-      this.inputEvent(date.format())
+      this.inputEvent(date.format(), false)
       this.valid = true
     }
   }
@@ -278,7 +285,7 @@ export class InputText extends Vue {
     this.modelEvent(value)
 
     if (value.length !== 10 && value.length !== 11 && value.length < 16) {
-      this.inputEvent(null)
+      this.inputEvent(null, false)
       if (value.length === 0) {
         this.valid = null
       } else {
@@ -289,7 +296,7 @@ export class InputText extends Vue {
 
     const date = moment(value, $.t('dateFormat.datetime') as string)
     if (date.isValid()) {
-      this.inputEvent(date.format())
+      this.inputEvent(date.format(), false)
       this.valid = true
     }
   }
