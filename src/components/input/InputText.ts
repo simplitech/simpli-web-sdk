@@ -168,8 +168,6 @@ export class InputText extends Vue {
 
   valid: boolean | null = null
 
-  updateNext = true
-
   get presetMasked(): string | string[] {
     const preset = this.type === 'mask' ? this.preset : this.type
 
@@ -207,7 +205,7 @@ export class InputText extends Vue {
     const preset = isMask ? this.preset || '' : this.type
 
     if (isMask) {
-      this.modelEvent(val, true)
+      this.modelEvent(val)
       this.inputEvent(val)
     } else if (preset === 'date') {
       this.populateDateValue(val)
@@ -216,7 +214,7 @@ export class InputText extends Vue {
     } else if (['cpf', 'cnpj', 'cpfCnpj', 'rg', 'phone', 'cep'].indexOf(preset) > -1) {
       this.populateWithoutMask(val)
     } else {
-      this.modelEvent(val, true)
+      this.modelEvent(val)
       this.inputEvent(val)
     }
   }
@@ -244,30 +242,22 @@ export class InputText extends Vue {
     } else {
       this.$emit('input', val || null)
     }
-
-    this.updateNext = false
   }
 
   @Watch('value', { immediate: true })
-  modelEvent(val: string | number | null, force = false) {
-    if (this.updateNext || force) {
-      this.model = val || ''
-    }
-
-    if (!force) {
-      this.updateNext = true
-    }
+  modelEvent(val: string | number | null) {
+    this.model = val || ''
   }
 
   populateWithoutMask(val?: string | number | null) {
     const value = $.filter.removeDelimiters(Helper.toString(val))
-    this.modelEvent(value, true)
+    this.modelEvent(value)
     this.inputEvent(value)
   }
 
   populateDateValue(val?: string | number | null) {
     const value = Helper.toString(val)
-    this.modelEvent(value, true)
+    this.modelEvent(value)
 
     if (value.length < 10) {
       this.inputEvent(null)
@@ -288,9 +278,9 @@ export class InputText extends Vue {
 
   populateDatetimeValue(val?: string | number | null) {
     const value = Helper.toString(val)
-    this.modelEvent(value, true)
+    this.modelEvent(value)
 
-    if (value.length !== 10 && value.length !== 11 && value.length < 16) {
+    if (value.length < 16) {
       this.inputEvent(null)
       if (value.length === 0) {
         this.valid = null
