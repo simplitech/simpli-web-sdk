@@ -17,5 +17,6 @@ export enum InputType {
   CNPJ,
   CPF_OR_CNPJ,
   RG,
+  MASK,
   CUSTOM,
 }

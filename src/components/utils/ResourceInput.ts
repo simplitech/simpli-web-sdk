@@ -76,7 +76,9 @@ const template = `
         :autofocus="autofocus || (schemaRow.meta && schemaRow.meta.autofocus)"
         :label="label || $t(\`classes.\${value.$name}.columns.\${field}\`)"
         :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder) || $t('persist.number')"
-        :step="schemaRow.meta && schemaRow.meta.step"
+        :step="step || (schemaRow.meta && schemaRow.meta.step)"
+        :min="min || (schemaRow.meta && schemaRow.meta.min)"
+        :max="max || (schemaRow.meta && schemaRow.meta.max)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
       />
       
@@ -225,6 +227,35 @@ const template = `
         :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
       />
+
+      <input-text
+        v-else-if="schemaRow.input === InputType.MASK" :key="18"
+        type="mask"
+        v-model="value[schemaRow.model || field]"
+        :required="required || (schemaRow.meta && schemaRow.meta.required)"
+        :disabled="disabled || schemaRow.editable === false"
+        :selectall="selectall || (schemaRow.meta && schemaRow.meta.selectall)"
+        :autofocus="autofocus || (schemaRow.meta && schemaRow.meta.autofocus)"
+        :label="label || $t(\`classes.\${value.$name}.columns.\${field}\`)"
+        :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder)"
+        :preset="preset || (schemaRow.meta && schemaRow.meta.preset)"
+        :mask="mask || (schemaRow.meta && schemaRow.meta.mask)"
+        :masked="masked || (schemaRow.meta && schemaRow.meta.masked)"
+        :tokens="tokens || (schemaRow.meta && schemaRow.meta.tokens)"
+        :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+      />
+
+      <input-textarea
+        v-else-if="schemaRow.input === InputType.TEXTAREA" :key="19"
+        v-model="value[schemaRow.model || field]"
+        :required="required || (schemaRow.meta && schemaRow.meta.required)"
+        :disabled="disabled || schemaRow.editable === false"
+        :label="label || $t(\`classes.\${value.$name}.columns.\${field}\`)"
+        :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder)"
+        :maxlength="maxlength || (schemaRow.meta && schemaRow.meta.maxlength)"
+        :rows="rows || (schemaRow.meta && schemaRow.meta.rows)"
+        :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+      />
       
     </template>
   </div>
@@ -239,27 +270,58 @@ import { SchemaRow, SchemaVue } from '../../misc'
 export class ResourceInput extends Vue {
   @Prop({ type: Object, required: true })
   value?: Resource
+
   @Prop({ type: String, required: true })
   field?: string
+
   @Prop({ type: Array })
   selectItems?: Resource[]
 
   @Prop({ type: Boolean })
   required?: boolean
+
   @Prop({ type: Boolean })
   disabled?: boolean
+
   @Prop({ type: Boolean })
   selectall?: boolean
+
   @Prop({ type: Boolean })
   autofocus?: boolean
+
   @Prop({ type: String })
   label?: string
+
   @Prop({ type: String })
   placeholder?: string
+
+  @Prop({ type: [String, Number] })
+  maxlength?: string | number
+
+  @Prop({ type: [String, Number] })
+  step?: string | number
+
+  @Prop({ type: [String, Number] })
+  min?: string | number
+
+  @Prop({ type: [String, Number] })
+  max?: string | number
+
   @Prop({ type: String })
-  maxlength?: string
+  preset?: string
+
+  @Prop({ type: [String, Array] })
+  mask?: string | string[]
+
+  @Prop({ type: Boolean })
+  masked?: boolean
+
+  @Prop({ type: Object })
+  tokens?: any
+
   @Prop({ type: String })
-  step?: string
+  rows?: string
+
   @Prop({ type: String })
   innerClass?: string
 

@@ -5,109 +5,140 @@ const template = `
       <slot></slot>
     </label>
 
+    <!--Special input for date, datetime, cpf, cnpj, rg, phone, cep-->
     <input :id="\`input-group\${_uid}\`"
-           v-if="['text', 'email', 'password', 'number', 'money'].indexOf(type) == -1"
+           v-if="['text', 'email', 'password', 'number', 'mask', 'money'].indexOf(type) == -1"
            type="tel"
-           :maxlength="maxlength"
            :required="!!required"
-           :step="step"
            :placeholder="placeholder"
-           v-mask="mask"
+           v-mask="presetMasked"
            v-model="computedModel"
            :disabled="disabled"
            class="form-control"
+           :class="{valid: valid === true, invalid: valid === false}"
            @focus="focusEvent"
            :key="1"/>
 
+    <!--Text input-->
     <input :id="\`input-group\${_uid}\`"
-           v-else-if="type == 'text'"
+           v-else-if="type === 'text'"
            type="text"
            :maxlength="maxlength"
            :required="!!required"
-           :step="step"
            :placeholder="placeholder"
            v-model="computedModel"
            :disabled="disabled"
            class="form-control"
+           :class="{valid: valid === true, invalid: valid === false}"
            @focus="focusEvent"
            :key="2"/>
 
+    <!--Email input-->
     <input :id="\`input-group\${_uid}\`"
-           v-else-if="type == 'email'"
+           v-else-if="type === 'email'"
            type="email"
            :maxlength="maxlength"
            :required="!!required"
-           :step="step"
            :placeholder="placeholder"
            v-model="computedModel"
            :disabled="disabled"
            class="form-control"
+           :class="{valid: valid === true, invalid: valid === false}"
            @focus="focusEvent"
            :key="3"/>
 
+    <!--Password input-->
     <input :id="\`input-group\${_uid}\`"
-           v-else-if="type == 'password'"
+           v-else-if="type === 'password'"
            type="password"
            :maxlength="maxlength"
            :required="!!required"
-           :step="step"
            :placeholder="placeholder"
            v-model="computedModel"
            :disabled="disabled"
            class="form-control"
+           :class="{valid: valid === true, invalid: valid === false}"
            @focus="focusEvent"
            :key="4"/>
 
+    <!--Number input-->
     <input :id="\`input-group\${_uid}\`"
-           v-else-if="type == 'number'"
+           v-else-if="type === 'number'"
            type="number"
-           :maxlength="maxlength"
            :required="!!required"
-           :step="step"
+           :step="\`\${step}\`"
+           :min="\`\${min}\`"
+           :max="\`\${max}\`"
            :placeholder="placeholder"
            v-model.number="computedModel"
            :disabled="disabled"
            class="form-control"
+           :class="{valid: valid === true, invalid: valid === false}"
            @focus="focusEvent"
            :key="5"/>
 
+    <!--Masked input-->
+    <the-mask :id="\`input-group\${_uid}\`"
+           v-else-if="type === 'mask'"
+           type="text"
+           :required.native="!!required"
+           :placeholder="placeholder"
+           :mask="presetMasked || mask"
+           :masked="masked"
+           :tokens="tokens"
+           v-model="computedModel"
+           :disabled.native="disabled"
+           class="form-control"
+           :class="{valid: valid === true, invalid: valid === false}"
+           @focus.native="focusEvent"
+           :key="6"/>
+
+    <!--Currency input-->
     <money :id="\`input-group\${_uid}\`"
-           v-else-if="type == 'money'"
+           v-else-if="type === 'money'"
            v-model="computedModel"
            :maxlength="maxlength"
            :required="!!required"
            :placeholder="placeholder"
            :disabled="disabled"
            class="form-control"
+           :class="{valid: valid === true, invalid: valid === false}"
            @focus.native="focusEvent"
-           :key="6"/>
+           :key="7"/>
 
   </div>
 `
 
-import { Component, Prop, Vue } from 'vue-property-decorator'
-import { $ } from '../../simpli'
+import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import moment from 'moment'
+import { $ } from '../../simpli'
+import * as Helper from '../../helpers'
 
 @Component({ template })
 export class InputText extends Vue {
-  @Prop({ type: [String, Number] })
-  value?: string | number
+  @Prop({ type: [String, Number], default: null })
+  value!: string | number | null
+
+  @Prop({ type: String, required: true, default: 'text' })
+  type!: string
 
   @Prop({ type: Boolean })
   required?: boolean
 
-  @Prop({ type: String, default: 'text' })
-  type?: string
-
-  @Prop({ type: String })
-  maxlength?: string
+  @Prop({ type: [String, Number] })
+  maxlength?: string | number
 
   @Prop({ type: String })
   label?: string
 
-  @Prop({ type: String })
-  step?: string
+  @Prop({ type: [String, Number] })
+  step?: string | number
+
+  @Prop({ type: [String, Number] })
+  min?: string | number
+
+  @Prop({ type: [String, Number] })
+  max?: string | number
 
   @Prop({ type: String })
   placeholder?: string
@@ -121,123 +152,145 @@ export class InputText extends Vue {
   @Prop({ type: Boolean })
   disabled?: boolean
 
-  get mask() {
-    if (this.type === 'date') {
-      return $.t('dateFormat.datemask') as string
-    } else if (this.type === 'datetime') {
-      return $.t('dateFormat.datetimemask') as string
-    } else if (this.type === 'cpf') {
-      return $.t('format.cpf') as string
-    } else if (this.type === 'cnpj') {
-      return $.t('format.cnpj') as string
-    } else if (this.type === 'cpfCnpj') {
-      if (String(this.value).length <= 11) {
-        return `${$.t('format.cpf')}#`
-      } else {
-        return $.t('format.cnpj') as string
-      }
-    } else if (this.type === 'rg') {
-      return $.t('format.rg') as string
-    } else if (this.type === 'phone') {
-      return [$.t('format.phone'), $.t('format.phoneAlt')]
-    } else if (this.type === 'cep') {
-      return $.t('format.cep') as string
-    }
+  @Prop({ type: String })
+  preset?: string
+
+  @Prop({ type: [String, Array] })
+  mask?: string | string[]
+
+  @Prop({ type: Boolean })
+  masked?: boolean
+
+  @Prop({ type: Object })
+  tokens?: any
+
+  model: string | number = ''
+
+  valid: boolean | null = null
+
+  get presetMasked(): string | string[] {
+    const preset = this.type === 'mask' ? this.preset : this.type
+
+    if (preset === 'date') return $.t('dateFormat.datemask')
+    else if (preset === 'datetime') return $.t('dateFormat.datetimemask')
+    else if (preset === 'cpf') return $.t('format.cpf')
+    else if (preset === 'cnpj') return $.t('format.cnpj')
+    else if (preset === 'cpfCnpj') return [$.t('format.cpf'), $.t('format.cnpj')]
+    else if (preset === 'rg') return $.t('format.rg')
+    else if (preset === 'phone') return [$.t('format.phone'), $.t('format.phoneAlt')]
+    else if (preset === 'cep') return $.t('format.cep')
+
     return ''
   }
 
-  get computedModel() {
-    if (this.type === 'date') {
-      return this.renderDate(this.value as string)
-    } else if (this.type === 'datetime') {
-      return this.renderDatetime(this.value as string)
-    } else if (this.type === 'cpf') {
-      return $.filter.cpf(this.value as string)
-    } else if (this.type === 'cnpj') {
-      return $.filter.cnpj(this.value as string)
-    } else if (this.type === 'cpfCnpj') {
-      return $.filter.cpfOrCnpj(this.value as string)
-    } else if (this.type === 'rg') {
-      return $.filter.rg(this.value as string)
-    } else if (this.type === 'phone') {
-      return $.filter.phone(this.value as string)
-    } else if (this.type === 'cep') {
-      return $.filter.cep(this.value as string)
+  get computedModel(): string | number | null {
+    const { value } = this
+
+    if (this.type === 'cpf') return Helper.cpf(value)
+    else if (this.type === 'cnpj') return Helper.cnpj(value)
+    else if (this.type === 'cpfCnpj') return Helper.cpfOrCnpj(value)
+    else if (this.type === 'rg') return Helper.rg(value)
+    else if (this.type === 'phone') return Helper.phone(value)
+    else if (this.type === 'cep') return Helper.cep(value)
+
+    if (this.type === 'money') {
+      return this.model || 0
     }
-    return this.value || ''
+
+    return this.model
   }
 
-  set computedModel(val: string | number) {
-    if (this.type === 'date') {
-      this.populateDateValue(val as string)
-    } else if (this.type === 'datetime') {
-      this.populateDatetimeValue(val as string)
-    } else if (['cpf', 'cnpj', 'cpfCnpj', 'rg', 'phone', 'cep'].indexOf(this.type!) > -1) {
-      this.populateWithoutDelimiters(val as string)
+  set computedModel(val: string | number | null) {
+    const isMask = this.type === 'mask'
+    const preset = isMask ? this.preset || '' : this.type
+
+    if (isMask) {
+      this.modelEvent(val)
+      this.inputEvent(val)
+    } else if (preset === 'date') {
+      this.populateDateValue(val)
+    } else if (preset === 'datetime') {
+      this.populateDatetimeValue(val)
+    } else if (['cpf', 'cnpj', 'cpfCnpj', 'rg', 'phone', 'cep'].indexOf(preset) > -1) {
+      this.populateWithoutMask(val)
     } else {
-      this.updateValue(val)
+      this.modelEvent(val)
+      this.inputEvent(val)
     }
   }
 
   mounted() {
     const el = this.$el.getElementsByTagName('input')[0] as HTMLInputElement
     if (el && this.autofocus) el.focus()
+
+    if (this.required && this.value === null) {
+      this.$emit('input', '')
+    }
   }
 
   focusEvent() {
     const el = this.$el.getElementsByTagName('input')[0] as HTMLInputElement
     if (el && this.selectall) el.select()
+    this.$emit('focus')
   }
 
-  updateValue(val: string | number | null) {
-    this.$emit('input', val)
-  }
-
-  populateWithoutDelimiters(visual?: string) {
-    this.updateValue($.filter.removeDelimiters(visual))
-  }
-
-  renderDate(date?: string) {
-    if (date) {
-      return moment(date).format($.t('dateFormat.date') as string)
+  inputEvent(val: string | number | null) {
+    if (this.required) {
+      this.$emit('input', val || '')
+    } else {
+      this.$emit('input', val || null)
     }
-    return ''
   }
 
-  populateDateValue(visual?: string) {
-    if (!visual || visual.length < 10) {
-      this.updateValue(null)
+  modelEvent(val: string | number | null) {
+    this.model = val || ''
+  }
+
+  populateWithoutMask(val?: string | number | null) {
+    const value = $.filter.removeDelimiters(Helper.toString(val))
+    this.modelEvent(value)
+    this.inputEvent(value)
+  }
+
+  populateDateValue(val?: string | number | null) {
+    const value = Helper.toString(val)
+    this.modelEvent(value)
+
+    if (value.length < 10) {
+      this.inputEvent(null)
+      if (value.length === 0) {
+        this.valid = null
+      } else {
+        this.valid = false
+      }
       return
     }
 
-    const date = moment(visual, $.t('dateFormat.date') as string)
-
+    const date = moment(value, $.t('dateFormat.date') as string)
     if (date.isValid()) {
-      this.updateValue(date.format())
-    } else {
-      this.$forceUpdate()
+      this.inputEvent(date.format())
+      this.valid = true
     }
   }
 
-  renderDatetime(date?: string) {
-    if (date) {
-      return moment(date).format($.t('dateFormat.datetime') as string)
-    }
-    return ''
-  }
+  populateDatetimeValue(val?: string | number | null) {
+    const value = Helper.toString(val)
+    this.modelEvent(value)
 
-  populateDatetimeValue(visual?: string) {
-    if (!visual || visual.length < 16) {
-      this.updateValue(null)
+    if (value.length !== 10 && value.length !== 11 && value.length < 16) {
+      this.inputEvent(null)
+      if (value.length === 0) {
+        this.valid = null
+      } else {
+        this.valid = false
+      }
       return
     }
 
-    const date = moment(visual, $.t('dateFormat.datetime') as string)
-
+    const date = moment(value, $.t('dateFormat.datetime') as string)
     if (date.isValid()) {
-      this.updateValue(date.format())
-    } else {
-      this.$forceUpdate()
+      this.inputEvent(date.format())
+      this.valid = true
     }
   }
 }

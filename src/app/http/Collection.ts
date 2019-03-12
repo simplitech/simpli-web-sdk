@@ -1,4 +1,4 @@
-import { chain, values, mapKeys } from 'lodash'
+import { chain, values, mapKeys, snakeCase } from 'lodash'
 import { HttpResponse } from 'vue-resource/types/vue_resource'
 import { unparse } from 'papaparse'
 import { Type } from 'class-transformer'
@@ -127,7 +127,7 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
   /**
    * Downloads CSV file from its collection
    */
-  downloadCsv() {
+  downloadCsv(customTitle?: string) {
     if (this.items.length <= 0) return
 
     const title = $.t(`classes.${this.resource.$name}.title`) as string
@@ -136,7 +136,7 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
       mapKeys(schema, (val: SchemaVal, key: string) => $.t(`classes.${this.resource.$name}.columns.${key}`) as string)
     )
 
-    createCsvFile(title, unparse(data))
+    createCsvFile(customTitle || `${snakeCase(title)}.csv`, unparse(data))
   }
 
   /**

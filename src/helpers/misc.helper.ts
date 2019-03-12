@@ -148,3 +148,11 @@ export function currencyConfig(currency: string) {
 export function clone<T>(fromEntity: T): T {
   return classToClass(fromEntity)
 }
+
+/**
+ * Transform null, undefined and number to string
+ * @param val
+ */
+export function toString(val?: string | number | null): string {
+  return val !== null && val !== undefined ? val.toString() : ''
+}
