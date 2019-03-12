@@ -207,6 +207,7 @@ export class InputText extends Vue {
     const preset = isMask ? this.preset || '' : this.type
 
     if (isMask) {
+      this.modelEvent(val, true)
       this.inputEvent(val)
     } else if (preset === 'date') {
       this.populateDateValue(val)
@@ -215,6 +216,7 @@ export class InputText extends Vue {
     } else if (['cpf', 'cnpj', 'cpfCnpj', 'rg', 'phone', 'cep'].indexOf(preset) > -1) {
       this.populateWithoutMask(val)
     } else {
+      this.modelEvent(val, true)
       this.inputEvent(val)
     }
   }
@@ -236,35 +238,39 @@ export class InputText extends Vue {
     this.$emit('focus')
   }
 
-  inputEvent(val: string | number | null, updateModel = true) {
+  inputEvent(val: string | number | null) {
     if (this.required) {
       this.$emit('input', val || '')
     } else {
       this.$emit('input', val || null)
     }
 
-    this.updateNext = updateModel
+    this.updateNext = false
   }
 
   @Watch('value', { immediate: true })
-  modelEvent(val: string | number | null) {
-    if (this.updateNext) {
+  modelEvent(val: string | number | null, force = false) {
+    if (this.updateNext || force) {
       this.model = val || ''
     }
-    this.updateNext = true
+
+    if (!force) {
+      this.updateNext = true
+    }
   }
 
   populateWithoutMask(val?: string | number | null) {
     const value = $.filter.removeDelimiters(Helper.toString(val))
+    this.modelEvent(value, true)
     this.inputEvent(value)
   }
 
   populateDateValue(val?: string | number | null) {
     const value = Helper.toString(val)
-    this.modelEvent(value)
+    this.modelEvent(value, true)
 
     if (value.length < 10) {
-      this.inputEvent(null, false)
+      this.inputEvent(null)
       if (value.length === 0) {
         this.valid = null
       } else {
@@ -275,17 +281,17 @@ export class InputText extends Vue {
 
     const date = moment(value, $.t('dateFormat.date') as string)
     if (date.isValid()) {
-      this.inputEvent(date.format(), false)
+      this.inputEvent(date.format())
       this.valid = true
     }
   }
 
   populateDatetimeValue(val?: string | number | null) {
     const value = Helper.toString(val)
-    this.modelEvent(value)
+    this.modelEvent(value, true)
 
     if (value.length !== 10 && value.length !== 11 && value.length < 16) {
-      this.inputEvent(null, false)
+      this.inputEvent(null)
       if (value.length === 0) {
         this.valid = null
       } else {
@@ -296,7 +302,7 @@ export class InputText extends Vue {
 
     const date = moment(value, $.t('dateFormat.datetime') as string)
     if (date.isValid()) {
-      this.inputEvent(date.format(), false)
+      this.inputEvent(date.format())
       this.valid = true
     }
   }
