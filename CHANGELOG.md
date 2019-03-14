@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.0"></a>
+# [1.9.0](https://github.com/simplitech/simpli-web-sdk/compare/v1.8.5...v1.9.0) (2019-03-14)
+
+
+### Features
+
+* Added focus and blur event for ResourceInput component ([f72d537](https://github.com/simplitech/simpli-web-sdk/commit/f72d537))
+
+
+
 <a name="1.8.5"></a>
 ## [1.8.5](https://github.com/simplitech/simpli-web-sdk/compare/v1.8.4...v1.8.5) (2019-03-13)
 
