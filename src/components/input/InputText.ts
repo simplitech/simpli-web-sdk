@@ -17,6 +17,7 @@ const template = `
            class="form-control"
            :class="{valid: valid === true, invalid: valid === false}"
            @focus="focusEvent"
+           @blur="blurEvent"
            :key="1"/>
 
     <!--Email input-->
@@ -31,6 +32,7 @@ const template = `
            class="form-control"
            :class="{valid: valid === true, invalid: valid === false}"
            @focus="focusEvent"
+           @blur="blurEvent"
            :key="2"/>
 
     <!--Password input-->
@@ -45,6 +47,7 @@ const template = `
            class="form-control"
            :class="{valid: valid === true, invalid: valid === false}"
            @focus="focusEvent"
+           @blur="blurEvent"
            :key="3"/>
 
     <!--Number input-->
@@ -61,6 +64,7 @@ const template = `
            class="form-control"
            :class="{valid: valid === true, invalid: valid === false}"
            @focus="focusEvent"
+           @blur="blurEvent"
            :key="4"/>
 
     <!--Masked input-->
@@ -77,6 +81,7 @@ const template = `
            class="form-control"
            :class="{valid: valid === true, invalid: valid === false}"
            @focus.native="focusEvent"
+           @blur.native="blurEvent"
            :key="5"/>
 
     <!--Currency input-->
@@ -90,6 +95,7 @@ const template = `
            class="form-control"
            :class="{valid: valid === true, invalid: valid === false}"
            @focus.native="focusEvent"
+           @blur.native="blurEvent"
            :key="6"/>
 
     <!--Special input for date, datetime, cpf, cnpj, rg, phone, cep-->
@@ -105,6 +111,7 @@ const template = `
            class="form-control"
            :class="{valid: valid === true, invalid: valid === false}"
            @focus="focusEvent"
+           @blur="blurEvent"
            :key="7"/>
 
   </div>
@@ -312,5 +319,9 @@ export class InputText extends Vue {
     const el = this.$el.getElementsByTagName('input')[0] as HTMLInputElement
     if (el && this.selectall) el.select()
     this.$emit('focus')
+  }
+
+  blurEvent() {
+    this.$emit('blur')
   }
 }

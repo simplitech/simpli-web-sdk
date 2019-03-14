@@ -15,6 +15,8 @@ const template = `
       :disabled="disabled"
       :rows="rows"
       class="form-control"
+      @focus="focusEvent"
+      @blur="blurEvent"
     ></textarea>
   </div>
 `
@@ -54,5 +56,13 @@ export class InputTextarea extends Vue {
 
   updateValue(val?: string | null) {
     this.$emit('input', val)
+  }
+
+  focusEvent() {
+    this.$emit('focus')
+  }
+
+  blurEvent() {
+    this.$emit('blur')
   }
 }

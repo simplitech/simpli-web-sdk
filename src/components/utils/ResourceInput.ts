@@ -50,6 +50,8 @@ const template = `
         :disabled="disabled || schemaRow.editable === false"
         :label="label || $t(\`classes.\${value.$name}.columns.\${field}\`)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+        @focus="focusEvent"
+        @blur="blurEvent"
       />
       
       <input-text
@@ -64,6 +66,8 @@ const template = `
         :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder)"
         :maxlength="maxlength || (schemaRow.meta && schemaRow.meta.maxlength)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+        @focus="focusEvent"
+        @blur="blurEvent"
       />
       
       <input-text
@@ -80,6 +84,8 @@ const template = `
         :min="min || (schemaRow.meta && schemaRow.meta.min)"
         :max="max || (schemaRow.meta && schemaRow.meta.max)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+        @focus="focusEvent"
+        @blur="blurEvent"
       />
       
       <input-text
@@ -94,6 +100,8 @@ const template = `
         :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder)"
         :maxlength="maxlength || (schemaRow.meta && schemaRow.meta.maxlength)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+        @focus="focusEvent"
+        @blur="blurEvent"
       />
       
       <input-text
@@ -108,6 +116,8 @@ const template = `
         :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder) || (value.$id ? $t('app.onlyIfWantChangePassword') : '')"
         :maxlength="maxlength || (schemaRow.meta && schemaRow.meta.maxlength)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+        @focus="focusEvent"
+        @blur="blurEvent"
       />
       
       <input-text
@@ -121,6 +131,8 @@ const template = `
         :label="label || $t(\`classes.\${value.$name}.columns.\${field}\`)"
         :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder) || $t('dateFormat.date')"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+        @focus="focusEvent"
+        @blur="blurEvent"
       />
       
       <input-text
@@ -134,6 +146,8 @@ const template = `
         :label="label || $t(\`classes.\${value.$name}.columns.\${field}\`)"
         :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder) || $t('dateFormat.datetime')"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+        @focus="focusEvent"
+        @blur="blurEvent"
       />
       
       <input-text
@@ -148,6 +162,8 @@ const template = `
         :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder)"
         :maxlength="maxlength || (schemaRow.meta && schemaRow.meta.maxlength)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+        @focus="focusEvent"
+        @blur="blurEvent"
       />
       
       <input-text
@@ -161,6 +177,8 @@ const template = `
         :label="label || $t(\`classes.\${value.$name}.columns.\${field}\`)"
         :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+        @focus="focusEvent"
+        @blur="blurEvent"
       />
       
       <input-text
@@ -174,6 +192,8 @@ const template = `
         :label="label || $t(\`classes.\${value.$name}.columns.\${field}\`)"
         :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+        @focus="focusEvent"
+        @blur="blurEvent"
       />
       
       <input-text
@@ -187,6 +207,8 @@ const template = `
         :label="label || $t(\`classes.\${value.$name}.columns.\${field}\`)"
         :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+        @focus="focusEvent"
+        @blur="blurEvent"
       />
       
       <input-text
@@ -200,6 +222,8 @@ const template = `
         :label="label || $t(\`classes.\${value.$name}.columns.\${field}\`)"
         :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+        @focus="focusEvent"
+        @blur="blurEvent"
       />
 
       <input-text
@@ -213,6 +237,8 @@ const template = `
         :label="label || $t(\`classes.\${value.$name}.columns.\${field}\`)"
         :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+        @focus="focusEvent"
+        @blur="blurEvent"
       />
       
       <input-text
@@ -226,6 +252,8 @@ const template = `
         :label="label || $t(\`classes.\${value.$name}.columns.\${field}\`)"
         :placeholder="placeholder || (schemaRow.meta && schemaRow.meta.placeholder)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+        @focus="focusEvent"
+        @blur="blurEvent"
       />
 
       <input-text
@@ -243,6 +271,8 @@ const template = `
         :masked="masked || (schemaRow.meta && schemaRow.meta.masked)"
         :tokens="tokens || (schemaRow.meta && schemaRow.meta.tokens)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+        @focus="focusEvent"
+        @blur="blurEvent"
       />
 
       <input-textarea
@@ -255,6 +285,8 @@ const template = `
         :maxlength="maxlength || (schemaRow.meta && schemaRow.meta.maxlength)"
         :rows="rows || (schemaRow.meta && schemaRow.meta.rows)"
         :class="innerClass || (schemaRow.meta && schemaRow.meta.innerClass)"
+        @focus="focusEvent"
+        @blur="blurEvent"
       />
       
     </template>
@@ -351,5 +383,13 @@ export class ResourceInput extends Vue {
     const schemaRow = this.schemaRow
     const input = (schemaRow && schemaRow.input) as SchemaVue
     return !!(input && input.component && input.component.prototype instanceof Vue)
+  }
+
+  focusEvent() {
+    this.$emit('focus')
+  }
+
+  blurEvent() {
+    this.$emit('blur')
   }
 }

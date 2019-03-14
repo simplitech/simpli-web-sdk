@@ -1,6 +1,7 @@
 import { HttpOptions, HttpResponse } from 'vue-resource/types/vue_resource'
 import { HttpBody } from './HttpBody'
 import { Validator } from '../Validator'
+import { $ } from '../../simpli'
 import { IValidator, Resp } from '../../misc'
 
 export abstract class Model extends HttpBody<Model> implements IValidator {
@@ -35,5 +36,13 @@ export abstract class Model extends HttpBody<Model> implements IValidator {
    */
   async validate(): Promise<void> {
     await Validator.toastValidate(this)
+  }
+
+  /**
+   * Translate a column indicated in the dictionary
+   * @param column
+   */
+  translateColumn(column: string) {
+    return $.t(`classes.${this.$name}.columns.${column}`)
   }
 }

@@ -2,7 +2,15 @@ const template = `
   <div class="form-group">
     <div class="checkbox">
       <label>
-        <input :type="radio ? 'radio' : 'checkbox'" v-model="computedModel" :disabled="disabled" :value="radioValue" :class="innerClass">
+        <input
+          :type="radio ? 'radio' : 'checkbox'"
+          v-model="computedModel"
+          :disabled="disabled"
+          :value="radioValue"
+          :class="innerClass"
+          @focus="focusEvent"
+          @blur="blurEvent"
+        />
         <span :class="labelClass">
           {{ label }}
           <slot></slot>
@@ -41,5 +49,13 @@ export class InputCheckbox extends Vue {
 
   updateValue(val: boolean | string | number) {
     this.$emit('input', val)
+  }
+
+  focusEvent() {
+    this.$emit('focus')
+  }
+
+  blurEvent() {
+    this.$emit('blur')
   }
 }
