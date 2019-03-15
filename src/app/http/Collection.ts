@@ -15,13 +15,17 @@ import {
   SchemaRow,
   SchemaContent,
   SchemaData,
-  IResource,
   ICollection,
 } from '../../misc'
-import { $, apiFullURL, call, nullableItems, createCsvFile } from '../../helpers'
+import { $, apiFullURL, call, GET, nullableItems, createCsvFile } from '../../helpers'
 import * as Helper from '../../helpers'
 
 export class Collection<R extends Resource> extends HttpBody<Collection<R>> implements ICollection {
+  /**
+   * If defined, then use this endpoint instead of the $endpoint resource
+   */
+  endpoint: string | null = null
+
   /**
    * Items of the collection
    * @type {Array}
@@ -47,7 +51,7 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
   }
 
   /**
-   * Serializes the response body of a call to the WebServer
+   * Call an API using Vue-Resource then serialize the response
    * @param promise Any call of VUE RESOURCE
    */
   async call(promise: PromiseLike<HttpResponse>) {
@@ -62,7 +66,16 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
    * @param spinner
    */
   async query(params?: any, spinner?: string): Promise<Resp<R[]>> {
-    const fetch = async () => await this.call($.resource(apiFullURL(this.resource.$endpoint)).query(params))
+    let fetch = async () => await this.call($.resource(apiFullURL(this.resource.$endpoint)).query(params))
+
+    if (this.endpoint) {
+      fetch = async () => {
+        const resp = await GET(this.type, this.endpoint as string, params)
+        this.items = resp.data
+        return resp
+      }
+    }
+
     return await $.await.run(fetch, spinner || `query${this.resource.$name}`)
   }
 
