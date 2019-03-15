@@ -14,6 +14,7 @@ export class PageCollection<R extends Resource> extends Collection<R> {
   querySearch: string = ''
   orderBy: string = ''
   asc: boolean = true
+  searchFunction: (() => Promise<Resp<R[]>>) | null = null
 
   // Set T as type
   constructor(type: ClassType<R>, filter = {}, perPage: number | null = 20, currentPage: number | null = 0) {
@@ -43,6 +44,11 @@ export class PageCollection<R extends Resource> extends Collection<R> {
    */
   async search(): Promise<Resp<R[]>> {
     const { querySearch, currentPage, perPage, orderBy, asc, filter } = this
+
+    // Custom search function
+    if (this.searchFunction) {
+      return this.searchFunction()
+    }
 
     const filterParams = omitBy(classToPlain(filter), (item: any) => item === null || item === '')
 
