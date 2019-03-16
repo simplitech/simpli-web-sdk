@@ -66,16 +66,8 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
    * @param spinner
    */
   async query(params?: any, spinner?: string): Promise<Resp<R[]>> {
-    let fetch = async () => await this.call($.resource(apiFullURL(this.resource.$endpoint)).query(params))
-
-    if (this.endpoint) {
-      fetch = async () => {
-        const resp = await GET(this.type, this.endpoint as string, params)
-        this.items = resp.data
-        return resp
-      }
-    }
-
+    const endpoint = this.endpoint || this.resource.$endpoint
+    let fetch = async () => await this.call($.resource(apiFullURL(endpoint)).query(params))
     return await $.await.run(fetch, spinner || `query${this.resource.$name}`)
   }
 
