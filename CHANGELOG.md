@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.6"></a>
+## [1.9.6](https://github.com/simplitech/simpli-web-sdk/compare/v1.9.5...v1.9.6) (2019-03-20)
+
+
+### Bug Fixes
+
+* Fixed csv title returned undefined ([d1d5d85](https://github.com/simplitech/simpli-web-sdk/commit/d1d5d85))
+
+
+
 <a name="1.9.5"></a>
 ## [1.9.5](https://github.com/simplitech/simpli-web-sdk/compare/v1.9.4...v1.9.5) (2019-03-20)
 
