@@ -141,7 +141,7 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
       mapKeys(schema, (val: SchemaVal, key: string) => $.t(`classes.${this.resource.$name}.columns.${key}`) as string)
     )
 
-    createCsvFile(`${customTitle}.csv` || `${snakeCase(title)}.csv`, unparse(data))
+    createCsvFile(customTitle ? `${customTitle}.csv` : `${snakeCase(title)}.csv`, unparse(data))
   }
 
   /**
