@@ -1,6 +1,6 @@
 import { HttpOptions, HttpResponse } from 'vue-resource/types/vue_resource'
 import { Exclude, Expose, plainToClass, classToPlain, plainToClassFromExist, Type } from 'class-transformer'
-import { Resp } from '../misc'
+import { Resp, ClassType } from '../misc'
 import { $ } from '../simpli'
 
 /**
@@ -52,7 +52,7 @@ export function HttpIgnore() {
  * @param {string} uri
  * @returns {string}
  */
-export const apiFullURL = (uri: string): string => {
+export function apiFullURL(uri: string): string {
   return `${$.apiURL}${uri}`
 }
 
@@ -62,10 +62,35 @@ export const apiFullURL = (uri: string): string => {
  * @param {PromiseLike<HttpResponse>} promise
  * @returns {PromiseLike<Resp<any>>}
  */
-export const call = (classOrObject: any, promise: PromiseLike<HttpResponse>): PromiseLike<Resp<typeof classOrObject>> =>
-  promise.then((resp: HttpResponse) => {
-    const response = {
-      data: undefined,
+export function call(classOrObject: any, promise: PromiseLike<HttpResponse>): PromiseLike<any> {
+  return promise.then((resp: HttpResponse) => {
+    let data
+
+    if (typeof classOrObject === 'object') {
+      // ClassObject
+
+      // Fix issue when the response item is undefined, but the current item data has a value
+      const entity = new (classOrObject as any).constructor()
+      const nullKeys = Object.keys(entity).filter((key: string) => entity[key] === null)
+      Object.keys(nullKeys).forEach((key: string) => {
+        // @ts-ignore
+        if (resp.data[key] === undefined) classOrObject[key] = null
+      })
+
+      data = plainToClassFromExist(classOrObject, resp.data)
+    } else if (typeof classOrObject === 'function') {
+      // Class (Number, String, Boolean, etc.)
+      if ((classOrObject as Function).name === 'String') {
+        // Special case for func 'String'
+        // @ts-ignore
+        data = resp['bodyText']
+      } else {
+        data = plainToClass(classOrObject, resp.data)
+      }
+    } else throw TypeError('Error: Entity should be either Class or ClassObject')
+
+    return {
+      data,
       ok: resp.ok,
       status: resp.status,
       statusText: resp.statusText,
@@ -74,24 +99,8 @@ export const call = (classOrObject: any, promise: PromiseLike<HttpResponse>): Pr
       json: resp.json,
       blob: resp.blob,
     }
-
-    if (typeof classOrObject === 'object') {
-      // ClassObject
-      response.data = plainToClassFromExist(classOrObject, resp.data) as typeof classOrObject
-    } else if (typeof classOrObject === 'function') {
-      // Class (Number, String, Boolean, etc.)
-
-      if ((classOrObject as Function).name === 'String') {
-        // Special case for func 'String'
-        // @ts-ignore
-        response.data = resp['bodyText'] as typeof classOrObject
-      } else {
-        response.data = plainToClass(classOrObject, resp.data) as typeof classOrObject
-      }
-    } else throw TypeError('Error: Entity should be either Class or ClassObject')
-
-    return response
   })
+}
 
 /**
  * Call an API with GET method
@@ -101,11 +110,7 @@ export const call = (classOrObject: any, promise: PromiseLike<HttpResponse>): Pr
  * @returns {PromiseLike<Resp<any>>}
  * @constructor
  */
-export const GET = (
-  classOrObject: any,
-  uri: string,
-  options?: HttpOptions
-): PromiseLike<Resp<typeof classOrObject>> => {
+export function GET<T>(classOrObject: ClassType<T>, uri: string, options?: HttpOptions): PromiseLike<Resp<T>> {
   return call(classOrObject, $.http.get(apiFullURL(uri), options))
 }
 
@@ -118,12 +123,12 @@ export const GET = (
  * @returns {PromiseLike<Resp<any>>}
  * @constructor
  */
-export const POST = (
-  classOrObject: any,
+export function POST<T>(
+  classOrObject: ClassType<T>,
   uri: string,
   body?: any,
   options?: HttpOptions
-): PromiseLike<Resp<typeof classOrObject>> => {
+): PromiseLike<Resp<T>> {
   return call(classOrObject, $.http.post(apiFullURL(uri), classToPlain(body), options))
 }
 
@@ -136,12 +141,12 @@ export const POST = (
  * @returns {PromiseLike<Resp<any>>}
  * @constructor
  */
-export const PUT = (
-  classOrObject: any,
+export function PUT<T>(
+  classOrObject: ClassType<T>,
   uri: string,
   body?: any,
   options?: HttpOptions
-): PromiseLike<Resp<typeof classOrObject>> => {
+): PromiseLike<Resp<T>> {
   return call(classOrObject, $.http.put(apiFullURL(uri), classToPlain(body), options))
 }
 
@@ -153,10 +158,6 @@ export const PUT = (
  * @returns {PromiseLike<Resp<any>>}
  * @constructor
  */
-export const DELETE = (
-  classOrObject: any,
-  uri: string,
-  options?: HttpOptions
-): PromiseLike<Resp<typeof classOrObject>> => {
+export function DELETE<T>(classOrObject: ClassType<T>, uri: string, options?: HttpOptions): PromiseLike<Resp<T>> {
   return call(classOrObject, $.http.delete(apiFullURL(uri), options))
 }

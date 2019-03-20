@@ -34,7 +34,7 @@ export class PageCollection<R extends Resource> extends Collection<R> {
    * Serializes the response body of a call to the WebServer
    * @param promise Any call of VUE RESOURCE
    */
-  async call(promise: PromiseLike<HttpResponse>): Promise<Resp<this>> {
+  async call(promise: PromiseLike<HttpResponse>): Promise<Resp<R[]>> {
     return await call(this, promise)
   }
 

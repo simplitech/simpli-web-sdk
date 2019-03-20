@@ -17,7 +17,7 @@ import {
   SchemaData,
   ICollection,
 } from '../../misc'
-import { $, apiFullURL, call, GET, nullableItems, createCsvFile } from '../../helpers'
+import { $, apiFullURL, call, nullableItems, createCsvFile } from '../../helpers'
 import * as Helper from '../../helpers'
 
 export class Collection<R extends Resource> extends HttpBody<Collection<R>> implements ICollection {
@@ -54,7 +54,7 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
    * Call an API using Vue-Resource then serialize the response
    * @param promise Any call of VUE RESOURCE
    */
-  async call(promise: PromiseLike<HttpResponse>) {
+  async call(promise: PromiseLike<HttpResponse>): Promise<Resp<any>> {
     const resp = await call(this.type, promise)
     this.items = resp.data
     return resp
