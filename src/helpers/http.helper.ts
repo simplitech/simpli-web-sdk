@@ -68,15 +68,9 @@ export function call(classOrObject: any, promise: PromiseLike<HttpResponse>): Pr
 
     if (typeof classOrObject === 'object') {
       // ClassObject
-
-      // Fix issue when the response item is undefined, but the current item data has a value
-      const entity = new (classOrObject as any).constructor()
-      const nullKeys = Object.keys(entity).filter((key: string) => entity[key] === null)
-      Object.keys(nullKeys).forEach((key: string) => {
-        // @ts-ignore
-        if (resp.data[key] === undefined) classOrObject[key] = null
-      })
-
+      if (classOrObject && classOrObject.items && classOrObject.items instanceof Array) {
+        classOrObject.items = []
+      }
       data = plainToClassFromExist(classOrObject, resp.data)
     } else if (typeof classOrObject === 'function') {
       // Class (Number, String, Boolean, etc.)
