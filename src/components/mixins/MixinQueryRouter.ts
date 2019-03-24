@@ -59,8 +59,7 @@ export class MixinQueryRouter extends Vue {
   ascEvent(asc?: boolean) {
     const query = { ...this.$route.query }
 
-    if (query.order) query.asc = `${asc ? 1 : 0}`
-    else delete query.asc
+    query.asc = `${asc ? 1 : 0}`
 
     this.$router.replace({ query })
   }
