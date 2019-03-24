@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.8"></a>
+## [1.9.8](https://github.com/simplitech/simpli-web-sdk/compare/v1.9.7...v1.9.8) (2019-03-24)
+
+
+### Bug Fixes
+
+* Fixed issue ([cda4bf3](https://github.com/simplitech/simpli-web-sdk/commit/cda4bf3))
+
+
+
 <a name="1.9.7"></a>
 ## [1.9.7](https://github.com/simplitech/simpli-web-sdk/compare/v1.9.6...v1.9.7) (2019-03-24)
 
