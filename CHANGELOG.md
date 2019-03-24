@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.7"></a>
+## [1.9.7](https://github.com/simplitech/simpli-web-sdk/compare/v1.9.6...v1.9.7) (2019-03-24)
+
+
+### Bug Fixes
+
+* Fixed MixinQueryRouter by changing router from push to replace ([c4e2496](https://github.com/simplitech/simpli-web-sdk/commit/c4e2496))
+
+
+
 <a name="1.9.6"></a>
 ## [1.9.6](https://github.com/simplitech/simpli-web-sdk/compare/v1.9.5...v1.9.6) (2019-03-20)
 
