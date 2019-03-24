@@ -7,12 +7,12 @@ export class MixinQueryRouter extends Vue {
   collection?: PageCollection<Resource>
 
   async query(query = this.$route.query) {
-    const { q, page, name, asc } = query
+    const { q, page, order, asc } = query
     if (!this.collection) return
 
     this.collection.querySearch = (q as string) || ''
     this.collection.currentPage = (Number(page) || 1) - 1
-    this.collection.orderBy = (name as string) || ''
+    this.collection.orderBy = (order as string) || ''
     this.collection.asc = !!Number(asc)
 
     const fetch = async () => {
@@ -29,7 +29,7 @@ export class MixinQueryRouter extends Vue {
     if (querySearch) query.q = `${querySearch}`
     else delete query.q
 
-    this.$router.push({ query })
+    this.$router.replace({ query })
   }
 
   @Watch('collection.currentPage')
@@ -39,29 +39,29 @@ export class MixinQueryRouter extends Vue {
     if (currentPage) query.page = `${currentPage + 1}`
     else delete query.page
 
-    this.$router.push({ query })
+    this.$router.replace({ query })
   }
 
   @Watch('collection.orderBy')
   orderByEvent(orderBy?: string) {
     const query = { ...this.$route.query }
 
-    if (orderBy) query.name = `${orderBy}`
+    if (orderBy) query.order = `${orderBy}`
     else {
-      delete query.name
+      delete query.order
       delete query.asc
     }
 
-    this.$router.push({ query })
+    this.$router.replace({ query })
   }
 
   @Watch('collection.asc')
   ascEvent(asc?: boolean) {
     const query = { ...this.$route.query }
 
-    if (query.name) query.asc = `${asc ? 1 : 0}`
+    if (query.order) query.asc = `${asc ? 1 : 0}`
     else delete query.asc
 
-    this.$router.push({ query })
+    this.$router.replace({ query })
   }
 }
