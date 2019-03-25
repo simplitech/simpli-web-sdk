@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.10"></a>
+## [1.9.10](https://github.com/simplitech/simpli-web-sdk/compare/v1.9.9...v1.9.10) (2019-03-25)
+
+
+### Bug Fixes
+
+* Fixed ResourceInput component in Boolean not handle null values ([3351c25](https://github.com/simplitech/simpli-web-sdk/commit/3351c25))
+
+
+
 <a name="1.9.9"></a>
 ## [1.9.9](https://github.com/simplitech/simpli-web-sdk/compare/v1.9.8...v1.9.9) (2019-03-25)
 

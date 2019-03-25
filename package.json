@@ -1,6 +1,6 @@
 {
   "name": "simpli-web-sdk",
-  "version": "1.9.9",
+  "version": "1.9.10",
   "description": "Simpli's Web SDK",
   "main": "lib/main.js",
   "typings": "lib/main.d.ts",
