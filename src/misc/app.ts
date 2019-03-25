@@ -99,9 +99,26 @@ export interface QueryRequest {
 }
 
 /**
+ * Paged request for router
+ */
+export interface QueryRouter {
+  q?: string
+  page?: string
+  order?: string
+  asc?: string
+}
+
+/**
  * This type represent any Enum type
  */
 export type Enum<E> = Record<keyof E, number | string> & { [k: number]: string }
+
+/**
+ * Dictionary
+ */
+export interface Dictionary<T> {
+  [k: string]: T
+}
 
 /**
  * Data blueprint
