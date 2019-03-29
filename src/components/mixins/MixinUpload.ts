@@ -210,8 +210,7 @@ export class MixinUpload extends Vue {
       // Call all promises in order to get the url of uploaded of each selected file
       const responses = await Promise.all(resources)
 
-      // @ts-ignore
-      for (const [i, resp] of responses.entries()) {
+      responses.forEach((resp, i) => {
         const fullUrl = resp.data as string
         const url = fullUrl.split('?')[0]
 
@@ -220,7 +219,7 @@ export class MixinUpload extends Vue {
 
         // Store the url link of the uploaded file
         this.cache.push(url)
-      }
+      })
     } catch (e) {
       $.await.error('uploading')
       throw e
