@@ -25,9 +25,6 @@ export class MixinUpload extends Vue {
   readonly COMPRESS_CONFIG = UploadConfig.compressedImageStandard
   readonly USE_CROP: boolean = false
 
-  // endpoint
-  readonly ENDPOINT = this.UPLOAD_CONFIG.endpoint
-
   files: FileObject[] = []
   cache: string[] = []
 
@@ -76,7 +73,7 @@ export class MixinUpload extends Vue {
       const params = {
         fileName: `${Helper.uid()}${this.extension(file)}`,
       }
-      return new HttpBody(String).GET(this.ENDPOINT, { params })
+      return new HttpBody(String).GET(this.UPLOAD_CONFIG.endpoint, { params })
     })
   }
 

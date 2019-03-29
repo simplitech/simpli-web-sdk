@@ -3,8 +3,6 @@ import { Dictionary } from '../misc'
 import { Options } from 'image-compressor.js'
 
 export class UploadConfig {
-  endpoint = '/upload'
-
   static readonly compressedImageStandard: Options = {
     convertSize: 0, // Convert any image into png file
     width: 1280,
@@ -26,6 +24,7 @@ export class UploadConfig {
     quality: 0.7,
   }
 
+  endpoint = '/upload'
   accept?: string
   extensions?: string[] | String | RegExp
   minSize = 0
