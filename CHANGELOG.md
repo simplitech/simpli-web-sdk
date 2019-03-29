@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.10.0"></a>
+# [1.10.0](https://github.com/simplitech/simpli-web-sdk/compare/v1.9.10...v1.10.0) (2019-03-29)
+
+
+### Features
+
+* Added MixinUpload and TransitionExpand ([bd68605](https://github.com/simplitech/simpli-web-sdk/commit/bd68605))
+
+
+
 <a name="1.9.10"></a>
 ## [1.9.10](https://github.com/simplitech/simpli-web-sdk/compare/v1.9.9...v1.9.10) (2019-03-25)
 
