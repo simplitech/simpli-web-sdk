@@ -129,3 +129,12 @@
   opacity: 0;
   filter: blur($effect-blur-length);
 }
+
+/* Expand Effect (only for <transition-expand>) */
+.expand-enter-active, .expand-leave-active {
+  transition: height 400ms ease-in-out;
+  overflow: hidden;
+}
+.expand-enter, .expand-leave-to {
+  height: 0;
+}

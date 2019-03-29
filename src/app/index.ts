@@ -8,6 +8,8 @@ export { WholeCollection } from './http/WholeCollection'
 
 export { ObjectCollection } from './ObjectCollection'
 
-export { Validator } from './Validator'
-
 export { SocketConnection } from './SocketConnection'
+
+export { UploadConfig } from './UploadConfig'
+
+export { Validator } from './Validator'
