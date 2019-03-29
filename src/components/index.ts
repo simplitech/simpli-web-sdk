@@ -8,6 +8,7 @@ export { InputText } from './input/InputText'
 export { InputTextarea } from './input/InputTextarea'
 
 export { MixinQueryRouter } from './mixins/MixinQueryRouter'
+export { MixinUpload } from './mixins/MixinUpload'
 
 export { RenderAnchor } from './render/RenderAnchor'
 export { RenderImage } from './render/RenderImage'

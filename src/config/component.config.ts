@@ -7,11 +7,14 @@
  * This configuration will be set in @/bootstrap/app.ts
  */
 
+import { ComponentOptions } from '../misc'
+
 import { Await } from '../components/utils/Await'
 import { Modal } from '../components/utils/Modal'
 import { Tip } from '../components/utils/Tip'
 import { ResourceInput } from '../components/utils/ResourceInput'
 import { ResourceRender } from '../components/utils/ResourceRender'
+import TransitionExpand from '../components/utils/TransitionExpand'
 
 import { AdapOrderby } from '../components/adap/AdapOrderby'
 import { AdapPagination } from '../components/adap/AdapPagination'
@@ -28,12 +31,13 @@ import { RenderImage } from '../components/render/RenderImage'
 /**
  * Global VUE Components
  */
-export const defaultComponents: any = {
+export const defaultComponents: ComponentOptions = {
   Await,
   Modal,
   Tip,
   ResourceInput,
   ResourceRender,
+  TransitionExpand,
   AdapOrderby,
   AdapPagination,
   AdapSearchfield,
