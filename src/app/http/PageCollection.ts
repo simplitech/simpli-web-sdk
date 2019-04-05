@@ -1,10 +1,9 @@
-import { HttpResponse } from 'vue-resource/types/vue_resource'
 import { omitBy } from 'lodash'
 import { classToPlain } from 'class-transformer'
 import { Collection } from './Collection'
 import { Resource } from './Resource'
-import { call } from '../../helpers'
-import { Resp, QueryRequest, ClassType } from '../../misc'
+import { ResourceAction, ResponseType, QueryRequest, ClassType } from '../../interfaces'
+import { $ } from '../../simpli'
 
 export class PageCollection<R extends Resource> extends Collection<R> {
   filter: object = {}
@@ -24,6 +23,15 @@ export class PageCollection<R extends Resource> extends Collection<R> {
   }
 
   /**
+   * Resource to use actions
+   */
+  $resource(): ResourceAction<this>
+  $resource<T>(responseType?: ResponseType<T>): ResourceAction<T>
+  $resource() {
+    return this.instance.$resource(this)
+  }
+
+  /**
    * gets the last page
    */
   get lastPage() {
@@ -31,17 +39,9 @@ export class PageCollection<R extends Resource> extends Collection<R> {
   }
 
   /**
-   * Serializes the response body of a call to the WebServer
-   * @param promise Any call of VUE RESOURCE
-   */
-  async call(promise: PromiseLike<HttpResponse>): Promise<Resp<R[]>> {
-    return await call(this, promise)
-  }
-
-  /**
    * Lists and Paginates the collection according to the config
    */
-  async search(): Promise<Resp<R[]>> {
+  async search() {
     const { querySearch, currentPage, perPage, orderBy, asc, filter } = this
 
     const filterParams = omitBy(classToPlain(filter), (item: any) => item === null || item === '')

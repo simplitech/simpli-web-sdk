@@ -9,7 +9,7 @@ const template = `
 
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import { Resource } from '../../app'
-import { SchemaContent } from '../../misc'
+import { SchemaContent } from '../../interfaces'
 
 @Component({ template })
 export class ResourceRender extends Vue {

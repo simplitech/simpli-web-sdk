@@ -22,7 +22,7 @@ const template = `
 
 import { Component as Comp, AsyncComponent as AsyncComp } from 'vue/types'
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { sleep } from '../../helpers/index'
+import { sleep } from '../../helpers'
 import { $ } from '../../simpli'
 
 export type CP = Comp<any, any, any, any> | AsyncComp<any, any, any, any>

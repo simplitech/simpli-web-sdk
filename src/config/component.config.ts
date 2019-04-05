@@ -7,7 +7,7 @@
  * This configuration will be set in @/bootstrap/app.ts
  */
 
-import { ComponentOptions } from '../misc'
+import { ComponentOptions } from '../interfaces'
 
 import { Await } from '../components/utils/Await'
 import { Modal } from '../components/utils/Modal'

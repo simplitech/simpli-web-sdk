@@ -1,8 +1,7 @@
 import * as moment from 'moment'
-import Vue, { PluginObject } from 'vue'
+import Vue from 'vue'
+import axios, { AxiosInstance } from 'axios'
 import VueSnotify from 'vue-snotify'
-import VueResource from 'vue-resource'
-import { HttpInterceptor } from 'vue-resource/types/vue_resource'
 import VueRouter, { RouterOptions } from 'vue-router'
 import VueI18n from 'vue-i18n'
 import VueTheMask from 'vue-the-mask'
@@ -13,10 +12,10 @@ import { AwaitController } from './components/utils/Await'
 import { ModalController } from './components/utils/Modal'
 import { TipController } from './components/utils/Tip'
 import { defaultFilters, defaultComponents } from './config'
-import { $Prototype, ComponentOptions, FilterOptions, LocaleOptions } from './misc'
+import { $Prototype, ComponentOptions, FilterOptions, LocaleOptions, SocketInstance } from './interfaces'
+import { socket } from './app'
 
 Vue.use(VueSnotify)
-Vue.use(VueResource as PluginObject<never>)
 Vue.use(VueRouter)
 Vue.use(VueI18n)
 Vue.use(VueTheMask)
@@ -25,9 +24,63 @@ const router = new VueRouter()
 const i18n = new VueI18n()
 const bus = new Vue({ i18n, router })
 
-export const $: $Prototype = {
-  apiURL: '',
-  socketURL: '',
+export abstract class $ {
+  static get axios() {
+    return prototype.axios
+  }
+  static get socket() {
+    return prototype.socket
+  }
+  static get component() {
+    return prototype.component
+  }
+  static get filter() {
+    return prototype.filter
+  }
+  static get router() {
+    return prototype.router
+  }
+  static get i18n() {
+    return prototype.i18n
+  }
+  static get bus() {
+    return prototype.bus
+  }
+  static get route() {
+    return prototype.route
+  }
+  static get t() {
+    return prototype.t
+  }
+  static get tc() {
+    return prototype.tc
+  }
+  static get te() {
+    return prototype.te
+  }
+  static get d() {
+    return prototype.d
+  }
+  static get n() {
+    return prototype.n
+  }
+  static get snotify() {
+    return prototype.snotify
+  }
+  static get await() {
+    return prototype.await
+  }
+  static get modal() {
+    return prototype.modal
+  }
+  static get tip() {
+    return prototype.tip
+  }
+}
+
+const prototype: $Prototype = {
+  axios: axios.create(),
+  socket: socket.create(),
 
   component: {},
   filter: {},
@@ -36,14 +89,14 @@ export const $: $Prototype = {
   i18n,
   bus,
 
-  http: bus.$http,
-  resource: bus.$resource,
   route: bus.$route,
+
   t: bus.$t,
   tc: bus.$tc,
   te: bus.$te,
   d: bus.$d,
   n: bus.$n,
+
   snotify: bus.$snotify,
 
   await: new AwaitController(),
@@ -51,79 +104,54 @@ export const $: $Prototype = {
   tip: new TipController(),
 }
 
-const defaultApiURL: string = 'http://localhost/api'
-const defaultSocketURL: string = 'ws://localhost/ws'
-
-const defaultLang: Lang = Lang.EN_US
-const defaultCurrency: Currency = Currency.USD
-
 export abstract class Simpli {
-  static apiURL: string = defaultApiURL
-  static socketURL: string = defaultSocketURL
-  static httpInterceptor?: Function
-  static lang: Lang = defaultLang
-  static currency: Currency = defaultCurrency
+  static axios?: AxiosInstance
+  static socket?: SocketInstance
   static components: ComponentOptions = {}
   static filters: FilterOptions = {}
   static locale?: LocaleOptions
   static router?: RouterOptions
+  static lang: Lang = Lang.EN_US
+  static currency: Currency = Currency.USD
 
-  static init() {
-    if (this.httpInterceptor) {
-      Vue.http.interceptors[7] = Simpli.httpInterceptor as HttpInterceptor
-    }
+  static install() {
+    prototype.axios = Simpli.axios || prototype.axios
+    prototype.socket = Simpli.socket || prototype.socket
 
-    // Ignore last slash (/)
-    const regexApi = Simpli.apiURL.match(/(.*)[^\/$]/g)
-    if (regexApi) $.apiURL = regexApi[0] || defaultApiURL
+    prototype.component = { ...defaultComponents, ...Simpli.components }
+    prototype.filter = { ...defaultFilters, ...Simpli.filters }
 
-    // Ignore last slash (/)
-    const regexSocket = Simpli.socketURL.match(/(.*)[^\/$]/g)
-    if (regexSocket) $.socketURL = regexSocket[0] || defaultSocketURL
-
-    $.component = { ...defaultComponents, ...Simpli.components }
-    $.filter = { ...defaultFilters, ...Simpli.filters }
-
-    $.router = new VueRouter(Simpli.router)
-    $.i18n = new VueI18n({
+    prototype.router = new VueRouter(Simpli.router)
+    prototype.i18n = new VueI18n({
       locale: Simpli.lang,
       messages: Simpli.locale,
     })
-    $.bus = new Vue({ router: $.router, i18n: $.i18n })
+    prototype.bus = new Vue({ router: prototype.router, i18n: prototype.i18n })
 
-    const component = $.component
-    const filter = $.filter
-    const i18n = $.i18n
-    const bus = $.bus
-
-    $.resource = bus.$resource
-    $.http = bus.$http
-    $.route = bus.$route
-    $.snotify = bus.$snotify
-    $.t = bus.$t
-    $.tc = bus.$tc
-    $.te = bus.$te
-    $.d = bus.$d
-    $.n = bus.$n
+    prototype.route = prototype.bus.$route
+    prototype.snotify = prototype.bus.$snotify
+    prototype.t = prototype.bus.$t
+    prototype.tc = prototype.bus.$tc
+    prototype.te = prototype.bus.$te
+    prototype.d = prototype.bus.$d
+    prototype.n = prototype.bus.$n
 
     Vue.use(VueMoney, currencyConfig(Simpli.currency))
-    moment.locale(i18n.locale)
+    moment.locale(prototype.i18n.locale)
 
-    if (filter) {
-      Object.keys(filter).forEach((key: string) => Vue.filter(key, filter[key]))
+    for (const key in prototype.filter) {
+      Vue.filter(key, prototype.filter[key])
     }
 
-    if (component) {
-      Object.keys(component).forEach((key: string) => {
-        Vue.component(key, component[key])
-      })
+    for (const key in prototype.component) {
+      Vue.component(key, prototype.component[key])
     }
 
-    Vue.prototype.$apiURL = $.apiURL
-    Vue.prototype.$socketURL = $.socketURL
-    Vue.prototype.$bus = $.bus
-    Vue.prototype.$await = $.await
-    Vue.prototype.$modal = $.modal
-    Vue.prototype.$tip = $.tip
+    Vue.prototype.$axios = prototype.axios
+    Vue.prototype.$socket = prototype.socket
+    Vue.prototype.$bus = prototype.bus
+    Vue.prototype.$await = prototype.await
+    Vue.prototype.$modal = prototype.modal
+    Vue.prototype.$tip = prototype.tip
   }
 }

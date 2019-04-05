@@ -4,7 +4,7 @@
  */
 import { Resource } from './Resource'
 import { PageCollection } from './PageCollection'
-import { ClassType } from '../../misc'
+import { ClassType } from '../../interfaces'
 
 export class WholeCollection<T extends Resource> extends PageCollection<T> {
   // Get all items from a paged list response

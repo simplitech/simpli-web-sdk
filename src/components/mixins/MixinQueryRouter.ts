@@ -1,7 +1,7 @@
 import { Component, Watch, Vue } from 'vue-property-decorator'
 import { $ } from '../../simpli'
 import { PageCollection, Resource } from '../../app'
-import { QueryRouter } from '../../misc'
+import { QueryRouter } from '../../interfaces'
 
 @Component
 export class MixinQueryRouter extends Vue {

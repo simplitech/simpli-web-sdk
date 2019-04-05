@@ -1,5 +1,5 @@
 import { $ } from '../simpli'
-import { ID, TAG, Enum, ICollection, IResource } from '../misc'
+import { ID, TAG, Enum, ICollection, IResource } from '../interfaces'
 import * as Helper from '../helpers'
 
 export class ObjectCollection<E extends Enum<E>> implements ICollection {
@@ -29,7 +29,7 @@ export class ObjectCollection<E extends Enum<E>> implements ICollection {
    * Get Resource by ID
    * @param id
    */
-  get(id: ID | null): IResource | null {
+  getOne(id: ID | null): IResource | null {
     return Helper.getResource(this.items, id) as IResource | null
   }
 
@@ -61,7 +61,7 @@ export class ObjectCollection<E extends Enum<E>> implements ICollection {
    * @param useI18n
    */
   prependNull(tag: TAG, useI18n = true): this {
-    return this.prepend(0, useI18n ? $.t(tag) : tag)
+    return this.prepend(0, useI18n ? ($.t(tag) as string) : tag)
   }
 
   /**

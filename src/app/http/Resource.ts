@@ -1,11 +1,12 @@
 import { chain } from 'lodash'
-import { classToPlain } from 'class-transformer'
-import { HttpBody } from './HttpBody'
+import { AxiosRequestConfig } from 'axios'
 import { Model } from './Model'
 import {
   ID,
   TAG,
-  Resp,
+  ResponseType,
+  ResourceAction,
+  ResourceActionConfig,
   SchemaOptions,
   Schema,
   SchemaVal,
@@ -14,14 +15,43 @@ import {
   SchemaVue,
   SchemaData,
   IResource,
-} from '../../misc'
-import { $, apiFullURL } from '../../helpers'
+} from '../../interfaces'
+import { $ } from '../../simpli'
+import * as Helper from '../../helpers'
+import { ClassType } from 'class-transformer/ClassTransformer'
 
 export abstract class Resource extends Model implements IResource {
   /**
    * API URI endpoint
    */
   abstract readonly $endpoint: string
+
+  /**
+   * Spinner suffix name
+   */
+  readonly $spinnerSuffixName?: string
+
+  /**
+   * Custom actions from resource
+   */
+  readonly $customAction: ResourceActionConfig = {}
+
+  /**
+   * Custom actions from resource
+   */
+  readonly $axiosConfig: AxiosRequestConfig = {}
+
+  /**
+   * Resource to use actions
+   */
+  $resource(): ResourceAction<this>
+  $resource<T>(responseType?: ResponseType<T>): ResourceAction<T>
+  $resource<T>(responseType?: ResponseType<T>) {
+    if (responseType) {
+      return Helper.resource(this.$endpoint, this.$customAction, this.$axiosConfig, responseType)
+    }
+    return Helper.resource(this.$endpoint, this.$customAction, this.$axiosConfig, this)
+  }
 
   /**
    * Normalizes what will be showed as entity or list
@@ -32,6 +62,7 @@ export abstract class Resource extends Model implements IResource {
 
     delete data.$endpoint
     delete data.$name
+    delete data.$spinnerSuffixName
 
     return data as Schema
   }
@@ -138,71 +169,65 @@ export abstract class Resource extends Model implements IResource {
   }
 
   /**
-   * Finds and return a entity from WebServer
+   * Gets a entity from WebServer
    * @param id entity ID
-   * @param spinner
    */
-  async find(id: ID, spinner?: string): Promise<Resp<this>> {
-    const fetch = async () => await this.call($.resource(apiFullURL(this.$endpoint)).get({ id }))
-    return await $.await.run(fetch, spinner || `find${this.$name}`)
+  async find(id: ID) {
+    const fetch = () => this.$resource().query({ id })
+    return await $.await.run(fetch, `find${this.$spinnerSuffixName || this.$name}`)
   }
 
   /**
-   * Finds and return a entity from WebServer by query
-   * @param query
-   * @param spinner
+   * Gets a entity from WebServer by query
+   * @param params
    */
-  async findByQuery(query: any, spinner?: string): Promise<Resp<this>> {
-    const fetch = async () => await this.call($.resource(apiFullURL(this.$endpoint)).get(query))
-    return await $.await.run(fetch, spinner || `find${this.$name}`)
+  async query(params?: any) {
+    const fetch = () => this.$resource().query(params)
+    return await $.await.run(fetch, `query${this.$spinnerSuffixName || this.$name}`)
   }
 
   /**
    * Saves this entity and post it into WebServer
-   * @param cls
-   * @param spinner
+   * @param responseType
    */
-  async save<T>(cls?: any, spinner?: string): Promise<Resp<T>> {
-    const body = classToPlain(this)
-    const fetch = async () => await new HttpBody<T>(cls).call($.resource(apiFullURL(this.$endpoint)).save(body))
-    return await $.await.run(fetch, spinner || `save${this.$name}`)
+  async save<T>(responseType?: ResponseType<T>) {
+    const fetch = () => this.$resource(responseType).save(this)
+    return await $.await.run(fetch, `save${this.$spinnerSuffixName || this.$name}`)
   }
 
   /**
    * Updates this entity and post it into WebServer
-   * @param cls
-   * @param spinner
+   * @param responseType
    */
-  async update<T>(cls?: any, spinner?: string): Promise<Resp<T>> {
-    const body = classToPlain(this)
-    const fetch = async () => await new HttpBody<T>(cls).call($.resource(apiFullURL(this.$endpoint)).update(body))
-    return await $.await.run(fetch, spinner || `update${this.$name}`)
+  async update<T>(responseType?: ResponseType<T>) {
+    // @ts-ignore
+    const fetch = () => this.$resource(responseType).update({ id: this.$id }, this)
+    return await $.await.run(fetch, `update${this.$spinnerSuffixName || this.$name}`)
   }
 
   /**
    * Removes a entity from WebServer
-   * @param cls
-   * @param spinner
+   * @param responseType
    */
-  async remove<T>(cls?: any, spinner?: string): Promise<Resp<any>> {
-    const fetch = async () =>
-      await new HttpBody<T>(cls).call($.resource(apiFullURL(this.$endpoint)).remove({ id: this.$id }))
-    return await $.await.run(fetch, spinner || `remove${this.$name}`)
+  async remove<T>(responseType?: ResponseType<T>) {
+    // @ts-ignore
+    const fetch = () => this.$resource(responseType).remove({ id: this.$id })
+    return await $.await.run(fetch, `remove${this.$spinnerSuffixName || this.$name}`)
   }
 
   /**
    * Validate and save
    */
-  async validateAndSave(): Promise<Resp<any>> {
+  async validateAndSave<T>(responseType?: ResponseType<T>) {
     await this.validate()
-    return await this.save()
+    return await this.save(responseType)
   }
 
   /**
    * Validate and update
    */
-  async validateAndUpdate(): Promise<Resp<any>> {
+  async validateAndUpdate<T>(responseType?: ResponseType<T>) {
     await this.validate()
-    return await this.update()
+    return await this.update(responseType)
   }
 }

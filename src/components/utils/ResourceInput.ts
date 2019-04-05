@@ -300,7 +300,7 @@ const template = `
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import { Resource } from '../../app'
 import { InputType } from '../../enums'
-import { SchemaRow, SchemaVue } from '../../misc'
+import { SchemaRow, SchemaVue } from '../../interfaces'
 
 @Component({ template })
 export class ResourceInput extends Vue {

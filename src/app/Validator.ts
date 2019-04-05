@@ -1,5 +1,5 @@
 import { validate, ValidationError } from 'class-validator'
-import { IValidator } from '../misc'
+import { IValidator } from '../interfaces'
 import { errorValidation } from '../helpers'
 
 export class Validator implements IValidator {

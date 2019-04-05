@@ -1,5 +1,5 @@
 import { Byte, FileFormat } from '../enums'
-import { Dictionary } from '../misc'
+import { Dictionary } from '../interfaces'
 import { Options } from 'image-compressor.js'
 
 export class UploadConfig {

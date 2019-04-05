@@ -3,8 +3,6 @@ import FileUpload from 'vue-upload-component'
 import Cropper from 'cropperjs'
 import ImageCompressor, { ImgComp, FileObject } from 'image-compressor.js'
 import { $ } from '../../simpli'
-import { HttpBody } from '../../app'
-import { Resp } from '../../misc'
 import { UploadConfig } from '../../app'
 import * as Helper from '../../helpers'
 
@@ -68,12 +66,12 @@ export class MixinUpload extends Vue {
     return ''
   }
 
-  get resources(): Array<Promise<Resp<String>>> {
+  get resources() {
     return this.files.map((file: FileObject) => {
       const params = {
         fileName: `${Helper.uid()}${this.extension(file)}`,
       }
-      return new HttpBody(String).GET(this.UPLOAD_CONFIG.endpoint, { params })
+      return Helper.request<string>().get(this.UPLOAD_CONFIG.endpoint, { params })
     })
   }
 
@@ -211,7 +209,7 @@ export class MixinUpload extends Vue {
       const responses = await Promise.all(resources)
 
       responses.forEach((resp, i) => {
-        const fullUrl = resp.data as string
+        const fullUrl = resp.data
         const url = fullUrl.split('?')[0]
 
         // Define PUT Method URL address of each file

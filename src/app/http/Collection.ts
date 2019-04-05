@@ -1,14 +1,13 @@
 import { chain, values, mapKeys, snakeCase } from 'lodash'
-import { HttpResponse } from 'vue-resource/types/vue_resource'
 import { unparse } from 'papaparse'
 import { Type } from 'class-transformer'
 import { Resource } from './Resource'
-import { HttpBody } from './HttpBody'
 import {
   ID,
   TAG,
-  Resp,
   ClassType,
+  ResponseType,
+  ResourceAction,
   SchemaOptions,
   Schema,
   SchemaVal,
@@ -16,16 +15,11 @@ import {
   SchemaContent,
   SchemaData,
   ICollection,
-} from '../../misc'
-import { $, apiFullURL, call, nullableItems, createCsvFile } from '../../helpers'
+} from '../../interfaces'
+import { $ } from '../../simpli'
 import * as Helper from '../../helpers'
 
-export class Collection<R extends Resource> extends HttpBody<Collection<R>> implements ICollection {
-  /**
-   * If defined, then use this endpoint instead of the $endpoint resource
-   */
-  endpoint: string | null = null
-
+export class Collection<R extends Resource> implements ICollection {
   /**
    * Items of the collection
    * @type {Array}
@@ -39,36 +33,35 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
   readonly type: ClassType<R>
 
   /**
-   * Collection ClassObject of list
+   * The instance of the collection items
    */
-  get resource() {
+  get instance() {
     return new this.type()
   }
 
-  constructor(type: ClassType<R>) {
-    super()
-    this.type = type
+  /**
+   * Resource to use actions
+   */
+  $resource(): ResourceAction<R[]>
+  $resource<T>(responseType?: ResponseType<T>): ResourceAction<T>
+  $resource<T>(responseType?: ResponseType<T>) {
+    if (responseType) {
+      return this.instance.$resource(responseType)
+    }
+    return this.instance.$resource(this.items)
   }
 
-  /**
-   * Call an API using Vue-Resource then serialize the response
-   * @param promise Any call of VUE RESOURCE
-   */
-  async call(promise: PromiseLike<HttpResponse>): Promise<Resp<any>> {
-    const resp = await call(this.type, promise)
-    this.items = resp.data
-    return resp
+  constructor(type: ClassType<R>) {
+    this.type = type
   }
 
   /**
    * Lists resource from WebServer
    * @param params
-   * @param spinner
    */
-  async query(params?: any, spinner?: string): Promise<Resp<R[]>> {
-    const endpoint = this.endpoint || this.resource.$endpoint
-    let fetch = async () => await this.call($.resource(apiFullURL(endpoint)).query(params))
-    return await $.await.run(fetch, spinner || `query${this.resource.$name}`)
+  async query(params?: any) {
+    const fetch = () => this.$resource().query(params)
+    return await $.await.run(fetch, `query${this.instance.$spinnerSuffixName || this.instance.$name}`)
   }
 
   /**
@@ -90,11 +83,11 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
    */
   get header(): object {
     return (
-      chain(this.resource.$schema)
+      chain(this.instance.$schema)
         // Hide hidden properties
         .pickBy((val: SchemaVal) => (val ? (val as SchemaRow).hidden !== true : true))
         // Translate the keys
-        .mapValues((val: SchemaRow, key: string) => $.t(`classes.${this.resource.$name}.columns.${key}`) as string)
+        .mapValues((val: SchemaRow, key: string) => $.t(`classes.${this.instance.$name}.columns.${key}`) as string)
         // Get the result
         .value()
     )
@@ -135,13 +128,13 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
   downloadCsv(customTitle?: string) {
     if (this.items.length <= 0) return
 
-    const title = $.t(`classes.${this.resource.$name}.title`) as string
+    const title = this.instance.translateTitle()
     const data = this.textData.map((schema: SchemaData) =>
       // Translate the keys
-      mapKeys(schema, (val: SchemaVal, key: string) => $.t(`classes.${this.resource.$name}.columns.${key}`) as string)
+      mapKeys(schema, (val: SchemaVal, key: string) => this.instance.translateColumn(key))
     )
 
-    createCsvFile(customTitle ? `${customTitle}.csv` : `${snakeCase(title)}.csv`, unparse(data))
+    Helper.createCsvFile(customTitle ? `${customTitle}.csv` : `${snakeCase(title)}.csv`, unparse(data))
   }
 
   /**
@@ -149,14 +142,14 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
    * @param placeholder
    */
   nullableItems(placeholder: string | null = null): Array<R | null> {
-    return nullableItems(this.items, placeholder) as Array<R | null>
+    return Helper.nullableItems(this.items, placeholder) as Array<R | null>
   }
 
   /**
    * Get Resource by ID
    * @param id
    */
-  get(id: ID | null): R | null {
+  getOne(id: ID | null): R | null {
     return Helper.getResource(this.items, id) as R | null
   }
 
@@ -174,7 +167,7 @@ export class Collection<R extends Resource> extends HttpBody<Collection<R>> impl
    * @param useI18n
    */
   prependNull(tag: TAG, useI18n = true): this {
-    return this.prepend(0, useI18n ? $.t(tag) : tag)
+    return this.prepend(0, useI18n ? ($.t(tag) as string) : tag)
   }
 
   /**

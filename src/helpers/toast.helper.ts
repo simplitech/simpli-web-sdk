@@ -9,8 +9,8 @@ import { push, $ } from '../helpers'
  * @param {SnotifyToastConfig} config
  */
 export const success = (body: string, title?: string, useI18n: boolean = true, config?: SnotifyToastConfig) => {
-  if (useI18n) $.snotify.success($.t(body), title ? $.t(title) : undefined, config)
-  else $.snotify.success(body, title || undefined, config)
+  if (useI18n) $.snotify.success($.t(body), title ? $.t(title) : undefined, config || {})
+  else $.snotify.success(body, title || '', config || {})
 }
 
 /**
@@ -40,8 +40,8 @@ export const successAndPush = (
  * @param {SnotifyToastConfig} config
  */
 export const error = (body: string, title?: string, useI18n: boolean = true, config?: SnotifyToastConfig) => {
-  if (useI18n) $.snotify.error($.t(body), title ? $.t(title) : undefined, config)
-  else $.snotify.error(body, title || undefined, config)
+  if (useI18n) $.snotify.error($.t(body), title ? $.t(title) : undefined, config || {})
+  else $.snotify.error(body, title || '', config || {})
 }
 
 /**
@@ -89,8 +89,8 @@ export const abort = (body: string, title?: string, useI18n: boolean = true, con
  * @param {SnotifyToastConfig} config
  */
 export const warning = (body: string, title?: string, useI18n: boolean = true, config?: SnotifyToastConfig) => {
-  if (useI18n) $.snotify.warning($.t(body), title ? $.t(title) : undefined, config)
-  else $.snotify.warning(body, title || undefined, config)
+  if (useI18n) $.snotify.warning($.t(body), title ? $.t(title) : undefined, config || {})
+  else $.snotify.warning(body, title || '', config || {})
 }
 
 /**
@@ -120,8 +120,8 @@ export const warningAndPush = (
  * @param {SnotifyToastConfig} config
  */
 export const info = (body: string, title?: string, useI18n: boolean = true, config?: SnotifyToastConfig) => {
-  if (useI18n) $.snotify.info($.t(body), title ? $.t(title) : undefined, config)
-  else $.snotify.info(body, title || undefined, config)
+  if (useI18n) $.snotify.info($.t(body), title ? $.t(title) : undefined, config || {})
+  else $.snotify.info(body, title || '', config || {})
 }
 
 /**

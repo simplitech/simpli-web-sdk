@@ -1,7 +1,7 @@
 import { $ } from '../simpli'
 import { classToClass } from 'class-transformer'
 import Papa, { ParseError, ParseResult } from 'papaparse'
-import { ID, TAG, IResource, DataBlueprint, NormalizedItem } from '../misc'
+import { ID, TAG, IResource, DataBlueprint, NormalizedItem } from '../interfaces'
 const shortid = require('shortid')
 
 /**

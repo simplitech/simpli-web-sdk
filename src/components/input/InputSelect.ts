@@ -29,7 +29,7 @@ const template = `
 
 import { plainToClassFromExist } from 'class-transformer'
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
-import { ID, TAG, IResource } from '../../misc'
+import { ID, TAG, IResource } from '../../interfaces'
 import { buildResource } from '../../helpers'
 
 type InputModel = IResource | null | IResource[]

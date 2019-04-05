@@ -1,33 +1,58 @@
-import { HttpOptions, HttpResponse } from 'vue-resource/types/vue_resource'
-import { HttpBody } from './HttpBody'
+import { AxiosPromise, AxiosRequestConfig } from 'axios'
 import { Validator } from '../Validator'
 import { $ } from '../../simpli'
-import { IValidator, Resp } from '../../misc'
+import { IValidator } from '../../interfaces'
+import * as Helper from '../../helpers'
 
-export abstract class Model extends HttpBody<Model> implements IValidator {
+export abstract class Model implements IValidator {
   /**
    * Name of entity
    */
   readonly $name: string = this.constructor.name
 
-  async call(promise: PromiseLike<HttpResponse>): Promise<Resp<this>> {
-    return super.call(promise) as Promise<Resp<this>>
+  /**
+   * Serializes the response body of GET method to the WebServer
+   * @param url
+   * @param config
+   */
+  async GET(url: string, config?: AxiosRequestConfig) {
+    return Helper.request(this).get(url, config)
   }
 
-  async GET(uri: string, options?: HttpOptions, endpoint: boolean = true): Promise<Resp<this>> {
-    return super.GET(uri, options, endpoint) as Promise<Resp<this>>
+  /**
+   * Serializes the response body of POST method to the WebServer
+   * @param url
+   * @param data
+   * @param config
+   */
+  async POST(url: string, data?: any, config?: AxiosRequestConfig) {
+    return Helper.request(this).post(url, data, config)
   }
 
-  async POST(uri: string, body?: any, options?: HttpOptions, endpoint: boolean = true): Promise<Resp<this>> {
-    return super.POST(uri, body, options, endpoint) as Promise<Resp<this>>
+  /**
+   * Serializes the response body of PUT method to the WebServer
+   * @param url
+   * @param data
+   * @param config
+   */
+  async PUT(url: string, data?: any, config?: AxiosRequestConfig) {
+    return Helper.request(this).put(url, data, config)
   }
 
-  async PUT(uri: string, body?: any, options?: HttpOptions, endpoint: boolean = true): Promise<Resp<this>> {
-    return super.PUT(uri, body, options, endpoint) as Promise<Resp<this>>
+  /**
+   * Serializes the response body of DELETE method to the WebServer
+   * @param url
+   * @param config
+   */
+  async DELETE(url: string, config?: AxiosRequestConfig) {
+    return Helper.request(this).delete(url, config)
   }
 
-  async DELETE(uri: string, options?: HttpOptions, endpoint: boolean = true): Promise<Resp<this>> {
-    return super.DELETE(uri, options, endpoint) as Promise<Resp<this>>
+  /**
+   * Clone this entity
+   */
+  clone() {
+    return Helper.clone(this)
   }
 
   /**
@@ -39,10 +64,17 @@ export abstract class Model extends HttpBody<Model> implements IValidator {
   }
 
   /**
+   * Translate the title in the dictionary
+   */
+  translateTitle() {
+    return $.t(`classes.${this.$name}.title`) as string
+  }
+
+  /**
    * Translate a column indicated in the dictionary
    * @param column
    */
   translateColumn(column: string) {
-    return $.t(`classes.${this.$name}.columns.${column}`)
+    return $.t(`classes.${this.$name}.columns.${column}`) as string
   }
 }
