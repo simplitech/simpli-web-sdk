@@ -157,15 +157,15 @@ export function request<T>(responseType?: ResponseType<T>) {
  * Create resource like object
  *
  * Default Actions
- *   get: {method: 'GET'}
  *   query: {method: 'GET'}
  *   save: {method: 'POST'}
  *   update: {method: 'PUT'}
  *   remove: {method: 'DELETE'}
  *
+ * @param customActionConfig
+ * @param config
  * @param responseType
  * @param endpoint the resource path
- * @param actions custom actions
  * @returns the resource object
  */
 export function resource<T>(

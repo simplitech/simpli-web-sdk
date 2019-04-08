@@ -6,14 +6,13 @@ import VueRouter, { RouterOptions } from 'vue-router'
 import VueI18n from 'vue-i18n'
 import VueTheMask from 'vue-the-mask'
 import VueMoney from 'v-money'
+import { socket, DefaultConfig } from './app'
 import { Lang, Currency } from './enums'
 import { currencyConfig } from './helpers'
 import { AwaitController } from './components/utils/Await'
 import { ModalController } from './components/utils/Modal'
 import { TipController } from './components/utils/Tip'
-import { defaultFilters, defaultComponents } from './config'
 import { $Prototype, ComponentOptions, FilterOptions, LocaleOptions, SocketInstance } from './interfaces'
-import { socket } from './app'
 
 Vue.use(VueSnotify)
 Vue.use(VueRouter)
@@ -118,8 +117,8 @@ export abstract class Simpli {
     prototype.axios = Simpli.axios || prototype.axios
     prototype.socket = Simpli.socket || prototype.socket
 
-    prototype.component = { ...defaultComponents, ...Simpli.components }
-    prototype.filter = { ...defaultFilters, ...Simpli.filters }
+    prototype.component = { ...DefaultConfig.components, ...Simpli.components }
+    prototype.filter = { ...DefaultConfig.filters, ...Simpli.filters }
 
     prototype.router = new VueRouter(Simpli.router)
     prototype.i18n = new VueI18n({
@@ -150,6 +149,7 @@ export abstract class Simpli {
     Vue.prototype.$axios = prototype.axios
     Vue.prototype.$socket = prototype.socket
     Vue.prototype.$bus = prototype.bus
+    Vue.prototype.$snotify = prototype.snotify
     Vue.prototype.$await = prototype.await
     Vue.prototype.$modal = prototype.modal
     Vue.prototype.$tip = prototype.tip

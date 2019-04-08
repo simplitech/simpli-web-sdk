@@ -1,6 +1,6 @@
-import { $ } from '../simpli'
-import { ID, TAG, Enum, ICollection, IResource } from '../interfaces'
-import * as Helper from '../helpers'
+import { $ } from '../../simpli'
+import { ID, TAG, Enum, ICollection, IResource } from '../../interfaces'
+import * as Helper from '../../helpers'
 
 export class ObjectCollection<E extends Enum<E>> implements ICollection {
   /**

@@ -1,4 +1,4 @@
-import { AxiosPromise, AxiosRequestConfig, AxiosResponse } from 'axios'
+import { AxiosResponse } from 'axios'
 import { ClassType, ID, TAG } from '../interfaces'
 
 export type ResponseType<T> = ClassType<T> | T

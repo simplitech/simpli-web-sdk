@@ -1,6 +1,6 @@
 import { validate, ValidationError } from 'class-validator'
-import { IValidator } from '../interfaces'
-import { errorValidation } from '../helpers'
+import { IValidator } from '../../interfaces'
+import { errorValidation } from '../../helpers'
 
 export class Validator implements IValidator {
   static async toastValidate(entity: object) {
@@ -11,6 +11,7 @@ export class Validator implements IValidator {
       throw e
     }
   }
+
   constructor(public entity?: object) {
     /**/
   }

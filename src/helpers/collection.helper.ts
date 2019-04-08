@@ -1,7 +1,7 @@
 import { shuffle, reverse } from 'lodash'
 import { Collection, ObjectCollection, Resource } from '../app'
 import { ClassType, Enum, ID, IResource } from '../interfaces'
-import { buildResource, clone } from './misc.helper'
+import { buildResource, clone } from './utils.helper'
 
 /**
  * Transform a given array of Resource into Collection

@@ -6,7 +6,7 @@ import { SnotifyService } from 'vue-snotify/SnotifyService'
 import { AwaitController } from '../components/utils/Await'
 import { ModalController } from '../components/utils/Modal'
 import { TipController } from '../components/utils/Tip'
-import { SocketInstance } from './socket'
+import { SocketInstance } from './socket.interface'
 
 export interface FilterOptions {
   readonly [key: string]: (val?: string, ...params: any[]) => string

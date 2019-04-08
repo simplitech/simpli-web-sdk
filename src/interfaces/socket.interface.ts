@@ -9,7 +9,7 @@ export interface SocketConfig {
 }
 
 export interface SocketInstance {
-  baseURL?: string
+  config: SocketConfig
   connect: <T>(name: string, connection: SocketConnection<T>) => void
   getConnection: <T>(name: string) => SocketConnection<T>
   disconnectAll: () => void

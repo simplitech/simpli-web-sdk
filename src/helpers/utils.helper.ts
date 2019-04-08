@@ -2,6 +2,7 @@ import { $ } from '../simpli'
 import { classToClass } from 'class-transformer'
 import Papa, { ParseError, ParseResult } from 'papaparse'
 import { ID, TAG, IResource, DataBlueprint, NormalizedItem } from '../interfaces'
+import { sha256 } from 'js-sha256'
 const shortid = require('shortid')
 
 /**
@@ -10,7 +11,16 @@ const shortid = require('shortid')
  * @param {string} suffix
  * @returns {string}
  */
-export const uid = (prefix?: string, suffix?: string) => `${prefix || ''}${shortid.generate()}${suffix || ''}`
+export function uid(prefix?: string, suffix?: string) {
+  return `${prefix || ''}${shortid.generate()}${suffix || ''}`
+}
+
+/**
+ * Alias of sha256
+ */
+export function encrypt() {
+  return sha256
+}
 
 /**
  * Pause process for a while
@@ -26,7 +36,9 @@ export function sleep(ms: number) {
  * @param $id
  * @param $tag
  */
-export const buildResource = ($id: ID, $tag: TAG): IResource => ({ $id, $tag })
+export function buildResource($id: ID, $tag: TAG): IResource {
+  return { $id, $tag }
+}
 
 /**
  * Lists the objects keys and mapped it into an array of Resource
@@ -68,10 +80,10 @@ export function createCsvFile(filename: string, csvStr: string) {
  * @param urlOrFile
  * @param blueprint
  */
-export const csvToNormalizedData = async <T extends DataBlueprint>(
+export async function csvToNormalizedData<T extends DataBlueprint>(
   urlOrFile: string | File,
   blueprint: T
-): Promise<Array<NormalizedItem<T>>> => {
+): Promise<Array<NormalizedItem<T>>> {
   const resp = await csvToData(urlOrFile)
   return normalizeData(resp.data, blueprint) as Array<NormalizedItem<T>>
 }
@@ -80,7 +92,7 @@ export const csvToNormalizedData = async <T extends DataBlueprint>(
  * Transform a csv file into a data object
  * @param urlOrFile
  */
-export const csvToData = async (urlOrFile: string | File): Promise<ParseResult> => {
+export async function csvToData(urlOrFile: string | File): Promise<ParseResult> {
   const promiseFunc = (resolve: Function, reject: Function) => {
     const defaultConfig = {
       header: true,
@@ -104,7 +116,7 @@ export const csvToData = async (urlOrFile: string | File): Promise<ParseResult> 
  * @param data
  * @param blueprint
  */
-export const normalizeData = <T extends DataBlueprint>(data: any[], blueprint: T): Array<NormalizedItem<T>> => {
+export function normalizeData<T extends DataBlueprint>(data: any[], blueprint: T): Array<NormalizedItem<T>> {
   return (
     data
       .map((dataItem: any) => {
@@ -141,6 +153,10 @@ export function currencyConfig(currency: string) {
   }
 }
 
+/**
+ * Copy to clipboard
+ * @param text
+ */
 export function copyToClipboard(text: string) {
   const el = document.createElement('textarea')
   el.value = text

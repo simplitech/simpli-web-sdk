@@ -1,31 +1,6 @@
 import { deserialize } from 'class-transformer'
-import { ClassType, Dictionary, SocketConfig, SocketInstance, SocketStatic } from '../interfaces'
-import { $ } from '../simpli'
-
-export const socket: SocketStatic = {
-  create(config?: SocketConfig): SocketInstance {
-    const baseURL = config && config.baseURL
-
-    const socketConnection: Dictionary<SocketConnection<any>> = {}
-
-    const connect = <T>(name: string, connection: SocketConnection<T>) => {
-      if (socketConnection[name]) {
-        socketConnection[name].disconnect()
-      }
-      socketConnection[name] = connection
-    }
-
-    const getConnection = (name: string) => socketConnection[name]
-
-    const disconnectAll = () => {
-      for (const name in socketConnection) {
-        socketConnection[name].disconnect()
-      }
-    }
-
-    return { baseURL, connect, getConnection, disconnectAll }
-  },
-}
+import { ClassType } from '../../interfaces'
+import { $ } from '../../simpli'
 
 export class SocketConnection<T> {
   cls: ClassType<T>
@@ -34,7 +9,7 @@ export class SocketConnection<T> {
   constructor(cls: ClassType<T>, url: string) {
     this.cls = cls
 
-    let baseURL = $.socket.baseURL || ''
+    let baseURL = $.socket.config.baseURL || ''
     // Ignore last slash (/)
     const match = baseURL.match(/(.*)[^\/$]/g)
     baseURL = match ? match[0] : ''

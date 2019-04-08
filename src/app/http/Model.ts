@@ -1,5 +1,5 @@
 import { AxiosPromise, AxiosRequestConfig } from 'axios'
-import { Validator } from '../Validator'
+import { Validator } from './Validator'
 import { $ } from '../../simpli'
 import { IValidator } from '../../interfaces'
 import * as Helper from '../../helpers'

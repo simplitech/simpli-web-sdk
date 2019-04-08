@@ -124,26 +124,3 @@ export enum Lang {
   ZH_HK = 'zh-HK',
   ZH_TW = 'zh-TW',
 }
-
-export enum Currency {
-  USD = 'USD',
-  EUR = 'EUR',
-  JPY = 'JPY',
-  GBP = 'GBP',
-  AUD = 'AUD',
-  CAD = 'CAD',
-  CHF = 'CHF',
-  CNY = 'CNY',
-  SEK = 'SEK',
-  NZD = 'NZD',
-  MXN = 'MXN',
-  SGD = 'SGD',
-  HKD = 'HKD',
-  NOK = 'NOK',
-  KRW = 'KRW',
-  TRY = 'TRY',
-  RUB = 'RUB',
-  INR = 'INR',
-  BRL = 'BRL',
-  ZAR = 'ZAR',
-}
