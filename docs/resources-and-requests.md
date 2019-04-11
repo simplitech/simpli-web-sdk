@@ -1,4 +1,5 @@
-# Requests and Resources
+# Resources and Requests
+
 This section explains the use of tools which is responsible to make HTTP requests and REST operations.
 
 ## Configuration
@@ -455,3 +456,6 @@ async function example9() {
     await friend.$remove(String) // DELETE -> /user/1/friend/2
 }
 ```
+
+## Next Topic
+[Collections](https://github.com/simplitech/simpli-web-sdk/tree/master/docs/collections.md)
