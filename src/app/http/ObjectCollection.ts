@@ -1,8 +1,8 @@
 import { $ } from '../../simpli'
-import { ID, TAG, Enum, ICollection, IResource } from '../../interfaces'
-import * as Helper from '../../helpers'
+import { ID, TAG, EnumType, ICollection, IResource } from '../../interfaces'
+import { Helper } from '../../main'
 
-export class ObjectCollection<E extends Enum<E>> implements ICollection {
+export class ObjectCollection<E extends EnumType<E>> implements ICollection {
   /**
    * Items of the collection
    * @type {Array}

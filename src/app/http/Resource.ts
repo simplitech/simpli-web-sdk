@@ -1,9 +1,12 @@
 import { chain } from 'lodash'
 import { AxiosRequestConfig } from 'axios'
+import { $ } from '../../simpli'
 import { Model } from './Model'
+import { resource, classToPlain } from '../../helpers'
 import {
   ID,
   TAG,
+  ClassType,
   ResponseType,
   ResourceAction,
   ResourceActionConfig,
@@ -16,57 +19,8 @@ import {
   SchemaData,
   IResource,
 } from '../../interfaces'
-import { $ } from '../../simpli'
-import * as Helper from '../../helpers'
-import { ClassType } from 'class-transformer/ClassTransformer'
 
 export abstract class Resource extends Model implements IResource {
-  /**
-   * API URI endpoint
-   */
-  abstract readonly $endpoint: string
-
-  /**
-   * Spinner suffix name
-   */
-  readonly $spinnerSuffixName?: string
-
-  /**
-   * Custom actions from resource
-   */
-  readonly $customAction: ResourceActionConfig = {}
-
-  /**
-   * Custom actions from resource
-   */
-  readonly $axiosConfig: AxiosRequestConfig = {}
-
-  /**
-   * Resource to use actions
-   */
-  $resource(): ResourceAction<this>
-  $resource<T>(responseType?: ResponseType<T>): ResourceAction<T>
-  $resource<T>(responseType?: ResponseType<T>) {
-    if (responseType) {
-      return Helper.resource(this.$endpoint, this.$customAction, this.$axiosConfig, responseType)
-    }
-    return Helper.resource(this.$endpoint, this.$customAction, this.$axiosConfig, this)
-  }
-
-  /**
-   * Normalizes what will be showed as entity or list
-   */
-  get $schema(): Schema {
-    const json = JSON.stringify(this)
-    const data = JSON.parse(json)
-
-    delete data.$endpoint
-    delete data.$name
-    delete data.$spinnerSuffixName
-
-    return data as Schema
-  }
-
   /**
    * ID of entity
    */
@@ -84,9 +38,135 @@ export abstract class Resource extends Model implements IResource {
   }
 
   /**
+   * API URI endpoint
+   */
+  abstract readonly $endpoint: string
+
+  /**
+   * Custom actions from resource
+   */
+  readonly $customActionConfig: ResourceActionConfig = {}
+
+  /**
+   * Axios config
+   */
+  readonly $axiosConfig: AxiosRequestConfig = {}
+
+  /**
+   * Spinner suffix name
+   */
+  readonly $spinnerSuffixName?: string
+
+  /**
+   * Resource parent
+   */
+  $parent: Resource | null = null
+
+  /**
+   * All above resource parents
+   */
+  get $allParents() {
+    const parents: Resource[] = []
+
+    let resource = this.$parent
+    let depth = 0
+
+    const maxDepth = 5
+
+    while (resource && depth++ < maxDepth) {
+      parents.push(resource)
+      resource = resource.$parent
+    }
+
+    return parents.reverse()
+  }
+
+  /**
+   * Resource root based in the endpoint
+   * i.e. /foo{/id1}bar{/id2}
+   * the result is foo: Foo
+   */
+  get $root() {
+    return this.$allParents[0] || this
+  }
+
+  /**
+   * Depth based in the endpoint
+   * i.e. /foo{/id1}bar{/id2}
+   * foo's depth = 0
+   * bar's depth = 1
+   */
+  get $depth() {
+    return this.$allParents.length
+  }
+
+  /**
+   * All param keys based in the endpoint
+   * i.e. /foo{/id1}bar{/id2}
+   * the result is ['id1', 'id2']
+   */
+  get $allParamKeys() {
+    const allParamKeys: string[] = []
+
+    // extract bracket params ({/id1}, {/id2}, etc.)
+    const bracketParams = this.$endpoint.match(/{\/\w+}/g) || []
+    for (const param of bracketParams) {
+      const result = /{\/(\w+)}/g.exec(param)
+      const paramKey = result ? result[1] : null
+      if (paramKey) allParamKeys.push(paramKey)
+    }
+
+    return allParamKeys
+  }
+
+  /**
+   * Param keys
+   */
+  get $paramKey() {
+    return this.$allParamKeys[this.$depth]
+  }
+
+  /**
+   * Create a child resource into this object
+   */
+  $newChild<R extends Resource>(classType: ClassType<R>) {
+    const resource = new classType()
+    resource.$parent = this
+    return resource
+  }
+
+  /**
+   * Add a child resource into this object
+   */
+  $addChild(resource: Resource) {
+    resource.$parent = this
+    return resource
+  }
+
+  /**
+   * Resource to use actions
+   */
+  $resource(): ResourceAction<this>
+  $resource<T>(responseType?: ResponseType<T>): ResourceAction<T>
+  $resource<T>(responseType?: ResponseType<T>) {
+    const root = this.$root
+    if (responseType) {
+      return resource(root.$endpoint, root.$customActionConfig, root.$axiosConfig, responseType)
+    }
+    return resource(root.$endpoint, root.$customActionConfig, root.$axiosConfig, this)
+  }
+
+  /**
+   * Normalizes what will be showed as entity or list
+   */
+  get $schema(): Schema {
+    return classToPlain(this) as Schema
+  }
+
+  /**
    * Get render fields from schema
    */
-  get fieldsToRender(): string[] {
+  get $fieldsToRender(): string[] {
     return (
       chain(this.$schema)
         // Hide hidden properties
@@ -101,7 +181,7 @@ export abstract class Resource extends Model implements IResource {
   /**
    * Get input fields from schema
    */
-  get fieldsToInput(): string[] {
+  get $fieldsToInput(): string[] {
     return (
       chain(this.$schema)
         // Hide undefined inputType properties
@@ -119,7 +199,7 @@ export abstract class Resource extends Model implements IResource {
    * @param index Used to select the index of the content if it is an array
    * @param textContent If true then use the text format instead the component as content
    */
-  renderSchema({ field, index = 0, asText = false }: SchemaOptions = {}): SchemaData | SchemaContent {
+  $renderSchema({ field, index = 0, asText = false }: SchemaOptions = {}): SchemaData | SchemaContent {
     const filterContent = (val: SchemaRow): boolean => {
       return val ? val.hidden !== true : true
     }
@@ -170,18 +250,22 @@ export abstract class Resource extends Model implements IResource {
 
   /**
    * Gets a entity from WebServer
-   * @param id entity ID
+   * @param ids
    */
-  async find(id: ID) {
-    const fetch = () => this.$resource().query({ id })
-    return await $.await.run(fetch, `find${this.$spinnerSuffixName || this.$name}`)
+  async $get(...ids: ID[]) {
+    const params: any = {}
+
+    this.$allParamKeys.forEach((paramKey, index) => (params[paramKey] = ids[index]))
+
+    const fetch = () => this.$resource().query(params)
+    return await $.await.run(fetch, `get${this.$spinnerSuffixName || this.$name}`)
   }
 
   /**
    * Gets a entity from WebServer by query
    * @param params
    */
-  async query(params?: any) {
+  async $query(params?: any) {
     const fetch = () => this.$resource().query(params)
     return await $.await.run(fetch, `query${this.$spinnerSuffixName || this.$name}`)
   }
@@ -190,8 +274,12 @@ export abstract class Resource extends Model implements IResource {
    * Saves this entity and post it into WebServer
    * @param responseType
    */
-  async save<T>(responseType?: ResponseType<T>) {
-    const fetch = () => this.$resource(responseType).save(this)
+  async $save<T>(responseType?: ResponseType<T>) {
+    const params: any = {}
+
+    this.$allParents.forEach(resource => (params[resource.$paramKey] = resource.$id))
+
+    const fetch = () => this.$resource(responseType).save(params, this)
     return await $.await.run(fetch, `save${this.$spinnerSuffixName || this.$name}`)
   }
 
@@ -199,9 +287,13 @@ export abstract class Resource extends Model implements IResource {
    * Updates this entity and post it into WebServer
    * @param responseType
    */
-  async update<T>(responseType?: ResponseType<T>) {
-    // @ts-ignore
-    const fetch = () => this.$resource(responseType).update({ id: this.$id }, this)
+  async $update<T>(responseType?: ResponseType<T>) {
+    const params: any = {}
+
+    this.$allParents.forEach(resource => (params[resource.$paramKey] = resource.$id))
+    params[this.$paramKey] = this.$id
+
+    const fetch = () => this.$resource(responseType).update(params, this)
     return await $.await.run(fetch, `update${this.$spinnerSuffixName || this.$name}`)
   }
 
@@ -209,25 +301,29 @@ export abstract class Resource extends Model implements IResource {
    * Removes a entity from WebServer
    * @param responseType
    */
-  async remove<T>(responseType?: ResponseType<T>) {
-    // @ts-ignore
-    const fetch = () => this.$resource(responseType).remove({ id: this.$id })
+  async $remove<T>(responseType?: ResponseType<T>) {
+    const params: any = {}
+
+    this.$allParents.forEach(resource => (params[resource.$paramKey] = resource.$id))
+    params[this.$paramKey] = this.$id
+
+    const fetch = () => this.$resource(responseType).remove(params)
     return await $.await.run(fetch, `remove${this.$spinnerSuffixName || this.$name}`)
   }
 
   /**
    * Validate and save
    */
-  async validateAndSave<T>(responseType?: ResponseType<T>) {
-    await this.validate()
-    return await this.save(responseType)
+  async $validateAndSave<T>(responseType?: ResponseType<T>) {
+    await this.$validate()
+    return await this.$save(responseType)
   }
 
   /**
    * Validate and update
    */
-  async validateAndUpdate<T>(responseType?: ResponseType<T>) {
-    await this.validate()
-    return await this.update(responseType)
+  async $validateAndUpdate<T>(responseType?: ResponseType<T>) {
+    await this.$validate()
+    return await this.$update(responseType)
   }
 }

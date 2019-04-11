@@ -1,25 +1,33 @@
 import { SocketConnection } from './SocketConnection'
-import { Dictionary, SocketConfig, SocketInstance, SocketStatic } from '../../interfaces'
+import { ClassType, Dictionary, SocketConfig, SocketInstance, SocketStatic } from '../../interfaces'
 
-export const socket: SocketStatic = {
+const socket: SocketStatic = {
   create(config: SocketConfig = {}): SocketInstance {
     const socketConnection: Dictionary<SocketConnection<any>> = {}
 
-    const connect = <T>(name: string, connection: SocketConnection<T>) => {
+    const connect = <T>(name: string, classType: ClassType<T>, url: string) => {
       if (socketConnection[name]) {
         socketConnection[name].disconnect()
       }
-      socketConnection[name] = connection
+      socketConnection[name] = new SocketConnection(classType, url)
+      return socketConnection[name]
+    }
+
+    const disconnect = (name: string) => {
+      socketConnection[name].disconnect()
+      delete socketConnection[name]
     }
 
     const getConnection = (name: string) => socketConnection[name]
 
     const disconnectAll = () => {
       for (const name in socketConnection) {
-        socketConnection[name].disconnect()
+        disconnect(name)
       }
     }
 
-    return { config, connect, getConnection, disconnectAll }
+    return { config, connect, disconnect, getConnection, disconnectAll }
   },
 }
+
+export default socket

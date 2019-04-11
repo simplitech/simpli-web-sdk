@@ -6,7 +6,7 @@ export { ClassType } from 'class-transformer/ClassTransformer'
 /**
  * This type represent any Enum type
  */
-export type Enum<E> = Record<keyof E, number | string> & { [k: number]: string }
+export type EnumType<E> = Record<keyof E, number | string> & { [k: number]: string }
 
 /**
  * Resource ID

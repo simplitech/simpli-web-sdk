@@ -1,5 +1,6 @@
 import { Byte } from '../../enums'
 import { Dictionary } from '../../interfaces'
+// @ts-ignore
 import { Options } from 'image-compressor.js'
 
 export class UploadConfig {

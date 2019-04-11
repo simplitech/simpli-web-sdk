@@ -54,7 +54,7 @@ export class PageCollection<R extends Resource> extends Collection<R> {
       ascending: asc,
     }
 
-    return await this.query({ ...params, ...filterParams })
+    return await this.$query({ ...params, ...filterParams })
   }
 
   /**

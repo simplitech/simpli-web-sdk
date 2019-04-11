@@ -2,8 +2,9 @@ import { $ } from '../simpli'
 import { classToClass } from 'class-transformer'
 import Papa, { ParseError, ParseResult } from 'papaparse'
 import { ID, TAG, IResource, DataBlueprint, NormalizedItem } from '../interfaces'
-import { sha256 } from 'js-sha256'
 const shortid = require('shortid')
+
+export { sha256 as encrypt } from 'js-sha256'
 
 /**
  * Generate a random unique hash
@@ -13,13 +14,6 @@ const shortid = require('shortid')
  */
 export function uid(prefix?: string, suffix?: string) {
   return `${prefix || ''}${shortid.generate()}${suffix || ''}`
-}
-
-/**
- * Alias of sha256
- */
-export function encrypt() {
-  return sha256
 }
 
 /**

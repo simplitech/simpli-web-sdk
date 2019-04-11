@@ -1,16 +1,16 @@
 import { shuffle, reverse } from 'lodash'
 import { Collection, ObjectCollection, Resource } from '../app'
-import { ClassType, Enum, ID, IResource } from '../interfaces'
+import { ClassType, EnumType, ID, IResource } from '../interfaces'
 import { buildResource, clone } from './utils.helper'
 
 /**
  * Transform a given array of Resource into Collection
  * @param list
- * @param cls
+ * @param classType
  * @returns Collection<T>
  */
-export function collect<R extends Resource>(cls: ClassType<R>, list?: R[]): Collection<R> {
-  const collection = new Collection<R>(cls)
+export function collect<R extends Resource>(classType: ClassType<R>, list?: R[]): Collection<R> {
+  const collection = new Collection<R>(classType)
   if (list) {
     collection.items = list
   }
@@ -23,7 +23,7 @@ export function collect<R extends Resource>(cls: ClassType<R>, list?: R[]): Coll
  * @param i18nPath
  * @returns ObjectCollection
  */
-export function objectCollect<E extends Enum<E>>(list: IResource[] | E, i18nPath?: string): ObjectCollection<E> {
+export function objectCollect<E extends EnumType<E>>(list: IResource[] | E, i18nPath?: string): ObjectCollection<E> {
   return new ObjectCollection(list, i18nPath)
 }
 

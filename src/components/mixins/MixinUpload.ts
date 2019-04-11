@@ -1,10 +1,11 @@
 import { Component, Watch, Vue } from 'vue-property-decorator'
 import FileUpload from 'vue-upload-component'
 import Cropper from 'cropperjs'
+// @ts-ignore
 import ImageCompressor, { ImgComp, FileObject } from 'image-compressor.js'
 import { $ } from '../../simpli'
 import { UploadConfig } from '../../app'
-import * as Helper from '../../helpers'
+import { Helper } from '../../main'
 
 /**
  * This class should be used as an extended class

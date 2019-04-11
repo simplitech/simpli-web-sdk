@@ -1,8 +1,7 @@
-import { AxiosPromise, AxiosRequestConfig } from 'axios'
 import { Validator } from './Validator'
 import { $ } from '../../simpli'
-import { IValidator } from '../../interfaces'
-import * as Helper from '../../helpers'
+import { request, clone } from '../../helpers'
+import { IValidator, ResponseType, RequestCaller } from '../../interfaces'
 
 export abstract class Model implements IValidator {
   /**
@@ -11,62 +10,31 @@ export abstract class Model implements IValidator {
   readonly $name: string = this.constructor.name
 
   /**
-   * Serializes the response body of GET method to the WebServer
-   * @param url
-   * @param config
+   * Invokes a request with the following methods:
+   * call(generic), get, delete, head, post, put, patch
+   *
+   * @param responseType the class of response or the the instance class to be injected the response
    */
-  async GET(url: string, config?: AxiosRequestConfig) {
-    return Helper.request(this).get(url, config)
-  }
-
-  /**
-   * Serializes the response body of POST method to the WebServer
-   * @param url
-   * @param data
-   * @param config
-   */
-  async POST(url: string, data?: any, config?: AxiosRequestConfig) {
-    return Helper.request(this).post(url, data, config)
-  }
-
-  /**
-   * Serializes the response body of PUT method to the WebServer
-   * @param url
-   * @param data
-   * @param config
-   */
-  async PUT(url: string, data?: any, config?: AxiosRequestConfig) {
-    return Helper.request(this).put(url, data, config)
-  }
-
-  /**
-   * Serializes the response body of DELETE method to the WebServer
-   * @param url
-   * @param config
-   */
-  async DELETE(url: string, config?: AxiosRequestConfig) {
-    return Helper.request(this).delete(url, config)
+  $request(): RequestCaller<this>
+  $request<T>(responseType?: ResponseType<T>): RequestCaller<T>
+  $request<T>(responseType?: ResponseType<T>) {
+    if (responseType) {
+      return request(responseType)
+    }
+    return request(this)
   }
 
   /**
    * Clone this entity
    */
-  clone() {
-    return Helper.clone(this)
-  }
-
-  /**
-   * Validates resource. Shows toast if there are errors and interrupts the code
-   * @returns {Promise<void>}
-   */
-  async validate(): Promise<void> {
-    await Validator.toastValidate(this)
+  $clone() {
+    return clone(this)
   }
 
   /**
    * Translate the title in the dictionary
    */
-  translateTitle() {
+  $translateTitle() {
     return $.t(`classes.${this.$name}.title`) as string
   }
 
@@ -74,7 +42,14 @@ export abstract class Model implements IValidator {
    * Translate a column indicated in the dictionary
    * @param column
    */
-  translateColumn(column: string) {
+  $translateColumn(column: string) {
     return $.t(`classes.${this.$name}.columns.${column}`) as string
+  }
+
+  /**
+   * Validates resource. Shows toast if there are errors and interrupts the code
+   */
+  async $validate() {
+    await Validator.toastValidate(this)
   }
 }

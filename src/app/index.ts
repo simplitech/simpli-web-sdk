@@ -13,5 +13,5 @@ export { Validator } from './http/Validator'
 export { WholeCollection } from './http/WholeCollection'
 
 // socket
-export { socket } from './socket'
+export { default as socket } from './socket'
 export { SocketConnection } from './socket/SocketConnection'

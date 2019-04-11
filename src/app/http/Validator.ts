@@ -3,20 +3,20 @@ import { IValidator } from '../../interfaces'
 import { errorValidation } from '../../helpers'
 
 export class Validator implements IValidator {
-  static async toastValidate(entity: object) {
+  static async toastValidate(entity: Object) {
     try {
-      await new Validator(entity).validateFirstError()
+      await new Validator(entity).$validateFirstError()
     } catch (e) {
       errorValidation(e.message)
       throw e
     }
   }
 
-  constructor(public entity?: object) {
+  constructor(public entity?: Object) {
     /**/
   }
 
-  async validateFirstError() {
+  async $validateFirstError() {
     const errors: ValidationError[] = await validate(this.entity || this)
     if (errors.length === 0) return
     const firstError = errors[0]
@@ -24,7 +24,7 @@ export class Validator implements IValidator {
     throw new Error(firstError.constraints[firstKey])
   }
 
-  async validate() {
-    await this.validateFirstError()
+  async $validate() {
+    await this.$validateFirstError()
   }
 }

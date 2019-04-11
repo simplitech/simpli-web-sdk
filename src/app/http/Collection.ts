@@ -17,26 +17,38 @@ import {
   ICollection,
 } from '../../interfaces'
 import { $ } from '../../simpli'
-import * as Helper from '../../helpers'
+import { Helper } from '../../main'
 
 export class Collection<R extends Resource> implements ICollection {
+  constructor(classType: ClassType<R>) {
+    this.classType = classType
+    this.instance = new classType()
+  }
+
   /**
    * Items of the collection
    * @type {Array}
    */
-  @Type(options => (options!.newObject as Collection<R>).type)
+  @Type(options => (options!.newObject as Collection<R>).classType)
   items: R[] = []
 
   /**
-   * Collection Class of list
+   * The class type of the collection items
    */
-  readonly type: ClassType<R>
+  readonly classType: ClassType<R>
 
   /**
    * The instance of the collection items
    */
-  get instance() {
-    return new this.type()
+  readonly instance: R
+
+  /**
+   * Create a child resource into the instance of this object
+   */
+  $newChild<R extends Resource>(classType: ClassType<R>) {
+    const collection = Helper.collect(classType)
+    collection.instance.$parent = this.instance
+    return collection
   }
 
   /**
@@ -51,15 +63,11 @@ export class Collection<R extends Resource> implements ICollection {
     return this.instance.$resource(this.items)
   }
 
-  constructor(type: ClassType<R>) {
-    this.type = type
-  }
-
   /**
    * Lists resource from WebServer
    * @param params
    */
-  async query(params?: any) {
+  async $query(params?: any) {
     const fetch = () => this.$resource().query(params)
     return await $.await.run(fetch, `query${this.instance.$spinnerSuffixName || this.instance.$name}`)
   }
@@ -119,7 +127,7 @@ export class Collection<R extends Resource> implements ICollection {
    * @param options SchemaOptions
    */
   renderSchema(options: SchemaOptions = {}): (SchemaData | SchemaContent)[] {
-    return this.items.map((item: R) => item.renderSchema(options))
+    return this.items.map((item: R) => item.$renderSchema(options))
   }
 
   /**
@@ -128,10 +136,10 @@ export class Collection<R extends Resource> implements ICollection {
   downloadCsv(customTitle?: string) {
     if (this.items.length <= 0) return
 
-    const title = this.instance.translateTitle()
+    const title = this.instance.$translateTitle()
     const data = this.textData.map((schema: SchemaData) =>
       // Translate the keys
-      mapKeys(schema, (val: SchemaVal, key: string) => this.instance.translateColumn(key))
+      mapKeys(schema, (val: SchemaVal, key: string) => this.instance.$translateColumn(key))
     )
 
     Helper.createCsvFile(customTitle ? `${customTitle}.csv` : `${snakeCase(title)}.csv`, unparse(data))

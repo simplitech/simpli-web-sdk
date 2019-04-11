@@ -120,7 +120,7 @@ const template = `
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import moment from 'moment'
 import { $ } from '../../simpli'
-import * as Helper from '../../helpers'
+import { Helper } from '../../main'
 
 type InputType = string | number | null
 

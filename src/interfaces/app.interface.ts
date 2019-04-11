@@ -1,5 +1,15 @@
 import { ID, TAG, IResource } from '../interfaces'
 
+export interface IValidator {
+  $validateFirstError?(): Promise<void>
+  $validate(): Promise<void>
+}
+
+export interface IResource {
+  $id: ID
+  $tag: TAG
+}
+
 export interface ICollection {
   /**
    * Items of the collection

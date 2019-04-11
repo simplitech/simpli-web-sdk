@@ -4,9 +4,12 @@ import axios, { AxiosInstance } from 'axios'
 import VueSnotify from 'vue-snotify'
 import VueRouter, { RouterOptions } from 'vue-router'
 import VueI18n from 'vue-i18n'
+// @ts-ignore
 import VueTheMask from 'vue-the-mask'
+// @ts-ignore
 import VueMoney from 'v-money'
-import { socket, DefaultConfig } from './app'
+import socket from './app/socket'
+import { DefaultConfig } from './app'
 import { Lang, Currency } from './enums'
 import { currencyConfig } from './helpers'
 import { AwaitController } from './components/utils/Await'
@@ -78,8 +81,8 @@ export abstract class $ {
 }
 
 const prototype: $Prototype = {
-  axios: axios.create(),
-  socket: socket.create(),
+  axios: axios && axios.create(),
+  socket: socket && socket.create(),
 
   component: {},
   filter: {},

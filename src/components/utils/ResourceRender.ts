@@ -24,7 +24,7 @@ export class ResourceRender extends Vue {
     const { value, field, index } = this
 
     if (value && field) {
-      return value.renderSchema({ field, index }) as SchemaContent
+      return value.$renderSchema({ field, index }) as SchemaContent
     }
 
     return null

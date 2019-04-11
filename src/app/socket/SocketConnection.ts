@@ -3,11 +3,11 @@ import { ClassType } from '../../interfaces'
 import { $ } from '../../simpli'
 
 export class SocketConnection<T> {
-  cls: ClassType<T>
+  classType: ClassType<T>
   socket: WebSocket
 
-  constructor(cls: ClassType<T>, url: string) {
-    this.cls = cls
+  constructor(classType: ClassType<T>, url: string) {
+    this.classType = classType
 
     let baseURL = $.socket.config.baseURL || ''
     // Ignore last slash (/)
@@ -42,13 +42,13 @@ export class SocketConnection<T> {
   onData(callback: (resp: T) => any) {
     const self = this
     this.socket.onmessage = function(this: WebSocket, e: MessageEvent) {
-      if (self.cls.name === 'String') {
+      if (self.classType.name === 'String') {
         callback(e.data)
         return
       }
 
       const data = e.data
-      const resp = deserialize<T>(self.cls, data)
+      const resp = deserialize<T>(self.classType, data)
       callback(resp)
     }
   }
