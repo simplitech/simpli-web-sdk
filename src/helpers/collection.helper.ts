@@ -32,7 +32,7 @@ export function objectCollect<E extends EnumType<E>>(list: IResource[] | E, i18n
  * @param list
  * @param placeholder
  */
-export function nullableItems<R extends Resource>(
+export function itemsWithPlaceholder<R extends Resource>(
   list: Array<R | IResource>,
   placeholder: string | null = null
 ): Array<R | IResource | null> {

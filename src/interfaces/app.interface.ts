@@ -20,7 +20,7 @@ export interface ICollection {
   /**
    * Prepends a empty value into the resource list
    */
-  nullableItems(val: string | null): Array<IResource | null>
+  itemsWithPlaceholder(val: string | null): Array<IResource | null>
 
   /**
    * Get Resource by ID

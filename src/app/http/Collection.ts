@@ -149,8 +149,8 @@ export class Collection<R extends Resource> implements ICollection {
    * Prepends a empty value into the resource list
    * @param placeholder
    */
-  nullableItems(placeholder: string | null = null): Array<R | null> {
-    return Helper.nullableItems(this.items, placeholder) as Array<R | null>
+  itemsWithPlaceholder(placeholder: string | null = null): Array<R | null> {
+    return Helper.itemsWithPlaceholder(this.items, placeholder) as Array<R | null>
   }
 
   /**

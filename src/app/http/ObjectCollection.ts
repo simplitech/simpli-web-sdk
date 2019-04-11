@@ -21,8 +21,8 @@ export class ObjectCollection<E extends EnumType<E>> implements ICollection {
    * Prepends a empty value into the resource list
    * @param placeholder
    */
-  nullableItems(placeholder: string | null = null): Array<IResource | null> {
-    return Helper.nullableItems(this.items, placeholder) as Array<IResource | null>
+  itemsWithPlaceholder(placeholder: string | null = null): Array<IResource | null> {
+    return Helper.itemsWithPlaceholder(this.items, placeholder) as Array<IResource | null>
   }
 
   /**
