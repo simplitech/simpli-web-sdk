@@ -1,4 +1,4 @@
-import { chain } from 'lodash'
+import { find, chain } from 'lodash'
 import { AxiosRequestConfig } from 'axios'
 import { $ } from '../../simpli'
 import { Model } from './Model'
@@ -109,7 +109,7 @@ export abstract class Resource extends Model implements IResource {
     const allParamKeys: string[] = []
 
     // extract bracket params ({/id1}, {/id2}, etc.)
-    const bracketParams = this.$endpoint.match(/{\/\w+}/g) || []
+    const bracketParams = this.$root.$endpoint.match(/{\/\w+}/g) || []
     for (const param of bracketParams) {
       const result = /{\/(\w+)}/g.exec(param)
       const paramKey = result ? result[1] : null
@@ -123,7 +123,27 @@ export abstract class Resource extends Model implements IResource {
    * Param keys
    */
   get $paramKey() {
-    return this.$allParamKeys[this.$depth]
+    return this.$allParamKeys[this.$depth] || null
+  }
+
+  /**
+   * Params Ignore Last
+   */
+  get $paramsIgnoreLast() {
+    const params: any = {}
+    for (const resource of this.$allParents) {
+      if (resource.$paramKey) params[resource.$paramKey] = resource.$id
+    }
+    return params
+  }
+
+  /**
+   * Params
+   */
+  get $params() {
+    const params = this.$paramsIgnoreLast
+    if (this.$paramKey) params[this.$paramKey] = this.$id
+    return params
   }
 
   /**
@@ -149,11 +169,10 @@ export abstract class Resource extends Model implements IResource {
   $resource(): ResourceAction<this>
   $resource<T>(responseType?: ResponseType<T>): ResourceAction<T>
   $resource<T>(responseType?: ResponseType<T>) {
-    const root = this.$root
     if (responseType) {
-      return resource(root.$endpoint, root.$customActionConfig, root.$axiosConfig, responseType)
+      return resource(this.$root.$endpoint, this.$root.$customActionConfig, this.$root.$axiosConfig, responseType)
     }
-    return resource(root.$endpoint, root.$customActionConfig, root.$axiosConfig, this)
+    return resource(this.$root.$endpoint, this.$root.$customActionConfig, this.$root.$axiosConfig, this)
   }
 
   /**
@@ -254,8 +273,13 @@ export abstract class Resource extends Model implements IResource {
    */
   async $get(...ids: ID[]) {
     const params: any = {}
+    const allParamKeys = this.$allParamKeys
 
-    this.$allParamKeys.forEach((paramKey, index) => (params[paramKey] = ids[index]))
+    if (ids.length !== allParamKeys.length) {
+      throw Error(`Expected ${allParamKeys.length} arguments, got ${ids.length} arguments`)
+    }
+
+    allParamKeys.forEach((paramKey, index) => (params[paramKey] = ids[index]))
 
     const fetch = () => this.$resource().query(params)
     return await $.await.run(fetch, `get${this.$spinnerSuffixName || this.$name}`)
@@ -266,7 +290,7 @@ export abstract class Resource extends Model implements IResource {
    * @param params
    */
   async $query(params?: any) {
-    const fetch = () => this.$resource().query(params)
+    const fetch = () => this.$resource().query(params || this.$paramsIgnoreLast)
     return await $.await.run(fetch, `query${this.$spinnerSuffixName || this.$name}`)
   }
 
@@ -275,11 +299,7 @@ export abstract class Resource extends Model implements IResource {
    * @param responseType
    */
   async $save<T>(responseType?: ResponseType<T>) {
-    const params: any = {}
-
-    this.$allParents.forEach(resource => (params[resource.$paramKey] = resource.$id))
-
-    const fetch = () => this.$resource(responseType).save(params, this)
+    const fetch = () => this.$resource(responseType).save(this.$paramsIgnoreLast, this)
     return await $.await.run(fetch, `save${this.$spinnerSuffixName || this.$name}`)
   }
 
@@ -288,12 +308,9 @@ export abstract class Resource extends Model implements IResource {
    * @param responseType
    */
   async $update<T>(responseType?: ResponseType<T>) {
-    const params: any = {}
+    if (!this.$id) throw Error('Error in $update method: unknown $id')
 
-    this.$allParents.forEach(resource => (params[resource.$paramKey] = resource.$id))
-    params[this.$paramKey] = this.$id
-
-    const fetch = () => this.$resource(responseType).update(params, this)
+    const fetch = () => this.$resource(responseType).update(this.$params, this)
     return await $.await.run(fetch, `update${this.$spinnerSuffixName || this.$name}`)
   }
 
@@ -302,12 +319,9 @@ export abstract class Resource extends Model implements IResource {
    * @param responseType
    */
   async $remove<T>(responseType?: ResponseType<T>) {
-    const params: any = {}
+    if (!this.$id) throw Error('Error in $remove method: unknown $id')
 
-    this.$allParents.forEach(resource => (params[resource.$paramKey] = resource.$id))
-    params[this.$paramKey] = this.$id
-
-    const fetch = () => this.$resource(responseType).remove(params)
+    const fetch = () => this.$resource(responseType).remove(this.$params)
     return await $.await.run(fetch, `remove${this.$spinnerSuffixName || this.$name}`)
   }
 

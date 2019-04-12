@@ -68,7 +68,7 @@ export class Collection<R extends Resource> implements ICollection {
    * @param params
    */
   async $query(params?: any) {
-    const fetch = () => this.$resource().query(params)
+    const fetch = () => this.$resource().query(params || this.instance.$paramsIgnoreLast)
     return await $.await.run(fetch, `query${this.instance.$spinnerSuffixName || this.instance.$name}`)
   }
 
