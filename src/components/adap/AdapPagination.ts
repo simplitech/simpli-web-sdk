@@ -56,15 +56,15 @@ export class AdapPagination extends Vue {
   }
 
   async goto(n: number) {
-    await this.$await.run(() => this.collection.setCurrentPage(n - 1), this.spinner)
+    await this.$await.run(() => this.collection.$queryCurrentPage(n - 1), this.spinner)
   }
 
   async next() {
-    await this.$await.run(() => this.collection.nextPage(), this.spinner)
+    await this.$await.run(() => this.collection.$queryNextPage(), this.spinner)
   }
 
   async prev() {
-    await this.$await.run(() => this.collection.prevPage(), this.spinner)
+    await this.$await.run(() => this.collection.$queryPrevPage(), this.spinner)
   }
 
   index(n: number) {

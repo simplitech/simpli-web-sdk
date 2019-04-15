@@ -11,7 +11,6 @@ const template = `
 
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import { PageCollection, Resource } from '../../app'
-import { $ } from '../../simpli'
 
 @Component({ template })
 export class AdapOrderby extends Vue {
@@ -25,6 +24,6 @@ export class AdapOrderby extends Vue {
   spinner!: string
 
   async orderBy() {
-    await this.$await.run(() => this.collection.setOrderBy(this.name), this.spinner)
+    await this.$await.run(() => this.collection.$queryOrderBy(this.name), this.spinner)
   }
 }

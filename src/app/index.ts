@@ -1,17 +1,21 @@
 // config
-export { DefaultConfig } from './config/DefaultConfig'
-export { ToastConfig } from './config/ToastConfig'
-export { UploadConfig } from './config/UploadConfig'
+export * from './config/DefaultConfig'
+export * from './config/ToastConfig'
+export * from './config/UploadConfig'
 
 // http
-export { Collection } from './http/Collection'
-export { Model } from './http/Model'
-export { ObjectCollection } from './http/ObjectCollection'
-export { PageCollection } from './http/PageCollection'
-export { Resource } from './http/Resource'
-export { Validator } from './http/Validator'
-export { WholeCollection } from './http/WholeCollection'
+export * from './http/Request'
+export * from './http/Response'
 
 // socket
 export { default as socket } from './socket'
-export { SocketConnection } from './socket/SocketConnection'
+export * from './socket/SocketConnection'
+
+// utils
+export * from './utils/Collection'
+export * from './utils/Model'
+export * from './utils/ObjectCollection'
+export * from './utils/PageCollection'
+export * from './utils/Resource'
+export * from './utils/Validation'
+export * from './utils/WholeCollection'

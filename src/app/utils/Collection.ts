@@ -6,8 +6,6 @@ import {
   ID,
   TAG,
   ClassType,
-  ResponseType,
-  ResourceAction,
   SchemaOptions,
   Schema,
   SchemaVal,
@@ -43,24 +41,10 @@ export class Collection<R extends Resource> implements ICollection {
   readonly instance: R
 
   /**
-   * Create a child resource into the instance of this object
-   */
-  $newChild<R extends Resource>(classType: ClassType<R>) {
-    const collection = Helper.collect(classType)
-    collection.instance.$parent = this.instance
-    return collection
-  }
-
-  /**
    * Resource to use actions
    */
-  $resource(): ResourceAction<R[]>
-  $resource<T>(responseType?: ResponseType<T>): ResourceAction<T>
-  $resource<T>(responseType?: ResponseType<T>) {
-    if (responseType) {
-      return this.instance.$resource(responseType)
-    }
-    return this.instance.$resource(this.items)
+  get $action() {
+    return this.instance.$action
   }
 
   /**
@@ -68,8 +52,11 @@ export class Collection<R extends Resource> implements ICollection {
    * @param params
    */
   async $query(params?: any) {
-    const fetch = () => this.$resource().query(params || this.instance.$paramsIgnoreLast)
-    return await $.await.run(fetch, `query${this.instance.$spinnerSuffixName || this.instance.$name}`)
+    return await this.$action
+      .query(params)
+      .name(`query${this.instance.$spinnerSuffixName || this.instance.$name}`)
+      .as(this.items)
+      .getResponse()
   }
 
   /**

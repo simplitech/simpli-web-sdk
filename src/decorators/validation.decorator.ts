@@ -1,3 +1,5 @@
+import { $ } from '../simpli'
+import { Model } from '../app'
 import {
   IsAlpha,
   IsAlphanumeric,
@@ -11,11 +13,8 @@ import {
   MaxLength,
   Min,
   MinLength,
-  ValidateNested,
   ValidationArguments,
 } from 'class-validator'
-import { $ } from '../simpli'
-import { Model } from '../app'
 
 /**
  * Local helper translator
@@ -25,17 +24,6 @@ import { Model } from '../app'
  */
 const $tColumn = (args: ValidationArguments) =>
   $.t(`classes.${(args.object as Model).$name}.columns.${args.property}`) as string
-
-/**
- * Alias of ValidateNested
- * If your object contains nested objects and you want the validator to perform their validation too,
- * then you need to use the @ValidateNested() decorator
- * @returns {(object: Object, propertyName: string) => void}
- * @constructor
- */
-export function ValidationResource() {
-  return ValidateNested()
-}
 
 /**
  * Validate the property which must not be null or empty

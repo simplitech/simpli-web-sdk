@@ -1,6 +1,6 @@
 import { ID, TAG, IResource } from '../interfaces'
 
-export interface IValidator {
+export interface IValidation {
   $validateFirstError?(): Promise<void>
   $validate(): Promise<void>
 }

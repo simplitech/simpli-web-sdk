@@ -4,7 +4,7 @@ import Cropper from 'cropperjs'
 // @ts-ignore
 import ImageCompressor, { ImgComp, FileObject } from 'image-compressor.js'
 import { $ } from '../../simpli'
-import { UploadConfig } from '../../app'
+import { Request, UploadConfig } from '../../app'
 import { Helper } from '../../main'
 
 /**
@@ -72,7 +72,9 @@ export class MixinUpload extends Vue {
       const params = {
         fileName: `${Helper.uid()}${this.extension(file)}`,
       }
-      return Helper.request<string>().get(this.UPLOAD_CONFIG.endpoint, { params })
+      return Request.get(this.UPLOAD_CONFIG.endpoint, { params })
+        .asString()
+        .getResponse()
     })
   }
 

@@ -9,6 +9,9 @@ import { ClassType } from '../../interfaces'
 export class WholeCollection<T extends Resource> extends PageCollection<T> {
   // Get all items from a paged list response
   constructor(public type: ClassType<T>) {
-    super(type, {}, null, null)
+    super(type)
+    this.setFilter({})
+      .setCurrentPage(null)
+      .setPerPage(null)
   }
 }
