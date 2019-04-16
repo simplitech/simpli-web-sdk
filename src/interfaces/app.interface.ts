@@ -12,15 +12,15 @@ export interface IResource {
 
 export interface ICollection {
   /**
-   * Items of the collection
-   * @type {Array}
+   * Returns the underlying array represented by the collection
    */
-  items: IResource[]
+  all(): Array<IResource>
 
   /**
    * Prepends a empty value into the resource list
+   * @param placeholder
    */
-  itemsWithPlaceholder(val: string | null): Array<IResource | null>
+  allWithPlaceholder(placeholder: string | null): Array<IResource | null>
 
   /**
    * Get Resource by ID

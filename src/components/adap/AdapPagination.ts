@@ -38,8 +38,10 @@ import { $ } from '../../simpli'
 export class AdapPagination extends Vue {
   @Prop({ required: true })
   collection!: PageCollection<Resource>
+
   @Prop({ type: Number, default: 2 })
   gap!: number
+
   @Prop({ type: String, default: 'adapQuery' })
   spinner!: string
 
@@ -56,15 +58,15 @@ export class AdapPagination extends Vue {
   }
 
   async goto(n: number) {
-    await this.$await.run(() => this.collection.$queryCurrentPage(n - 1), this.spinner)
+    await this.$await.run(this.spinner, () => this.collection.$queryCurrentPage(n - 1))
   }
 
   async next() {
-    await this.$await.run(() => this.collection.$queryNextPage(), this.spinner)
+    await this.$await.run(this.spinner, () => this.collection.$queryNextPage())
   }
 
   async prev() {
-    await this.$await.run(() => this.collection.$queryPrevPage(), this.spinner)
+    await this.$await.run(this.spinner, () => this.collection.$queryPrevPage())
   }
 
   index(n: number) {
@@ -76,6 +78,6 @@ export class AdapPagination extends Vue {
       pos = this.last - this.gap!
     }
 
-    return n + pos - this.gap! - 1
+    return n + pos - this.gap - 1
   }
 }

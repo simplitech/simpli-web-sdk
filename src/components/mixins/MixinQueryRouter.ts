@@ -8,23 +8,22 @@ export class MixinQueryRouter extends Vue {
   collection?: PageCollection<Resource>
 
   async query(query?: QueryRouter) {
-    const { q, page, order, asc } = query || this.$route.query
-    if (!this.collection) return
+    const { q, page, order, asc } = query || (this.$route.query as QueryRouter)
+    const { collection } = this
 
-    this.collection.search = (q as string) || ''
-    this.collection.currentPage = (Number(page) || 1) - 1
-    this.collection.orderBy = (order as string) || ''
-    this.collection.asc = asc !== undefined ? !!Number(asc) : true
+    if (!collection) return
 
-    const fetch = async () => {
-      if (this.collection) return await this.collection.$query()
-    }
+    collection
+      .setSearch(q || '')
+      .setCurrentPage((Number(page) || 1) - 1)
+      .setOrderBy(order || '')
+      .setAsc(asc !== undefined ? !!Number(asc) : true)
 
-    return await $.await.run(fetch, 'query')
+    return await $.await.run('query', () => collection.$queryPage())
   }
 
   @Watch('collection.querySearch')
-  querySearchEvent(querySearch?: string) {
+  private querySearchEvent(querySearch?: string) {
     const query = { ...this.$route.query }
 
     if (querySearch) query.q = `${querySearch}`
@@ -34,7 +33,7 @@ export class MixinQueryRouter extends Vue {
   }
 
   @Watch('collection.currentPage')
-  currentPageEvent(currentPage?: number) {
+  private currentPageEvent(currentPage?: number) {
     const query = { ...this.$route.query }
 
     if (currentPage) query.page = `${currentPage + 1}`
@@ -44,7 +43,7 @@ export class MixinQueryRouter extends Vue {
   }
 
   @Watch('collection.orderBy')
-  orderByEvent(orderBy?: string) {
+  private orderByEvent(orderBy?: string) {
     const query = { ...this.$route.query }
     const asc = this.collection ? this.collection.asc : false
 
@@ -60,7 +59,7 @@ export class MixinQueryRouter extends Vue {
   }
 
   @Watch('collection.asc')
-  ascEvent(asc?: boolean) {
+  private ascEvent(asc?: boolean) {
     const query = { ...this.$route.query }
     const orderBy = this.collection ? this.collection.orderBy : ''
 

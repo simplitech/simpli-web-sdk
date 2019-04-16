@@ -3,26 +3,34 @@ import { ID, TAG, EnumType, ICollection, IResource } from '../../interfaces'
 import { Helper } from '../../main'
 
 export class ObjectCollection<E extends EnumType<E>> implements ICollection {
-  /**
-   * Items of the collection
-   * @type {Array}
-   */
-  items: IResource[] = []
-
   constructor(list?: IResource[] | E, i18nPath?: string) {
     if (list instanceof Array) {
       this.items = list as IResource[]
     } else if (typeof list === 'object') {
       this.items = Helper.listObject(list, i18nPath)
     }
+    this.items = []
+  }
+
+  /**
+   * Items of the collection
+   * @type {Array}
+   */
+  private readonly items: IResource[]
+
+  /**
+   * Returns the underlying array represented by the collection
+   */
+  all() {
+    return this.items
   }
 
   /**
    * Prepends a empty value into the resource list
    * @param placeholder
    */
-  itemsWithPlaceholder(placeholder: string | null = null): Array<IResource | null> {
-    return Helper.itemsWithPlaceholder(this.items, placeholder) as Array<IResource | null>
+  allWithPlaceholder(placeholder: string | null = null): Array<IResource | null> {
+    return Helper.allWithPlaceholder(this.items, placeholder) as Array<IResource | null>
   }
 
   /**
@@ -88,7 +96,7 @@ export class ObjectCollection<E extends EnumType<E>> implements ICollection {
    * Shuffle a list of Resource
    */
   shuffle(): this {
-    this.items = Helper.shuffleResource(this.items) as IResource[]
+    Helper.shuffleResource(this.items)
     return this
   }
 
@@ -96,7 +104,7 @@ export class ObjectCollection<E extends EnumType<E>> implements ICollection {
    * Reverse a list of Resource
    */
   reverse(): this {
-    this.items = Helper.reverseResource(this.items) as IResource[]
+    Helper.reverseResource(this.items)
     return this
   }
 

@@ -5,8 +5,8 @@ import { $ } from '../../simpli'
 import { ClassType, ResponseType } from '../../interfaces'
 
 export class Response<T = any> {
-  constructor(axiosConfig: AxiosRequestConfig, responseType?: ResponseType<T>) {
-    this.request = new Request(axiosConfig)
+  constructor(request: Request, responseType?: ResponseType<T>) {
+    this.request = request
     this.responseType = responseType
   }
 
@@ -50,7 +50,7 @@ export class Response<T = any> {
     const { axiosConfig, responseType, requestName, requestDelay, endpoint } = this
 
     const request = () => $.axios.request(axiosConfig)
-    const resp = await $.await.run(request, requestName || endpoint, requestDelay)
+    const resp = await $.await.run(requestName || endpoint, request, requestDelay)
 
     if (resp.data === undefined) {
       resp.data = JSON.parse(resp.request.response || '{}')

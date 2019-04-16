@@ -28,12 +28,13 @@ export interface Dictionary<T> {
 /**
  * Standard format of paged request
  */
-export interface QueryRequest {
-  query?: string
-  page?: number
-  limit?: number
-  orderBy?: string
-  ascending?: boolean
+export interface QueryPage {
+  query: string | null
+  page: number | null
+  limit: number | null
+  orderBy: string | null
+  ascending: boolean | null
+  [param: string]: any
 }
 
 /**

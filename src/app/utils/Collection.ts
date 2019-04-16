@@ -18,9 +18,10 @@ import { $ } from '../../simpli'
 import { Helper } from '../../main'
 
 export class Collection<R extends Resource> implements ICollection {
-  constructor(classType: ClassType<R>) {
+  constructor(classType: ClassType<R>, items: R[] = []) {
     this.classType = classType
     this.instance = new classType()
+    this.items = items
   }
 
   /**
@@ -28,7 +29,7 @@ export class Collection<R extends Resource> implements ICollection {
    * @type {Array}
    */
   @Type(options => (options!.newObject as Collection<R>).classType)
-  items: R[] = []
+  private readonly items: R[]
 
   /**
    * The class type of the collection items
@@ -133,11 +134,18 @@ export class Collection<R extends Resource> implements ICollection {
   }
 
   /**
+   * Returns the underlying array represented by the collection
+   */
+  all() {
+    return this.items
+  }
+
+  /**
    * Prepends a empty value into the resource list
    * @param placeholder
    */
-  itemsWithPlaceholder(placeholder: string | null = null): Array<R | null> {
-    return Helper.itemsWithPlaceholder(this.items, placeholder) as Array<R | null>
+  allWithPlaceholder(placeholder: string | null = null): Array<R | null> {
+    return Helper.allWithPlaceholder(this.items, placeholder) as Array<R | null>
   }
 
   /**
@@ -202,16 +210,16 @@ export class Collection<R extends Resource> implements ICollection {
   /**
    * Shuffle a list of Resource
    */
-  shuffle(): this {
-    this.items = Helper.shuffleResource(this.items) as R[]
+  shuffle() {
+    Helper.shuffleResource(this.items)
     return this
   }
 
   /**
    * Reverse a list of Resource
    */
-  reverse(): this {
-    this.items = Helper.reverseResource(this.items) as R[]
+  reverse() {
+    Helper.reverseResource(this.items)
     return this
   }
 

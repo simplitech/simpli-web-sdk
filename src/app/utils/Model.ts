@@ -16,6 +16,17 @@ export abstract class Model implements IValidation {
   readonly $spinnerSuffixName?: string
 
   /**
+   * List
+   * @param url
+   */
+  async $list(url: string) {
+    return await Request.get(url)
+      .name(`list${this.$spinnerSuffixName || this.$name}`)
+      .asArrayOf(this.$clone())
+      .getResponse()
+  }
+
+  /**
    * Populate
    * @param url
    */

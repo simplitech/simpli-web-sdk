@@ -124,19 +124,18 @@ export abstract class Simpli {
     prototype.filter = { ...DefaultConfig.filters, ...Simpli.filters }
 
     prototype.router = new VueRouter(Simpli.router)
-    prototype.i18n = new VueI18n({
-      locale: Simpli.lang,
-      messages: Simpli.locale,
-    })
+    prototype.i18n = new VueI18n({ locale: Simpli.lang, messages: Simpli.locale })
     prototype.bus = new Vue({ router: prototype.router, i18n: prototype.i18n })
 
     prototype.route = prototype.bus.$route
-    prototype.snotify = prototype.bus.$snotify
+
     prototype.t = prototype.bus.$t
     prototype.tc = prototype.bus.$tc
     prototype.te = prototype.bus.$te
     prototype.d = prototype.bus.$d
     prototype.n = prototype.bus.$n
+
+    prototype.snotify = prototype.bus.$snotify
 
     Vue.use(VueMoney, currencyConfig(Simpli.currency))
     moment.locale(prototype.i18n.locale)

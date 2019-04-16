@@ -59,7 +59,7 @@ export abstract class Resource extends Model implements IResource {
     const customActionConfig = this.$customActionConfig
     const axiosConfig = this.$axiosConfig
 
-    const action: ResourceAction = {}
+    const action: any = {}
 
     const defaultActionConfig: ResourceActionConfig = {
       query: { method: 'GET', url: endpoint },
@@ -129,7 +129,7 @@ export abstract class Resource extends Model implements IResource {
       }
     }
 
-    return action
+    return action as ResourceAction
   }
 
   /**
@@ -171,9 +171,17 @@ export abstract class Resource extends Model implements IResource {
 
     return await this.$action
       .query(params)
-      .name(`get${this.$spinnerSuffixName || this.$name}`)
+      .name(`getOne${this.$spinnerSuffixName || this.$name}`)
       .as(this)
-      .getResponse()
+      .getData()
+  }
+
+  async $getMany(params?: any) {
+    return await this.$action
+      .query(params)
+      .name(`getMany${this.$spinnerSuffixName || this.$name}`)
+      .asArrayOf(this.$clone())
+      .getData()
   }
 
   /**

@@ -10,11 +10,7 @@ import { buildResource, clone } from './utils.helper'
  * @returns Collection<T>
  */
 export function collect<R extends Resource>(classType: ClassType<R>, list?: R[]): Collection<R> {
-  const collection = new Collection<R>(classType)
-  if (list) {
-    collection.items = list
-  }
-  return collection
+  return new Collection<R>(classType, list)
 }
 
 /**
@@ -32,7 +28,7 @@ export function objectCollect<E extends EnumType<E>>(list: IResource[] | E, i18n
  * @param list
  * @param placeholder
  */
-export function itemsWithPlaceholder<R extends Resource>(
+export function allWithPlaceholder<R extends Resource>(
   list: Array<R | IResource>,
   placeholder: string | null = null
 ): Array<R | IResource | null> {

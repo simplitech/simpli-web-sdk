@@ -26,16 +26,22 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 export class InputCheckbox extends Vue {
   @Prop({ type: [Boolean, String, Number] })
   value?: boolean | string | number
+
   @Prop({ type: String })
   label?: string
+
   @Prop({ type: String })
   labelClass?: string
+
   @Prop({ type: String })
   innerClass?: string
+
   @Prop({ type: Boolean })
   disabled?: boolean
+
   @Prop({ type: Boolean })
   radio?: boolean
+
   @Prop({ type: [String, Number] })
   radioValue?: string | number
 

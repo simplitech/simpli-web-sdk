@@ -66,30 +66,30 @@ export class Request {
   }
 
   as<T = any>(responseType?: ResponseType<T>) {
-    return new Response<T>(this.axiosConfig, responseType)
+    return new Response<T>(this, responseType)
   }
 
   asArrayOf<T = any>(responseType?: ResponseType<T>) {
-    return new Response<T[]>(this.axiosConfig, responseType as ResponseType<any>)
+    return new Response<T[]>(this, responseType as ResponseType<any>)
   }
 
   asAny() {
-    return new Response<any>(this.axiosConfig)
+    return new Response<any>(this)
   }
 
   asVoid() {
-    return new Response<void>(this.axiosConfig)
+    return new Response<void>(this)
   }
 
   asString() {
-    return new Response<string>(this.axiosConfig)
+    return new Response<string>(this)
   }
 
   asNumber() {
-    return new Response<number>(this.axiosConfig)
+    return new Response<number>(this)
   }
 
   asBoolean() {
-    return new Response<boolean>(this.axiosConfig)
+    return new Response<boolean>(this)
   }
 }

@@ -41,28 +41,40 @@ const build = ($id: ID, $tag: TAG) => buildResource($id, $tag) as IResource
 export class InputSelect extends Vue {
   @Prop({ type: Boolean })
   required?: boolean
+
   @Prop({ type: String })
   label?: string
+
   @Prop({ type: Boolean })
   disabled?: boolean
+
   @Prop({ type: [Array, Object] })
   value?: InputModel
+
   @Prop({ type: Array, default: () => [] })
   items!: InputItems
+
   @Prop({ type: Boolean })
   taggable?: boolean
+
   @Prop({ type: String, default: '' })
   placeholder!: string
+
   @Prop({ type: String, default: '' })
   tagPlaceholder!: string
+
   @Prop({ type: String, default: '' })
   selectLabel!: string
+
   @Prop({ type: String, default: '' })
   selectedLabel!: string
+
   @Prop({ type: String, default: '' })
   deselectLabel!: string
+
   @Prop({ type: String, default: null })
   noResultLabel!: string | null
+
   @Prop({ type: String, default: null })
   noOptionsLabel!: string | null
 

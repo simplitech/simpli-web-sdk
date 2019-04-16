@@ -14,5 +14,5 @@ export declare class AwaitController {
   init(name?: string): void
   done(name?: string): void
   error(name?: string): void
-  run<T>(func: (...args: any[]) => Promise<T>, name?: string, delay?: number): Promise<T>
+  run<T>(name: string, func: (...args: any[]) => Promise<T>, delay?: number): Promise<T>
 }

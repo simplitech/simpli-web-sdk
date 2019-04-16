@@ -1,45 +1,39 @@
 import { omitBy } from 'lodash'
-import { Type, classToPlain } from 'class-transformer'
+import { classToPlain } from 'class-transformer'
 import { Collection } from './Collection'
 import { Resource } from './Resource'
-import { QueryRequest, ClassType } from '../../interfaces'
+import { QueryPage } from '../../interfaces'
 
-export class PageCollection<R extends Resource> {
-  constructor(classType: ClassType<R>) {
-    this.classType = classType
-    this.instance = new classType()
-  }
-
-  filter: object = {}
+export class PageCollection<R extends Resource> extends Collection<R> {
+  filter: any = {}
   currentPage: number | null = 0
   perPage: number | null = 20
   total: number = 0
-  search: string = ''
-  orderBy: string = ''
-  asc: boolean = true
-
-  /**
-   * Items of the collection
-   * @type {Array}
-   */
-  @Type(options => (options!.newObject as Collection<R>).classType)
-  items: R[] = []
-
-  /**
-   * The class type of the collection items
-   */
-  readonly classType: ClassType<R>
-
-  /**
-   * The instance of the collection items
-   */
-  readonly instance: R
+  search: string | null = null
+  orderBy: string | null = null
+  asc: boolean | null = null
 
   /**
    * gets the last page
    */
   get lastPage() {
     return Math.floor(Math.max(this.total - 1, 0) / (this.perPage || 1))
+  }
+
+  get params() {
+    const { search, currentPage, perPage, orderBy, asc, filter } = this
+
+    const filterParams = omitBy(classToPlain(filter), (item: any) => item === null || item === '')
+
+    const params: QueryPage = {
+      query: search,
+      page: currentPage,
+      limit: perPage,
+      orderBy: orderBy,
+      ascending: asc,
+    }
+
+    return { ...params, ...filterParams } as QueryPage
   }
 
   /**
@@ -69,39 +63,33 @@ export class PageCollection<R extends Resource> {
     return this
   }
 
-  setSearch(val: string) {
+  setSearch(val: string | null) {
     this.search = val
     return this
   }
 
-  setOrderBy(val: string) {
+  setOrderBy(val: string | null) {
     this.orderBy = val
     return this
   }
 
-  setAsc(val: boolean) {
+  setAsc(val: boolean | null) {
     this.asc = val
     return this
+  }
+
+  whole() {
+    return this.setFilter({})
+      .setCurrentPage(null)
+      .setPerPage(null)
   }
 
   /**
    * Lists and Paginates the collection according to the config
    */
-  async $query() {
-    const { search, currentPage, perPage, orderBy, asc, filter } = this
-
-    const filterParams = omitBy(classToPlain(filter), (item: any) => item === null || item === '')
-
-    const params: QueryRequest = {
-      query: search,
-      page: currentPage !== null ? currentPage : undefined,
-      limit: perPage || undefined,
-      orderBy: orderBy,
-      ascending: asc,
-    }
-
+  async $queryPage() {
     return await this.$action
-      .query({ ...params, ...filterParams })
+      .query(this.params)
       .name(`query${this.instance.$spinnerSuffixName || this.instance.$name}`)
       .as(this)
       .getResponse()
@@ -113,7 +101,7 @@ export class PageCollection<R extends Resource> {
   async $querySearch() {
     if (!this.search || !this.search.length || this.search.length > 2) {
       this.currentPage = 0
-      return await this.$query()
+      return await this.$queryPage()
     }
   }
 
@@ -127,7 +115,7 @@ export class PageCollection<R extends Resource> {
       this.asc = true
     }
     this.orderBy = column
-    return await this.$query()
+    return await this.$queryPage()
   }
 
   /**
@@ -140,7 +128,7 @@ export class PageCollection<R extends Resource> {
     } else if (val < 0) {
       this.currentPage = 0
     } else this.currentPage = val
-    return await this.$query()
+    return await this.$queryPage()
   }
 
   /**
@@ -149,7 +137,7 @@ export class PageCollection<R extends Resource> {
   async $queryPrevPage() {
     if (this.currentPage !== null && this.currentPage > 0) {
       this.currentPage--
-      return await this.$query()
+      return await this.$queryPage()
     }
   }
 
@@ -159,7 +147,7 @@ export class PageCollection<R extends Resource> {
   async $queryNextPage() {
     if (this.currentPage !== null && this.currentPage < this.lastPage) {
       this.currentPage++
-      return await this.$query()
+      return await this.$queryPage()
     }
   }
 }
