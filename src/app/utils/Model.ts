@@ -5,6 +5,9 @@ import { clone } from '../../helpers'
 import { IValidation } from '../../interfaces'
 
 export abstract class Model implements IValidation {
+  static $defaultI18nTitle = 'classes.{modelName}.title'
+  static $defaultI18nColumns = 'classes.{modelName}.columns.{columnName}'
+
   /**
    * Name of entity
    */
@@ -59,7 +62,9 @@ export abstract class Model implements IValidation {
    * Translate the title in the dictionary
    */
   $translateTitle() {
-    return $.t(`classes.${this.$name}.title`) as string
+    const defaultI18nTitle = `${Model.$defaultI18nTitle}`.replace(/{modelName}/, this.$name)
+
+    return $.t(defaultI18nTitle) as string
   }
 
   /**
@@ -67,7 +72,11 @@ export abstract class Model implements IValidation {
    * @param column
    */
   $translateColumn(column: string) {
-    return $.t(`classes.${this.$name}.columns.${column}`) as string
+    const defaultI18nColumns = `${Model.$defaultI18nColumns}`
+      .replace(/{modelName}/, this.$name)
+      .replace(/{columnName}/, column)
+
+    return $.t(defaultI18nColumns) as string
   }
 
   /**

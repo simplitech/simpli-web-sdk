@@ -1,27 +1,6 @@
-import { shuffle, reverse } from 'lodash'
-import { Collection, ObjectCollection, Resource } from '../app'
-import { ClassType, EnumType, ID, IResource } from '../interfaces'
+import { Resource } from '../app'
+import { ID, IResource } from '../interfaces'
 import { buildResource, clone } from './utils.helper'
-
-/**
- * Transform a given array of Resource into Collection
- * @param list
- * @param classType
- * @returns Collection<T>
- */
-export function collect<R extends Resource>(classType: ClassType<R>, list?: R[]): Collection<R> {
-  return new Collection<R>(classType, list)
-}
-
-/**
- * Transform a given array of Resource Object into Collection
- * @param list
- * @param i18nPath
- * @returns ObjectCollection
- */
-export function objectCollect<E extends EnumType<E>>(list: IResource[] | E, i18nPath?: string): ObjectCollection<E> {
-  return new ObjectCollection(list, i18nPath)
-}
 
 /**
  * Prepends a empty value into the resource list
@@ -61,22 +40,6 @@ export function getManyResource<R extends Resource>(list: Array<R | IResource>, 
 }
 
 /**
- * Get the first item of the list
- * @param list
- */
-export function firstResource<R extends Resource>(list: Array<R | IResource>): R | IResource | null {
-  return list[0] || null
-}
-
-/**
- * Get the last item of the list
- * @param list
- */
-export function lastResource<R extends Resource>(list: Array<R | IResource>): R | IResource | null {
-  return list[list.length - 1] || null
-}
-
-/**
  * Add an item into the begin of the list
  * @param list
  * @param item
@@ -99,24 +62,6 @@ export function appendResource<R extends Resource>(
   item: R | IResource
 ): Array<R | IResource> {
   addResource(list, item)
-  return list
-}
-
-/**
- * Shuffle a list of Resource
- * @param list
- */
-export function shuffleResource<R extends Resource>(list: Array<R | IResource>): Array<R | IResource> {
-  list = shuffle(list)
-  return list
-}
-
-/**
- * Reverse a list of Resource
- * @param list
- */
-export function reverseResource<R extends Resource>(list: Array<R | IResource>): Array<R | IResource> {
-  list = reverse(list)
   return list
 }
 

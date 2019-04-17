@@ -1,8 +1,17 @@
 import { validate } from 'class-validator'
+import { $ } from '../../simpli'
 import { IValidation } from '../../interfaces'
 import { Helper } from '../../main'
 
 export class Validation implements IValidation {
+  static $defaultI18nError = 'system.error.{errorName}'
+
+  static translateValidation(errorName: string, ...args: string[]) {
+    const defaultI18nError = `${Validation.$defaultI18nError}`.replace(/{errorName}/, errorName)
+
+    return $.t(defaultI18nError, args) as string
+  }
+
   static async toastValidate(entity: Object) {
     try {
       await new Validation(entity).$validateFirstError()

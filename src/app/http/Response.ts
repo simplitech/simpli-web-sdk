@@ -39,18 +39,23 @@ export class Response<T = any> {
     return this
   }
 
+  /**
+   * Get the data response from axios request
+   */
   async getData() {
     return (await this.getResponse()).data
   }
 
   /**
-   * Call an API using axios then serialize the response
+   * Get the response from axios request
    */
-  async getResponse(): Promise<AxiosResponse<T>> {
+  async getResponse(onResponse?: (resp: AxiosResponse<T>) => void): Promise<AxiosResponse<T>> {
     const { axiosConfig, responseType, requestName, requestDelay, endpoint } = this
 
     const request = () => $.axios.request(axiosConfig)
     const resp = await $.await.run(requestName || endpoint, request, requestDelay)
+
+    if (onResponse) onResponse(resp)
 
     if (resp.data === undefined) {
       resp.data = JSON.parse(resp.request.response || '{}')
@@ -61,10 +66,11 @@ export class Response<T = any> {
     }
 
     if (typeof responseType === 'object') {
-      // ClassObject instance
+      // Class object instance from constructor (new CustomClass())
+      // The instance will be automatically populated
       resp.data = plainToClassFromExist(responseType as T, resp.data)
     } else if (typeof responseType === 'function') {
-      // Class (Number, String, Boolean, etc.)
+      // Class constructor (CustomClass, Number, String, Boolean, etc.)
       resp.data = plainToClass(responseType as ClassType<T>, resp.data)
     } else throw Error('Error: Entity should be either a Class or ClassObject')
 

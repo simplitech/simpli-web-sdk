@@ -10,12 +10,7 @@ export interface IResource {
   $tag: TAG
 }
 
-export interface ICollection {
-  /**
-   * Returns the underlying array represented by the collection
-   */
-  all(): Array<IResource>
-
+export interface IResourceCollection {
   /**
    * Prepends a empty value into the resource list
    * @param placeholder
@@ -26,54 +21,13 @@ export interface ICollection {
    * Get Resource by ID
    * @param id
    */
-  getOne(id: ID | null): IResource | null
+  getResource(id: ID | null): IResource | null
 
   /**
    * Filter Resource by IDs
    * @param ids
    */
-  getMany(ids: ID[]): IResource[]
-
-  /**
-   * Get the first item of the list
-   */
-  first(): IResource | null
-
-  /**
-   * Get the last item of the list
-   */
-  last(): IResource | null
-
-  /**
-   * Add a null item into the begin of the list
-   * @param tag
-   * @param useI18n
-   */
-  prependNull(tag: TAG, useI18n: boolean): this
-
-  /**
-   * Add an item into the begin of the list
-   * @param id
-   * @param tag
-   */
-  prepend(id: ID, tag: TAG): this
-
-  /**
-   * Add an item into the end of the list
-   * @param id
-   * @param tag
-   */
-  append(id: ID, tag: TAG): this
-
-  /**
-   * Shuffle a list of Resource
-   */
-  shuffle(): this
-
-  /**
-   * Reverse a list of Resource
-   */
-  reverse(): this
+  getManyResource(ids: ID[]): IResource[]
 
   /**
    * Add a Resource
@@ -81,11 +35,32 @@ export interface ICollection {
    * @param tag
    * @param index
    */
-  add(id: ID, tag: TAG, index?: number): void
+  addResource(id: ID, tag: TAG, index?: number): void
 
   /**
    * Remove a Resource by ID
    * @param id
    */
-  remove(id: ID): void
+  removeResource(id: ID): void
+
+  /**
+   * Add an item into the begin of the list
+   * @param id
+   * @param tag
+   */
+  prependResource(id: ID, tag: TAG): this
+
+  /**
+   * Add a null item into the begin of the list
+   * @param tag
+   * @param useI18n
+   */
+  prependNullResource(tag: TAG, useI18n: boolean): this
+
+  /**
+   * Add an item into the end of the list
+   * @param id
+   * @param tag
+   */
+  appendResource(id: ID, tag: TAG): this
 }

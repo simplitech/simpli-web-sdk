@@ -1,35 +1,36 @@
-import { chain, values, mapKeys, snakeCase } from 'lodash'
+import { omitBy, chain, values, mapKeys, snakeCase } from 'lodash'
 import { unparse } from 'papaparse'
-import { Type } from 'class-transformer'
-import { Resource } from './Resource'
+import { classToPlain } from 'class-transformer'
+import { Collection } from './Collection'
+import { Resource } from '..'
 import {
   ID,
   TAG,
   ClassType,
+  IResourceCollection,
+  QueryFilter,
+  ResponseType,
   SchemaOptions,
   Schema,
   SchemaVal,
   SchemaRow,
   SchemaContent,
   SchemaData,
-  ICollection,
 } from '../../interfaces'
 import { $ } from '../../simpli'
 import { Helper } from '../../main'
 
-export class Collection<R extends Resource> implements ICollection {
-  constructor(classType: ClassType<R>, items: R[] = []) {
+export class ResourceCollection<R extends Resource> extends Collection<R> implements IResourceCollection {
+  constructor(classType: ClassType<R>, items?: R[]) {
+    super(items)
     this.classType = classType
     this.instance = new classType()
-    this.items = items
   }
 
   /**
-   * Items of the collection
-   * @type {Array}
+   * Filters
    */
-  @Type(options => (options!.newObject as Collection<R>).classType)
-  private readonly items: R[]
+  protected readonly filters: QueryFilter[] = []
 
   /**
    * The class type of the collection items
@@ -42,22 +43,56 @@ export class Collection<R extends Resource> implements ICollection {
   readonly instance: R
 
   /**
-   * Resource to use actions
+   * Params
    */
-  get $action() {
-    return this.instance.$action
+  get params() {
+    const result: QueryFilter = {}
+
+    for (const filter of this.filters) {
+      const params = omitBy(classToPlain(filter), item => item === null) as QueryFilter
+      Object.assign(result, params)
+    }
+
+    return result
   }
 
   /**
-   * Lists resource from WebServer
-   * @param params
+   * Spinner name
    */
-  async $query(params?: any) {
-    return await this.$action
-      .query(params)
-      .name(`query${this.instance.$spinnerSuffixName || this.instance.$name}`)
+  get spinnerName() {
+    return `query${this.instance.$spinnerSuffixName || this.instance.$name}`
+  }
+
+  /**
+   * Query as array of items
+   */
+  async queryAsArray() {
+    return await this.instance.$action
+      .query(this.params)
+      .name(this.spinnerName)
       .as(this.items)
       .getResponse()
+  }
+
+  /**
+   * Query as
+   * @param responseType
+   */
+  async queryAs<T>(responseType: ResponseType<T>) {
+    return await this.instance.$action
+      .query(this.params)
+      .name(this.spinnerName)
+      .as(responseType)
+      .getResponse()
+  }
+
+  /**
+   * Add filter
+   * @param filter
+   */
+  addFilter(filter: QueryFilter) {
+    this.filters.push(filter)
+    return this
   }
 
   /**
@@ -134,13 +169,6 @@ export class Collection<R extends Resource> implements ICollection {
   }
 
   /**
-   * Returns the underlying array represented by the collection
-   */
-  all() {
-    return this.items
-  }
-
-  /**
    * Prepends a empty value into the resource list
    * @param placeholder
    */
@@ -152,7 +180,7 @@ export class Collection<R extends Resource> implements ICollection {
    * Get Resource by ID
    * @param id
    */
-  getOne(id: ID | null): R | null {
+  getResource(id: ID | null): R | null {
     return Helper.getResource(this.items, id) as R | null
   }
 
@@ -160,67 +188,8 @@ export class Collection<R extends Resource> implements ICollection {
    * Filter Resource by IDs
    * @param ids
    */
-  getMany(ids: ID[]): R[] {
+  getManyResource(ids: ID[]): R[] {
     return Helper.getManyResource(this.items, ids) as R[]
-  }
-
-  /**
-   * Add a null item into the begin of the list
-   * @param tag
-   * @param useI18n
-   */
-  prependNull(tag: TAG, useI18n = true): this {
-    return this.prepend(0, useI18n ? ($.t(tag) as string) : tag)
-  }
-
-  /**
-   * Add an item into the begin of the list
-   * @param id
-   * @param tag
-   */
-  prepend(id: ID, tag: TAG): this {
-    Helper.prependResource(this.items, Helper.buildResource(id, tag))
-    return this
-  }
-
-  /**
-   * Add an item into the end of the list
-   * @param id
-   * @param tag
-   */
-  append(id: ID, tag: TAG): this {
-    Helper.appendResource(this.items, Helper.buildResource(id, tag))
-    return this
-  }
-
-  /**
-   * Get the first item of the list
-   */
-  first(): R | null {
-    return Helper.firstResource(this.items) as R | null
-  }
-
-  /**
-   * Get the last item of the list
-   */
-  last(): R | null {
-    return Helper.lastResource(this.items) as R | null
-  }
-
-  /**
-   * Shuffle a list of Resource
-   */
-  shuffle() {
-    Helper.shuffleResource(this.items)
-    return this
-  }
-
-  /**
-   * Reverse a list of Resource
-   */
-  reverse() {
-    Helper.reverseResource(this.items)
-    return this
   }
 
   /**
@@ -229,7 +198,7 @@ export class Collection<R extends Resource> implements ICollection {
    * @param tag
    * @param index
    */
-  add(id: ID, tag: TAG, index?: number) {
+  addResource(id: ID, tag: TAG, index?: number) {
     Helper.addResource(this.items, Helper.buildResource(id, tag), index)
   }
 
@@ -237,7 +206,36 @@ export class Collection<R extends Resource> implements ICollection {
    * Remove a Resource by ID
    * @param id
    */
-  remove(id: ID) {
+  removeResource(id: ID) {
     Helper.removeResource(this.items, id)
+  }
+
+  /**
+   * Add an item into the begin of the list
+   * @param id
+   * @param tag
+   */
+  prependResource(id: ID, tag: TAG): this {
+    Helper.prependResource(this.items, Helper.buildResource(id, tag))
+    return this
+  }
+
+  /**
+   * Add a null item into the begin of the list
+   * @param tag
+   * @param useI18n
+   */
+  prependNullResource(tag: TAG, useI18n = true): this {
+    return this.prependResource(0, useI18n ? ($.t(tag) as string) : tag)
+  }
+
+  /**
+   * Add an item into the end of the list
+   * @param id
+   * @param tag
+   */
+  appendResource(id: ID, tag: TAG): this {
+    Helper.appendResource(this.items, Helper.buildResource(id, tag))
+    return this
   }
 }

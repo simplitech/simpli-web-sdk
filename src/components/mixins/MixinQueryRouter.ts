@@ -19,7 +19,7 @@ export class MixinQueryRouter extends Vue {
       .setOrderBy(order || '')
       .setAsc(asc !== undefined ? !!Number(asc) : true)
 
-    return await $.await.run('query', () => collection.$queryPage())
+    return await $.await.run('query', () => collection.queryAsPage())
   }
 
   @Watch('collection.querySearch')

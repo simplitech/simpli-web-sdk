@@ -9,11 +9,27 @@ export function ResponseSerialize(func: Function) {
 }
 
 /**
- * Show a property during the serialization
+ * Expose a property during the serialization
+ * @param {string} name
+ */
+export function ResponseExpose(name?: string) {
+  return Expose({ name, toClassOnly: true })
+}
+
+/**
+ * Expose a property during the deserialization
+ * @param {string} name
+ */
+export function RequestExpose(name?: string) {
+  return Expose({ name, toPlainOnly: true })
+}
+
+/**
+ * Expose the request and response of a property
  * Note: this decorator is set by default
  * @param {string} name
  */
-export function ResponseFill(name?: string) {
+export function HttpExpose(name?: string) {
   return Expose({ name })
 }
 
@@ -27,13 +43,13 @@ export function RequestExclude() {
 /**
  * Hide a property during the deserialization
  */
-export function ResponseHidden() {
+export function ResponseExclude() {
   return Exclude({ toClassOnly: true })
 }
 
 /**
- * Ignore the request and response of a property
+ * Exclude the request and response of a property
  */
-export function HttpIgnore() {
+export function HttpExclude() {
   return Exclude()
 }

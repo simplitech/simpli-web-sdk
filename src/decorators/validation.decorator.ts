@@ -1,5 +1,5 @@
-import { $ } from '../simpli'
-import { Model } from '../app'
+import { plainToClassFromExist } from 'class-transformer'
+import { Model, Validation } from '../app'
 import {
   IsAlpha,
   IsAlphanumeric,
@@ -22,8 +22,14 @@ import {
  * @param {ValidationArguments} args
  * @returns {string}
  */
-const $tColumn = (args: ValidationArguments) =>
-  $.t(`classes.${(args.object as Model).$name}.columns.${args.property}`) as string
+const translateColumn = (args: ValidationArguments) => {
+  const model = {} as Model
+  plainToClassFromExist(model, args.object)
+  if (model.$translateColumn) {
+    return model.$translateColumn(args.property)
+  }
+  return '{error: unknown model}'
+}
 
 /**
  * Validate the property which must not be null or empty
@@ -32,7 +38,7 @@ const $tColumn = (args: ValidationArguments) =>
  */
 export function ValidationRequired() {
   return IsNotEmpty({
-    message: (args: ValidationArguments) => $.t('system.error.required', [$tColumn(args)]) as string,
+    message: args => Validation.translateValidation('required', translateColumn(args)),
   })
 }
 
@@ -45,7 +51,7 @@ export function ValidationEmail() {
   return IsEmail(
     {},
     {
-      message: (args: ValidationArguments) => $.t('system.error.invalidEmail', [$tColumn(args)]) as string,
+      message: args => Validation.translateValidation('invalidEmail', translateColumn(args)),
     }
   )
 }
@@ -57,7 +63,7 @@ export function ValidationEmail() {
  */
 export function ValidationStringDate() {
   return IsDateString({
-    message: (args: ValidationArguments) => $.t('system.error.invalidDate', [$tColumn(args)]) as string,
+    message: args => Validation.translateValidation('invalidDate', translateColumn(args)),
   })
 }
 
@@ -69,7 +75,7 @@ export function ValidationStringDate() {
  */
 export function ValidationMatches(pattern: RegExp) {
   return Matches(pattern, {
-    message: (args: ValidationArguments) => $.t('system.error.format', [$tColumn(args)]) as string,
+    message: args => Validation.translateValidation('format', translateColumn(args)),
   })
 }
 
@@ -80,7 +86,7 @@ export function ValidationMatches(pattern: RegExp) {
  */
 export function ValidationPhone() {
   return Matches(/^(?:\+?\d{1,3})?(?:\s|-)?(?:\(?\d{2,3}\)?)?(?:\s|-)?\d{3,5}(?:\s|-)?\d{3,5}$/, {
-    message: (args: ValidationArguments) => $.t('system.error.phoneFormat') as string,
+    message: () => Validation.translateValidation('phoneFormat'),
   })
 }
 
@@ -91,7 +97,7 @@ export function ValidationPhone() {
  */
 export function ValidationCEP() {
   return Matches(/^\d{5}[-]?\d{3}$/, {
-    message: (args: ValidationArguments) => $.t('system.error.zipcodeFormat') as string,
+    message: () => Validation.translateValidation('zipcodeFormat'),
   })
 }
 
@@ -102,7 +108,7 @@ export function ValidationCEP() {
  */
 export function ValidationRG() {
   return Matches(/^\d{1,3}[-.]?\d{1,3}[-.]?\d{1,3}[-.]?\d?$/, {
-    message: (args: ValidationArguments) => $.t('system.error.rgFormat') as string,
+    message: () => Validation.translateValidation('rgFormat'),
   })
 }
 
@@ -113,7 +119,7 @@ export function ValidationRG() {
  */
 export function ValidationCPF() {
   return Matches(/^\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}$/, {
-    message: (args: ValidationArguments) => $.t('system.error.cpfFormat') as string,
+    message: () => Validation.translateValidation('cpfFormat'),
   })
 }
 
@@ -124,7 +130,7 @@ export function ValidationCPF() {
  */
 export function ValidationCNPJ() {
   return Matches(/^\d{2}[.]?\d{3}[.]?\d{3}[/]?\d{4}[-]?\d{2}$/, {
-    message: (args: ValidationArguments) => $.t('system.error.cnpjFormat') as string,
+    message: () => Validation.translateValidation('cnpjFormat'),
   })
 }
 
@@ -137,7 +143,7 @@ export function ValidationCNPJ() {
  */
 export function ValidationPasswordLength(min: number, max?: number) {
   return Length(min, max, {
-    message: () => $.t('system.error.passwordLength', ['$constraint1', '$constraint2']) as string,
+    message: () => Validation.translateValidation('passwordLength', '$constraint1', '$constraint2'),
   })
 }
 
@@ -150,8 +156,7 @@ export function ValidationPasswordLength(min: number, max?: number) {
  */
 export function ValidationLength(min: number, max?: number) {
   return Length(min, max, {
-    message: (args: ValidationArguments) =>
-      $.t('system.error.length', [$tColumn(args), '$constraint1', '$constraint2']) as string,
+    message: args => Validation.translateValidation('length', translateColumn(args), '$constraint1', '$constraint2'),
   })
 }
 
@@ -163,7 +168,7 @@ export function ValidationLength(min: number, max?: number) {
  */
 export function ValidationMinLength(min: number) {
   return MinLength(min, {
-    message: (args: ValidationArguments) => $.t('system.error.minLength', [$tColumn(args), '$constraint1']) as string,
+    message: args => Validation.translateValidation('minLength', translateColumn(args), '$constraint1'),
   })
 }
 
@@ -175,7 +180,7 @@ export function ValidationMinLength(min: number) {
  */
 export function ValidationMaxLength(max: number) {
   return MaxLength(max, {
-    message: (args: ValidationArguments) => $.t('system.error.maxLength', [$tColumn(args), '$constraint1']) as string,
+    message: args => Validation.translateValidation('maxLength', translateColumn(args), '$constraint1'),
   })
 }
 
@@ -187,7 +192,7 @@ export function ValidationMaxLength(max: number) {
  */
 export function ValidationMin(min: number) {
   return Min(min, {
-    message: (args: ValidationArguments) => $.t('system.error.min', [$tColumn(args), '$constraint1']) as string,
+    message: args => Validation.translateValidation('min', translateColumn(args), '$constraint1'),
   })
 }
 
@@ -199,7 +204,7 @@ export function ValidationMin(min: number) {
  */
 export function ValidationMax(max: number) {
   return Max(max, {
-    message: (args: ValidationArguments) => $.t('system.error.max', [$tColumn(args), '$constraint1']) as string,
+    message: args => Validation.translateValidation('max', translateColumn(args), '$constraint1'),
   })
 }
 
@@ -210,7 +215,7 @@ export function ValidationMax(max: number) {
  */
 export function ValidationAlpha() {
   return IsAlpha({
-    message: (args: ValidationArguments) => $.t('system.error.invalidAlpha', [$tColumn(args)]) as string,
+    message: args => Validation.translateValidation('invalidAlpha', translateColumn(args)),
   })
 }
 
@@ -221,7 +226,7 @@ export function ValidationAlpha() {
  */
 export function ValidationAlphanumeric() {
   return IsAlphanumeric({
-    message: (args: ValidationArguments) => $.t('system.error.invalidAlphanumeric', [$tColumn(args)]) as string,
+    message: args => Validation.translateValidation('invalidAlphanumeric', translateColumn(args)),
   })
 }
 
@@ -232,6 +237,6 @@ export function ValidationAlphanumeric() {
  */
 export function ValidationCreditCard() {
   return IsCreditCard({
-    message: () => $.t('system.error.invalidCreditCard') as string,
+    message: () => Validation.translateValidation('invalidCreditCard'),
   })
 }

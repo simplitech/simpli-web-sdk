@@ -27,6 +27,6 @@ export class AdapOrderby extends Vue {
   spinner!: string
 
   async orderBy() {
-    await this.$await.run(this.spinner, () => this.collection.$queryOrderBy(this.name))
+    await this.$await.run(this.spinner, () => this.collection.queryOrderBy(this.name))
   }
 }
