@@ -2,7 +2,8 @@ import * as moment from 'moment'
 import Vue from 'vue'
 import axios, { AxiosInstance } from 'axios'
 import VueSnotify from 'vue-snotify'
-import VueRouter, { RouterOptions } from 'vue-router'
+import { SnotifyService } from 'vue-snotify/SnotifyService'
+import VueRouter, { Route, RouterOptions } from 'vue-router'
 import VueI18n from 'vue-i18n'
 // @ts-ignore
 import VueTheMask from 'vue-the-mask'
@@ -27,55 +28,55 @@ const i18n = new VueI18n()
 const bus = new Vue({ i18n, router })
 
 export abstract class $ {
-  static get axios() {
+  static get axios(): AxiosInstance {
     return prototype.axios
   }
-  static get socket() {
+  static get socket(): SocketInstance {
     return prototype.socket
   }
-  static get component() {
+  static get component(): ComponentOptions {
     return prototype.component
   }
-  static get filter() {
+  static get filter(): FilterOptions {
     return prototype.filter
   }
-  static get router() {
+  static get router(): VueRouter {
     return prototype.router
   }
-  static get i18n() {
+  static get i18n(): VueI18n {
     return prototype.i18n
   }
-  static get bus() {
+  static get bus(): Vue {
     return prototype.bus
   }
-  static get route() {
+  static get route(): Route {
     return prototype.route
   }
-  static get t() {
+  static get t(): Function {
     return prototype.t
   }
-  static get tc() {
+  static get tc(): Function {
     return prototype.tc
   }
-  static get te() {
+  static get te(): Function {
     return prototype.te
   }
-  static get d() {
+  static get d(): Function {
     return prototype.d
   }
-  static get n() {
+  static get n(): Function {
     return prototype.n
   }
-  static get snotify() {
+  static get snotify(): SnotifyService {
     return prototype.snotify
   }
-  static get await() {
+  static get await(): AwaitController {
     return prototype.await
   }
-  static get modal() {
+  static get modal(): ModalController {
     return prototype.modal
   }
-  static get tip() {
+  static get tip(): TipController {
     return prototype.tip
   }
 }
@@ -138,6 +139,7 @@ export abstract class Simpli {
     prototype.snotify = prototype.bus.$snotify
 
     Vue.use(VueMoney, currencyConfig(Simpli.currency))
+
     moment.locale(prototype.i18n.locale)
 
     for (const key in prototype.filter) {

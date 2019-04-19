@@ -1,59 +1,25 @@
-import { AxiosRequestConfig } from 'axios'
-import { chain } from 'lodash'
-import { classToPlain } from 'class-transformer'
+import { AxiosResponse, AxiosRequestConfig } from 'axios'
 import { Request } from '../'
 import { Model } from './Model'
-import {
-  ID,
-  TAG,
-  ResourceAction,
-  ResourceActionConfig,
-  SchemaOptions,
-  Schema,
-  SchemaVal,
-  SchemaRow,
-  SchemaContent,
-  SchemaVue,
-  SchemaData,
-  IResource,
-} from '../../interfaces'
+import { ID, TAG, ResourceAction, ResourceActionConfig, IResource } from '../../interfaces'
 
 export abstract class Resource extends Model implements IResource {
-  /**
-   * ID of entity
-   */
   abstract get $id()
   abstract set $id(val: ID)
 
-  /**
-   * Tag of entity
-   */
   get $tag() {
     return this.$id.toString()
   }
-
   set $tag(val: TAG) {
     /**/
   }
 
-  /**
-   * API URI endpoint
-   */
   abstract readonly $endpoint: string
 
-  /**
-   * Custom actions from resource
-   */
   readonly $customActionConfig: ResourceActionConfig = {}
 
-  /**
-   * Axios config
-   */
   readonly $axiosConfig: AxiosRequestConfig = {}
 
-  /**
-   * Resource
-   */
   get $action() {
     const endpoint = this.$endpoint
     const customActionConfig = this.$customActionConfig
@@ -132,12 +98,7 @@ export abstract class Resource extends Model implements IResource {
     return action as ResourceAction
   }
 
-  /**
-   * All param keys based in the endpoint
-   * i.e. /foo{/id1}bar{/id2}
-   * the result is ['id1', 'id2']
-   */
-  get $allParamKeys() {
+  get $allParamKeys(): string[] {
     const allParamKeys: string[] = []
 
     // extract bracket params ({/id1}, {/id2}, etc.)
@@ -155,11 +116,7 @@ export abstract class Resource extends Model implements IResource {
     return this.$allParamKeys[0] || null
   }
 
-  /**
-   * Gets a entity from WebServer
-   * @param ids
-   */
-  async $getOne(...ids: ID[]) {
+  async $getOne(...ids: ID[]): Promise<this> {
     const params: any = {}
     const allParamKeys = this.$allParamKeys
 
@@ -176,7 +133,7 @@ export abstract class Resource extends Model implements IResource {
       .getData()
   }
 
-  async $getMany(params?: any) {
+  async $getMany(params?: any): Promise<this[]> {
     return await this.$action
       .query(params)
       .name(`getMany${this.$spinnerSuffixName || this.$name}`)
@@ -184,11 +141,7 @@ export abstract class Resource extends Model implements IResource {
       .getData()
   }
 
-  /**
-   * Gets a entity from WebServer by query
-   * @param params
-   */
-  async $query(params?: any) {
+  async $query(params?: any): Promise<AxiosResponse<this>> {
     return await this.$action
       .query(params)
       .name(`query${this.$spinnerSuffixName || this.$name}`)
@@ -196,10 +149,7 @@ export abstract class Resource extends Model implements IResource {
       .getResponse()
   }
 
-  /**
-   * Saves this entity and post it into WebServer
-   */
-  async $save(params?: any) {
+  async $save(params?: any): Promise<AxiosResponse<any>> {
     return await this.$action
       .save(params, this)
       .name(`save${this.$spinnerSuffixName || this.$name}`)
@@ -207,10 +157,7 @@ export abstract class Resource extends Model implements IResource {
       .getResponse()
   }
 
-  /**
-   * Updates this entity and post it into WebServer
-   */
-  async $update(params?: any) {
+  async $update(params?: any): Promise<AxiosResponse<any>> {
     const firstParamKey = this.$firstParamKey
     const localParams: any = {}
 
@@ -225,10 +172,7 @@ export abstract class Resource extends Model implements IResource {
       .getResponse()
   }
 
-  /**
-   * Removes a entity from WebServer
-   */
-  async $remove(params?: any) {
+  async $remove(params?: any): Promise<AxiosResponse<any>> {
     const firstParamKey = this.$firstParamKey
     const localParams: any = {}
 
@@ -241,97 +185,5 @@ export abstract class Resource extends Model implements IResource {
       .name(`remove${this.$spinnerSuffixName || this.$name}`)
       .asAny()
       .getResponse()
-  }
-
-  /**
-   * Normalizes what will be showed as entity or list
-   */
-  get $schema(): Schema {
-    return classToPlain(this) as Schema
-  }
-
-  /**
-   * Get render fields from schema
-   */
-  get $fieldsToRender(): string[] {
-    return (
-      chain(this.$schema)
-        // Hide hidden properties
-        .pickBy((val: SchemaVal) => (val ? (val as SchemaRow).hidden !== true : true))
-        // Get the keys value
-        .keys()
-        // Get the result
-        .value()
-    )
-  }
-
-  /**
-   * Get input fields from schema
-   */
-  get $fieldsToInput(): string[] {
-    return (
-      chain(this.$schema)
-        // Hide undefined inputType properties
-        .pickBy((val: SchemaVal) => val && (val as SchemaRow).input !== undefined)
-        // Get the keys value
-        .keys()
-        // Get the result
-        .value()
-    )
-  }
-
-  /**
-   * Transform schema into data
-   * @param field Get the content of a given field. If it is not set then get the content of all fields
-   * @param index Used to select the index of the content if it is an array
-   * @param textContent If true then use the text format instead the component as content
-   */
-  $renderSchema({ field, index = 0, asText = false }: SchemaOptions = {}): SchemaData | SchemaContent {
-    const filterContent = (val: SchemaRow): boolean => {
-      return val ? val.hidden !== true : true
-    }
-
-    const filterTextContent = (val: SchemaRow): boolean => {
-      return asText ? !!(val && val.textContent !== null) : true
-    }
-
-    const getContent = (val: SchemaRow): SchemaContent => {
-      let preContent = val && val.content
-      // get content from textContent if it is set
-      if (asText) preContent = val && (val.textContent || val.content)
-
-      let content = (preContent || val) as SchemaContent | SchemaContent[]
-      // if the content is an array then get the item from index (default is the first)
-      if (content instanceof Array) content = content[index]
-
-      return content
-    }
-
-    const validateContent = (val: SchemaContent): SchemaContent => {
-      return typeof val === 'object' && !(val && (val as SchemaVue).component) ? '' : val
-    }
-
-    const filteredContent = (val: SchemaVal) => filterContent(val as SchemaRow) && filterTextContent(val as SchemaRow)
-    const mappedContent = (val: SchemaVal) => validateContent(getContent(val as SchemaRow))
-
-    // if the field is set then return the schema content
-    if (field) {
-      const schemaVal = this.$schema[field]
-      if (filteredContent(schemaVal)) {
-        return mappedContent(schemaVal)
-      }
-      return null as SchemaContent
-    }
-
-    // otherwise return the schema data
-    return (
-      chain(this.$schema)
-        // Hide hidden properties and null textContent
-        .pickBy(filteredContent)
-        // Map the schema to get only the content and transform invalid content into empty string
-        .mapValues(mappedContent)
-        // Get the result
-        .value()
-    )
   }
 }

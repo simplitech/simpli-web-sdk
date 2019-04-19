@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios'
 import { Type } from 'class-transformer'
 import { ResourceCollection } from './ResourceCollection'
 import { Resource } from '..'
@@ -30,24 +31,13 @@ export class PageCollection<R extends Resource> extends ResourceCollection<R> {
   @RequestExpose('ascending')
   asc: boolean | null = null
 
-  /**
-   * Items of the collection
-   * @type {Array}
-   */
   @Type(options => (options!.newObject as PageCollection<R>).classType)
   @ResponseExpose('items')
   protected items: R[] = []
 
-  /**
-   * Total according to the server response
-   * @type {Array}
-   */
   @ResponseExpose('total')
   readonly total: number | null = null
 
-  /**
-   * gets the last page
-   */
   get lastPage() {
     return Math.floor(Math.max((this.total || 0) - 1, 0) / (this.perPage || 1))
   }
@@ -81,31 +71,23 @@ export class PageCollection<R extends Resource> extends ResourceCollection<R> {
     return this
   }
 
-  /**
-   * Lists and Paginates the collection according to the config
-   */
-  async queryAsPage() {
+  async queryAsPage(): Promise<AxiosResponse<this>> {
     return await this.instance.$action
       .query(this.params)
       .name(this.spinnerName)
       .as(this)
-      .getResponse(resp => (resp.data.items = []))
+      .getResponse(() => (this.items = []))
   }
 
-  /**
-   * Searches using query conditions
-   */
-  async querySearch() {
+  async querySearch(): Promise<AxiosResponse<this> | void> {
     if (!this.search || !this.search.length || this.search.length >= PageCollection.defaultMinCharToSearch) {
       this.currentPage = 0
       return await this.queryAsPage()
     }
+    return Promise.resolve()
   }
 
-  /**
-   * Changes the orderby
-   */
-  async queryOrderBy(column: string) {
+  async queryOrderBy(column: string): Promise<AxiosResponse<this>> {
     if (this.orderBy === column) {
       this.asc = !this.asc
     } else {
@@ -115,11 +97,7 @@ export class PageCollection<R extends Resource> extends ResourceCollection<R> {
     return await this.queryAsPage()
   }
 
-  /**
-   * Changes the current page
-   * @param val
-   */
-  async queryCurrentPage(val: number) {
+  async queryCurrentPage(val: number): Promise<AxiosResponse<this>> {
     if (val > this.lastPage) {
       this.currentPage = this.lastPage
     } else if (val < 0) {
@@ -128,23 +106,19 @@ export class PageCollection<R extends Resource> extends ResourceCollection<R> {
     return await this.queryAsPage()
   }
 
-  /**
-   * Moves to the previous page
-   */
-  async queryPrevPage() {
+  async queryPrevPage(): Promise<AxiosResponse<this> | void> {
     if (this.currentPage !== null && this.currentPage > 0) {
       this.currentPage--
       return await this.queryAsPage()
     }
+    return Promise.resolve()
   }
 
-  /**
-   * Moves to the next page
-   */
-  async queryNextPage() {
+  async queryNextPage(): Promise<AxiosResponse<this> | void> {
     if (this.currentPage !== null && this.currentPage < this.lastPage) {
       this.currentPage++
       return await this.queryAsPage()
     }
+    return Promise.resolve()
   }
 }

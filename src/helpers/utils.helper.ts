@@ -6,50 +6,24 @@ const shortid = require('shortid')
 
 export { sha256 as encrypt } from 'js-sha256'
 
-/**
- * Generate a random unique hash
- * @param {string} prefix
- * @param {string} suffix
- * @returns {string}
- */
 export function uid(prefix?: string, suffix?: string) {
   return `${prefix || ''}${shortid.generate()}${suffix || ''}`
 }
 
-/**
- * Pause process for a while
- * @param {number} ms time in ms to wait
- * @returns {Promise<any>}
- */
 export function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-/**
- * Build an IResource
- * @param $id
- * @param $tag
- */
 export function buildResource($id: ID, $tag: TAG): IResource {
   return { $id, $tag }
 }
 
-/**
- * Lists the objects keys and mapped it into an array of Resource
- * @param obj
- * @param i18nPath
- */
 export function listObject(obj: { [key: string]: ID }, i18nPath?: string): IResource[] {
   return Object.keys(obj)
     .filter(val => isNaN(Number(val)))
     .map(key => ({ $id: obj[key], $tag: i18nPath ? $.t(`${i18nPath}.${key}`) : key }))
 }
 
-/**
- * Generate a download file from a CSV string
- * @param {string} filename
- * @param {string} csvStr
- */
 export function createCsvFile(filename: string, csvStr: string) {
   const csvData = new Blob([`\uFEFF${csvStr}`], { type: 'text/csv;charset=utf-8;' })
   if (navigator.msSaveBlob) {
@@ -69,11 +43,6 @@ export function createCsvFile(filename: string, csvStr: string) {
   }
 }
 
-/**
- * Transform a csv file into a normalized data object
- * @param urlOrFile
- * @param blueprint
- */
 export async function csvToNormalizedData<T extends DataBlueprint>(
   urlOrFile: string | File,
   blueprint: T
@@ -82,10 +51,6 @@ export async function csvToNormalizedData<T extends DataBlueprint>(
   return normalizeData(resp.data, blueprint) as Array<NormalizedItem<T>>
 }
 
-/**
- * Transform a csv file into a data object
- * @param urlOrFile
- */
 export async function csvToData(urlOrFile: string | File): Promise<ParseResult> {
   const promiseFunc = (resolve: Function, reject: Function) => {
     const defaultConfig = {
@@ -105,11 +70,6 @@ export async function csvToData(urlOrFile: string | File): Promise<ParseResult> 
   return new Promise<ParseResult>(promiseFunc)
 }
 
-/**
- * Normalize a generic data based on CSV Blueprint
- * @param data
- * @param blueprint
- */
 export function normalizeData<T extends DataBlueprint>(data: any[], blueprint: T): Array<NormalizedItem<T>> {
   return (
     data
@@ -133,11 +93,6 @@ export function normalizeData<T extends DataBlueprint>(data: any[], blueprint: T
   )
 }
 
-/**
- * Used for currency configuration
- * @param {string} currency
- * @returns object
- */
 export function currencyConfig(currency: string) {
   return {
     decimal: $.t('lang.decimal') as string,
@@ -147,10 +102,6 @@ export function currencyConfig(currency: string) {
   }
 }
 
-/**
- * Copy to clipboard
- * @param text
- */
 export function copyToClipboard(text: string) {
   const el = document.createElement('textarea')
   el.value = text
@@ -163,18 +114,10 @@ export function copyToClipboard(text: string) {
   document.body.removeChild(el)
 }
 
-/**
- * Clone an entity
- * @param fromEntity
- */
 export function clone<T>(fromEntity: T): T {
   return classToClass(fromEntity)
 }
 
-/**
- * Transform null, undefined and number to string
- * @param val
- */
 export function toString(val?: string | number | null): string {
   return val !== null && val !== undefined ? val.toString() : ''
 }

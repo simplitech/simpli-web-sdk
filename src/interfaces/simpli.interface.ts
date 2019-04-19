@@ -11,9 +11,11 @@ import { SocketInstance } from './socket.interface'
 export interface FilterOptions {
   readonly [key: string]: (val?: string, ...params: any[]) => string
 }
+
 export interface LocaleOptions {
   readonly [key: string]: any
 }
+
 export interface ComponentOptions {
   readonly [key: string]: any
 }

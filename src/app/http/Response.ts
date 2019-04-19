@@ -1,4 +1,4 @@
-import { AxiosRequestConfig, AxiosResponse } from 'axios'
+import { AxiosResponse } from 'axios'
 import { plainToClass, plainToClassFromExist } from 'class-transformer'
 import { Request } from './Request'
 import { $ } from '../../simpli'
@@ -39,16 +39,10 @@ export class Response<T = any> {
     return this
   }
 
-  /**
-   * Get the data response from axios request
-   */
   async getData() {
     return (await this.getResponse()).data
   }
 
-  /**
-   * Get the response from axios request
-   */
   async getResponse(onResponse?: (resp: AxiosResponse<T>) => void): Promise<AxiosResponse<T>> {
     const { axiosConfig, responseType, requestName, requestDelay, endpoint } = this
 

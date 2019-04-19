@@ -20,4 +20,5 @@ export * from './socket/SocketConnection'
 // utils
 export * from './utils/Model'
 export * from './utils/Resource'
+export * from './utils/Schema'
 export * from './utils/Validation'

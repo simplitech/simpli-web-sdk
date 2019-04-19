@@ -1,76 +1,73 @@
+import { AxiosResponse } from 'axios'
+import { mapValues } from 'lodash'
 import { Validation } from './Validation'
 import { $ } from '../../simpli'
 import { Request } from '..'
+import { Schema } from './Schema'
 import { clone } from '../../helpers'
-import { IValidation } from '../../interfaces'
+import { Dictionary, FieldData, ISchema, SchemaSet, IValidation } from '../../interfaces'
 
-export abstract class Model implements IValidation {
+export abstract class Model implements ISchema, IValidation {
   static $defaultI18nTitle = 'classes.{modelName}.title'
   static $defaultI18nColumns = 'classes.{modelName}.columns.{columnName}'
 
-  /**
-   * Name of entity
-   */
+  readonly $schemaSet: SchemaSet = {}
+
   readonly $name: string = this.constructor.name
 
-  /**
-   * Spinner suffix name
-   */
   readonly $spinnerSuffixName?: string
 
-  /**
-   * List
-   * @param url
-   */
-  async $list(url: string) {
+  async $list(url: string): Promise<AxiosResponse<this[]>> {
     return await Request.get(url)
       .name(`list${this.$spinnerSuffixName || this.$name}`)
       .asArrayOf(this.$clone())
       .getResponse()
   }
 
-  /**
-   * Populate
-   * @param url
-   */
-  async $populate(url: string) {
+  async $populate(url: string): Promise<AxiosResponse<this>> {
     return await Request.get(url)
       .name(`populate${this.$spinnerSuffixName || this.$name}`)
       .as(this)
       .getResponse()
   }
 
-  /**
-   * Persist
-   * @param url
-   */
-  async $persist(url: string) {
+  async $persist(url: string): Promise<AxiosResponse<any>> {
     return await Request.post(url, this)
       .name(`persist${this.$spinnerSuffixName || this.$name}`)
       .asAny()
       .getResponse()
   }
 
-  /**
-   * Clone this entity
-   */
-  $clone() {
-    return clone(this)
+  async $validate() {
+    await Validation.toastValidate(this)
   }
 
-  /**
-   * Translate the title in the dictionary
-   */
+  $getSchema(schemaName: string): Schema {
+    return this.$schemaSet[schemaName]
+  }
+
+  $allFieldsFrom(schemaName: string): string[] {
+    return this.$getSchema(schemaName).allFields
+  }
+
+  $allHeadersFrom(schemaName: string): string[] {
+    return this.$allFieldsFrom(schemaName).map(field => this.$translateColumn(field))
+  }
+
+  $headerFrom(schemaName: string): Dictionary<string> {
+    return mapValues(this.$getSchema(schemaName).fieldSet, (fieldController, key) => this.$translateColumn(key))
+  }
+
+  $dataFrom(schemaName: string): Dictionary<FieldData> {
+    return this.$getSchema(schemaName).data
+  }
+
   $translateTitle() {
     const defaultI18nTitle = `${Model.$defaultI18nTitle}`.replace(/{modelName}/, this.$name)
 
     return $.t(defaultI18nTitle) as string
   }
 
-  /**
-   * Translate a column indicated in the dictionary
-   * @param column
-   */
   $translateColumn(column: string) {
     const defaultI18nColumns = `${Model.$defaultI18nColumns}`
       .replace(/{modelName}/, this.$name)
@@ -79,10 +76,7 @@ export abstract class Model implements IValidation {
     return $.t(defaultI18nColumns) as string
   }
 
-  /**
-   * Validates resource. Shows toast if there are errors and interrupts the code
-   */
-  async $validate() {
-    await Validation.toastValidate(this)
+  $clone() {
+    return clone(this)
   }
 }

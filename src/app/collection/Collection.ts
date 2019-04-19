@@ -5,45 +5,52 @@ export class Collection<T = any> {
     this.items = items
   }
 
-  /**
-   * Items of the collection
-   * @type {Array}
-   */
   protected readonly items: T[]
 
-  /**
-   * lodash
-   */
   get lodash() {
     return _.chain(this.items)
   }
 
-  /**
-   * Returns the underlying array represented by the collection
-   */
   all() {
     return this.items
   }
 
-  /**
-   * Get a item from a given index of the collection
-   * @param index
-   */
   get(index: number) {
     return this.items[index]
   }
 
-  /**
-   * Get the first item of the collection
-   */
   first() {
     return this.items[0]
   }
 
-  /**
-   * Get the last item of the collection
-   */
   last() {
     return this.items[this.items.length - 1]
+  }
+
+  add(item: T, index?: number) {
+    if (index !== undefined) {
+      this.items.splice(index, 0, item)
+    } else {
+      this.items.push(item)
+    }
+  }
+
+  remove(item: T) {
+    const index = this.items.indexOf(item)
+    if (index >= 0) {
+      this.items.splice(index, 1)
+    }
+  }
+
+  size() {
+    return this.items.length
+  }
+
+  isEmpty() {
+    return !this.items.length
+  }
+
+  isNotEmpty() {
+    return !!this.items.length
   }
 }

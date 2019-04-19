@@ -3,10 +3,6 @@ import { classToPlain } from 'class-transformer'
 import { ResponseType } from '../../interfaces'
 import { Response } from './Response'
 
-/**
- * Invokes a request with the following methods:
- * get, delete, head, post, put, patch
- */
 export class Request {
   constructor(axiosConfig: AxiosRequestConfig) {
     this.axiosConfig = axiosConfig
@@ -47,9 +43,6 @@ export class Request {
     return new Request(Object.assign(localConfig, axiosConfig))
   }
 
-  /**
-   * Transforms this 'https://example.com/foo/bar/foobar?id=0' into this '/foo/bar/foobar'
-   */
   get endpoint() {
     const url = this.axiosConfig.url || ''
     return url.replace(/^(?:https?:)?\/\/.*(?=\.)[^\/]*/g, '').replace(/(?=\?).*/g, '')

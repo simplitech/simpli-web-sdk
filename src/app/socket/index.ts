@@ -14,8 +14,10 @@ const socket: SocketStatic = {
     }
 
     const disconnect = (name: string) => {
-      socketConnection[name].disconnect()
-      delete socketConnection[name]
+      if (socketConnection[name]) {
+        socketConnection[name].disconnect()
+        delete socketConnection[name]
+      }
     }
 
     const getConnection = (name: string) => socketConnection[name]
