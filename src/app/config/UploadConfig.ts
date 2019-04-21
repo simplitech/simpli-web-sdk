@@ -1,24 +1,23 @@
 import { Byte } from '../../enums'
 import { Dictionary } from '../../interfaces'
-// @ts-ignore
-import { Options } from 'image-compressor.js'
+import Compressor from 'compressorjs'
 
 export class UploadConfig {
-  static readonly compressedImageStandard: Options = {
+  static readonly compressedImageStandard: Compressor.Options = {
     convertSize: 0, // Convert any image into png file
     width: 1280,
     height: 720,
     quality: 0.8,
   }
 
-  static readonly compressedImageAvatar: Options = {
+  static readonly compressedImageAvatar: Compressor.Options = {
     convertSize: 0, // Convert any image into png file
     width: 720,
     height: 720,
     quality: 0.8,
   }
 
-  static readonly compressedImageThumb: Options = {
+  static readonly compressedImageThumb: Compressor.Options = {
     convertSize: 0, // Convert any image into png file
     width: 320,
     height: 180,

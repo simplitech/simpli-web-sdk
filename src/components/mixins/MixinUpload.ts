@@ -1,10 +1,10 @@
 import { Component, Watch, Vue } from 'vue-property-decorator'
 import FileUpload from 'vue-upload-component'
 import Cropper from 'cropperjs'
-// @ts-ignore
-import ImageCompressor, { ImgComp, FileObject } from 'image-compressor.js'
+import Compressor from 'compressorjs'
 import { $ } from '../../simpli'
 import { Request, UploadConfig } from '../../app'
+import { FileObject } from '../../interfaces'
 import { Helper } from '../../main'
 
 /**
@@ -176,14 +176,20 @@ export class MixinUpload extends Vue {
   }
 
   async compressImage(newFile: FileObject) {
+    const compress = (file: File, options: Compressor.Options) =>
+      new Promise<Blob>(resolve => {
+        const success = (file: Blob) => resolve(file)
+        return new Compressor(newFile.file, { ...options, ...{ success } })
+      })
+
     const component = this.$refs[this.UPLOAD_REF] as FileUpload
 
     newFile.error = 'compressing'
 
-    const image = new ImageCompressor() as ImgComp
+    await Helper.sleep(1000)
+
     try {
-      await Helper.sleep(1000)
-      const blob: Blob = await image.compress(newFile.file, this.COMPRESS_CONFIG)
+      const blob = await compress(newFile.file, this.COMPRESS_CONFIG)
       component.update(newFile, { error: '', file: blob, size: blob.size, type: blob.type })
     } catch (e) {
       component.update(newFile, { error: e.message || 'compress' })
