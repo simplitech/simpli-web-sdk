@@ -21,7 +21,7 @@ export function buildResource($id: ID, $tag: TAG): IResource {
 export function listObject(obj: { [key: string]: ID }, i18nPath?: string): IResource[] {
   return Object.keys(obj)
     .filter(val => isNaN(Number(val)))
-    .map(key => ({ $id: obj[key], $tag: i18nPath ? $.t(`${i18nPath}.${key}`) : key }))
+    .map(key => ({ $id: obj[key], $tag: i18nPath ? ($.t(`${i18nPath}.${key}`) as string) : key }))
 }
 
 export function createCsvFile(filename: string, csvStr: string) {

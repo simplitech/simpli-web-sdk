@@ -33,11 +33,11 @@ export interface $Prototype {
 
   route: Route
 
-  t: Function
-  tc: Function
-  te: Function
-  d: Function
-  n: Function
+  t: typeof VueI18n.prototype.t
+  tc: typeof VueI18n.prototype.tc
+  te: typeof VueI18n.prototype.te
+  d: typeof VueI18n.prototype.d
+  n: typeof VueI18n.prototype.n
 
   snotify: SnotifyService
 

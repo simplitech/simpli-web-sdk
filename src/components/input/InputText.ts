@@ -179,14 +179,14 @@ export class InputText extends Vue {
   get presetMasked(): string | string[] {
     const preset = this.type === 'mask' ? this.preset : this.type
 
-    if (preset === 'date') return $.t('dateFormat.datemask')
-    else if (preset === 'datetime') return $.t('dateFormat.datetimemask')
-    else if (preset === 'cpf') return $.t('format.cpf')
-    else if (preset === 'cnpj') return $.t('format.cnpj')
-    else if (preset === 'cpfCnpj') return [$.t('format.cpf'), $.t('format.cnpj')]
-    else if (preset === 'rg') return $.t('format.rg')
-    else if (preset === 'phone') return [$.t('format.phone'), $.t('format.phoneAlt')]
-    else if (preset === 'cep') return $.t('format.cep')
+    if (preset === 'date') return $.t('dateFormat.datemask') as string
+    else if (preset === 'datetime') return $.t('dateFormat.datetimemask') as string
+    else if (preset === 'cpf') return $.t('format.cpf') as string
+    else if (preset === 'cnpj') return $.t('format.cnpj') as string
+    else if (preset === 'cpfCnpj') return [$.t('format.cpf') as string, $.t('format.cnpj') as string]
+    else if (preset === 'rg') return $.t('format.rg') as string
+    else if (preset === 'phone') return [$.t('format.phone') as string, $.t('format.phoneAlt') as string]
+    else if (preset === 'cep') return $.t('format.cep') as string
 
     return ''
   }

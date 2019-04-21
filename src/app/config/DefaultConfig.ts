@@ -76,14 +76,14 @@ export abstract class DefaultConfig {
     phone: (value?: string): string => {
       if (!value) return ''
       let v = value.replace(/\D/g, '')
-      v = v.replace(new RegExp($.t('filter.phone.regex')), $.t('filter.phone.format'))
+      v = v.replace(new RegExp($.t('filter.phone.regex') as string), $.t('filter.phone.format') as string)
       return v
     },
 
     cep: (value?: string): string => {
       if (!value) return ''
       let v = value.replace(/\D/g, '')
-      v = v.replace(new RegExp($.t('filter.cep.regex')), $.t('filter.cep.format'))
+      v = v.replace(new RegExp($.t('filter.cep.regex') as string), $.t('filter.cep.format') as string)
       return v
     },
 
