@@ -1,13 +1,12 @@
 import { AxiosResponse } from 'axios'
 import { mapValues } from 'lodash'
-import { Validation } from './Validation'
 import { $ } from '../../simpli'
+import { Helper } from '../../main'
 import { Request } from '..'
 import { Schema } from './Schema'
-import { clone } from '../../helpers'
-import { Dictionary, FieldData, ISchema, SchemaSet, IValidation } from '../../interfaces'
+import { Dictionary, FieldData, ISchema, SchemaSet } from '../../interfaces'
 
-export abstract class Model implements ISchema, IValidation {
+export abstract class Model implements ISchema {
   static $defaultI18nTitle = 'classes.{modelName}.title'
   static $defaultI18nColumns = 'classes.{modelName}.columns.{columnName}'
 
@@ -38,10 +37,6 @@ export abstract class Model implements ISchema, IValidation {
       .getResponse()
   }
 
-  async $validate() {
-    await Validation.toastValidate(this)
-  }
-
   $getSchema(schemaName: string): Schema {
     return this.$schemaSet[schemaName]
   }
@@ -62,6 +57,21 @@ export abstract class Model implements ISchema, IValidation {
     return this.$getSchema(schemaName).data
   }
 
+  $validate(schemaName = 'input') {
+    const errors = this.$getSchema(schemaName).validateErrors()
+    if (errors) {
+      const error = errors[0]
+
+      const field = error.dataPath.replace(/^\./, '')
+      const translatedField = this.$translateColumn(field)
+
+      const message = `${translatedField} - ${error.message}`
+
+      Helper.errorValidation(message)
+      throw message
+    }
+  }
+
   $translateTitle() {
     const defaultI18nTitle = `${Model.$defaultI18nTitle}`.replace(/{modelName}/, this.$name)
 
@@ -77,6 +87,6 @@ export abstract class Model implements ISchema, IValidation {
   }
 
   $clone() {
-    return clone(this)
+    return Helper.clone(this)
   }
 }

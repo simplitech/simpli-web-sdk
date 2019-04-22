@@ -10,7 +10,7 @@ import VueTheMask from 'vue-the-mask'
 // @ts-ignore
 import VueMoney from 'v-money'
 import socket from './app/socket'
-import { DefaultConfig } from './app'
+import { DefaultConfig, AjvI18n } from './app'
 import { Lang, Currency } from './enums'
 import { currencyConfig } from './helpers'
 import { AwaitController } from './components/utils/Await'
@@ -36,6 +36,9 @@ export abstract class $ {
   }
   static get i18n(): VueI18n {
     return Simpli.$prototype.i18n
+  }
+  static get i18nAjv(): AjvI18n {
+    return Simpli.$prototype.i18nAjv
   }
   static get bus(): Vue {
     return Simpli.$prototype.bus
@@ -80,6 +83,7 @@ export class Simpli {
   static components: ComponentOptions = {}
   static filters: FilterOptions = {}
   static locale?: LocaleOptions
+  static localeAjv?: LocaleOptions
   static router?: RouterOptions
   static lang: Lang = Lang.EN_US
   static currency: Currency = Currency.USD
@@ -88,10 +92,19 @@ export class Simpli {
     return Simpli.$
   }
 
+  static changeLocale(lang: Lang) {
+    Simpli.$.i18n.locale = lang
+    Simpli.$.i18nAjv.locale = lang
+  }
+
+  static changeCurrency(currency: Currency) {
+    Vue.use(VueMoney, currencyConfig(currency))
+  }
+
   static install() {
-    Vue.use(VueSnotify)
     Vue.use(VueRouter)
     Vue.use(VueI18n)
+    Vue.use(VueSnotify)
     Vue.use(VueTheMask)
 
     const $axios = Simpli.axios || (axios && axios.create())
@@ -102,6 +115,7 @@ export class Simpli {
 
     const $router = new VueRouter(Simpli.router)
     const $i18n = new VueI18n({ locale: Simpli.lang, messages: Simpli.locale })
+    const $i18nAjv = new AjvI18n(Simpli.lang, Simpli.localeAjv)
     const $bus = new Vue({ router: $router, i18n: $i18n })
 
     const $route = $bus.$route
@@ -117,10 +131,6 @@ export class Simpli {
     const $await = new AwaitController()
     const $modal = new ModalController()
     const $tip = new TipController()
-
-    Vue.use(VueMoney, currencyConfig(Simpli.currency))
-
-    moment.locale($i18n.locale)
 
     for (const key in $filter) {
       Vue.filter(key, $filter[key])
@@ -139,6 +149,7 @@ export class Simpli {
 
       router: $router,
       i18n: $i18n,
+      i18nAjv: $i18nAjv,
       bus: $bus,
 
       route: $route,
@@ -155,6 +166,10 @@ export class Simpli {
       modal: $modal,
       tip: $tip,
     }
+
+    moment.locale(Simpli.$.i18n.locale)
+
+    Simpli.changeCurrency(Simpli.currency)
 
     Vue.prototype.$axios = Simpli.$.axios
     Vue.prototype.$socket = Simpli.$.socket

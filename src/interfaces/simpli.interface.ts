@@ -3,6 +3,7 @@ import VueRouter, { Route } from 'vue-router'
 import VueI18n from 'vue-i18n'
 import { AxiosInstance } from 'axios'
 import { SnotifyService } from 'vue-snotify/SnotifyService'
+import { AjvI18n } from '../app'
 import { AwaitController } from '../components/utils/Await'
 import { ModalController } from '../components/utils/Modal'
 import { TipController } from '../components/utils/Tip'
@@ -29,6 +30,7 @@ export interface $Prototype {
 
   router: VueRouter
   i18n: VueI18n
+  i18nAjv: AjvI18n
   bus: Vue
 
   route: Route
