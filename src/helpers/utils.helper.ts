@@ -1,7 +1,7 @@
 import { $ } from '../simpli'
 import { classToClass } from 'class-transformer'
 import Papa, { ParseError, ParseResult } from 'papaparse'
-import { ID, TAG, IResource, DataBlueprint, NormalizedItem } from '../interfaces'
+import { ID, TAG, Dictionary, IResource, DataBlueprint, NormalizedItem } from '../interfaces'
 const shortid = require('shortid')
 
 export { sha256 as encrypt } from 'js-sha256'
@@ -18,7 +18,7 @@ export function buildResource($id: ID, $tag: TAG): IResource {
   return { $id, $tag }
 }
 
-export function listObject(obj: { [key: string]: ID }, i18nPath?: string): IResource[] {
+export function listObject(obj: Dictionary<ID>, i18nPath?: string): IResource[] {
   return Object.keys(obj)
     .filter(val => isNaN(Number(val)))
     .map(key => ({ $id: obj[key], $tag: i18nPath ? ($.t(`${i18nPath}.${key}`) as string) : key }))

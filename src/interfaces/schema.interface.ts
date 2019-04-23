@@ -1,8 +1,6 @@
 import { Vue } from 'vue-property-decorator'
 import { Schema } from '../app'
 
-export { ErrorObject } from 'ajv'
-
 export interface ISchema {
   $schemaSet: SchemaSet
 }
@@ -62,6 +60,7 @@ export interface ValidationString {
     | 'hostname'
     | 'ipv4'
     | 'ipv6'
+    | string
   formatMinimum?: string
   formatMaximum?: string
   formatExclusiveMinimum?: boolean

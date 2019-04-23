@@ -1,4 +1,5 @@
 // ajv
+export * from './ajv/AjvController'
 export * from './ajv/AjvI18n'
 export * from './ajv/AjvType'
 

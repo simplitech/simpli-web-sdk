@@ -18,12 +18,24 @@ export function time(date?: string | Date | Moment | null) {
   return date ? moment(date).format($.t('dateFormat.time') as string) : ''
 }
 
+export function truncate(val?: string | number | null, length?: number) {
+  return $.filter.truncate(toString(val), length)
+}
+
+export function removeDelimiters(val?: string | number | null) {
+  return $.filter.removeDelimiters(toString(val))
+}
+
 export function phone(val?: string | number | null) {
   return $.filter.phone(toString(val))
 }
 
 export function cep(val?: string | number | null) {
   return $.filter.cep(toString(val))
+}
+
+export function rg(val?: string | number | null) {
+  return $.filter.rg(toString(val))
 }
 
 export function cpf(val?: string | number | null) {
@@ -36,10 +48,6 @@ export function cnpj(val?: string | number | null) {
 
 export function cpfOrCnpj(val?: string | number | null) {
   return $.filter.cpfOrCnpj(toString(val))
-}
-
-export function rg(val?: string | number | null) {
-  return $.filter.rg(toString(val))
 }
 
 export function pad(val?: string | number | null, length?: number) {

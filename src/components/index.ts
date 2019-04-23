@@ -1,3 +1,5 @@
+export { Multiselect } from 'vue-multiselect'
+
 // adap
 export { AdapOrderby } from './adap/AdapOrderby'
 export { AdapPagination } from './adap/AdapPagination'

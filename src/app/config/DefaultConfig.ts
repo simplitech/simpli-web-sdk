@@ -1,9 +1,10 @@
-import { ComponentOptions, FilterOptions } from '../../interfaces'
 import { $ } from '../../simpli'
+import { ComponentOptions, FilterOptions } from '../../interfaces'
 import * as Component from '../../components'
 
 export abstract class DefaultConfig {
   static readonly components: ComponentOptions = {
+    Multiselect: Component.Multiselect,
     Await: Component.Await,
     Modal: Component.Modal,
     Tip: Component.Tip,
@@ -32,6 +33,20 @@ export abstract class DefaultConfig {
     removeDelimiters: (value?: string): string => {
       if (!value) return ''
       return value.replace(/[. ,:\-/]+/g, '')
+    },
+
+    phone: (value?: string): string => {
+      if (!value) return ''
+      let v = value.replace(/\D/g, '')
+      v = v.replace(new RegExp($.t('filter.phone.regex') as string), $.t('filter.phone.format') as string)
+      return v
+    },
+
+    cep: (value?: string): string => {
+      if (!value) return ''
+      let v = value.replace(/\D/g, '')
+      v = v.replace(new RegExp($.t('filter.cep.regex') as string), $.t('filter.cep.format') as string)
+      return v
     },
 
     rg: (value?: string): string => {
@@ -71,20 +86,6 @@ export abstract class DefaultConfig {
       }
 
       return ''
-    },
-
-    phone: (value?: string): string => {
-      if (!value) return ''
-      let v = value.replace(/\D/g, '')
-      v = v.replace(new RegExp($.t('filter.phone.regex') as string), $.t('filter.phone.format') as string)
-      return v
-    },
-
-    cep: (value?: string): string => {
-      if (!value) return ''
-      let v = value.replace(/\D/g, '')
-      v = v.replace(new RegExp($.t('filter.cep.regex') as string), $.t('filter.cep.format') as string)
-      return v
     },
 
     pad: (value?: string, length = 2): string => {

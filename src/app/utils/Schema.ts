@@ -1,4 +1,3 @@
-import Ajv from 'ajv'
 import { $ } from '../../simpli'
 import { Dictionary, ErrorObject, FieldSet, FieldData, FieldValidation, DictionaryOfValidation } from '../../interfaces'
 
@@ -64,28 +63,10 @@ export abstract class Schema<M = any> {
   }
 
   validateErrors(): ErrorObject[] | null {
-    const ajv = new Ajv({ allErrors: true })
-
-    ajv.addFormat('date', new RegExp(/\d{4}-\d{2}-\d{2}T00:00:00-\d{2}/))
-    ajv.addFormat('datetime', new RegExp(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}-\d{2}/))
-    ajv.addFormat('phone', new RegExp(/^(?:\+?\d{1,3})?(?:\s|-)?(?:\(?\d{2,3}\)?)?(?:\s|-)?\d{3,5}(?:\s|-)?\d{3,5}$/))
-    ajv.addFormat('cep', new RegExp(/^\d{5}[-]?\d{3}$/))
-    ajv.addFormat('rg', new RegExp(/^\d{1,3}[-.]?\d{1,3}[-.]?\d{1,3}[-.]?\d?$/))
-    ajv.addFormat('cpf', new RegExp(/^\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}$/))
-    ajv.addFormat('cnpj', new RegExp(/^\d{2}[.]?\d{3}[.]?\d{3}[/]?\d{4}[-]?\d{2}$/))
-
-    ajv.validate(this.ajvSchema, this.model)
-
-    const errors = ajv.errors || null
-    if (errors) {
-      $.i18nAjv.exec(errors)
-    }
-
-    return errors
+    return $.ajv.validateErrors(this.ajvSchema, this.model)
   }
 
   validate(): void {
-    const errors = this.validateErrors()
-    if (errors) throw errors
+    return $.ajv.validate(this.ajvSchema, this.model)
   }
 }

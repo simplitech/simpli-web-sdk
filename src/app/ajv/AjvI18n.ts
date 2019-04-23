@@ -9,7 +9,7 @@ export class AjvI18n {
     }
   }
 
-  get exec(): (e: ErrorObject[]) => void {
+  get translate(): (e: ErrorObject[]) => void {
     return this.messages[this.locale]
   }
 

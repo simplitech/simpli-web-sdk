@@ -10,7 +10,7 @@ import VueTheMask from 'vue-the-mask'
 // @ts-ignore
 import VueMoney from 'v-money'
 import socket from './app/socket'
-import { DefaultConfig, AjvI18n } from './app'
+import { DefaultConfig, AjvController, AjvI18n } from './app'
 import { Lang, Currency } from './enums'
 import { currencyConfig } from './helpers'
 import { AwaitController } from './components/utils/Await'
@@ -37,9 +37,6 @@ export abstract class $ {
   static get i18n(): VueI18n {
     return Simpli.$prototype.i18n
   }
-  static get i18nAjv(): AjvI18n {
-    return Simpli.$prototype.i18nAjv
-  }
   static get bus(): Vue {
     return Simpli.$prototype.bus
   }
@@ -63,6 +60,9 @@ export abstract class $ {
   }
   static get snotify(): SnotifyService {
     return Simpli.$prototype.snotify
+  }
+  static get ajv(): AjvController {
+    return Simpli.$prototype.ajv
   }
   static get await(): AwaitController {
     return Simpli.$prototype.await
@@ -94,7 +94,7 @@ export class Simpli {
 
   static changeLocale(lang: Lang) {
     Simpli.$.i18n.locale = lang
-    Simpli.$.i18nAjv.locale = lang
+    Simpli.$.ajv.i18n.locale = lang
   }
 
   static changeCurrency(currency: Currency) {
@@ -115,7 +115,6 @@ export class Simpli {
 
     const $router = new VueRouter(Simpli.router)
     const $i18n = new VueI18n({ locale: Simpli.lang, messages: Simpli.locale })
-    const $i18nAjv = new AjvI18n(Simpli.lang, Simpli.localeAjv)
     const $bus = new Vue({ router: $router, i18n: $i18n })
 
     const $route = $bus.$route
@@ -127,6 +126,8 @@ export class Simpli {
     const $n = $bus.$n
 
     const $snotify = $bus.$snotify
+
+    const $ajv = new AjvController(Simpli.lang, Simpli.localeAjv)
 
     const $await = new AwaitController()
     const $modal = new ModalController()
@@ -149,7 +150,6 @@ export class Simpli {
 
       router: $router,
       i18n: $i18n,
-      i18nAjv: $i18nAjv,
       bus: $bus,
 
       route: $route,
@@ -161,6 +161,8 @@ export class Simpli {
       n: $n,
 
       snotify: $snotify,
+
+      ajv: $ajv,
 
       await: $await,
       modal: $modal,
@@ -175,6 +177,7 @@ export class Simpli {
     Vue.prototype.$socket = Simpli.$.socket
     Vue.prototype.$bus = Simpli.$.bus
     Vue.prototype.$snotify = Simpli.$.snotify
+    Vue.prototype.$ajv = Simpli.$.ajv
     Vue.prototype.$await = Simpli.$.await
     Vue.prototype.$modal = Simpli.$.modal
     Vue.prototype.$tip = Simpli.$.tip

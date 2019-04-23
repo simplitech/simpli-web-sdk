@@ -1,4 +1,4 @@
-export abstract class AjvType {
+export class AjvType {
   static readonly requiredString: 'string' = 'string'
   static readonly stringOrNull: ['string', 'null'] = ['string', 'null']
 

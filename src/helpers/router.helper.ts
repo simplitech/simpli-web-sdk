@@ -5,10 +5,16 @@ export function push(uri: string) {
   return $.router.push(uri)
 }
 
-export function pushByName(name: string, id1?: ID, id2?: ID) {
-  if (!id1 && !id2) $.router.push({ name })
-  else if (id1 && !id2) $.router.push({ name, params: { id: id1 as string } })
-  else $.router.push({ name, params: { id1: id1 as string, id2: id2 as string } })
+export function pushByName(name: string, ...ids: ID[]) {
+  const params: any = {}
+
+  if (ids.length > 1) {
+    ids.forEach((id, index) => (params[`id${index}`] = id))
+  } else if (ids.length === 1) {
+    params.id = ids[0]
+  }
+
+  $.router.push({ name, params })
 }
 
 export function openUrl(url: string, targetBlank?: boolean) {

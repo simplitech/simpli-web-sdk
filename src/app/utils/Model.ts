@@ -37,12 +37,13 @@ export abstract class Model implements ISchema {
       .getResponse()
   }
 
-  $getSchema(schemaName: string): Schema {
-    return this.$schemaSet[schemaName]
+  $getSchema(schemaName: string): Schema | null {
+    return this.$schemaSet[schemaName] || null
   }
 
   $allFieldsFrom(schemaName: string): string[] {
-    return this.$getSchema(schemaName).allFields
+    const schema = this.$getSchema(schemaName)
+    return schema ? schema.allFields : []
   }
 
   $allHeadersFrom(schemaName: string): string[] {
@@ -50,15 +51,18 @@ export abstract class Model implements ISchema {
   }
 
   $headerFrom(schemaName: string): Dictionary<string> {
-    return mapValues(this.$getSchema(schemaName).fieldSet, (fieldController, key) => this.$translateColumn(key))
+    const schema = this.$getSchema(schemaName)
+    return schema ? mapValues(schema.fieldSet, (fieldController, key) => this.$translateColumn(key)) : {}
   }
 
   $dataFrom(schemaName: string): Dictionary<FieldData> {
-    return this.$getSchema(schemaName).data
+    const schema = this.$getSchema(schemaName)
+    return schema ? schema.data : {}
   }
 
   $validate(schemaName = 'input') {
-    const errors = this.$getSchema(schemaName).validateErrors()
+    const schema = this.$getSchema(schemaName)
+    const errors = schema && schema.validateErrors()
     if (errors) {
       const error = errors[0]
 

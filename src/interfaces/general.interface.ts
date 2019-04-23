@@ -1,9 +1,20 @@
-export { ClassType } from 'class-transformer/ClassTransformer'
+import { ClassType } from '../interfaces'
+
+export type ResponseType<T> = ClassType<T> | T
 
 export type EnumType<E> = Record<keyof E, number | string> & { [k: number]: string }
 
 export interface Dictionary<T> {
   [k: string]: T
+}
+
+export type QueryFilter = Dictionary<any>
+
+export interface QueryRouter {
+  q?: string
+  page?: string
+  order?: string
+  asc?: string
 }
 
 export interface DataBlueprint {
