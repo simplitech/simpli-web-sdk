@@ -44,7 +44,7 @@ export class ResourceCollection<R extends Resource> extends Collection<R> implem
   }
 
   get spinnerName() {
-    return `query${this.instance.$spinnerSuffixName || this.instance.$name}`
+    return this.instance.$getSpinnerName('query')
   }
 
   async queryAsArray(): Promise<AxiosResponse<R[]>> {
@@ -68,27 +68,27 @@ export class ResourceCollection<R extends Resource> extends Collection<R> implem
     return this
   }
 
-  headerFrom(schemaName: string): Dictionary<string> {
-    return this.instance.$headerFrom(schemaName)
+  headerFrom(schemaRef: string): Dictionary<string> {
+    return this.instance.$headerFrom(schemaRef)
   }
 
-  dataFrom(schemaName: string): Array<Dictionary<FieldData>> {
+  dataFrom(schemaRef: string): Array<Dictionary<FieldData>> {
     const data: Array<Dictionary<FieldData>> = []
 
     for (const item of this.items) {
-      data.push(item.$dataFrom(schemaName))
+      data.push(item.$dataFrom(schemaRef))
     }
 
     return data
   }
 
-  downloadCsv(customTitle?: string, schemaName = 'csv') {
+  downloadCsv(customTitle?: string, schemaRef = 'csv') {
     if (this.items.length <= 0) return
 
-    const title = this.instance.$translateTitle()
-    const data = this.dataFrom(schemaName).map(schema =>
+    const title = this.instance.$getSchemaName(schemaRef) || 'document'
+    const data = this.dataFrom(schemaRef).map(data =>
       // Translate the keys
-      mapKeys(schema, (val, key) => this.instance.$translateColumn(key))
+      mapKeys(data, (val, fieldName) => this.instance.$translateFrom(schemaRef, fieldName))
     )
 
     Helper.createCsvFile(customTitle ? `${customTitle}.csv` : `${snakeCase(title)}.csv`, unparse(data))

@@ -22,7 +22,7 @@ export class MixinQueryRouter extends Vue {
     return await $.await.run('query', () => collection.queryAsPage())
   }
 
-  @Watch('collection.querySearch')
+  @Watch('collection.search')
   private querySearchEvent(querySearch?: string) {
     const query = { ...this.$route.query }
 

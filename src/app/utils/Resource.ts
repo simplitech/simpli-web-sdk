@@ -128,7 +128,7 @@ export abstract class Resource extends Model implements IResource {
 
     return await this.$action
       .query(params)
-      .name(`getOne${this.$spinnerSuffixName || this.$name}`)
+      .name(this.$getSpinnerName('getOne'))
       .as(this)
       .getData()
   }
@@ -136,7 +136,7 @@ export abstract class Resource extends Model implements IResource {
   async $getMany(params?: any): Promise<this[]> {
     return await this.$action
       .query(params)
-      .name(`getMany${this.$spinnerSuffixName || this.$name}`)
+      .name(this.$getSpinnerName('getMany'))
       .asArrayOf(this.$clone())
       .getData()
   }
@@ -144,7 +144,7 @@ export abstract class Resource extends Model implements IResource {
   async $query(params?: any): Promise<AxiosResponse<this>> {
     return await this.$action
       .query(params)
-      .name(`query${this.$spinnerSuffixName || this.$name}`)
+      .name(this.$getSpinnerName('query'))
       .as(this)
       .getResponse()
   }
@@ -152,7 +152,7 @@ export abstract class Resource extends Model implements IResource {
   async $save(params?: any): Promise<AxiosResponse<any>> {
     return await this.$action
       .save(params, this)
-      .name(`save${this.$spinnerSuffixName || this.$name}`)
+      .name(this.$getSpinnerName('save'))
       .asAny()
       .getResponse()
   }
@@ -167,7 +167,7 @@ export abstract class Resource extends Model implements IResource {
 
     return await this.$action
       .update(Object.assign(localParams, params), this)
-      .name(`update${this.$spinnerSuffixName || this.$name}`)
+      .name(this.$getSpinnerName('update'))
       .asAny()
       .getResponse()
   }
@@ -182,7 +182,7 @@ export abstract class Resource extends Model implements IResource {
 
     return await this.$action
       .remove(Object.assign(localParams, params))
-      .name(`remove${this.$spinnerSuffixName || this.$name}`)
+      .name(this.$getSpinnerName('remove'))
       .asAny()
       .getResponse()
   }

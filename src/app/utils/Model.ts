@@ -1,96 +1,77 @@
 import { AxiosResponse } from 'axios'
-import { mapValues } from 'lodash'
-import { $ } from '../../simpli'
 import { Helper } from '../../main'
 import { Request } from '..'
 import { Schema } from './Schema'
 import { Dictionary, FieldData, ISchema, SchemaSet } from '../../interfaces'
 
 export abstract class Model implements ISchema {
-  static $defaultI18nTitle = 'classes.{modelName}.title'
-  static $defaultI18nColumns = 'classes.{modelName}.columns.{columnName}'
-
   readonly $schemaSet: SchemaSet = {}
-
-  readonly $name: string = this.constructor.name
-
-  readonly $spinnerSuffixName?: string
 
   async $list(url: string): Promise<AxiosResponse<this[]>> {
     return await Request.get(url)
-      .name(`list${this.$spinnerSuffixName || this.$name}`)
+      .name(this.$getSpinnerName('list'))
       .asArrayOf(this.$clone())
       .getResponse()
   }
 
   async $populate(url: string): Promise<AxiosResponse<this>> {
     return await Request.get(url)
-      .name(`populate${this.$spinnerSuffixName || this.$name}`)
+      .name(this.$getSpinnerName('populate'))
       .as(this)
       .getResponse()
   }
 
   async $persist(url: string): Promise<AxiosResponse<any>> {
     return await Request.post(url, this)
-      .name(`persist${this.$spinnerSuffixName || this.$name}`)
+      .name(this.$getSpinnerName('persist'))
       .asAny()
       .getResponse()
   }
 
-  $getSchema(schemaName: string): Schema | null {
-    return this.$schemaSet[schemaName] || null
+  $getSpinnerName(command: string): string {
+    return `${command}`
   }
 
-  $allFieldsFrom(schemaName: string): string[] {
-    const schema = this.$getSchema(schemaName)
+  $getSchema(schemaRef: string): Schema | null {
+    return this.$schemaSet[schemaRef] || null
+  }
+
+  $getSchemaName(schemaRef: string): string | null {
+    const schema = this.$getSchema(schemaRef)
+    return schema ? schema.name : null
+  }
+
+  $allFieldsFrom(schemaRef: string): string[] {
+    const schema = this.$getSchema(schemaRef)
     return schema ? schema.allFields : []
   }
 
-  $allHeadersFrom(schemaName: string): string[] {
-    return this.$allFieldsFrom(schemaName).map(field => this.$translateColumn(field))
+  $allHeadersFrom(schemaRef: string): string[] {
+    const schema = this.$getSchema(schemaRef)
+    return schema ? schema.allHeaders : []
   }
 
-  $headerFrom(schemaName: string): Dictionary<string> {
-    const schema = this.$getSchema(schemaName)
-    return schema ? mapValues(schema.fieldSet, (fieldController, key) => this.$translateColumn(key)) : {}
+  $headerFrom(schemaRef: string): Dictionary<string> {
+    const schema = this.$getSchema(schemaRef)
+    return schema ? schema.header : {}
   }
 
-  $dataFrom(schemaName: string): Dictionary<FieldData> {
-    const schema = this.$getSchema(schemaName)
+  $dataFrom(schemaRef: string): Dictionary<FieldData> {
+    const schema = this.$getSchema(schemaRef)
     return schema ? schema.data : {}
   }
 
-  $validate(schemaName = 'input') {
-    const schema = this.$getSchema(schemaName)
-    const errors = schema && schema.validateErrors()
-    if (errors) {
-      const error = errors[0]
-
-      const field = error.dataPath.replace(/^\./, '')
-      const translatedField = this.$translateColumn(field)
-
-      const message = `${translatedField} - ${error.message}`
-
-      Helper.errorValidation(message)
-      throw message
-    }
+  $translateFrom(schemaRef: string, fiendName: string): string {
+    const schema = this.$getSchema(schemaRef)
+    return schema ? schema.translateFrom(fiendName) : ''
   }
 
-  $translateTitle() {
-    const defaultI18nTitle = `${Model.$defaultI18nTitle}`.replace(/{modelName}/, this.$name)
-
-    return $.t(defaultI18nTitle) as string
+  $validate(schemaRef = 'input'): void {
+    const schema = this.$getSchema(schemaRef)
+    schema && schema.validateWithMessage()
   }
 
-  $translateColumn(column: string) {
-    const defaultI18nColumns = `${Model.$defaultI18nColumns}`
-      .replace(/{modelName}/, this.$name)
-      .replace(/{columnName}/, column)
-
-    return $.t(defaultI18nColumns) as string
-  }
-
-  $clone() {
+  $clone(): this {
     return Helper.clone(this)
   }
 }

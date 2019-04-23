@@ -6,7 +6,7 @@ export interface ISchema {
 }
 
 export interface SchemaSet {
-  [schemaName: string]: Schema
+  [schemaRef: string]: Schema
 }
 
 export interface FieldSet {
