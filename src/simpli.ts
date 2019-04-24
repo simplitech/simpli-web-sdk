@@ -5,12 +5,10 @@ import VueSnotify from 'vue-snotify'
 import { SnotifyService } from 'vue-snotify/SnotifyService'
 import VueRouter, { Route, RouterOptions } from 'vue-router'
 import VueI18n from 'vue-i18n'
-// @ts-ignore
 import VueTheMask from 'vue-the-mask'
-// @ts-ignore
 import VueMoney from 'v-money'
 import socket from './app/socket'
-import { DefaultConfig, AjvController, AjvI18n } from './app'
+import { DefaultConfig, AjvController } from './app'
 import { Lang, Currency } from './enums'
 import { currencyConfig } from './helpers'
 import { AwaitController } from './components/utils/Await'

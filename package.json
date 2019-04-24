@@ -6,7 +6,7 @@
   "typings": "lib/main.d.ts",
   "module": "lib/main.js",
   "es2015": "lib-esm/main.js",
-  "author": "Felipe Gibran Eleuterio Toledo",
+  "author": "Felipe Gibran Eleuterio Toledo <ft.gibran@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/simplitech/simpli-web-sdk#readme",
   "repository": {

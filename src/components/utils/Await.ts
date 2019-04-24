@@ -79,16 +79,22 @@ export class AwaitController {
 export class Await extends Vue {
   @Prop({ type: String })
   name?: string
+
   @Prop({ type: String })
   effect?: string
+
   @Prop({ type: String })
   spinner?: string
+
   @Prop({ type: String })
   spinnerColor?: string
+
   @Prop({ type: String })
   spinnerPadding?: string
+
   @Prop({ type: Number })
   spinnerScale?: number
+
   @Prop({ type: Boolean })
   init?: boolean
 

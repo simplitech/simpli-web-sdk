@@ -1,6 +1,8 @@
 const template = `
   <div>
-    {{content || value}}
+    <div class="innerClass">
+      {{content || value}}
+    <div>
   </div>
 `
 
@@ -13,4 +15,7 @@ export class Render extends Vue {
 
   @Prop({ default: '' })
   content?: any
+
+  @Prop({ type: String })
+  innerClass?: string
 }

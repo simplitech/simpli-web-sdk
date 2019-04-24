@@ -46,14 +46,19 @@ export class TipController {
 export class Tip extends Vue {
   @Prop({ type: String })
   name?: string
+
   @Prop({ type: String })
   message?: string
+
   @Prop({ type: String })
   effect?: string
+
   @Prop({ type: [String, Number] })
   width?: string
+
   @Prop({ type: Number })
   offset?: number
+
   @Prop({ type: String })
   innerClass?: string
 
