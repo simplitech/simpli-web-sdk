@@ -6,8 +6,8 @@ const template = `
     </label>
     <multiselect v-model="computedModel"
                  :options="options"
-                 track-by="$id"
-                 label="$tag"
+                 :track-by="idKey"
+                 :label="tagKey"
                  :placeholder="placeholder"
                  :tagPlaceholder="tagPlaceholder"
                  :selectLabel="selectLabel"
@@ -47,6 +47,12 @@ export class InputSelect extends Vue {
 
   @Prop({ type: Boolean })
   disabled?: boolean
+
+  @Prop({ type: String, default: '$id' })
+  idKey!: string
+
+  @Prop({ type: String, default: '$tag' })
+  tagKey!: string
 
   @Prop({ type: [Array, Object] })
   value?: InputModel

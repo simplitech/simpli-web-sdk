@@ -1,8 +1,8 @@
 const template = `
   <div>
-    <div class="innerClass">
+    <div :class="innerClass">
       {{content || value}}
-    <div>
+    </div>
   </div>
 `
 

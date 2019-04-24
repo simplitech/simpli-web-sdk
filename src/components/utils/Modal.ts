@@ -8,7 +8,7 @@ const template = `
               <div class="modal-title">
                 {{title}}
               </div>
-              <a v-if="$closable" class="close-icon" @click="close"></a>
+              <a v-if="$closable" class="close-icon" @click="closeAction"></a>
             </div>
             <div class="modal-body">
               <slot></slot>
@@ -74,10 +74,10 @@ export class Modal extends Vue {
   @Prop({ type: String })
   backgroundEffect?: string
 
-  @Prop({ type: Boolean })
+  @Prop({ type: Boolean, default: undefined })
   closable?: boolean
 
-  @Prop({ type: Boolean })
+  @Prop({ type: Boolean, default: undefined })
   closeOutside?: boolean
 
   @Prop()
