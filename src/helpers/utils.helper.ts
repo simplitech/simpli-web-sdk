@@ -14,6 +14,10 @@ export function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
+export function clone<T>(fromEntity: T): T {
+  return classToClass(fromEntity)
+}
+
 export function buildResource($id: ID, $tag: TAG): IResource {
   return { $id, $tag }
 }
@@ -93,15 +97,6 @@ export function normalizeData<T extends DataBlueprint>(data: any[], blueprint: T
   )
 }
 
-export function currencyConfig(currency: string) {
-  return {
-    decimal: $.t('lang.decimal') as string,
-    thousands: $.t('lang.thousands') as string,
-    prefix: $.t(`currency.${currency}.prefix`) as string,
-    precision: Number($.t(`currency.${currency}.precision`) as string),
-  }
-}
-
 export function copyToClipboard(text: string) {
   const el = document.createElement('textarea')
   el.value = text
@@ -112,12 +107,4 @@ export function copyToClipboard(text: string) {
   el.select()
   document.execCommand('copy')
   document.body.removeChild(el)
-}
-
-export function clone<T>(fromEntity: T): T {
-  return classToClass(fromEntity)
-}
-
-export function toString(val?: string | number | null): string {
-  return val !== null && val !== undefined ? val.toString() : ''
 }

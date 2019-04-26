@@ -1,6 +1,9 @@
 import moment, { Moment } from 'moment'
 import { $ } from '../simpli'
-import { toString } from './utils.helper'
+
+export function toString(val?: string | number | null): string {
+  return val !== null && val !== undefined ? val.toString() : ''
+}
 
 export function bool(val?: boolean | null) {
   return val !== undefined && val !== null ? ($.t(`boolean.${val}`) as string) : ''
@@ -30,8 +33,8 @@ export function phone(val?: string | number | null) {
   return $.filter.phone(toString(val))
 }
 
-export function cep(val?: string | number | null) {
-  return $.filter.cep(toString(val))
+export function zipcode(val?: string | number | null) {
+  return $.filter.zipcode(toString(val))
 }
 
 export function rg(val?: string | number | null) {

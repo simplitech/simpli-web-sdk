@@ -13,7 +13,11 @@ export interface FieldSet {
   [fieldName: string]: FieldController
 }
 
-export type FieldController = (fieldName: string, customBind?: any, customOn?: any) => FieldContent
+export type FieldController = (
+  fieldName: string,
+  attrs?: Record<string, string>,
+  listeners?: Record<string, Function | Function[]>
+) => FieldContent
 
 export type FieldContent = FieldComponent | FieldData
 
@@ -51,10 +55,10 @@ export interface ValidationString {
     | 'date'
     | 'datetime'
     | 'phone'
-    | 'cep'
-    | 'rg'
     | 'cpf'
     | 'cnpj'
+    | 'cpfCnpj'
+    | 'rg'
     | 'uri'
     | 'email'
     | 'hostname'

@@ -15,10 +15,10 @@ export class AjvController {
       'phone',
       new RegExp(/^(?:\+?\d{1,3})?(?:\s|-)?(?:\(?\d{2,3}\)?)?(?:\s|-)?\d{3,5}(?:\s|-)?\d{3,5}$/)
     )
-    this.instance.addFormat('cep', new RegExp(/^\d{5}[-]?\d{3}$/))
-    this.instance.addFormat('rg', new RegExp(/^\d{1,3}[-.]?\d{1,3}[-.]?\d{1,3}[-.]?\d?$/))
     this.instance.addFormat('cpf', new RegExp(/^\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}$/))
     this.instance.addFormat('cnpj', new RegExp(/^\d{2}[.]?\d{3}[.]?\d{3}[/]?\d{4}[-]?\d{2}$/))
+    this.instance.addFormat('cpfCnpj', new RegExp(/^\d{2,3}[.]?\d{3}[.]?\d{3}[-/]?(?:\d{4}[-])?\d{2}$/))
+    this.instance.addFormat('rg', new RegExp(/^\d{1,3}[-.]?\d{1,3}[-.]?\d{1,3}[-.]?\d?$/))
 
     this.i18n = new AjvI18n(locale, messages)
   }

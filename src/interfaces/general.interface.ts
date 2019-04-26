@@ -4,6 +4,8 @@ export type ResponseType<T> = ClassType<T> | T
 
 export type EnumType<E> = Record<keyof E, number | string> & { [k: number]: string }
 
+export type InputType = string | number | null
+
 export interface Dictionary<T> {
   [k: string]: T
 }
@@ -15,6 +17,12 @@ export interface QueryRouter {
   page?: string
   order?: string
   asc?: string
+}
+
+export interface MaskToken {
+  pattern?: RegExp
+  transform?: (v: string) => string
+  escape?: boolean
 }
 
 export interface DataBlueprint {

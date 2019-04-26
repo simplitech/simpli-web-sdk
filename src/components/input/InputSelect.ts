@@ -1,10 +1,14 @@
 const template = `
-  <div class="form-group" :class="{ required: !!required }">
-    <label class="multiselect-label">
+  <div class="input-group" :class="{ required: !!required }">
+    <label :for="\`input-select\${_uid}\`" class="input-label">
       {{ label }}
       <slot></slot>
     </label>
-    <multiselect v-model="computedModel"
+
+    <multiselect :id="\`input-select\${_uid}\`"
+                 v-model="computedModel"
+                 v-bind="vBind"
+                 v-on="vOn"
                  :options="options"
                  :track-by="idKey"
                  :label="tagKey"
@@ -18,6 +22,8 @@ const template = `
                  :disabled="isDisabled"
                  :close-on-select="isCloseOnSelect"
                  :hide-selected="isHideSelected"
+                 :class="inputClass"
+                 class="input-select"
                  @tag="tagEvent"
                  @remove="removeEvent"
     >
@@ -39,11 +45,17 @@ const build = ($id: ID, $tag: TAG) => buildResource($id, $tag) as IResource
 
 @Component({ template })
 export class InputSelect extends Vue {
-  @Prop({ type: Boolean })
-  required?: boolean
-
   @Prop({ type: String })
   label?: string
+
+  @Prop({ type: [Array, Object] })
+  value?: InputModel
+
+  @Prop({ type: String })
+  inputClass?: string
+
+  @Prop({ type: Boolean })
+  required?: boolean
 
   @Prop({ type: Boolean })
   disabled?: boolean
@@ -53,9 +65,6 @@ export class InputSelect extends Vue {
 
   @Prop({ type: String, default: '$tag' })
   tagKey!: string
-
-  @Prop({ type: [Array, Object] })
-  value?: InputModel
 
   @Prop({ type: Array, default: () => [] })
   items!: InputItems
@@ -103,6 +112,16 @@ export class InputSelect extends Vue {
     if (!this.isTaggable) {
       this.options = val.map((item: IResource | null) => item || this.emptyResource)
     }
+  }
+
+  get vBind() {
+    return { ...this.$attrs }
+  }
+
+  get vOn() {
+    const listeners = { ...this.$listeners }
+    delete listeners.input
+    return { ...listeners }
   }
 
   get computedModel() {

@@ -1,4 +1,5 @@
 import * as moment from 'moment'
+import { merge } from 'lodash'
 import Vue from 'vue'
 import axios, { AxiosInstance } from 'axios'
 import VueSnotify from 'vue-snotify'
@@ -12,11 +13,13 @@ import VueMoney from 'v-money'
 import socket from './app/socket'
 import { DefaultConfig, AjvController } from './app'
 import { Lang, Currency } from './enums'
-import { currencyConfig } from './helpers'
 import { AwaitController } from './components/utils/Await'
 import { ModalController } from './components/utils/Modal'
 import { TipController } from './components/utils/Tip'
 import { $Prototype, ComponentOptions, FilterOptions, LocaleOptions, SocketInstance } from './interfaces'
+
+import enUs from './locale/en-US/lang'
+import ptBr from './locale/pt-BR/lang'
 
 export abstract class $ {
   static get axios(): AxiosInstance {
@@ -88,6 +91,11 @@ export class Simpli {
   static lang: Lang = Lang.EN_US
   static currency: Currency = Currency.USD
 
+  static readonly defaultLocale = {
+    [Lang.EN_US]: enUs,
+    [Lang.PT_BR]: ptBr,
+  }
+
   static get $prototype() {
     return Simpli.$
   }
@@ -98,7 +106,12 @@ export class Simpli {
   }
 
   static changeCurrency(currency: Currency) {
-    Vue.use(VueMoney, currencyConfig(currency))
+    Vue.use(VueMoney, {
+      decimal: $.t('lang.decimal') as string,
+      thousands: $.t('lang.thousands') as string,
+      prefix: $.t(`currency.${currency}.prefix`) as string,
+      precision: Number($.t(`currency.${currency}.precision`) as string),
+    })
   }
 
   static install() {
@@ -114,7 +127,7 @@ export class Simpli {
     const $filter = { ...DefaultConfig.filters, ...Simpli.filters }
 
     const $router = new VueRouter(Simpli.router)
-    const $i18n = new VueI18n({ locale: Simpli.lang, messages: Simpli.locale })
+    const $i18n = new VueI18n({ locale: Simpli.lang, messages: merge(Simpli.locale, Simpli.defaultLocale) })
     const $bus = new Vue({ router: $router, i18n: $i18n })
 
     const $route = $bus.$route

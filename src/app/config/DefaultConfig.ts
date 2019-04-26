@@ -16,7 +16,6 @@ export abstract class DefaultConfig {
     InputCheckbox: Component.InputCheckbox,
     InputSelect: Component.InputSelect,
     InputText: Component.InputText,
-    InputTextarea: Component.InputTextarea,
     RenderAnchor: Component.RenderAnchor,
     RenderImage: Component.RenderImage,
   }
@@ -42,10 +41,10 @@ export abstract class DefaultConfig {
       return v
     },
 
-    cep: (value?: string): string => {
+    zipcode: (value?: string): string => {
       if (!value) return ''
       let v = value.replace(/\D/g, '')
-      v = v.replace(new RegExp($.t('filter.cep.regex') as string), $.t('filter.cep.format') as string)
+      v = v.replace(new RegExp($.t('filter.zipcode.regex') as string), $.t('filter.zipcode.format') as string)
       return v
     },
 

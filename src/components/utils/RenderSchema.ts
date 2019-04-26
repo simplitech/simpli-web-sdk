@@ -13,7 +13,7 @@ const template = `
 
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import { Schema } from '../../app'
-import { ISchema, FieldComponent } from '../../interfaces'
+import { FieldComponent, ISchema } from '../../interfaces'
 
 @Component({ template })
 export class RenderSchema extends Vue {
@@ -26,18 +26,12 @@ export class RenderSchema extends Vue {
   @Prop({ type: String, required: true })
   field!: string
 
-  @Prop({ type: Object })
-  bind?: any
-
-  @Prop({ type: Object })
-  on?: any
-
   get fieldContent() {
-    const { value, schema, field, bind, on } = this
+    const { value, schema, field, attrs, listeners } = this
     if (typeof schema === 'string') {
-      return value.$schemaSet[schema].fieldSet[field](field, bind, on)
+      return value.$schemaSet[schema].fieldSet[field](field, attrs, listeners)
     }
-    return schema.fieldSet[field](field, bind, on)
+    return schema.fieldSet[field](field, attrs, listeners)
   }
 
   get isObject() {
@@ -58,17 +52,27 @@ export class RenderSchema extends Vue {
     }
   }
 
+  get attrs() {
+    return { ...this.$attrs }
+  }
+
+  get listeners() {
+    const listeners = { ...this.$listeners }
+    delete listeners.input
+    return listeners
+  }
+
   get vBind() {
     if (this.isObject) {
       const fieldContent = this.fieldContent as FieldComponent
-      return Object.assign({}, fieldContent.bind, this.bind)
+      return Object.assign({}, fieldContent.bind, this.attrs)
     }
   }
 
   get vOn() {
     if (this.isObject) {
       const fieldContent = this.fieldContent as FieldComponent
-      return Object.assign({}, fieldContent.on, this.on)
+      return Object.assign({}, fieldContent.on, this.listeners)
     }
   }
 }
