@@ -1,20 +1,23 @@
-import { mapValues } from 'lodash'
+import { mapValues, mapKeys, snakeCase } from 'lodash'
+import { unparse } from 'papaparse'
+import { SchemaBuilder } from '../'
 import { $ } from '../../simpli'
 import { Helper } from '../../main'
-import { Dictionary, ErrorObject, FieldSet, FieldData, FieldValidation, DictionaryOfValidation } from '../../interfaces'
+import {
+  Dictionary,
+  ClassType,
+  ErrorObject,
+  FieldSet,
+  FieldData,
+  FieldValidation,
+  DictionaryOfValidation,
+} from '../../interfaces'
 
-export abstract class Schema<M = any> {
+export abstract class Schema {
   static defaultI18nPath = 'schema.{schemaName}.{fieldName}'
 
-  constructor(model: M) {
-    this.model = model
-  }
-
   abstract readonly name: string
-
-  readonly model: M
-
-  abstract readonly fieldSet: FieldSet
+  abstract readonly fieldSet: FieldSet<any>
 
   get allFields(): string[] {
     return Object.keys(this.fieldSet)
@@ -28,31 +31,6 @@ export abstract class Schema<M = any> {
     return mapValues(this.fieldSet, (fieldController, fieldName) => this.translateFrom(fieldName))
   }
 
-  get data(): Dictionary<FieldData> {
-    const data: Dictionary<FieldData> = {}
-
-    for (const field of this.allFields) {
-      data[field] = this.dataFrom(field)
-    }
-
-    return data
-  }
-
-  get ajvSchema(): DictionaryOfValidation<FieldValidation> {
-    const schema: DictionaryOfValidation<FieldValidation> = {
-      properties: {},
-    }
-
-    for (const field of this.allFields) {
-      const schemaFromField = this.ajvSchemaFrom(field)
-      if (schemaFromField) {
-        schema.properties[field] = schemaFromField
-      }
-    }
-
-    return schema
-  }
-
   translateFrom(fieldName: string): string {
     const defaultI18nPath = `${Schema.defaultI18nPath}`
       .replace(/{schemaName}/, this.name)
@@ -61,12 +39,41 @@ export abstract class Schema<M = any> {
     return $.t(defaultI18nPath) as string
   }
 
-  validateErrors(): ErrorObject[] | null {
-    return $.ajv.validateErrors(this.ajvSchema, this.model)
+  build<M>(model: M, fieldName: string): SchemaBuilder<M> {
+    return new SchemaBuilder(this, model, fieldName)
   }
 
-  validateWithMessage(): void {
-    const errors = this.validateErrors()
+  getModelData<M>(model: M): Dictionary<FieldData> {
+    const data: Dictionary<FieldData> = {}
+
+    for (const field of this.allFields) {
+      data[field] = this.build(model, field).getData()
+    }
+
+    return data
+  }
+
+  getAjvSchema<M>(model: M): DictionaryOfValidation<FieldValidation> {
+    const schema: DictionaryOfValidation<FieldValidation> = {
+      properties: {},
+    }
+
+    for (const field of this.allFields) {
+      const schemaFromField = this.build(model, field).getAjv()
+      if (schemaFromField) {
+        schema.properties[field] = schemaFromField
+      }
+    }
+
+    return schema
+  }
+
+  validateErrors<M>(model: M): ErrorObject[] | null {
+    return $.ajv.validateErrors(this.getAjvSchema(model), model)
+  }
+
+  validate<M>(model: M): void {
+    const errors = this.validateErrors(model)
 
     if (errors) {
       const error = errors[0]
@@ -79,30 +86,25 @@ export abstract class Schema<M = any> {
     }
   }
 
-  validate(): void {
-    return $.ajv.validate(this.ajvSchema, this.model)
+  toList<M>(list: M[]): Array<Dictionary<FieldData>> {
+    return list.map(item => this.getModelData(item)).map(data =>
+      // Translate the keys
+      mapKeys(data, (val, fieldName) => this.translateFrom(fieldName))
+    )
   }
 
-  isData(fieldName: string): boolean {
-    return this.dataFrom(fieldName) !== null
+  toCsv<M>(list: M[]): string {
+    return unparse(this.toList(list))
   }
 
-  dataFrom(fieldName: string): FieldData {
-    const fieldContent = this.fieldSet[fieldName](fieldName)
-    if (typeof fieldContent === 'string' || typeof fieldContent === 'number') {
-      return fieldContent
+  toJson<M>(list: M[]): string {
+    return JSON.stringify(this.toList(list))
+  }
+
+  downloadCsv<M>(list: M[], customTitle?: string): void {
+    if (list.length) {
+      const title = customTitle ? `${customTitle}.csv` : `${snakeCase(this.name || 'document')}.csv`
+      Helper.createCsvFile(title, this.toCsv(list))
     }
-    return null
-  }
-
-  ajvSchemaFrom<T>(fieldName: string): FieldValidation<T> | null {
-    let schemaFromField: FieldValidation | null = null
-
-    const fieldContent = this.fieldSet[fieldName](fieldName)
-    if (fieldContent && typeof fieldContent === 'object') {
-      schemaFromField = fieldContent.ajv || null
-    }
-
-    return schemaFromField as FieldValidation<T>
   }
 }

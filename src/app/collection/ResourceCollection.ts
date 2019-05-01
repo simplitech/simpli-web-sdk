@@ -73,25 +73,15 @@ export class ResourceCollection<R extends Resource> extends Collection<R> implem
   }
 
   dataFrom(schemaRef: string): Array<Dictionary<FieldData>> {
-    const data: Array<Dictionary<FieldData>> = []
-
-    for (const item of this.items) {
-      data.push(item.$dataFrom(schemaRef))
-    }
-
-    return data
+    return this.items.map(item => item.$dataFrom(schemaRef))
   }
 
-  downloadCsv(customTitle?: string, schemaRef = 'csv') {
-    if (this.items.length <= 0) return
+  downloadCsv(schemaRef = 'csv', customTitle?: string) {
+    const schema = this.instance.$getSchema(schemaRef)
 
-    const title = this.instance.$getSchemaName(schemaRef) || 'document'
-    const data = this.dataFrom(schemaRef).map(data =>
-      // Translate the keys
-      mapKeys(data, (val, fieldName) => this.instance.$translateFrom(schemaRef, fieldName))
-    )
-
-    Helper.createCsvFile(customTitle ? `${customTitle}.csv` : `${snakeCase(title)}.csv`, unparse(data))
+    if (schema) {
+      schema.downloadCsv(this.all(), customTitle)
+    }
   }
 
   allWithPlaceholder(placeholder: string | null = null): Array<R | null> {

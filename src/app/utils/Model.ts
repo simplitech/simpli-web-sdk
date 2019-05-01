@@ -58,7 +58,7 @@ export abstract class Model implements ISchema {
 
   $dataFrom(schemaRef: string): Dictionary<FieldData> {
     const schema = this.$getSchema(schemaRef)
-    return schema ? schema.data : {}
+    return schema ? schema.getModelData(this) : {}
   }
 
   $translateFrom(schemaRef: string, fiendName: string): string {
@@ -68,7 +68,7 @@ export abstract class Model implements ISchema {
 
   $validate(schemaRef = 'input'): void {
     const schema = this.$getSchema(schemaRef)
-    schema && schema.validateWithMessage()
+    schema && schema.validate(this)
   }
 
   $clone(): this {

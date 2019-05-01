@@ -1,7 +1,7 @@
 const template = `
   <div class="render-schema">
     <component
-      v-if="isObject"
+      v-if="isComponent"
       :is="is"
       v-model="value[fieldName]"
       v-bind="vBind"
@@ -28,27 +28,55 @@ export class RenderSchema extends Vue {
 
   get fieldContent() {
     const { value, schema, field, attrs, listeners } = this
+
     if (typeof schema === 'string') {
-      return value.$schemaSet[schema].fieldSet[field](field, attrs, listeners)
+      const schemaObject = value.$schemaSet[schema]
+      if (schemaObject) {
+        return schemaObject
+          .build(value, field)
+          .setAttrs(attrs)
+          .setListeners(listeners)
+          .get()
+      }
+      return null
     }
-    return schema.fieldSet[field](field, attrs, listeners)
+
+    return schema
+      .build(value, field)
+      .setAttrs(attrs)
+      .setListeners(listeners)
+      .get()
   }
 
-  get isObject() {
+  get isComponent() {
     return typeof this.fieldContent === 'object'
   }
 
   get is() {
-    if (this.isObject) {
+    if (this.isComponent) {
       const fieldContent = this.fieldContent as FieldComponent
       return fieldContent.is
     }
   }
 
   get fieldName() {
-    if (this.isObject) {
+    if (this.isComponent) {
       const fieldContent = this.fieldContent as FieldComponent
       return fieldContent.name || this.field
+    }
+  }
+
+  get vBind() {
+    if (this.isComponent) {
+      const fieldContent = this.fieldContent as FieldComponent
+      return Object.assign({}, fieldContent.bind, this.attrs)
+    }
+  }
+
+  get vOn() {
+    if (this.isComponent) {
+      const fieldContent = this.fieldContent as FieldComponent
+      return Object.assign({}, fieldContent.on, this.listeners)
     }
   }
 
@@ -60,19 +88,5 @@ export class RenderSchema extends Vue {
     const listeners = { ...this.$listeners }
     delete listeners.input
     return listeners
-  }
-
-  get vBind() {
-    if (this.isObject) {
-      const fieldContent = this.fieldContent as FieldComponent
-      return Object.assign({}, fieldContent.bind, this.attrs)
-    }
-  }
-
-  get vOn() {
-    if (this.isObject) {
-      const fieldContent = this.fieldContent as FieldComponent
-      return Object.assign({}, fieldContent.on, this.listeners)
-    }
   }
 }

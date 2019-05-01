@@ -9,33 +9,36 @@ export interface SchemaSet {
   [schemaRef: string]: Schema
 }
 
-export interface FieldSet {
-  [fieldName: string]: FieldController
+export interface SchemaResult<M> {
+  model: M
+  fieldName: string
+  attrs?: Record<string, string>
+  listeners?: Record<string, Function | Function[]>
 }
 
-export type FieldController = (
-  fieldName: string,
-  attrs?: Record<string, string>,
-  listeners?: Record<string, Function | Function[]>
-) => FieldContent
+export interface FieldSet<M> {
+  [fieldName: string]: FieldController<M>
+}
+
+export type FieldController<M> = (schema: SchemaResult<M>) => FieldContent
 
 export type FieldContent = FieldComponent | FieldData
 
 export type FieldData = string | number | null
 
-export interface FieldComponent<T = any> {
+export interface FieldComponent<V = any> {
   is: typeof Vue
-  name?: any
+  name?: string
   bind?: any
   on?: any
-  ajv?: FieldValidation<T>
+  ajv?: FieldValidation<V>
 }
 
-export type FieldValidation<T = any> = T extends string
+export type FieldValidation<V = any> = V extends string
   ? ValidationString
-  : T extends number
+  : V extends number
     ? ValidationNumber
-    : T extends any[] ? ValidationArray : (ValidationString | ValidationNumber | ValidationArray)
+    : V extends any[] ? ValidationArray : (ValidationString | ValidationNumber | ValidationArray)
 
 export interface ValidationNumber {
   type: 'number' | 'integer' | 'null' | Array<'number' | 'integer' | 'null'>
