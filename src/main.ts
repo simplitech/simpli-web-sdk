@@ -1,5 +1,7 @@
 import 'reflect-metadata'
 
+import './vue'
+
 import * as App from './app'
 import * as Component from './components'
 import * as Decorator from './decorators'

@@ -3,15 +3,7 @@ import { unparse } from 'papaparse'
 import { SchemaBuilder } from '../'
 import { $ } from '../../simpli'
 import { Helper } from '../../main'
-import {
-  Dictionary,
-  ClassType,
-  ErrorObject,
-  FieldSet,
-  FieldData,
-  FieldValidation,
-  DictionaryOfValidation,
-} from '../../interfaces'
+import { Dictionary, ErrorObject, FieldSet, FieldData, FieldValidation, DictionaryOfValidation } from '../../interfaces'
 
 export abstract class Schema {
   static defaultI18nPath = 'schema.{schemaName}.{fieldName}'

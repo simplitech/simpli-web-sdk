@@ -1,9 +1,9 @@
-import { AxiosInstance, SocketInstance } from '../../interfaces'
+import { AxiosInstance, SocketInstance } from './interfaces'
 import { SnotifyService } from 'vue-snotify/SnotifyService'
-import { AjvController } from '../../app'
-import { AwaitController } from '../../components/utils/Await'
-import { ModalController } from '../../components/utils/Modal'
-import { TipController } from '../../components/utils/Tip'
+import { AjvController } from './app'
+import { AwaitController } from './components/utils/Await'
+import { ModalController } from './components/utils/Modal'
+import { TipController } from './components/utils/Tip'
 
 declare module 'vue/types/vue' {
   interface Vue {

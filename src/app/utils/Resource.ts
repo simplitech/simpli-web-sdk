@@ -14,7 +14,7 @@ export abstract class Resource extends Model implements IResource {
     /**/
   }
 
-  abstract readonly $endpoint: string
+  readonly $endpoint: string = ''
 
   readonly $customActionConfig: ResourceActionConfig = {}
 

@@ -1,7 +1,7 @@
 {
   "name": "simpli-web-sdk",
   "version": "1.10.3",
-  "description": "Simpli Web SDK",
+  "description": "A framework to easily build projects in Vue",
   "main": "lib/main.js",
   "typings": "lib/main.d.ts",
   "module": "lib/main.js",
@@ -26,10 +26,10 @@
     "node": ">=6.9"
   },
   "scripts": {
-    "cleanup": "shx rm -rf umd lib lib-esm typings coverage",
+    "cleanup": "shx rm -rf umd lib lib-esm types coverage",
     "prebuild": "npm run cleanup && npm run verify",
     "build": " tsc && tsc --target es2017 --outDir lib-esm && webpack && webpack --env.prod",
-    "docs": "typedoc -p . --theme minimal --target 'es6' --excludeNotExported --excludePrivate --ignoreCompilerErrors --exclude \"**/src/**/__tests__/*.*\" --out typedocs src/ && touch typedocs/.nojekyll",
+    "docs": "typedoc -p . --mode file --theme markdown --target 'es6' --excludeNotExported --excludePrivate --ignoreCompilerErrors --exclude \"**/src/**/__tests__/*.*\" --out typedocs src/ && touch typedocs/.nojekyll",
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "test:coverage": "npm test -- --coverage",
@@ -74,11 +74,10 @@
   "dependencies": {
     "@types/lodash": "^4.14.123",
     "@types/papaparse": "^4.5.9",
-    "ajv": "6.10.0",
+    "ajv": "^6.10.0",
     "ajv-i18n": "^3.4.0",
     "axios": "^0.18.0",
     "class-transformer": "^0.2.0",
-    "class-validator": "^0.9.1",
     "compressorjs": "^1.0.5",
     "cropperjs": "^1.5.1",
     "js-sha256": "^0.9.0",
@@ -127,11 +126,12 @@
     "tslint-config-standard": "8.0.1",
     "tslint-react": "3.6.0",
     "typedoc": "0.14.2",
+    "typedoc-plugin-markdown": "1.2.0",
     "typescript": "3.4.4",
     "validate-commit-msg": "2.14.0",
     "vue-jest": "2.6.0",
     "vue-loader": "15.4.2",
-    "vue-template-compiler": "^2.5.17",
+    "vue-template-compiler": "^2.6.10",
     "webpack": "4.20.2",
     "webpack-cli": "3.1.2"
   }

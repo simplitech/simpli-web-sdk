@@ -1,4 +1,6 @@
-import { ClassType } from '../interfaces'
+export declare type ClassType<T> = {
+  new (...args: any[]): T
+}
 
 export type ResponseType<T> = ClassType<T> | T
 

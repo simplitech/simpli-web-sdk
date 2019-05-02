@@ -1,3 +1,8 @@
+/**
+ * File formats
+ *
+ * Please, contribute if you need a missing file format
+ */
 export enum FileFormat {
   JPG = 'jpg',
   JPEG = 'jpeg',

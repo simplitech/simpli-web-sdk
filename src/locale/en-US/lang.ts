@@ -1,5 +1,5 @@
 /**
- * @file
+ * @ignore
  * Language: English United States
  */
 export default {

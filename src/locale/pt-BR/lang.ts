@@ -1,5 +1,5 @@
 /**
- * @file
+ * @ignore
  * Language: Portuguese Brazil
  */
 export default {
