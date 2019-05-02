@@ -131,7 +131,7 @@ Please, contribute if you need a missing language
 
 **AF**:  = "af"
 
-*Defined in [enums/Lang.ts:70](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L70)*
+*Defined in [enums/Lang.ts:70](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L70)*
 
 Afrikaans
 
@@ -142,7 +142,7 @@ ___
 
 **AR**:  = "ar"
 
-*Defined in [enums/Lang.ts:75](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L75)*
+*Defined in [enums/Lang.ts:75](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L75)*
 
 Arabic (Standard)
 
@@ -153,7 +153,7 @@ ___
 
 **AR_DZ**:  = "ar-DZ"
 
-*Defined in [enums/Lang.ts:80](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L80)*
+*Defined in [enums/Lang.ts:80](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L80)*
 
 Arabic (Algeria)
 
@@ -164,7 +164,7 @@ ___
 
 **AR_KW**:  = "ar-KW"
 
-*Defined in [enums/Lang.ts:85](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L85)*
+*Defined in [enums/Lang.ts:85](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L85)*
 
 Arabic (Kuwait)
 
@@ -175,7 +175,7 @@ ___
 
 **AR_LY**:  = "ar-LY"
 
-*Defined in [enums/Lang.ts:90](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L90)*
+*Defined in [enums/Lang.ts:90](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L90)*
 
 Arabic (Libya)
 
@@ -186,7 +186,7 @@ ___
 
 **AR_MA**:  = "ar-MA"
 
-*Defined in [enums/Lang.ts:95](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L95)*
+*Defined in [enums/Lang.ts:95](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L95)*
 
 Arabic (Morocco)
 
@@ -197,7 +197,7 @@ ___
 
 **AR_SA**:  = "ar-SA"
 
-*Defined in [enums/Lang.ts:100](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L100)*
+*Defined in [enums/Lang.ts:100](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L100)*
 
 Arabic (Saudi Arabia)
 
@@ -208,7 +208,7 @@ ___
 
 **AR_TN**:  = "ar-TN"
 
-*Defined in [enums/Lang.ts:105](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L105)*
+*Defined in [enums/Lang.ts:105](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L105)*
 
 Arabic (Tunisia)
 
@@ -219,7 +219,7 @@ ___
 
 **BE**:  = "be"
 
-*Defined in [enums/Lang.ts:110](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L110)*
+*Defined in [enums/Lang.ts:110](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L110)*
 
 Belarusian
 
@@ -230,7 +230,7 @@ ___
 
 **BG**:  = "bg"
 
-*Defined in [enums/Lang.ts:115](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L115)*
+*Defined in [enums/Lang.ts:115](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L115)*
 
 Bulgarian
 
@@ -241,7 +241,7 @@ ___
 
 **BM**:  = "bm"
 
-*Defined in [enums/Lang.ts:120](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L120)*
+*Defined in [enums/Lang.ts:120](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L120)*
 
 Bambara
 
@@ -252,7 +252,7 @@ ___
 
 **BN**:  = "bn"
 
-*Defined in [enums/Lang.ts:125](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L125)*
+*Defined in [enums/Lang.ts:125](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L125)*
 
 Bengali
 
@@ -263,7 +263,7 @@ ___
 
 **BO**:  = "bo"
 
-*Defined in [enums/Lang.ts:130](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L130)*
+*Defined in [enums/Lang.ts:130](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L130)*
 
 Tibetan
 
@@ -274,7 +274,7 @@ ___
 
 **BR**:  = "br"
 
-*Defined in [enums/Lang.ts:135](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L135)*
+*Defined in [enums/Lang.ts:135](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L135)*
 
 Breton
 
@@ -285,7 +285,7 @@ ___
 
 **BS**:  = "bs"
 
-*Defined in [enums/Lang.ts:140](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L140)*
+*Defined in [enums/Lang.ts:140](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L140)*
 
 Bosnian
 
@@ -296,7 +296,7 @@ ___
 
 **CA**:  = "ca"
 
-*Defined in [enums/Lang.ts:145](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L145)*
+*Defined in [enums/Lang.ts:145](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L145)*
 
 Catalan
 
@@ -307,7 +307,7 @@ ___
 
 **CS**:  = "cs"
 
-*Defined in [enums/Lang.ts:150](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L150)*
+*Defined in [enums/Lang.ts:150](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L150)*
 
 Czech
 
@@ -318,7 +318,7 @@ ___
 
 **CV**:  = "cv"
 
-*Defined in [enums/Lang.ts:155](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L155)*
+*Defined in [enums/Lang.ts:155](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L155)*
 
 Chuvash
 
@@ -329,7 +329,7 @@ ___
 
 **CY**:  = "cy"
 
-*Defined in [enums/Lang.ts:160](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L160)*
+*Defined in [enums/Lang.ts:160](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L160)*
 
 Welsh
 
@@ -340,7 +340,7 @@ ___
 
 **DA**:  = "da"
 
-*Defined in [enums/Lang.ts:165](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L165)*
+*Defined in [enums/Lang.ts:165](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L165)*
 
 Danish
 
@@ -351,7 +351,7 @@ ___
 
 **DE**:  = "de"
 
-*Defined in [enums/Lang.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L40)*
+*Defined in [enums/Lang.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L40)*
 
 German (Standard)
 
@@ -362,7 +362,7 @@ ___
 
 **DE_AT**:  = "de-AT"
 
-*Defined in [enums/Lang.ts:170](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L170)*
+*Defined in [enums/Lang.ts:170](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L170)*
 
 German (Austria)
 
@@ -373,7 +373,7 @@ ___
 
 **DE_CH**:  = "de-CH"
 
-*Defined in [enums/Lang.ts:175](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L175)*
+*Defined in [enums/Lang.ts:175](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L175)*
 
 German (Switzerland)
 
@@ -384,7 +384,7 @@ ___
 
 **DV**:  = "dv"
 
-*Defined in [enums/Lang.ts:180](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L180)*
+*Defined in [enums/Lang.ts:180](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L180)*
 
 Divehi
 
@@ -395,7 +395,7 @@ ___
 
 **EL**:  = "el"
 
-*Defined in [enums/Lang.ts:185](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L185)*
+*Defined in [enums/Lang.ts:185](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L185)*
 
 Greek
 
@@ -406,7 +406,7 @@ ___
 
 **EN_AU**:  = "en-AU"
 
-*Defined in [enums/Lang.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L25)*
+*Defined in [enums/Lang.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L25)*
 
 English (Australia)
 
@@ -417,7 +417,7 @@ ___
 
 **EN_CA**:  = "en-CA"
 
-*Defined in [enums/Lang.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L20)*
+*Defined in [enums/Lang.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L20)*
 
 English (Canada)
 
@@ -428,7 +428,7 @@ ___
 
 **EN_GB**:  = "en-GB"
 
-*Defined in [enums/Lang.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L15)*
+*Defined in [enums/Lang.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L15)*
 
 English (United Kingdom)
 
@@ -439,7 +439,7 @@ ___
 
 **EN_IE**:  = "en-IE"
 
-*Defined in [enums/Lang.ts:190](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L190)*
+*Defined in [enums/Lang.ts:190](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L190)*
 
 English (Ireland)
 
@@ -450,7 +450,7 @@ ___
 
 **EN_NZ**:  = "en-NZ"
 
-*Defined in [enums/Lang.ts:195](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L195)*
+*Defined in [enums/Lang.ts:195](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L195)*
 
 English (New Zealand)
 
@@ -461,7 +461,7 @@ ___
 
 **EN_US**:  = "en-US"
 
-*Defined in [enums/Lang.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L10)*
+*Defined in [enums/Lang.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L10)*
 
 English (United States)
 
@@ -472,7 +472,7 @@ ___
 
 **EO**:  = "eo"
 
-*Defined in [enums/Lang.ts:200](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L200)*
+*Defined in [enums/Lang.ts:200](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L200)*
 
 Esperanto
 
@@ -483,7 +483,7 @@ ___
 
 **ES**:  = "es"
 
-*Defined in [enums/Lang.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L30)*
+*Defined in [enums/Lang.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L30)*
 
 Spanish (Spain)
 
@@ -494,7 +494,7 @@ ___
 
 **ES_DO**:  = "es-DO"
 
-*Defined in [enums/Lang.ts:205](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L205)*
+*Defined in [enums/Lang.ts:205](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L205)*
 
 Spanish (Dominican Republic)
 
@@ -505,7 +505,7 @@ ___
 
 **ET**:  = "et"
 
-*Defined in [enums/Lang.ts:210](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L210)*
+*Defined in [enums/Lang.ts:210](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L210)*
 
 Estonian
 
@@ -516,7 +516,7 @@ ___
 
 **EU**:  = "eu"
 
-*Defined in [enums/Lang.ts:215](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L215)*
+*Defined in [enums/Lang.ts:215](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L215)*
 
 Basque
 
@@ -527,7 +527,7 @@ ___
 
 **FA**:  = "fa"
 
-*Defined in [enums/Lang.ts:220](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L220)*
+*Defined in [enums/Lang.ts:220](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L220)*
 
 Farsi
 
@@ -538,7 +538,7 @@ ___
 
 **FI**:  = "fi"
 
-*Defined in [enums/Lang.ts:225](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L225)*
+*Defined in [enums/Lang.ts:225](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L225)*
 
 Finnish
 
@@ -549,7 +549,7 @@ ___
 
 **FO**:  = "fo"
 
-*Defined in [enums/Lang.ts:230](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L230)*
+*Defined in [enums/Lang.ts:230](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L230)*
 
 Faeroese
 
@@ -560,7 +560,7 @@ ___
 
 **FR**:  = "fr"
 
-*Defined in [enums/Lang.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L35)*
+*Defined in [enums/Lang.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L35)*
 
 French (Standard)
 
@@ -571,7 +571,7 @@ ___
 
 **FR_CA**:  = "fr-CA"
 
-*Defined in [enums/Lang.ts:235](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L235)*
+*Defined in [enums/Lang.ts:235](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L235)*
 
 French (Canada)
 
@@ -582,7 +582,7 @@ ___
 
 **FR_CH**:  = "fr-CH"
 
-*Defined in [enums/Lang.ts:240](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L240)*
+*Defined in [enums/Lang.ts:240](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L240)*
 
 French (Switzerland)
 
@@ -593,7 +593,7 @@ ___
 
 **FY**:  = "fy"
 
-*Defined in [enums/Lang.ts:245](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L245)*
+*Defined in [enums/Lang.ts:245](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L245)*
 
 Western Frisian
 
@@ -604,7 +604,7 @@ ___
 
 **GD**:  = "gd"
 
-*Defined in [enums/Lang.ts:250](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L250)*
+*Defined in [enums/Lang.ts:250](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L250)*
 
 Gaelic (Scotland)
 
@@ -615,7 +615,7 @@ ___
 
 **GL**:  = "gl"
 
-*Defined in [enums/Lang.ts:255](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L255)*
+*Defined in [enums/Lang.ts:255](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L255)*
 
 Galician
 
@@ -626,7 +626,7 @@ ___
 
 **GU**:  = "gu"
 
-*Defined in [enums/Lang.ts:260](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L260)*
+*Defined in [enums/Lang.ts:260](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L260)*
 
 Gujarati
 
@@ -637,7 +637,7 @@ ___
 
 **HE**:  = "he"
 
-*Defined in [enums/Lang.ts:265](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L265)*
+*Defined in [enums/Lang.ts:265](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L265)*
 
 Hebrew
 
@@ -648,7 +648,7 @@ ___
 
 **HI**:  = "hi"
 
-*Defined in [enums/Lang.ts:270](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L270)*
+*Defined in [enums/Lang.ts:270](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L270)*
 
 Hindi
 
@@ -659,7 +659,7 @@ ___
 
 **HR**:  = "hr"
 
-*Defined in [enums/Lang.ts:275](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L275)*
+*Defined in [enums/Lang.ts:275](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L275)*
 
 Croatian
 
@@ -670,7 +670,7 @@ ___
 
 **HU**:  = "hu"
 
-*Defined in [enums/Lang.ts:280](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L280)*
+*Defined in [enums/Lang.ts:280](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L280)*
 
 Hungarian
 
@@ -681,7 +681,7 @@ ___
 
 **HY_AM**:  = "hy-AM"
 
-*Defined in [enums/Lang.ts:285](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L285)*
+*Defined in [enums/Lang.ts:285](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L285)*
 
 Armenian
 
@@ -692,7 +692,7 @@ ___
 
 **ID**:  = "id"
 
-*Defined in [enums/Lang.ts:290](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L290)*
+*Defined in [enums/Lang.ts:290](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L290)*
 
 Indonesian
 
@@ -703,7 +703,7 @@ ___
 
 **IS**:  = "is"
 
-*Defined in [enums/Lang.ts:295](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L295)*
+*Defined in [enums/Lang.ts:295](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L295)*
 
 Icelandic
 
@@ -714,7 +714,7 @@ ___
 
 **IT**:  = "it"
 
-*Defined in [enums/Lang.ts:300](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L300)*
+*Defined in [enums/Lang.ts:300](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L300)*
 
 Italian (Standard)
 
@@ -725,7 +725,7 @@ ___
 
 **JA**:  = "ja"
 
-*Defined in [enums/Lang.ts:60](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L60)*
+*Defined in [enums/Lang.ts:60](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L60)*
 
 Japanese
 
@@ -736,7 +736,7 @@ ___
 
 **JV**:  = "jv"
 
-*Defined in [enums/Lang.ts:305](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L305)*
+*Defined in [enums/Lang.ts:305](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L305)*
 
 Javanese
 
@@ -747,7 +747,7 @@ ___
 
 **KA**:  = "ka"
 
-*Defined in [enums/Lang.ts:310](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L310)*
+*Defined in [enums/Lang.ts:310](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L310)*
 
 Georgian
 
@@ -758,7 +758,7 @@ ___
 
 **KK**:  = "kk"
 
-*Defined in [enums/Lang.ts:315](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L315)*
+*Defined in [enums/Lang.ts:315](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L315)*
 
 Kazakh
 
@@ -769,7 +769,7 @@ ___
 
 **KM**:  = "km"
 
-*Defined in [enums/Lang.ts:320](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L320)*
+*Defined in [enums/Lang.ts:320](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L320)*
 
 Central Khmer
 
@@ -780,7 +780,7 @@ ___
 
 **KN**:  = "kn"
 
-*Defined in [enums/Lang.ts:325](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L325)*
+*Defined in [enums/Lang.ts:325](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L325)*
 
 Kannada
 
@@ -791,7 +791,7 @@ ___
 
 **KO**:  = "ko"
 
-*Defined in [enums/Lang.ts:330](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L330)*
+*Defined in [enums/Lang.ts:330](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L330)*
 
 Korean
 
@@ -802,7 +802,7 @@ ___
 
 **KY**:  = "ky"
 
-*Defined in [enums/Lang.ts:335](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L335)*
+*Defined in [enums/Lang.ts:335](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L335)*
 
 Kyrgyz
 
@@ -813,7 +813,7 @@ ___
 
 **LB**:  = "lb"
 
-*Defined in [enums/Lang.ts:340](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L340)*
+*Defined in [enums/Lang.ts:340](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L340)*
 
 Luxembourgish
 
@@ -824,7 +824,7 @@ ___
 
 **LO**:  = "lo"
 
-*Defined in [enums/Lang.ts:345](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L345)*
+*Defined in [enums/Lang.ts:345](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L345)*
 
 Lao
 
@@ -835,7 +835,7 @@ ___
 
 **LT**:  = "lt"
 
-*Defined in [enums/Lang.ts:350](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L350)*
+*Defined in [enums/Lang.ts:350](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L350)*
 
 Lithuanian
 
@@ -846,7 +846,7 @@ ___
 
 **LV**:  = "lv"
 
-*Defined in [enums/Lang.ts:355](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L355)*
+*Defined in [enums/Lang.ts:355](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L355)*
 
 Latvian
 
@@ -857,7 +857,7 @@ ___
 
 **MI**:  = "mi"
 
-*Defined in [enums/Lang.ts:360](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L360)*
+*Defined in [enums/Lang.ts:360](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L360)*
 
 Maori
 
@@ -868,7 +868,7 @@ ___
 
 **MK**:  = "mk"
 
-*Defined in [enums/Lang.ts:365](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L365)*
+*Defined in [enums/Lang.ts:365](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L365)*
 
 Macedonian (FYROM)
 
@@ -879,7 +879,7 @@ ___
 
 **ML**:  = "ml"
 
-*Defined in [enums/Lang.ts:370](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L370)*
+*Defined in [enums/Lang.ts:370](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L370)*
 
 Malayalam
 
@@ -890,7 +890,7 @@ ___
 
 **MN**:  = "mn"
 
-*Defined in [enums/Lang.ts:375](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L375)*
+*Defined in [enums/Lang.ts:375](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L375)*
 
 Mongolian
 
@@ -901,7 +901,7 @@ ___
 
 **MR**:  = "mr"
 
-*Defined in [enums/Lang.ts:380](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L380)*
+*Defined in [enums/Lang.ts:380](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L380)*
 
 Marathi
 
@@ -912,7 +912,7 @@ ___
 
 **MS**:  = "ms"
 
-*Defined in [enums/Lang.ts:385](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L385)*
+*Defined in [enums/Lang.ts:385](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L385)*
 
 Malaysian
 
@@ -923,7 +923,7 @@ ___
 
 **MT**:  = "mt"
 
-*Defined in [enums/Lang.ts:390](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L390)*
+*Defined in [enums/Lang.ts:390](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L390)*
 
 Maltese
 
@@ -934,7 +934,7 @@ ___
 
 **MY**:  = "my"
 
-*Defined in [enums/Lang.ts:395](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L395)*
+*Defined in [enums/Lang.ts:395](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L395)*
 
 Burmese
 
@@ -945,7 +945,7 @@ ___
 
 **NB**:  = "nb"
 
-*Defined in [enums/Lang.ts:400](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L400)*
+*Defined in [enums/Lang.ts:400](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L400)*
 
 Norwegian (Bokmal)
 
@@ -956,7 +956,7 @@ ___
 
 **NE**:  = "ne"
 
-*Defined in [enums/Lang.ts:405](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L405)*
+*Defined in [enums/Lang.ts:405](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L405)*
 
 Nepali
 
@@ -967,7 +967,7 @@ ___
 
 **NL**:  = "nl"
 
-*Defined in [enums/Lang.ts:410](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L410)*
+*Defined in [enums/Lang.ts:410](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L410)*
 
 Dutch (Standard)
 
@@ -978,7 +978,7 @@ ___
 
 **NL_BE**:  = "nl-BE"
 
-*Defined in [enums/Lang.ts:415](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L415)*
+*Defined in [enums/Lang.ts:415](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L415)*
 
 Dutch (Belgium)
 
@@ -989,7 +989,7 @@ ___
 
 **NN**:  = "nn"
 
-*Defined in [enums/Lang.ts:420](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L420)*
+*Defined in [enums/Lang.ts:420](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L420)*
 
 Norwegian (Nynorsk)
 
@@ -1000,7 +1000,7 @@ ___
 
 **PA_IN**:  = "pa-IN"
 
-*Defined in [enums/Lang.ts:425](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L425)*
+*Defined in [enums/Lang.ts:425](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L425)*
 
 Punjabi
 
@@ -1011,7 +1011,7 @@ ___
 
 **PL**:  = "pl"
 
-*Defined in [enums/Lang.ts:430](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L430)*
+*Defined in [enums/Lang.ts:430](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L430)*
 
 Polish
 
@@ -1022,7 +1022,7 @@ ___
 
 **PT**:  = "pt"
 
-*Defined in [enums/Lang.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L45)*
+*Defined in [enums/Lang.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L45)*
 
 Portuguese (Portugal)
 
@@ -1033,7 +1033,7 @@ ___
 
 **PT_BR**:  = "pt-BR"
 
-*Defined in [enums/Lang.ts:50](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L50)*
+*Defined in [enums/Lang.ts:50](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L50)*
 
 Portuguese (Brazil)
 
@@ -1044,7 +1044,7 @@ ___
 
 **RO**:  = "ro"
 
-*Defined in [enums/Lang.ts:435](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L435)*
+*Defined in [enums/Lang.ts:435](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L435)*
 
 Romanian
 
@@ -1055,7 +1055,7 @@ ___
 
 **RU**:  = "ru"
 
-*Defined in [enums/Lang.ts:55](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L55)*
+*Defined in [enums/Lang.ts:55](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L55)*
 
 Russian
 
@@ -1066,7 +1066,7 @@ ___
 
 **SD**:  = "sd"
 
-*Defined in [enums/Lang.ts:440](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L440)*
+*Defined in [enums/Lang.ts:440](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L440)*
 
 Sindhi
 
@@ -1077,7 +1077,7 @@ ___
 
 **SE**:  = "se"
 
-*Defined in [enums/Lang.ts:445](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L445)*
+*Defined in [enums/Lang.ts:445](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L445)*
 
 Northern Sami
 
@@ -1088,7 +1088,7 @@ ___
 
 **SI**:  = "si"
 
-*Defined in [enums/Lang.ts:450](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L450)*
+*Defined in [enums/Lang.ts:450](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L450)*
 
 Sinhala
 
@@ -1099,7 +1099,7 @@ ___
 
 **SK**:  = "sk"
 
-*Defined in [enums/Lang.ts:455](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L455)*
+*Defined in [enums/Lang.ts:455](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L455)*
 
 Slovak
 
@@ -1110,7 +1110,7 @@ ___
 
 **SL**:  = "sl"
 
-*Defined in [enums/Lang.ts:460](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L460)*
+*Defined in [enums/Lang.ts:460](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L460)*
 
 Slovenian
 
@@ -1121,7 +1121,7 @@ ___
 
 **SQ**:  = "sq"
 
-*Defined in [enums/Lang.ts:465](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L465)*
+*Defined in [enums/Lang.ts:465](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L465)*
 
 Albanian
 
@@ -1132,7 +1132,7 @@ ___
 
 **SR**:  = "sr"
 
-*Defined in [enums/Lang.ts:470](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L470)*
+*Defined in [enums/Lang.ts:470](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L470)*
 
 Serbian
 
@@ -1143,7 +1143,7 @@ ___
 
 **SS**:  = "ss"
 
-*Defined in [enums/Lang.ts:475](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L475)*
+*Defined in [enums/Lang.ts:475](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L475)*
 
 Swati
 
@@ -1154,7 +1154,7 @@ ___
 
 **SV**:  = "sv"
 
-*Defined in [enums/Lang.ts:480](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L480)*
+*Defined in [enums/Lang.ts:480](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L480)*
 
 Swedish
 
@@ -1165,7 +1165,7 @@ ___
 
 **SW**:  = "sw"
 
-*Defined in [enums/Lang.ts:485](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L485)*
+*Defined in [enums/Lang.ts:485](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L485)*
 
 Swahili
 
@@ -1176,7 +1176,7 @@ ___
 
 **TA**:  = "ta"
 
-*Defined in [enums/Lang.ts:490](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L490)*
+*Defined in [enums/Lang.ts:490](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L490)*
 
 Tamil
 
@@ -1187,7 +1187,7 @@ ___
 
 **TE**:  = "te"
 
-*Defined in [enums/Lang.ts:495](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L495)*
+*Defined in [enums/Lang.ts:495](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L495)*
 
 Telugu
 
@@ -1198,7 +1198,7 @@ ___
 
 **TG**:  = "tg"
 
-*Defined in [enums/Lang.ts:500](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L500)*
+*Defined in [enums/Lang.ts:500](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L500)*
 
 Tajik
 
@@ -1209,7 +1209,7 @@ ___
 
 **TH**:  = "th"
 
-*Defined in [enums/Lang.ts:505](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L505)*
+*Defined in [enums/Lang.ts:505](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L505)*
 
 Thai
 
@@ -1220,7 +1220,7 @@ ___
 
 **TL_PH**:  = "tl-PH"
 
-*Defined in [enums/Lang.ts:510](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L510)*
+*Defined in [enums/Lang.ts:510](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L510)*
 
 Tagalog
 
@@ -1231,7 +1231,7 @@ ___
 
 **TR**:  = "tr"
 
-*Defined in [enums/Lang.ts:515](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L515)*
+*Defined in [enums/Lang.ts:515](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L515)*
 
 Turkish
 
@@ -1242,7 +1242,7 @@ ___
 
 **UG_CN**:  = "ug-CN"
 
-*Defined in [enums/Lang.ts:520](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L520)*
+*Defined in [enums/Lang.ts:520](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L520)*
 
 Uighur
 
@@ -1253,7 +1253,7 @@ ___
 
 **UK**:  = "uk"
 
-*Defined in [enums/Lang.ts:525](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L525)*
+*Defined in [enums/Lang.ts:525](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L525)*
 
 Ukrainian
 
@@ -1264,7 +1264,7 @@ ___
 
 **UR**:  = "ur"
 
-*Defined in [enums/Lang.ts:530](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L530)*
+*Defined in [enums/Lang.ts:530](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L530)*
 
 Urdu
 
@@ -1275,7 +1275,7 @@ ___
 
 **UZ**:  = "uz"
 
-*Defined in [enums/Lang.ts:535](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L535)*
+*Defined in [enums/Lang.ts:535](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L535)*
 
 Uzbek
 
@@ -1286,7 +1286,7 @@ ___
 
 **VI**:  = "vi"
 
-*Defined in [enums/Lang.ts:540](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L540)*
+*Defined in [enums/Lang.ts:540](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L540)*
 
 Vietnamese
 
@@ -1297,7 +1297,7 @@ ___
 
 **YO**:  = "yo"
 
-*Defined in [enums/Lang.ts:545](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L545)*
+*Defined in [enums/Lang.ts:545](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L545)*
 
 Yoruba
 
@@ -1308,7 +1308,7 @@ ___
 
 **ZH_CN**:  = "zh-CN"
 
-*Defined in [enums/Lang.ts:65](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L65)*
+*Defined in [enums/Lang.ts:65](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L65)*
 
 Chinese (PRC)
 
@@ -1319,7 +1319,7 @@ ___
 
 **ZH_HK**:  = "zh-HK"
 
-*Defined in [enums/Lang.ts:550](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L550)*
+*Defined in [enums/Lang.ts:550](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L550)*
 
 Chinese (Hong Kong)
 
@@ -1330,7 +1330,7 @@ ___
 
 **ZH_TW**:  = "zh-TW"
 
-*Defined in [enums/Lang.ts:555](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Lang.ts#L555)*
+*Defined in [enums/Lang.ts:555](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Lang.ts#L555)*
 
 Chinese (Taiwan)
 

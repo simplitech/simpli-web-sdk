@@ -17,4 +17,4 @@
 ## Utils
 
 ## Next Topic
-[Check it out the complete API](https://github.com/simplitech/simpli-web-sdk/tree/master/typedocs)
+[Check it out the complete API](../typedocs/README.md)

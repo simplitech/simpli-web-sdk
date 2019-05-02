@@ -26,7 +26,7 @@
 
 **● content**: *`any`*
 
-*Defined in [components/render/Render.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/render/Render.ts#L17)*
+*Defined in [components/render/Render.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/render/Render.ts#L17)*
 
 ___
 <a id="innerclass"></a>
@@ -35,7 +35,7 @@ ___
 
 **● innerClass**: *`undefined` \| `string`*
 
-*Defined in [components/render/Render.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/render/Render.ts#L20)*
+*Defined in [components/render/Render.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/render/Render.ts#L20)*
 
 ___
 <a id="value"></a>
@@ -44,7 +44,7 @@ ___
 
 **● value**: *`any`*
 
-*Defined in [components/render/Render.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/render/Render.ts#L14)*
+*Defined in [components/render/Render.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/render/Render.ts#L14)*
 
 ___
 

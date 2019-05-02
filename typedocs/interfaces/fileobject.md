@@ -41,7 +41,7 @@
 
 **● active**: *`boolean`*
 
-*Defined in [interfaces/general.interface.ts:37](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L37)*
+*Defined in [interfaces/general.interface.ts:37](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L37)*
 
 ___
 <a id="blob"></a>
@@ -50,7 +50,7 @@ ___
 
 **● blob**: *`undefined` \| `string`*
 
-*Defined in [interfaces/general.interface.ts:42](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L42)*
+*Defined in [interfaces/general.interface.ts:42](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L42)*
 
 ___
 <a id="data"></a>
@@ -59,7 +59,7 @@ ___
 
 **● data**: *`any`*
 
-*Defined in [interfaces/general.interface.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L38)*
+*Defined in [interfaces/general.interface.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L38)*
 
 ___
 <a id="el"></a>
@@ -68,7 +68,7 @@ ___
 
 **● el**: *`Element`*
 
-*Defined in [interfaces/general.interface.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L39)*
+*Defined in [interfaces/general.interface.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L39)*
 
 ___
 <a id="error"></a>
@@ -77,7 +77,7 @@ ___
 
 **● error**: *`undefined` \| `string`*
 
-*Defined in [interfaces/general.interface.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L40)*
+*Defined in [interfaces/general.interface.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L40)*
 
 ___
 <a id="file"></a>
@@ -86,7 +86,7 @@ ___
 
 **● file**: *`File`*
 
-*Defined in [interfaces/general.interface.ts:41](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L41)*
+*Defined in [interfaces/general.interface.ts:41](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L41)*
 
 ___
 <a id="fileobject-1"></a>
@@ -95,7 +95,7 @@ ___
 
 **● fileObject**: *`boolean`*
 
-*Defined in [interfaces/general.interface.ts:44](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L44)*
+*Defined in [interfaces/general.interface.ts:44](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L44)*
 
 ___
 <a id="headers"></a>
@@ -104,7 +104,7 @@ ___
 
 **● headers**: *`object`*
 
-*Defined in [interfaces/general.interface.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L45)*
+*Defined in [interfaces/general.interface.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L45)*
 
 ___
 <a id="id"></a>
@@ -113,7 +113,7 @@ ___
 
 **● id**: *`string`*
 
-*Defined in [interfaces/general.interface.ts:46](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L46)*
+*Defined in [interfaces/general.interface.ts:46](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L46)*
 
 ___
 <a id="name"></a>
@@ -122,7 +122,7 @@ ___
 
 **● name**: *`string`*
 
-*Defined in [interfaces/general.interface.ts:47](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L47)*
+*Defined in [interfaces/general.interface.ts:47](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L47)*
 
 ___
 <a id="postaction"></a>
@@ -131,7 +131,7 @@ ___
 
 **● postAction**: *`undefined` \| `string`*
 
-*Defined in [interfaces/general.interface.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L48)*
+*Defined in [interfaces/general.interface.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L48)*
 
 ___
 <a id="progress"></a>
@@ -140,7 +140,7 @@ ___
 
 **● progress**: *`string`*
 
-*Defined in [interfaces/general.interface.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L49)*
+*Defined in [interfaces/general.interface.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L49)*
 
 ___
 <a id="putaction"></a>
@@ -149,7 +149,7 @@ ___
 
 **● putAction**: *`undefined` \| `string`*
 
-*Defined in [interfaces/general.interface.ts:50](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L50)*
+*Defined in [interfaces/general.interface.ts:50](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L50)*
 
 ___
 <a id="response"></a>
@@ -158,7 +158,7 @@ ___
 
 **● response**: *`any`*
 
-*Defined in [interfaces/general.interface.ts:51](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L51)*
+*Defined in [interfaces/general.interface.ts:51](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L51)*
 
 ___
 <a id="size"></a>
@@ -167,7 +167,7 @@ ___
 
 **● size**: *`number`*
 
-*Defined in [interfaces/general.interface.ts:52](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L52)*
+*Defined in [interfaces/general.interface.ts:52](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L52)*
 
 ___
 <a id="speed"></a>
@@ -176,7 +176,7 @@ ___
 
 **● speed**: *`number`*
 
-*Defined in [interfaces/general.interface.ts:53](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L53)*
+*Defined in [interfaces/general.interface.ts:53](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L53)*
 
 ___
 <a id="success"></a>
@@ -185,7 +185,7 @@ ___
 
 **● success**: *`boolean`*
 
-*Defined in [interfaces/general.interface.ts:54](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L54)*
+*Defined in [interfaces/general.interface.ts:54](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L54)*
 
 ___
 <a id="thumb"></a>
@@ -194,7 +194,7 @@ ___
 
 **● thumb**: *`undefined` \| `string`*
 
-*Defined in [interfaces/general.interface.ts:43](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L43)*
+*Defined in [interfaces/general.interface.ts:43](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L43)*
 
 ___
 <a id="timeout"></a>
@@ -203,7 +203,7 @@ ___
 
 **● timeout**: *`boolean`*
 
-*Defined in [interfaces/general.interface.ts:55](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L55)*
+*Defined in [interfaces/general.interface.ts:55](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L55)*
 
 ___
 <a id="type"></a>
@@ -212,7 +212,7 @@ ___
 
 **● type**: *`string`*
 
-*Defined in [interfaces/general.interface.ts:56](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/general.interface.ts#L56)*
+*Defined in [interfaces/general.interface.ts:56](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L56)*
 
 ___
 

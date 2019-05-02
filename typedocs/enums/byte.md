@@ -24,7 +24,7 @@ Represents a number in a byte unit
 
 **GIGA**:  =  1024 ** 3
 
-*Defined in [enums/Byte.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Byte.ts#L18)*
+*Defined in [enums/Byte.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Byte.ts#L18)*
 
 Gigabytes (1024^3)
 
@@ -35,7 +35,7 @@ ___
 
 **KILO**:  =  1024 ** 1
 
-*Defined in [enums/Byte.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Byte.ts#L8)*
+*Defined in [enums/Byte.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Byte.ts#L8)*
 
 Kilobytes (1024^1)
 
@@ -46,7 +46,7 @@ ___
 
 **MEGA**:  =  1024 ** 2
 
-*Defined in [enums/Byte.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Byte.ts#L13)*
+*Defined in [enums/Byte.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Byte.ts#L13)*
 
 Megabytes (1024^2)
 
@@ -57,7 +57,7 @@ ___
 
 **PETA**:  =  1024 ** 5
 
-*Defined in [enums/Byte.ts:28](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Byte.ts#L28)*
+*Defined in [enums/Byte.ts:28](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Byte.ts#L28)*
 
 Petabytes (1024^5)
 
@@ -68,7 +68,7 @@ ___
 
 **TERA**:  =  1024 ** 4
 
-*Defined in [enums/Byte.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/Byte.ts#L23)*
+*Defined in [enums/Byte.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/Byte.ts#L23)*
 
 Terabytes (1024^4)
 

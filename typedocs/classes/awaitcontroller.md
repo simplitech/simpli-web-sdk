@@ -35,7 +35,7 @@
 
 **● defaultSpinner**: *`string` \| `null`* =  null
 
-*Defined in [components/utils/Await.ts:43](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Await.ts#L43)*
+*Defined in [components/utils/Await.ts:43](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Await.ts#L43)*
 
 ___
 <a id="defaultspinnercolor"></a>
@@ -44,7 +44,7 @@ ___
 
 **● defaultSpinnerColor**: *`string`* = "#42b983"
 
-*Defined in [components/utils/Await.ts:44](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Await.ts#L44)*
+*Defined in [components/utils/Await.ts:44](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Await.ts#L44)*
 
 ___
 <a id="defaultspinnerpadding"></a>
@@ -53,7 +53,7 @@ ___
 
 **● defaultSpinnerPadding**: *`string`* = "10px"
 
-*Defined in [components/utils/Await.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Await.ts#L45)*
+*Defined in [components/utils/Await.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Await.ts#L45)*
 
 ___
 <a id="defaultspinnerscale"></a>
@@ -62,7 +62,7 @@ ___
 
 **● defaultSpinnerScale**: *`number`* = 1
 
-*Defined in [components/utils/Await.ts:46](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Await.ts#L46)*
+*Defined in [components/utils/Await.ts:46](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Await.ts#L46)*
 
 ___
 <a id="defaulttransition"></a>
@@ -71,7 +71,7 @@ ___
 
 **● defaultTransition**: *`string` \| `null`* =  null
 
-*Defined in [components/utils/Await.ts:42](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Await.ts#L42)*
+*Defined in [components/utils/Await.ts:42](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Await.ts#L42)*
 
 ___
 <a id="loaders"></a>
@@ -80,7 +80,7 @@ ___
 
 **● loaders**: *[Loader](../interfaces/loader.md)*
 
-*Defined in [components/utils/Await.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Await.ts#L48)*
+*Defined in [components/utils/Await.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Await.ts#L48)*
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 ▸ **addLoader**(name: *`string`*, component: *[CP](../#cp)*): `void`
 
-*Defined in [components/utils/Await.ts:50](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Await.ts#L50)*
+*Defined in [components/utils/Await.ts:50](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Await.ts#L50)*
 
 **Parameters:**
 
@@ -110,7 +110,7 @@ ___
 
 ▸ **done**(name?: *`undefined` \| `string`*): `void`
 
-*Defined in [components/utils/Await.ts:57](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Await.ts#L57)*
+*Defined in [components/utils/Await.ts:57](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Await.ts#L57)*
 
 **Parameters:**
 
@@ -127,7 +127,7 @@ ___
 
 ▸ **error**(name?: *`undefined` \| `string`*): `void`
 
-*Defined in [components/utils/Await.ts:60](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Await.ts#L60)*
+*Defined in [components/utils/Await.ts:60](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Await.ts#L60)*
 
 **Parameters:**
 
@@ -144,7 +144,7 @@ ___
 
 ▸ **init**(name?: *`undefined` \| `string`*): `void`
 
-*Defined in [components/utils/Await.ts:54](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Await.ts#L54)*
+*Defined in [components/utils/Await.ts:54](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Await.ts#L54)*
 
 **Parameters:**
 
@@ -161,7 +161,7 @@ ___
 
 ▸ **run**<`T`>(name: *`string`*, func: *`function`*, delay?: *`undefined` \| `number`*): `Promise`<`T`>
 
-*Defined in [components/utils/Await.ts:64](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Await.ts#L64)*
+*Defined in [components/utils/Await.ts:64](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Await.ts#L64)*
 
 **Type parameters:**
 

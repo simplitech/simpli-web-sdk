@@ -40,7 +40,7 @@
 
 **● inputClass**: *`undefined` \| `string`*
 
-*Defined in [components/input/InputCheckbox.ts:36](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputCheckbox.ts#L36)*
+*Defined in [components/input/InputCheckbox.ts:36](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputCheckbox.ts#L36)*
 
 ___
 <a id="label"></a>
@@ -49,7 +49,7 @@ ___
 
 **● label**: *`undefined` \| `string`*
 
-*Defined in [components/input/InputCheckbox.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputCheckbox.ts#L30)*
+*Defined in [components/input/InputCheckbox.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputCheckbox.ts#L30)*
 
 ___
 <a id="labelclass"></a>
@@ -58,7 +58,7 @@ ___
 
 **● labelClass**: *`undefined` \| `string`*
 
-*Defined in [components/input/InputCheckbox.ts:33](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputCheckbox.ts#L33)*
+*Defined in [components/input/InputCheckbox.ts:33](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputCheckbox.ts#L33)*
 
 ___
 <a id="radio"></a>
@@ -67,7 +67,7 @@ ___
 
 **● radio**: *`undefined` \| `false` \| `true`*
 
-*Defined in [components/input/InputCheckbox.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputCheckbox.ts#L39)*
+*Defined in [components/input/InputCheckbox.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputCheckbox.ts#L39)*
 
 ___
 <a id="value"></a>
@@ -76,7 +76,7 @@ ___
 
 **● value**: *`boolean` \| `string` \| `number`*
 
-*Defined in [components/input/InputCheckbox.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputCheckbox.ts#L27)*
+*Defined in [components/input/InputCheckbox.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputCheckbox.ts#L27)*
 
 ___
 
@@ -90,11 +90,11 @@ ___
 
 **set computedModel**(val: *`boolean` \| `string` \| `number`*): `void`
 
-*Defined in [components/input/InputCheckbox.ts:51](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputCheckbox.ts#L51)*
+*Defined in [components/input/InputCheckbox.ts:51](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputCheckbox.ts#L51)*
 
 **Returns:** `string` \| `number` \| `false` \| `true`
 
-*Defined in [components/input/InputCheckbox.ts:55](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputCheckbox.ts#L55)*
+*Defined in [components/input/InputCheckbox.ts:55](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputCheckbox.ts#L55)*
 
 **Parameters:**
 
@@ -111,7 +111,7 @@ ___
 
 **get vBind**(): `object`
 
-*Defined in [components/input/InputCheckbox.ts:41](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputCheckbox.ts#L41)*
+*Defined in [components/input/InputCheckbox.ts:41](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputCheckbox.ts#L41)*
 
 **Returns:** `object`
 
@@ -122,7 +122,7 @@ ___
 
 **get vOn**(): `object`
 
-*Defined in [components/input/InputCheckbox.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputCheckbox.ts#L45)*
+*Defined in [components/input/InputCheckbox.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputCheckbox.ts#L45)*
 
 **Returns:** `object`
 
@@ -136,7 +136,7 @@ ___
 
 ▸ **blurEvent**(): `void`
 
-*Defined in [components/input/InputCheckbox.ts:67](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputCheckbox.ts#L67)*
+*Defined in [components/input/InputCheckbox.ts:67](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputCheckbox.ts#L67)*
 
 **Returns:** `void`
 
@@ -147,7 +147,7 @@ ___
 
 ▸ **focusEvent**(): `void`
 
-*Defined in [components/input/InputCheckbox.ts:63](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputCheckbox.ts#L63)*
+*Defined in [components/input/InputCheckbox.ts:63](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputCheckbox.ts#L63)*
 
 **Returns:** `void`
 
@@ -158,7 +158,7 @@ ___
 
 ▸ **updateValue**(val: *`boolean` \| `string` \| `number`*): `void`
 
-*Defined in [components/input/InputCheckbox.ts:59](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputCheckbox.ts#L59)*
+*Defined in [components/input/InputCheckbox.ts:59](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputCheckbox.ts#L59)*
 
 **Parameters:**
 

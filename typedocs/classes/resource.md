@@ -62,7 +62,7 @@
 
 **● $axiosConfig**: *`AxiosRequestConfig`*
 
-*Defined in [app/utils/Resource.ts:21](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Resource.ts#L21)*
+*Defined in [app/utils/Resource.ts:21](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Resource.ts#L21)*
 
 ___
 <a id="_customactionconfig"></a>
@@ -71,7 +71,7 @@ ___
 
 **● $customActionConfig**: *[ResourceActionConfig](../interfaces/resourceactionconfig.md)*
 
-*Defined in [app/utils/Resource.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Resource.ts#L19)*
+*Defined in [app/utils/Resource.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Resource.ts#L19)*
 
 ___
 <a id="_endpoint"></a>
@@ -80,7 +80,7 @@ ___
 
 **● $endpoint**: *`string`* = ""
 
-*Defined in [app/utils/Resource.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Resource.ts#L17)*
+*Defined in [app/utils/Resource.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Resource.ts#L17)*
 
 ___
 <a id="_schemaset"></a>
@@ -93,7 +93,7 @@ ___
 
 *Inherited from [Model](model.md).[$schemaSet](model.md#_schemaset)*
 
-*Defined in [app/utils/Model.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L8)*
+*Defined in [app/utils/Model.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L8)*
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 **get $action**(): [ResourceAction](../interfaces/resourceaction.md)
 
-*Defined in [app/utils/Resource.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Resource.ts#L23)*
+*Defined in [app/utils/Resource.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Resource.ts#L23)*
 
 **Returns:** [ResourceAction](../interfaces/resourceaction.md)
 
@@ -116,7 +116,7 @@ ___
 
 **get $allParamKeys**(): `string`[]
 
-*Defined in [app/utils/Resource.ts:101](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Resource.ts#L101)*
+*Defined in [app/utils/Resource.ts:101](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Resource.ts#L101)*
 
 **Returns:** `string`[]
 
@@ -127,7 +127,7 @@ ___
 
 **get $firstParamKey**(): `null` \| `string`
 
-*Defined in [app/utils/Resource.ts:115](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Resource.ts#L115)*
+*Defined in [app/utils/Resource.ts:115](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Resource.ts#L115)*
 
 **Returns:** `null` \| `string`
 
@@ -140,11 +140,11 @@ ___
 
 **set $id**(val: *[ID](../enums/lang.md#id)*): `any`
 
-*Defined in [app/utils/Resource.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Resource.ts#L7)*
+*Defined in [app/utils/Resource.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Resource.ts#L7)*
 
 **Returns:** `string` \| `number`
 
-*Defined in [app/utils/Resource.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Resource.ts#L8)*
+*Defined in [app/utils/Resource.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Resource.ts#L8)*
 
 **Parameters:**
 
@@ -163,11 +163,11 @@ ___
 
 **set $tag**(val: *[TAG](../#tag)*): `void`
 
-*Defined in [app/utils/Resource.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Resource.ts#L10)*
+*Defined in [app/utils/Resource.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Resource.ts#L10)*
 
 **Returns:** `string`
 
-*Defined in [app/utils/Resource.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Resource.ts#L13)*
+*Defined in [app/utils/Resource.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Resource.ts#L13)*
 
 **Parameters:**
 
@@ -189,7 +189,7 @@ ___
 
 *Inherited from [Model](model.md).[$allFieldsFrom](model.md#_allfieldsfrom)*
 
-*Defined in [app/utils/Model.ts:44](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L44)*
+*Defined in [app/utils/Model.ts:44](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L44)*
 
 **Parameters:**
 
@@ -208,7 +208,7 @@ ___
 
 *Inherited from [Model](model.md).[$allHeadersFrom](model.md#_allheadersfrom)*
 
-*Defined in [app/utils/Model.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L49)*
+*Defined in [app/utils/Model.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L49)*
 
 **Parameters:**
 
@@ -227,7 +227,7 @@ ___
 
 *Inherited from [Model](model.md).[$clone](model.md#_clone)*
 
-*Defined in [app/utils/Model.ts:74](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L74)*
+*Defined in [app/utils/Model.ts:74](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L74)*
 
 **Returns:** `this`
 
@@ -240,7 +240,7 @@ ___
 
 *Inherited from [Model](model.md).[$dataFrom](model.md#_datafrom)*
 
-*Defined in [app/utils/Model.ts:59](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L59)*
+*Defined in [app/utils/Model.ts:59](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L59)*
 
 **Parameters:**
 
@@ -257,7 +257,7 @@ ___
 
 ▸ **$getMany**(params?: *`any`*): `Promise`<`this`[]>
 
-*Defined in [app/utils/Resource.ts:136](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Resource.ts#L136)*
+*Defined in [app/utils/Resource.ts:136](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Resource.ts#L136)*
 
 **Parameters:**
 
@@ -274,7 +274,7 @@ ___
 
 ▸ **$getOne**(...ids: *[ID](../enums/lang.md#id)[]*): `Promise`<`this`>
 
-*Defined in [app/utils/Resource.ts:119](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Resource.ts#L119)*
+*Defined in [app/utils/Resource.ts:119](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Resource.ts#L119)*
 
 **Parameters:**
 
@@ -293,7 +293,7 @@ ___
 
 *Inherited from [Model](model.md).[$getSchema](model.md#_getschema)*
 
-*Defined in [app/utils/Model.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L35)*
+*Defined in [app/utils/Model.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L35)*
 
 **Parameters:**
 
@@ -312,7 +312,7 @@ ___
 
 *Inherited from [Model](model.md).[$getSchemaName](model.md#_getschemaname)*
 
-*Defined in [app/utils/Model.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L39)*
+*Defined in [app/utils/Model.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L39)*
 
 **Parameters:**
 
@@ -331,7 +331,7 @@ ___
 
 *Inherited from [Model](model.md).[$getSpinnerName](model.md#_getspinnername)*
 
-*Defined in [app/utils/Model.ts:31](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L31)*
+*Defined in [app/utils/Model.ts:31](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L31)*
 
 **Parameters:**
 
@@ -350,7 +350,7 @@ ___
 
 *Inherited from [Model](model.md).[$headerFrom](model.md#_headerfrom)*
 
-*Defined in [app/utils/Model.ts:54](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L54)*
+*Defined in [app/utils/Model.ts:54](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L54)*
 
 **Parameters:**
 
@@ -369,7 +369,7 @@ ___
 
 *Inherited from [Model](model.md).[$list](model.md#_list)*
 
-*Defined in [app/utils/Model.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L10)*
+*Defined in [app/utils/Model.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L10)*
 
 **Parameters:**
 
@@ -388,7 +388,7 @@ ___
 
 *Inherited from [Model](model.md).[$persist](model.md#_persist)*
 
-*Defined in [app/utils/Model.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L24)*
+*Defined in [app/utils/Model.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L24)*
 
 **Parameters:**
 
@@ -407,7 +407,7 @@ ___
 
 *Inherited from [Model](model.md).[$populate](model.md#_populate)*
 
-*Defined in [app/utils/Model.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L17)*
+*Defined in [app/utils/Model.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L17)*
 
 **Parameters:**
 
@@ -424,7 +424,7 @@ ___
 
 ▸ **$query**(params?: *`any`*): `Promise`<`AxiosResponse`<`this`>>
 
-*Defined in [app/utils/Resource.ts:144](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Resource.ts#L144)*
+*Defined in [app/utils/Resource.ts:144](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Resource.ts#L144)*
 
 **Parameters:**
 
@@ -441,7 +441,7 @@ ___
 
 ▸ **$remove**(params?: *`any`*): `Promise`<`AxiosResponse`<`any`>>
 
-*Defined in [app/utils/Resource.ts:175](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Resource.ts#L175)*
+*Defined in [app/utils/Resource.ts:175](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Resource.ts#L175)*
 
 **Parameters:**
 
@@ -458,7 +458,7 @@ ___
 
 ▸ **$save**(params?: *`any`*): `Promise`<`AxiosResponse`<`any`>>
 
-*Defined in [app/utils/Resource.ts:152](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Resource.ts#L152)*
+*Defined in [app/utils/Resource.ts:152](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Resource.ts#L152)*
 
 **Parameters:**
 
@@ -477,7 +477,7 @@ ___
 
 *Inherited from [Model](model.md).[$translateFrom](model.md#_translatefrom)*
 
-*Defined in [app/utils/Model.ts:64](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L64)*
+*Defined in [app/utils/Model.ts:64](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L64)*
 
 **Parameters:**
 
@@ -495,7 +495,7 @@ ___
 
 ▸ **$update**(params?: *`any`*): `Promise`<`AxiosResponse`<`any`>>
 
-*Defined in [app/utils/Resource.ts:160](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Resource.ts#L160)*
+*Defined in [app/utils/Resource.ts:160](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Resource.ts#L160)*
 
 **Parameters:**
 
@@ -514,7 +514,7 @@ ___
 
 *Inherited from [Model](model.md).[$validate](model.md#_validate)*
 
-*Defined in [app/utils/Model.ts:69](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L69)*
+*Defined in [app/utils/Model.ts:69](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L69)*
 
 **Parameters:**
 

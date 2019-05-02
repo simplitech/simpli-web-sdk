@@ -44,7 +44,7 @@
 
 **● axios**: *`AxiosInstance`*
 
-*Defined in [simpli.ts:84](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/simpli.ts#L84)*
+*Defined in [simpli.ts:84](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L84)*
 
 ___
 <a id="components"></a>
@@ -53,7 +53,7 @@ ___
 
 **● components**: *[ComponentOptions](../interfaces/componentoptions.md)*
 
-*Defined in [simpli.ts:86](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/simpli.ts#L86)*
+*Defined in [simpli.ts:86](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L86)*
 
 ___
 <a id="currency"></a>
@@ -62,7 +62,7 @@ ___
 
 **● currency**: *[Currency](../enums/currency.md)* =  Currency.USD
 
-*Defined in [simpli.ts:92](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/simpli.ts#L92)*
+*Defined in [simpli.ts:92](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L92)*
 
 ___
 <a id="filters"></a>
@@ -71,7 +71,7 @@ ___
 
 **● filters**: *[FilterOptions](../interfaces/filteroptions.md)*
 
-*Defined in [simpli.ts:87](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/simpli.ts#L87)*
+*Defined in [simpli.ts:87](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L87)*
 
 ___
 <a id="lang"></a>
@@ -80,7 +80,7 @@ ___
 
 **● lang**: *[Lang](../enums/lang.md)* =  Lang.EN_US
 
-*Defined in [simpli.ts:91](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/simpli.ts#L91)*
+*Defined in [simpli.ts:91](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L91)*
 
 ___
 <a id="locale"></a>
@@ -89,7 +89,7 @@ ___
 
 **● locale**: *[LocaleOptions](../interfaces/localeoptions.md)*
 
-*Defined in [simpli.ts:88](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/simpli.ts#L88)*
+*Defined in [simpli.ts:88](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L88)*
 
 ___
 <a id="localeajv"></a>
@@ -98,7 +98,7 @@ ___
 
 **● localeAjv**: *[LocaleOptions](../interfaces/localeoptions.md)*
 
-*Defined in [simpli.ts:89](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/simpli.ts#L89)*
+*Defined in [simpli.ts:89](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L89)*
 
 ___
 <a id="router"></a>
@@ -107,7 +107,7 @@ ___
 
 **● router**: *`RouterOptions`*
 
-*Defined in [simpli.ts:90](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/simpli.ts#L90)*
+*Defined in [simpli.ts:90](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L90)*
 
 ___
 <a id="socket"></a>
@@ -116,7 +116,7 @@ ___
 
 **● socket**: *[SocketInstance](../interfaces/socketinstance.md)*
 
-*Defined in [simpli.ts:85](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/simpli.ts#L85)*
+*Defined in [simpli.ts:85](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L85)*
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 **get $prototype**(): [$Prototype](../interfaces/_prototype.md)
 
-*Defined in [simpli.ts:99](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/simpli.ts#L99)*
+*Defined in [simpli.ts:99](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L99)*
 
 **Returns:** [$Prototype](../interfaces/_prototype.md)
 
@@ -142,7 +142,7 @@ ___
 
 ▸ **changeCurrency**(currency: *[Currency](../enums/currency.md)*): `void`
 
-*Defined in [simpli.ts:108](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/simpli.ts#L108)*
+*Defined in [simpli.ts:108](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L108)*
 
 **Parameters:**
 
@@ -159,7 +159,7 @@ ___
 
 ▸ **changeLocale**(lang: *[Lang](../enums/lang.md)*): `void`
 
-*Defined in [simpli.ts:103](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/simpli.ts#L103)*
+*Defined in [simpli.ts:103](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L103)*
 
 **Parameters:**
 
@@ -176,7 +176,7 @@ ___
 
 ▸ **install**(): `void`
 
-*Defined in [simpli.ts:117](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/simpli.ts#L117)*
+*Defined in [simpli.ts:117](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L117)*
 
 **Returns:** `void`
 
@@ -190,7 +190,7 @@ ___
 
 **defaultLocale**: *`object`*
 
-*Defined in [simpli.ts:94](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/simpli.ts#L94)*
+*Defined in [simpli.ts:94](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L94)*
 
 <a id="defaultlocale.__computed"></a>
 
@@ -198,8 +198,8 @@ ___
 
 **● __computed**: *`object`* =  ptBr
 
-*Defined in [simpli.ts:95](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/simpli.ts#L95)*
-*Defined in [simpli.ts:96](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/simpli.ts#L96)*
+*Defined in [simpli.ts:95](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L95)*
+*Defined in [simpli.ts:96](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L96)*
 
 #### Type declaration
 

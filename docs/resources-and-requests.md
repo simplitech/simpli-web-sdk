@@ -458,4 +458,4 @@ async function example9() {
 ```
 
 ## Next Topic
-[Collections](https://github.com/simplitech/simpli-web-sdk/tree/master/docs/collections.md)
+[Collections](./collections.md)

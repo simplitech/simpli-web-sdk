@@ -32,7 +32,7 @@
 
 **● defaultMessage**: *`string` \| `null`* = ""
 
-*Defined in [components/utils/Tip.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Tip.ts#L23)*
+*Defined in [components/utils/Tip.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Tip.ts#L23)*
 
 ___
 <a id="defaultoffset"></a>
@@ -41,7 +41,7 @@ ___
 
 **● defaultOffset**: *`number` \| `null`* = 0
 
-*Defined in [components/utils/Tip.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Tip.ts#L26)*
+*Defined in [components/utils/Tip.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Tip.ts#L26)*
 
 ___
 <a id="defaulttransition"></a>
@@ -50,7 +50,7 @@ ___
 
 **● defaultTransition**: *`string` \| `null`* = "fade"
 
-*Defined in [components/utils/Tip.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Tip.ts#L24)*
+*Defined in [components/utils/Tip.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Tip.ts#L24)*
 
 ___
 <a id="defaultwidth"></a>
@@ -59,7 +59,7 @@ ___
 
 **● defaultWidth**: *`string` \| `number` \| `null`* = "auto"
 
-*Defined in [components/utils/Tip.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Tip.ts#L25)*
+*Defined in [components/utils/Tip.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Tip.ts#L25)*
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 ▸ **hide**(name?: *`undefined` \| `string`*): `void`
 
-*Defined in [components/utils/Tip.ts:32](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Tip.ts#L32)*
+*Defined in [components/utils/Tip.ts:32](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Tip.ts#L32)*
 
 **Parameters:**
 
@@ -88,7 +88,7 @@ ___
 
 ▸ **hideAll**(): `void`
 
-*Defined in [components/utils/Tip.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Tip.ts#L40)*
+*Defined in [components/utils/Tip.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Tip.ts#L40)*
 
 **Returns:** `void`
 
@@ -99,7 +99,7 @@ ___
 
 ▸ **show**(name?: *`undefined` \| `string`*, payload?: *`any`*): `void`
 
-*Defined in [components/utils/Tip.ts:28](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Tip.ts#L28)*
+*Defined in [components/utils/Tip.ts:28](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Tip.ts#L28)*
 
 **Parameters:**
 
@@ -117,7 +117,7 @@ ___
 
 ▸ **toggle**(name?: *`undefined` \| `string`*, payload?: *`any`*): `void`
 
-*Defined in [components/utils/Tip.ts:36](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Tip.ts#L36)*
+*Defined in [components/utils/Tip.ts:36](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Tip.ts#L36)*
 
 **Parameters:**
 

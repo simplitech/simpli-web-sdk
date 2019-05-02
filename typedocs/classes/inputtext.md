@@ -52,7 +52,7 @@
 
 **● inputClass**: *`undefined` \| `string`*
 
-*Defined in [components/input/InputText.ts:90](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L90)*
+*Defined in [components/input/InputText.ts:90](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L90)*
 
 ___
 <a id="label"></a>
@@ -61,7 +61,7 @@ ___
 
 **● label**: *`undefined` \| `string`*
 
-*Defined in [components/input/InputText.ts:78](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L78)*
+*Defined in [components/input/InputText.ts:78](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L78)*
 
 ___
 <a id="mask"></a>
@@ -70,7 +70,7 @@ ___
 
 **● mask**: *`string` \| `string`[]*
 
-*Defined in [components/input/InputText.ts:96](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L96)*
+*Defined in [components/input/InputText.ts:96](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L96)*
 
 ___
 <a id="maskpreset"></a>
@@ -79,7 +79,7 @@ ___
 
 **● maskPreset**: *`undefined` \| `string`*
 
-*Defined in [components/input/InputText.ts:93](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L93)*
+*Defined in [components/input/InputText.ts:93](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L93)*
 
 ___
 <a id="masked"></a>
@@ -88,7 +88,7 @@ ___
 
 **● masked**: *`undefined` \| `false` \| `true`*
 
-*Defined in [components/input/InputText.ts:99](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L99)*
+*Defined in [components/input/InputText.ts:99](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L99)*
 
 ___
 <a id="preset"></a>
@@ -99,7 +99,7 @@ ___
     mask = []
   }()
 
-*Defined in [components/input/InputText.ts:104](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L104)*
+*Defined in [components/input/InputText.ts:104](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L104)*
 
 ___
 <a id="required"></a>
@@ -108,7 +108,7 @@ ___
 
 **● required**: *`undefined` \| `false` \| `true`*
 
-*Defined in [components/input/InputText.ts:84](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L84)*
+*Defined in [components/input/InputText.ts:84](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L84)*
 
 ___
 <a id="selectall"></a>
@@ -117,7 +117,7 @@ ___
 
 **● selectall**: *`undefined` \| `false` \| `true`*
 
-*Defined in [components/input/InputText.ts:87](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L87)*
+*Defined in [components/input/InputText.ts:87](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L87)*
 
 ___
 <a id="tokens"></a>
@@ -126,7 +126,7 @@ ___
 
 **● tokens**: *`any`*
 
-*Defined in [components/input/InputText.ts:102](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L102)*
+*Defined in [components/input/InputText.ts:102](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L102)*
 
 ___
 <a id="type"></a>
@@ -135,7 +135,7 @@ ___
 
 **● type**: *`string`*
 
-*Defined in [components/input/InputText.ts:81](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L81)*
+*Defined in [components/input/InputText.ts:81](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L81)*
 
 ___
 <a id="value"></a>
@@ -144,7 +144,7 @@ ___
 
 **● value**: *[InputType](../#inputtype)*
 
-*Defined in [components/input/InputText.ts:75](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L75)*
+*Defined in [components/input/InputText.ts:75](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L75)*
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 **get attrs**(): `object`
 
-*Defined in [components/input/InputText.ts:137](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L137)*
+*Defined in [components/input/InputText.ts:137](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L137)*
 
 **Returns:** `object`
 
@@ -169,11 +169,11 @@ ___
 
 **set computedModel**(input: *[InputType](../#inputtype)*): `void`
 
-*Defined in [components/input/InputText.ts:176](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L176)*
+*Defined in [components/input/InputText.ts:176](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L176)*
 
 **Returns:** [InputType](../#inputtype)
 
-*Defined in [components/input/InputText.ts:183](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L183)*
+*Defined in [components/input/InputText.ts:183](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L183)*
 
 **Parameters:**
 
@@ -190,7 +190,7 @@ ___
 
 **get innerClass**(): `string`
 
-*Defined in [components/input/InputText.ts:170](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L170)*
+*Defined in [components/input/InputText.ts:170](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L170)*
 
 **Returns:** `string`
 
@@ -203,11 +203,11 @@ ___
 
 **set input**(val: *[InputType](../#inputtype)*): `void`
 
-*Defined in [components/input/InputText.ts:194](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L194)*
+*Defined in [components/input/InputText.ts:194](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L194)*
 
 **Returns:** `null` \| `string` \| `number`
 
-*Defined in [components/input/InputText.ts:201](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L201)*
+*Defined in [components/input/InputText.ts:201](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L201)*
 
 **Parameters:**
 
@@ -224,7 +224,7 @@ ___
 
 **get listeners**(): `object`
 
-*Defined in [components/input/InputText.ts:141](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L141)*
+*Defined in [components/input/InputText.ts:141](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L141)*
 
 **Returns:** `object`
 
@@ -235,7 +235,7 @@ ___
 
 **get vBind**(): `object`
 
-*Defined in [components/input/InputText.ts:147](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L147)*
+*Defined in [components/input/InputText.ts:147](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L147)*
 
 **Returns:** `object`
 
@@ -246,7 +246,7 @@ ___
 
 **get vOn**(): `object`
 
-*Defined in [components/input/InputText.ts:165](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L165)*
+*Defined in [components/input/InputText.ts:165](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L165)*
 
 **Returns:** `object`
 
@@ -260,7 +260,7 @@ ___
 
 ▸ **blurEvent**(): `void`
 
-*Defined in [components/input/InputText.ts:223](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L223)*
+*Defined in [components/input/InputText.ts:223](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L223)*
 
 **Returns:** `void`
 
@@ -271,7 +271,7 @@ ___
 
 ▸ **created**(): `void`
 
-*Defined in [components/input/InputText.ts:209](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L209)*
+*Defined in [components/input/InputText.ts:209](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L209)*
 
 **Returns:** `void`
 
@@ -282,7 +282,7 @@ ___
 
 ▸ **focusEvent**(): `void`
 
-*Defined in [components/input/InputText.ts:217](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L217)*
+*Defined in [components/input/InputText.ts:217](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L217)*
 
 **Returns:** `void`
 
@@ -293,7 +293,7 @@ ___
 
 ▸ **maskPresetEvent**(val: *`string` \| `undefined`*): `void`
 
-*Defined in [components/input/InputText.ts:124](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L124)*
+*Defined in [components/input/InputText.ts:124](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L124)*
 
 **Parameters:**
 
@@ -310,7 +310,7 @@ ___
 
 ▸ **addPreset**(name: *`string`*, maskPreset: *[ClassType](../#classtype)<[MaskPresetConfig](maskpresetconfig.md)>*): `void`
 
-*Defined in [components/input/InputText.ts:119](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputText.ts#L119)*
+*Defined in [components/input/InputText.ts:119](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputText.ts#L119)*
 
 **Parameters:**
 

@@ -27,7 +27,7 @@
 
 **● $schemaSet**: *[SchemaSet](schemaset.md)*
 
-*Defined in [interfaces/schema.interface.ts:5](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/schema.interface.ts#L5)*
+*Defined in [interfaces/schema.interface.ts:5](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L5)*
 
 ___
 

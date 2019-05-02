@@ -39,7 +39,7 @@
 
 **● ajv**: *[AjvController](../classes/ajvcontroller.md)*
 
-*Defined in [interfaces/simpli.interface.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L45)*
+*Defined in [interfaces/simpli.interface.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L45)*
 
 ___
 <a id="await"></a>
@@ -48,7 +48,7 @@ ___
 
 **● await**: *[AwaitController](../classes/awaitcontroller.md)*
 
-*Defined in [interfaces/simpli.interface.ts:47](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L47)*
+*Defined in [interfaces/simpli.interface.ts:47](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L47)*
 
 ___
 <a id="axios"></a>
@@ -57,7 +57,7 @@ ___
 
 **● axios**: *`AxiosInstance`*
 
-*Defined in [interfaces/simpli.interface.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L25)*
+*Defined in [interfaces/simpli.interface.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L25)*
 
 ___
 <a id="bus"></a>
@@ -66,7 +66,7 @@ ___
 
 **● bus**: *`Vue`*
 
-*Defined in [interfaces/simpli.interface.ts:33](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L33)*
+*Defined in [interfaces/simpli.interface.ts:33](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L33)*
 
 ___
 <a id="component"></a>
@@ -75,7 +75,7 @@ ___
 
 **● component**: *[ComponentOptions](componentoptions.md)*
 
-*Defined in [interfaces/simpli.interface.ts:28](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L28)*
+*Defined in [interfaces/simpli.interface.ts:28](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L28)*
 
 ___
 <a id="d"></a>
@@ -84,7 +84,7 @@ ___
 
 **● d**: *`d`*
 
-*Defined in [interfaces/simpli.interface.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L40)*
+*Defined in [interfaces/simpli.interface.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L40)*
 
 ___
 <a id="filter"></a>
@@ -93,7 +93,7 @@ ___
 
 **● filter**: *[FilterOptions](filteroptions.md)*
 
-*Defined in [interfaces/simpli.interface.ts:29](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L29)*
+*Defined in [interfaces/simpli.interface.ts:29](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L29)*
 
 ___
 <a id="i18n"></a>
@@ -102,7 +102,7 @@ ___
 
 **● i18n**: *`VueI18n`*
 
-*Defined in [interfaces/simpli.interface.ts:32](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L32)*
+*Defined in [interfaces/simpli.interface.ts:32](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L32)*
 
 ___
 <a id="modal"></a>
@@ -111,7 +111,7 @@ ___
 
 **● modal**: *[ModalController](../classes/modalcontroller.md)*
 
-*Defined in [interfaces/simpli.interface.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L48)*
+*Defined in [interfaces/simpli.interface.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L48)*
 
 ___
 <a id="n"></a>
@@ -120,7 +120,7 @@ ___
 
 **● n**: *`n`*
 
-*Defined in [interfaces/simpli.interface.ts:41](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L41)*
+*Defined in [interfaces/simpli.interface.ts:41](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L41)*
 
 ___
 <a id="route"></a>
@@ -129,7 +129,7 @@ ___
 
 **● route**: *`Route`*
 
-*Defined in [interfaces/simpli.interface.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L35)*
+*Defined in [interfaces/simpli.interface.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L35)*
 
 ___
 <a id="router"></a>
@@ -138,7 +138,7 @@ ___
 
 **● router**: *`VueRouter`*
 
-*Defined in [interfaces/simpli.interface.ts:31](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L31)*
+*Defined in [interfaces/simpli.interface.ts:31](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L31)*
 
 ___
 <a id="snotify"></a>
@@ -147,7 +147,7 @@ ___
 
 **● snotify**: *`SnotifyService`*
 
-*Defined in [interfaces/simpli.interface.ts:43](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L43)*
+*Defined in [interfaces/simpli.interface.ts:43](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L43)*
 
 ___
 <a id="socket"></a>
@@ -156,7 +156,7 @@ ___
 
 **● socket**: *[SocketInstance](socketinstance.md)*
 
-*Defined in [interfaces/simpli.interface.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L26)*
+*Defined in [interfaces/simpli.interface.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L26)*
 
 ___
 <a id="t"></a>
@@ -165,7 +165,7 @@ ___
 
 **● t**: *`t`*
 
-*Defined in [interfaces/simpli.interface.ts:37](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L37)*
+*Defined in [interfaces/simpli.interface.ts:37](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L37)*
 
 ___
 <a id="tc"></a>
@@ -174,7 +174,7 @@ ___
 
 **● tc**: *`tc`*
 
-*Defined in [interfaces/simpli.interface.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L38)*
+*Defined in [interfaces/simpli.interface.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L38)*
 
 ___
 <a id="te"></a>
@@ -183,7 +183,7 @@ ___
 
 **● te**: *`te`*
 
-*Defined in [interfaces/simpli.interface.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L39)*
+*Defined in [interfaces/simpli.interface.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L39)*
 
 ___
 <a id="tip"></a>
@@ -192,7 +192,7 @@ ___
 
 **● tip**: *[TipController](../classes/tipcontroller.md)*
 
-*Defined in [interfaces/simpli.interface.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/simpli.interface.ts#L49)*
+*Defined in [interfaces/simpli.interface.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/simpli.interface.ts#L49)*
 
 ___
 

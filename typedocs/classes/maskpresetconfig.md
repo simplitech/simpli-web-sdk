@@ -47,7 +47,7 @@
 
 **● isValid**: *`boolean` \| `null`* =  null
 
-*Defined in [app/config/MaskPresetConfig.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/config/MaskPresetConfig.ts#L9)*
+*Defined in [app/config/MaskPresetConfig.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/MaskPresetConfig.ts#L9)*
 
 ___
 <a id="mask"></a>
@@ -56,7 +56,7 @@ ___
 
 **● mask**: *`string` \| `string`[]*
 
-*Defined in [app/config/MaskPresetConfig.ts:5](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/config/MaskPresetConfig.ts#L5)*
+*Defined in [app/config/MaskPresetConfig.ts:5](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/MaskPresetConfig.ts#L5)*
 
 ___
 <a id="masked"></a>
@@ -65,7 +65,7 @@ ___
 
 **● masked**: *`undefined` \| `false` \| `true`*
 
-*Defined in [app/config/MaskPresetConfig.ts:6](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/config/MaskPresetConfig.ts#L6)*
+*Defined in [app/config/MaskPresetConfig.ts:6](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/MaskPresetConfig.ts#L6)*
 
 ___
 <a id="tokens"></a>
@@ -74,7 +74,7 @@ ___
 
 **● tokens**: *[Dictionary](../interfaces/dictionary.md)<[MaskToken](../interfaces/masktoken.md)>*
 
-*Defined in [app/config/MaskPresetConfig.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/config/MaskPresetConfig.ts#L7)*
+*Defined in [app/config/MaskPresetConfig.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/MaskPresetConfig.ts#L7)*
 
 ___
 <a id="value"></a>
@@ -83,7 +83,7 @@ ___
 
 **● value**: *`string` \| `null`* =  null
 
-*Defined in [app/config/MaskPresetConfig.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/config/MaskPresetConfig.ts#L10)*
+*Defined in [app/config/MaskPresetConfig.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/MaskPresetConfig.ts#L10)*
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 ▸ **getterTransform**(input: *[InputType](../#inputtype)*): `null` \| `string` \| `number`
 
-*Defined in [app/config/MaskPresetConfig.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/config/MaskPresetConfig.ts#L12)*
+*Defined in [app/config/MaskPresetConfig.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/MaskPresetConfig.ts#L12)*
 
 **Parameters:**
 
@@ -112,7 +112,7 @@ ___
 
 ▸ **setterTransform**(input: *[InputType](../#inputtype)*): [InputType](../#inputtype) \| `undefined`
 
-*Defined in [app/config/MaskPresetConfig.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/config/MaskPresetConfig.ts#L16)*
+*Defined in [app/config/MaskPresetConfig.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/MaskPresetConfig.ts#L16)*
 
 **Parameters:**
 

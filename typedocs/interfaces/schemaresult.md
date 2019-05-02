@@ -31,7 +31,7 @@
 
 **● attrs**: *`Record`<`string`, `string`>*
 
-*Defined in [interfaces/schema.interface.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/schema.interface.ts#L15)*
+*Defined in [interfaces/schema.interface.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L15)*
 
 ___
 <a id="fieldname"></a>
@@ -40,7 +40,7 @@ ___
 
 **● fieldName**: *`string`*
 
-*Defined in [interfaces/schema.interface.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/schema.interface.ts#L14)*
+*Defined in [interfaces/schema.interface.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L14)*
 
 ___
 <a id="listeners"></a>
@@ -49,7 +49,7 @@ ___
 
 **● listeners**: *`Record`<`string`, `Function` \| `Function`[]>*
 
-*Defined in [interfaces/schema.interface.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/schema.interface.ts#L16)*
+*Defined in [interfaces/schema.interface.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L16)*
 
 ___
 <a id="model"></a>
@@ -58,7 +58,7 @@ ___
 
 **● model**: *`M`*
 
-*Defined in [interfaces/schema.interface.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/schema.interface.ts#L13)*
+*Defined in [interfaces/schema.interface.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L13)*
 
 ___
 

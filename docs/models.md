@@ -9,4 +9,4 @@
 ## Response Model (good practices)
 
 ## Next Topic
-[Resources and Requests](https://github.com/simplitech/simpli-web-sdk/tree/master/docs/resources-and-requests.md)
+[Requests and Resources](./resources-and-requests.md)

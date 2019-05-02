@@ -46,7 +46,7 @@
 
 *Implementation of [ISchema](../interfaces/ischema.md).[$schemaSet](../interfaces/ischema.md#_schemaset)*
 
-*Defined in [app/utils/Model.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L8)*
+*Defined in [app/utils/Model.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L8)*
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 ▸ **$allFieldsFrom**(schemaRef: *`string`*): `string`[]
 
-*Defined in [app/utils/Model.ts:44](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L44)*
+*Defined in [app/utils/Model.ts:44](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L44)*
 
 **Parameters:**
 
@@ -75,7 +75,7 @@ ___
 
 ▸ **$allHeadersFrom**(schemaRef: *`string`*): `string`[]
 
-*Defined in [app/utils/Model.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L49)*
+*Defined in [app/utils/Model.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L49)*
 
 **Parameters:**
 
@@ -92,7 +92,7 @@ ___
 
 ▸ **$clone**(): `this`
 
-*Defined in [app/utils/Model.ts:74](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L74)*
+*Defined in [app/utils/Model.ts:74](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L74)*
 
 **Returns:** `this`
 
@@ -103,7 +103,7 @@ ___
 
 ▸ **$dataFrom**(schemaRef: *`string`*): [Dictionary](../interfaces/dictionary.md)<[FieldData](../#fielddata)>
 
-*Defined in [app/utils/Model.ts:59](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L59)*
+*Defined in [app/utils/Model.ts:59](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L59)*
 
 **Parameters:**
 
@@ -120,7 +120,7 @@ ___
 
 ▸ **$getSchema**(schemaRef: *`string`*): [Schema](schema.md) \| `null`
 
-*Defined in [app/utils/Model.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L35)*
+*Defined in [app/utils/Model.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L35)*
 
 **Parameters:**
 
@@ -137,7 +137,7 @@ ___
 
 ▸ **$getSchemaName**(schemaRef: *`string`*): `string` \| `null`
 
-*Defined in [app/utils/Model.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L39)*
+*Defined in [app/utils/Model.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L39)*
 
 **Parameters:**
 
@@ -154,7 +154,7 @@ ___
 
 ▸ **$getSpinnerName**(command: *`string`*): `string`
 
-*Defined in [app/utils/Model.ts:31](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L31)*
+*Defined in [app/utils/Model.ts:31](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L31)*
 
 **Parameters:**
 
@@ -171,7 +171,7 @@ ___
 
 ▸ **$headerFrom**(schemaRef: *`string`*): [Dictionary](../interfaces/dictionary.md)<`string`>
 
-*Defined in [app/utils/Model.ts:54](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L54)*
+*Defined in [app/utils/Model.ts:54](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L54)*
 
 **Parameters:**
 
@@ -188,7 +188,7 @@ ___
 
 ▸ **$list**(url: *`string`*): `Promise`<`AxiosResponse`<`this`[]>>
 
-*Defined in [app/utils/Model.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L10)*
+*Defined in [app/utils/Model.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L10)*
 
 **Parameters:**
 
@@ -205,7 +205,7 @@ ___
 
 ▸ **$persist**(url: *`string`*): `Promise`<`AxiosResponse`<`any`>>
 
-*Defined in [app/utils/Model.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L24)*
+*Defined in [app/utils/Model.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L24)*
 
 **Parameters:**
 
@@ -222,7 +222,7 @@ ___
 
 ▸ **$populate**(url: *`string`*): `Promise`<`AxiosResponse`<`this`>>
 
-*Defined in [app/utils/Model.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L17)*
+*Defined in [app/utils/Model.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L17)*
 
 **Parameters:**
 
@@ -239,7 +239,7 @@ ___
 
 ▸ **$translateFrom**(schemaRef: *`string`*, fiendName: *`string`*): `string`
 
-*Defined in [app/utils/Model.ts:64](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L64)*
+*Defined in [app/utils/Model.ts:64](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L64)*
 
 **Parameters:**
 
@@ -257,7 +257,7 @@ ___
 
 ▸ **$validate**(schemaRef?: *`string`*): `void`
 
-*Defined in [app/utils/Model.ts:69](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/utils/Model.ts#L69)*
+*Defined in [app/utils/Model.ts:69](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L69)*
 
 **Parameters:**
 

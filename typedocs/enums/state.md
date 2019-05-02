@@ -19,8 +19,8 @@
 
 **HIDDEN**: 
 
-*Defined in [components/utils/Modal.ts:32](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Modal.ts#L32)*
-*Defined in [components/utils/Tip.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Tip.ts#L18)*
+*Defined in [components/utils/Modal.ts:32](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Modal.ts#L32)*
+*Defined in [components/utils/Tip.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Tip.ts#L18)*
 
 ___
 <a id="shown"></a>
@@ -29,8 +29,8 @@ ___
 
 **SHOWN**: 
 
-*Defined in [components/utils/Modal.ts:33](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Modal.ts#L33)*
-*Defined in [components/utils/Tip.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Tip.ts#L19)*
+*Defined in [components/utils/Modal.ts:33](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Modal.ts#L33)*
+*Defined in [components/utils/Tip.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Tip.ts#L19)*
 
 ___
 

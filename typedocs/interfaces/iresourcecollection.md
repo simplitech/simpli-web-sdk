@@ -35,7 +35,7 @@
 
 ▸ **addResource**(id: *[ID](../enums/lang.md#id)*, tag: *[TAG](../#tag)*, index?: *`undefined` \| `number`*): `void`
 
-*Defined in [interfaces/resource.interface.ts:31](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/resource.interface.ts#L31)*
+*Defined in [interfaces/resource.interface.ts:31](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/resource.interface.ts#L31)*
 
 **Parameters:**
 
@@ -54,7 +54,7 @@ ___
 
 ▸ **allWithPlaceholder**(placeholder: *`string` \| `null`*): `Array`<[IResource](iresource.md) \| `null`>
 
-*Defined in [interfaces/resource.interface.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/resource.interface.ts#L25)*
+*Defined in [interfaces/resource.interface.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/resource.interface.ts#L25)*
 
 **Parameters:**
 
@@ -71,7 +71,7 @@ ___
 
 ▸ **appendResource**(id: *[ID](../enums/lang.md#id)*, tag: *[TAG](../#tag)*): `this`
 
-*Defined in [interfaces/resource.interface.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/resource.interface.ts#L39)*
+*Defined in [interfaces/resource.interface.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/resource.interface.ts#L39)*
 
 **Parameters:**
 
@@ -89,7 +89,7 @@ ___
 
 ▸ **getManyResource**(ids: *[ID](../enums/lang.md#id)[]*): [IResource](iresource.md)[]
 
-*Defined in [interfaces/resource.interface.ts:29](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/resource.interface.ts#L29)*
+*Defined in [interfaces/resource.interface.ts:29](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/resource.interface.ts#L29)*
 
 **Parameters:**
 
@@ -106,7 +106,7 @@ ___
 
 ▸ **getResource**(id: *[ID](../enums/lang.md#id) \| `null`*): [IResource](iresource.md) \| `null`
 
-*Defined in [interfaces/resource.interface.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/resource.interface.ts#L27)*
+*Defined in [interfaces/resource.interface.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/resource.interface.ts#L27)*
 
 **Parameters:**
 
@@ -123,7 +123,7 @@ ___
 
 ▸ **prependNullResource**(tag: *[TAG](../#tag)*, useI18n: *`boolean`*): `this`
 
-*Defined in [interfaces/resource.interface.ts:37](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/resource.interface.ts#L37)*
+*Defined in [interfaces/resource.interface.ts:37](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/resource.interface.ts#L37)*
 
 **Parameters:**
 
@@ -141,7 +141,7 @@ ___
 
 ▸ **prependResource**(id: *[ID](../enums/lang.md#id)*, tag: *[TAG](../#tag)*): `this`
 
-*Defined in [interfaces/resource.interface.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/resource.interface.ts#L35)*
+*Defined in [interfaces/resource.interface.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/resource.interface.ts#L35)*
 
 **Parameters:**
 
@@ -159,7 +159,7 @@ ___
 
 ▸ **removeResource**(id: *[ID](../enums/lang.md#id)*): `void`
 
-*Defined in [interfaces/resource.interface.ts:33](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/resource.interface.ts#L33)*
+*Defined in [interfaces/resource.interface.ts:33](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/resource.interface.ts#L33)*
 
 **Parameters:**
 

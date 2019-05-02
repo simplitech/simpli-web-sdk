@@ -2,11 +2,11 @@
 
 ## Overview
 
-## ObjectCollection
+## ResourceCollection
 
 ## PageCollection
 
-## WholeCollection (alias)
+## EnumCollection (alias)
 
 ## Next Topic
-[Schemas](https://github.com/simplitech/simpli-web-sdk/tree/master/docs/schemas.md)
+[Schemas](./schemas.md)

@@ -27,7 +27,7 @@
 
 **● $id**: *[ID](../enums/lang.md#id)*
 
-*Defined in [interfaces/resource.interface.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/resource.interface.ts#L8)*
+*Defined in [interfaces/resource.interface.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/resource.interface.ts#L8)*
 
 ___
 <a id="_tag"></a>
@@ -36,7 +36,7 @@ ___
 
 **● $tag**: *[TAG](../#tag)*
 
-*Defined in [interfaces/resource.interface.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/resource.interface.ts#L9)*
+*Defined in [interfaces/resource.interface.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/resource.interface.ts#L9)*
 
 ___
 

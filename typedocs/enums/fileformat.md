@@ -39,7 +39,7 @@ Please, contribute if you need a missing file format
 
 **CSV**:  = "csv"
 
-*Defined in [enums/FileFormat.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L17)*
+*Defined in [enums/FileFormat.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L17)*
 
 ___
 <a id="doc"></a>
@@ -48,7 +48,7 @@ ___
 
 **DOC**:  = "doc"
 
-*Defined in [enums/FileFormat.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L23)*
+*Defined in [enums/FileFormat.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L23)*
 
 ___
 <a id="gif"></a>
@@ -57,7 +57,7 @@ ___
 
 **GIF**:  = "gif"
 
-*Defined in [enums/FileFormat.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L10)*
+*Defined in [enums/FileFormat.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L10)*
 
 ___
 <a id="ico"></a>
@@ -66,7 +66,7 @@ ___
 
 **ICO**:  = "ico"
 
-*Defined in [enums/FileFormat.ts:11](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L11)*
+*Defined in [enums/FileFormat.ts:11](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L11)*
 
 ___
 <a id="jpeg"></a>
@@ -75,7 +75,7 @@ ___
 
 **JPEG**:  = "jpeg"
 
-*Defined in [enums/FileFormat.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L8)*
+*Defined in [enums/FileFormat.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L8)*
 
 ___
 <a id="jpg"></a>
@@ -84,7 +84,7 @@ ___
 
 **JPG**:  = "jpg"
 
-*Defined in [enums/FileFormat.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L7)*
+*Defined in [enums/FileFormat.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L7)*
 
 ___
 <a id="mov"></a>
@@ -93,7 +93,7 @@ ___
 
 **MOV**:  = "mov"
 
-*Defined in [enums/FileFormat.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L15)*
+*Defined in [enums/FileFormat.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L15)*
 
 ___
 <a id="mp3"></a>
@@ -102,7 +102,7 @@ ___
 
 **MP3**:  = "mp3"
 
-*Defined in [enums/FileFormat.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L13)*
+*Defined in [enums/FileFormat.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L13)*
 
 ___
 <a id="mp4"></a>
@@ -111,7 +111,7 @@ ___
 
 **MP4**:  = "mp4"
 
-*Defined in [enums/FileFormat.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L14)*
+*Defined in [enums/FileFormat.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L14)*
 
 ___
 <a id="pdf"></a>
@@ -120,7 +120,7 @@ ___
 
 **PDF**:  = "pdf"
 
-*Defined in [enums/FileFormat.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L18)*
+*Defined in [enums/FileFormat.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L18)*
 
 ___
 <a id="png"></a>
@@ -129,7 +129,7 @@ ___
 
 **PNG**:  = "png"
 
-*Defined in [enums/FileFormat.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L9)*
+*Defined in [enums/FileFormat.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L9)*
 
 ___
 <a id="svg"></a>
@@ -138,7 +138,7 @@ ___
 
 **SVG**:  = "svg"
 
-*Defined in [enums/FileFormat.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L12)*
+*Defined in [enums/FileFormat.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L12)*
 
 ___
 <a id="txt"></a>
@@ -147,7 +147,7 @@ ___
 
 **TXT**:  = "txt"
 
-*Defined in [enums/FileFormat.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L19)*
+*Defined in [enums/FileFormat.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L19)*
 
 ___
 <a id="wav"></a>
@@ -156,7 +156,7 @@ ___
 
 **WAV**:  = "wav"
 
-*Defined in [enums/FileFormat.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L16)*
+*Defined in [enums/FileFormat.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L16)*
 
 ___
 <a id="xdoc"></a>
@@ -165,7 +165,7 @@ ___
 
 **XDOC**:  = "xdoc"
 
-*Defined in [enums/FileFormat.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L24)*
+*Defined in [enums/FileFormat.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L24)*
 
 ___
 <a id="xls"></a>
@@ -174,7 +174,7 @@ ___
 
 **XLS**:  = "xls"
 
-*Defined in [enums/FileFormat.ts:21](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L21)*
+*Defined in [enums/FileFormat.ts:21](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L21)*
 
 ___
 <a id="xlsx"></a>
@@ -183,7 +183,7 @@ ___
 
 **XLSX**:  = "xlsx"
 
-*Defined in [enums/FileFormat.ts:22](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L22)*
+*Defined in [enums/FileFormat.ts:22](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L22)*
 
 ___
 <a id="xml"></a>
@@ -192,7 +192,7 @@ ___
 
 **XML**:  = "xml"
 
-*Defined in [enums/FileFormat.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/FileFormat.ts#L20)*
+*Defined in [enums/FileFormat.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/FileFormat.ts#L20)*
 
 ___
 

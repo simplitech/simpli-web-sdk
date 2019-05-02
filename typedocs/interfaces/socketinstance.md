@@ -26,7 +26,7 @@
 
 **● config**: *[SocketConfig](socketconfig.md)*
 
-*Defined in [interfaces/socket.interface.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/socket.interface.ts#L13)*
+*Defined in [interfaces/socket.interface.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/socket.interface.ts#L13)*
 
 ___
 <a id="connect"></a>
@@ -35,7 +35,7 @@ ___
 
 **● connect**: *`function`*
 
-*Defined in [interfaces/socket.interface.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/socket.interface.ts#L14)*
+*Defined in [interfaces/socket.interface.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/socket.interface.ts#L14)*
 
 #### Type declaration
 ▸<`T`>(name: *`string`*, classType: *[ClassType](../#classtype)<`T`>*, url: *`string`*): [SocketConnection](../classes/socketconnection.md)<`T`>
@@ -60,7 +60,7 @@ ___
 
 **● disconnect**: *`function`*
 
-*Defined in [interfaces/socket.interface.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/socket.interface.ts#L15)*
+*Defined in [interfaces/socket.interface.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/socket.interface.ts#L15)*
 
 #### Type declaration
 ▸(name: *`string`*): `void`
@@ -80,7 +80,7 @@ ___
 
 **● disconnectAll**: *`function`*
 
-*Defined in [interfaces/socket.interface.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/socket.interface.ts#L17)*
+*Defined in [interfaces/socket.interface.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/socket.interface.ts#L17)*
 
 #### Type declaration
 ▸(): `void`
@@ -94,7 +94,7 @@ ___
 
 **● getConnection**: *`function`*
 
-*Defined in [interfaces/socket.interface.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/socket.interface.ts#L16)*
+*Defined in [interfaces/socket.interface.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/socket.interface.ts#L16)*
 
 #### Type declaration
 ▸<`T`>(name: *`string`*): [SocketConnection](../classes/socketconnection.md)<`T`>

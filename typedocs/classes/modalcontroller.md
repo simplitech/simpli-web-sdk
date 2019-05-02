@@ -33,7 +33,7 @@
 
 **● defaultBackgroundTransition**: *`string` \| `null`* = "fade"
 
-*Defined in [components/utils/Modal.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Modal.ts#L39)*
+*Defined in [components/utils/Modal.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Modal.ts#L39)*
 
 ___
 <a id="defaultbody"></a>
@@ -42,7 +42,7 @@ ___
 
 **● defaultBody**: *`HTMLElement`* =  document.body
 
-*Defined in [components/utils/Modal.ts:37](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Modal.ts#L37)*
+*Defined in [components/utils/Modal.ts:37](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Modal.ts#L37)*
 
 ___
 <a id="defaultclosable"></a>
@@ -51,7 +51,7 @@ ___
 
 **● defaultClosable**: *`boolean`* = true
 
-*Defined in [components/utils/Modal.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Modal.ts#L40)*
+*Defined in [components/utils/Modal.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Modal.ts#L40)*
 
 ___
 <a id="defaultcloseoutside"></a>
@@ -60,7 +60,7 @@ ___
 
 **● defaultCloseOutside**: *`boolean`* = true
 
-*Defined in [components/utils/Modal.ts:41](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Modal.ts#L41)*
+*Defined in [components/utils/Modal.ts:41](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Modal.ts#L41)*
 
 ___
 <a id="defaulttransition"></a>
@@ -69,7 +69,7 @@ ___
 
 **● defaultTransition**: *`string` \| `null`* = "fade"
 
-*Defined in [components/utils/Modal.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Modal.ts#L38)*
+*Defined in [components/utils/Modal.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Modal.ts#L38)*
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 ▸ **close**(name?: *`undefined` \| `string`*): `void`
 
-*Defined in [components/utils/Modal.ts:47](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Modal.ts#L47)*
+*Defined in [components/utils/Modal.ts:47](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Modal.ts#L47)*
 
 **Parameters:**
 
@@ -98,7 +98,7 @@ ___
 
 ▸ **closeAll**(): `void`
 
-*Defined in [components/utils/Modal.ts:55](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Modal.ts#L55)*
+*Defined in [components/utils/Modal.ts:55](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Modal.ts#L55)*
 
 **Returns:** `void`
 
@@ -109,7 +109,7 @@ ___
 
 ▸ **open**(name?: *`undefined` \| `string`*, payload?: *`any`*): `void`
 
-*Defined in [components/utils/Modal.ts:43](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Modal.ts#L43)*
+*Defined in [components/utils/Modal.ts:43](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Modal.ts#L43)*
 
 **Parameters:**
 
@@ -127,7 +127,7 @@ ___
 
 ▸ **toggle**(name?: *`undefined` \| `string`*, payload?: *`any`*): `void`
 
-*Defined in [components/utils/Modal.ts:51](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/utils/Modal.ts#L51)*
+*Defined in [components/utils/Modal.ts:51](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Modal.ts#L51)*
 
 **Parameters:**
 

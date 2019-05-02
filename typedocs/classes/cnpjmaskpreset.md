@@ -38,7 +38,7 @@
 
 *Inherited from [MaskPresetConfig](maskpresetconfig.md).[isValid](maskpresetconfig.md#isvalid)*
 
-*Defined in [app/config/MaskPresetConfig.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/config/MaskPresetConfig.ts#L9)*
+*Defined in [app/config/MaskPresetConfig.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/MaskPresetConfig.ts#L9)*
 
 ___
 <a id="masked"></a>
@@ -49,7 +49,7 @@ ___
 
 *Inherited from [MaskPresetConfig](maskpresetconfig.md).[masked](maskpresetconfig.md#masked)*
 
-*Defined in [app/config/MaskPresetConfig.ts:6](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/config/MaskPresetConfig.ts#L6)*
+*Defined in [app/config/MaskPresetConfig.ts:6](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/MaskPresetConfig.ts#L6)*
 
 ___
 <a id="tokens"></a>
@@ -60,7 +60,7 @@ ___
 
 *Inherited from [MaskPresetConfig](maskpresetconfig.md).[tokens](maskpresetconfig.md#tokens)*
 
-*Defined in [app/config/MaskPresetConfig.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/config/MaskPresetConfig.ts#L7)*
+*Defined in [app/config/MaskPresetConfig.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/MaskPresetConfig.ts#L7)*
 
 ___
 <a id="value"></a>
@@ -71,7 +71,7 @@ ___
 
 *Inherited from [MaskPresetConfig](maskpresetconfig.md).[value](maskpresetconfig.md#value)*
 
-*Defined in [app/config/MaskPresetConfig.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/config/MaskPresetConfig.ts#L10)*
+*Defined in [app/config/MaskPresetConfig.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/MaskPresetConfig.ts#L10)*
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 *Overrides [MaskPresetConfig](maskpresetconfig.md).[mask](maskpresetconfig.md#mask)*
 
-*Defined in [app/preset/CnpjMaskPreset.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/preset/CnpjMaskPreset.ts#L7)*
+*Defined in [app/preset/CnpjMaskPreset.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/preset/CnpjMaskPreset.ts#L7)*
 
 **Returns:** `string` \| `string`[]
 
@@ -101,7 +101,7 @@ ___
 
 *Inherited from [MaskPresetConfig](maskpresetconfig.md).[getterTransform](maskpresetconfig.md#gettertransform)*
 
-*Defined in [app/config/MaskPresetConfig.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/config/MaskPresetConfig.ts#L12)*
+*Defined in [app/config/MaskPresetConfig.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/MaskPresetConfig.ts#L12)*
 
 **Parameters:**
 
@@ -120,7 +120,7 @@ ___
 
 *Overrides [MaskPresetConfig](maskpresetconfig.md).[setterTransform](maskpresetconfig.md#settertransform)*
 
-*Defined in [app/preset/CnpjMaskPreset.ts:11](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/app/preset/CnpjMaskPreset.ts#L11)*
+*Defined in [app/preset/CnpjMaskPreset.ts:11](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/preset/CnpjMaskPreset.ts#L11)*
 
 **Parameters:**
 

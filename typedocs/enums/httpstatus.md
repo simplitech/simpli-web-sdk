@@ -61,7 +61,7 @@ Http responses status with their respective codes
 
 **ACCEPTED**:  = 202
 
-*Defined in [enums/HttpStatus.ts:29](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L29)*
+*Defined in [enums/HttpStatus.ts:28](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L28)*
 
 Accepted
 
@@ -72,7 +72,7 @@ ___
 
 **BAD_GATEWAY**:  = 502
 
-*Defined in [enums/HttpStatus.ts:199](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L199)*
+*Defined in [enums/HttpStatus.ts:198](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L198)*
 
 Bad Gateway
 
@@ -83,7 +83,7 @@ ___
 
 **BAD_REQUEST**:  = 400
 
-*Defined in [enums/HttpStatus.ts:89](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L89)*
+*Defined in [enums/HttpStatus.ts:88](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L88)*
 
 Bad Request
 
@@ -94,7 +94,7 @@ ___
 
 **CONFLICT**:  = 409
 
-*Defined in [enums/HttpStatus.ts:134](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L134)*
+*Defined in [enums/HttpStatus.ts:133](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L133)*
 
 Conflict
 
@@ -105,7 +105,7 @@ ___
 
 **CONTINUE**:  = 100
 
-*Defined in [enums/HttpStatus.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L9)*
+*Defined in [enums/HttpStatus.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L8)*
 
 Continue
 
@@ -116,7 +116,7 @@ ___
 
 **CREATED**:  = 201
 
-*Defined in [enums/HttpStatus.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L24)*
+*Defined in [enums/HttpStatus.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L23)*
 
 Created
 
@@ -127,7 +127,7 @@ ___
 
 **EXPECTATION_FAILED**:  = 417
 
-*Defined in [enums/HttpStatus.ts:174](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L174)*
+*Defined in [enums/HttpStatus.ts:173](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L173)*
 
 Expectation Failed
 
@@ -138,7 +138,7 @@ ___
 
 **FORBIDDEN**:  = 403
 
-*Defined in [enums/HttpStatus.ts:104](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L104)*
+*Defined in [enums/HttpStatus.ts:103](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L103)*
 
 Forbidden
 
@@ -149,7 +149,7 @@ ___
 
 **FOUND**:  = 302
 
-*Defined in [enums/HttpStatus.ts:64](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L64)*
+*Defined in [enums/HttpStatus.ts:63](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L63)*
 
 Found
 
@@ -160,7 +160,7 @@ ___
 
 **GATEWAY_TIMEOUT**:  = 504
 
-*Defined in [enums/HttpStatus.ts:209](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L209)*
+*Defined in [enums/HttpStatus.ts:208](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L208)*
 
 Gatewaty Timeout
 
@@ -171,7 +171,7 @@ ___
 
 **GONE**:  = 410
 
-*Defined in [enums/HttpStatus.ts:139](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L139)*
+*Defined in [enums/HttpStatus.ts:138](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L138)*
 
 Gone
 
@@ -182,7 +182,7 @@ ___
 
 **HTTP_VERSION_NOT_SUPPORTED**:  = 505
 
-*Defined in [enums/HttpStatus.ts:214](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L214)*
+*Defined in [enums/HttpStatus.ts:213](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L213)*
 
 Http Version Not Supported
 
@@ -193,7 +193,7 @@ ___
 
 **INTERNAL_SERVER_ERROR**:  = 500
 
-*Defined in [enums/HttpStatus.ts:189](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L189)*
+*Defined in [enums/HttpStatus.ts:188](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L188)*
 
 Internal Server Error
 
@@ -204,7 +204,7 @@ ___
 
 **LENGTH_REQUIRED**:  = 411
 
-*Defined in [enums/HttpStatus.ts:144](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L144)*
+*Defined in [enums/HttpStatus.ts:143](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L143)*
 
 Length Required
 
@@ -215,7 +215,7 @@ ___
 
 **METHOD_NOT_ALLOWED**:  = 405
 
-*Defined in [enums/HttpStatus.ts:114](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L114)*
+*Defined in [enums/HttpStatus.ts:113](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L113)*
 
 Method Not Allowed
 
@@ -226,7 +226,7 @@ ___
 
 **MOVED_PERMANENTLY**:  = 301
 
-*Defined in [enums/HttpStatus.ts:59](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L59)*
+*Defined in [enums/HttpStatus.ts:58](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L58)*
 
 Moved Permanently
 
@@ -237,7 +237,7 @@ ___
 
 **MULTIPLE_CHOICES**:  = 300
 
-*Defined in [enums/HttpStatus.ts:54](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L54)*
+*Defined in [enums/HttpStatus.ts:53](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L53)*
 
 Multiple Choices
 
@@ -248,7 +248,7 @@ ___
 
 **NON_AUTHORITATIVE_INFORMATION**:  = 203
 
-*Defined in [enums/HttpStatus.ts:34](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L34)*
+*Defined in [enums/HttpStatus.ts:33](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L33)*
 
 Now Authoritative Information
 
@@ -259,7 +259,7 @@ ___
 
 **NOT_ACCEPTABLE**:  = 406
 
-*Defined in [enums/HttpStatus.ts:119](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L119)*
+*Defined in [enums/HttpStatus.ts:118](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L118)*
 
 Not Acceptable
 
@@ -270,7 +270,7 @@ ___
 
 **NOT_FOUND**:  = 404
 
-*Defined in [enums/HttpStatus.ts:109](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L109)*
+*Defined in [enums/HttpStatus.ts:108](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L108)*
 
 Not Found
 
@@ -281,7 +281,7 @@ ___
 
 **NOT_IMPLEMENTED**:  = 501
 
-*Defined in [enums/HttpStatus.ts:194](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L194)*
+*Defined in [enums/HttpStatus.ts:193](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L193)*
 
 Not Implemented
 
@@ -292,7 +292,7 @@ ___
 
 **NOT_MODIFIED**:  = 304
 
-*Defined in [enums/HttpStatus.ts:74](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L74)*
+*Defined in [enums/HttpStatus.ts:73](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L73)*
 
 Not Modified
 
@@ -303,7 +303,7 @@ ___
 
 **NO_CONTENT**:  = 204
 
-*Defined in [enums/HttpStatus.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L39)*
+*Defined in [enums/HttpStatus.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L38)*
 
 No Content
 
@@ -314,7 +314,7 @@ ___
 
 **OK**:  = 200
 
-*Defined in [enums/HttpStatus.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L19)*
+*Defined in [enums/HttpStatus.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L18)*
 
 Ok
 
@@ -325,7 +325,7 @@ ___
 
 **PARTIAL_CONTENT**:  = 206
 
-*Defined in [enums/HttpStatus.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L49)*
+*Defined in [enums/HttpStatus.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L48)*
 
 Partial Content
 
@@ -336,7 +336,7 @@ ___
 
 **PAYMENT_REQUIRED**:  = 402
 
-*Defined in [enums/HttpStatus.ts:99](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L99)*
+*Defined in [enums/HttpStatus.ts:98](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L98)*
 
 Payment Required
 
@@ -347,7 +347,7 @@ ___
 
 **PRECONDITION_FAILED**:  = 412
 
-*Defined in [enums/HttpStatus.ts:149](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L149)*
+*Defined in [enums/HttpStatus.ts:148](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L148)*
 
 Precondition Failed
 
@@ -358,7 +358,7 @@ ___
 
 **PROXY_AUTHENTICATION_REQUIRED**:  = 407
 
-*Defined in [enums/HttpStatus.ts:124](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L124)*
+*Defined in [enums/HttpStatus.ts:123](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L123)*
 
 Proxy Authentication Required
 
@@ -369,7 +369,7 @@ ___
 
 **REQUESTED_RANGE_NOT_SATISFIABLE**:  = 416
 
-*Defined in [enums/HttpStatus.ts:169](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L169)*
+*Defined in [enums/HttpStatus.ts:168](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L168)*
 
 Requested Range Not Satisfiable
 
@@ -380,7 +380,7 @@ ___
 
 **REQUEST_ENTITY_TOO_LARGE**:  = 413
 
-*Defined in [enums/HttpStatus.ts:154](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L154)*
+*Defined in [enums/HttpStatus.ts:153](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L153)*
 
 Request Entity Too Large
 
@@ -391,7 +391,7 @@ ___
 
 **REQUEST_TIMEOUT**:  = 408
 
-*Defined in [enums/HttpStatus.ts:129](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L129)*
+*Defined in [enums/HttpStatus.ts:128](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L128)*
 
 Request Timeout
 
@@ -402,7 +402,7 @@ ___
 
 **REQUEST_URI_TOO_LONG**:  = 414
 
-*Defined in [enums/HttpStatus.ts:159](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L159)*
+*Defined in [enums/HttpStatus.ts:158](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L158)*
 
 Request Uri Too Long
 
@@ -413,7 +413,7 @@ ___
 
 **RESET_CONTENT**:  = 205
 
-*Defined in [enums/HttpStatus.ts:44](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L44)*
+*Defined in [enums/HttpStatus.ts:43](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L43)*
 
 Reset Content
 
@@ -424,7 +424,7 @@ ___
 
 **SEE_OTHER**:  = 303
 
-*Defined in [enums/HttpStatus.ts:69](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L69)*
+*Defined in [enums/HttpStatus.ts:68](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L68)*
 
 See Other
 
@@ -435,7 +435,7 @@ ___
 
 **SERVICE_UNAVAILABLE**:  = 503
 
-*Defined in [enums/HttpStatus.ts:204](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L204)*
+*Defined in [enums/HttpStatus.ts:203](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L203)*
 
 Service Unavailable
 
@@ -446,7 +446,7 @@ ___
 
 **SWITCHING_PROTOCOLS**:  = 101
 
-*Defined in [enums/HttpStatus.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L14)*
+*Defined in [enums/HttpStatus.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L13)*
 
 Switching Protocols
 
@@ -457,7 +457,7 @@ ___
 
 **TEMPORARY_REDIRECT**:  = 307
 
-*Defined in [enums/HttpStatus.ts:84](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L84)*
+*Defined in [enums/HttpStatus.ts:83](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L83)*
 
 Temporary Redirect
 
@@ -468,7 +468,7 @@ ___
 
 **TOO_MANY_REQUESTS**:  = 429
 
-*Defined in [enums/HttpStatus.ts:184](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L184)*
+*Defined in [enums/HttpStatus.ts:183](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L183)*
 
 Too Many Requests
 
@@ -479,7 +479,7 @@ ___
 
 **UNAUTHORIZED**:  = 401
 
-*Defined in [enums/HttpStatus.ts:94](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L94)*
+*Defined in [enums/HttpStatus.ts:93](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L93)*
 
 Unauthorized
 
@@ -490,7 +490,7 @@ ___
 
 **UNPROCESSABLE_ENTITY**:  = 422
 
-*Defined in [enums/HttpStatus.ts:179](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L179)*
+*Defined in [enums/HttpStatus.ts:178](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L178)*
 
 Unprocessable Entity
 
@@ -501,7 +501,7 @@ ___
 
 **UNSUPPORTED_MEDIA_TYPE**:  = 415
 
-*Defined in [enums/HttpStatus.ts:164](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L164)*
+*Defined in [enums/HttpStatus.ts:163](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L163)*
 
 Unsupported Media Type
 
@@ -512,7 +512,7 @@ ___
 
 **USE_PROXY**:  = 305
 
-*Defined in [enums/HttpStatus.ts:79](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/enums/HttpStatus.ts#L79)*
+*Defined in [enums/HttpStatus.ts:78](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/enums/HttpStatus.ts#L78)*
 
 Use Proxy
 

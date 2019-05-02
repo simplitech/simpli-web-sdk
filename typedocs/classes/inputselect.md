@@ -61,7 +61,7 @@
 
 **● deselectLabel**: *`string`*
 
-*Defined in [components/input/InputSelect.ts:88](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L88)*
+*Defined in [components/input/InputSelect.ts:88](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L88)*
 
 ___
 <a id="disabled"></a>
@@ -70,7 +70,7 @@ ___
 
 **● disabled**: *`undefined` \| `false` \| `true`*
 
-*Defined in [components/input/InputSelect.ts:61](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L61)*
+*Defined in [components/input/InputSelect.ts:61](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L61)*
 
 ___
 <a id="emptyresource"></a>
@@ -79,7 +79,7 @@ ___
 
 **● emptyResource**: *[IResource](../interfaces/iresource.md)* =  build(0, '')
 
-*Defined in [components/input/InputSelect.ts:96](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L96)*
+*Defined in [components/input/InputSelect.ts:96](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L96)*
 
 ___
 <a id="idkey"></a>
@@ -88,7 +88,7 @@ ___
 
 **● idKey**: *`string`*
 
-*Defined in [components/input/InputSelect.ts:64](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L64)*
+*Defined in [components/input/InputSelect.ts:64](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L64)*
 
 ___
 <a id="inputclass"></a>
@@ -97,7 +97,7 @@ ___
 
 **● inputClass**: *`undefined` \| `string`*
 
-*Defined in [components/input/InputSelect.ts:55](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L55)*
+*Defined in [components/input/InputSelect.ts:55](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L55)*
 
 ___
 <a id="items"></a>
@@ -106,7 +106,7 @@ ___
 
 **● items**: *`InputItems`*
 
-*Defined in [components/input/InputSelect.ts:70](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L70)*
+*Defined in [components/input/InputSelect.ts:70](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L70)*
 
 ___
 <a id="label"></a>
@@ -115,7 +115,7 @@ ___
 
 **● label**: *`undefined` \| `string`*
 
-*Defined in [components/input/InputSelect.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L49)*
+*Defined in [components/input/InputSelect.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L49)*
 
 ___
 <a id="model"></a>
@@ -124,7 +124,7 @@ ___
 
 **● model**: *[IResource](../interfaces/iresource.md) \| [IResource](../interfaces/iresource.md)[]* =  []
 
-*Defined in [components/input/InputSelect.ts:98](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L98)*
+*Defined in [components/input/InputSelect.ts:98](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L98)*
 
 ___
 <a id="nooptionslabel"></a>
@@ -133,7 +133,7 @@ ___
 
 **● noOptionsLabel**: *`string` \| `null`*
 
-*Defined in [components/input/InputSelect.ts:94](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L94)*
+*Defined in [components/input/InputSelect.ts:94](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L94)*
 
 ___
 <a id="noresultlabel"></a>
@@ -142,7 +142,7 @@ ___
 
 **● noResultLabel**: *`string` \| `null`*
 
-*Defined in [components/input/InputSelect.ts:91](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L91)*
+*Defined in [components/input/InputSelect.ts:91](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L91)*
 
 ___
 <a id="options"></a>
@@ -151,7 +151,7 @@ ___
 
 **● options**: *`InputItems`* =  []
 
-*Defined in [components/input/InputSelect.ts:99](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L99)*
+*Defined in [components/input/InputSelect.ts:99](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L99)*
 
 ___
 <a id="placeholder"></a>
@@ -160,7 +160,7 @@ ___
 
 **● placeholder**: *`string`*
 
-*Defined in [components/input/InputSelect.ts:76](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L76)*
+*Defined in [components/input/InputSelect.ts:76](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L76)*
 
 ___
 <a id="required"></a>
@@ -169,7 +169,7 @@ ___
 
 **● required**: *`undefined` \| `false` \| `true`*
 
-*Defined in [components/input/InputSelect.ts:58](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L58)*
+*Defined in [components/input/InputSelect.ts:58](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L58)*
 
 ___
 <a id="selectlabel"></a>
@@ -178,7 +178,7 @@ ___
 
 **● selectLabel**: *`string`*
 
-*Defined in [components/input/InputSelect.ts:82](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L82)*
+*Defined in [components/input/InputSelect.ts:82](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L82)*
 
 ___
 <a id="selectedlabel"></a>
@@ -187,7 +187,7 @@ ___
 
 **● selectedLabel**: *`string`*
 
-*Defined in [components/input/InputSelect.ts:85](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L85)*
+*Defined in [components/input/InputSelect.ts:85](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L85)*
 
 ___
 <a id="tagkey"></a>
@@ -196,7 +196,7 @@ ___
 
 **● tagKey**: *`string`*
 
-*Defined in [components/input/InputSelect.ts:67](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L67)*
+*Defined in [components/input/InputSelect.ts:67](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L67)*
 
 ___
 <a id="tagplaceholder"></a>
@@ -205,7 +205,7 @@ ___
 
 **● tagPlaceholder**: *`string`*
 
-*Defined in [components/input/InputSelect.ts:79](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L79)*
+*Defined in [components/input/InputSelect.ts:79](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L79)*
 
 ___
 <a id="taggable"></a>
@@ -214,7 +214,7 @@ ___
 
 **● taggable**: *`undefined` \| `false` \| `true`*
 
-*Defined in [components/input/InputSelect.ts:73](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L73)*
+*Defined in [components/input/InputSelect.ts:73](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L73)*
 
 ___
 <a id="value"></a>
@@ -223,7 +223,7 @@ ___
 
 **● value**: *`InputModel`*
 
-*Defined in [components/input/InputSelect.ts:52](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L52)*
+*Defined in [components/input/InputSelect.ts:52](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L52)*
 
 ___
 
@@ -237,11 +237,11 @@ ___
 
 **set computedModel**(val: *`InputModel`*): `void`
 
-*Defined in [components/input/InputSelect.ts:127](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L127)*
+*Defined in [components/input/InputSelect.ts:127](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L127)*
 
 **Returns:** `null` \| [IResource](../interfaces/iresource.md) \| [IResource](../interfaces/iresource.md)[]
 
-*Defined in [components/input/InputSelect.ts:144](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L144)*
+*Defined in [components/input/InputSelect.ts:144](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L144)*
 
 **Parameters:**
 
@@ -258,7 +258,7 @@ ___
 
 **get isCloseOnSelect**(): `boolean`
 
-*Defined in [components/input/InputSelect.ts:183](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L183)*
+*Defined in [components/input/InputSelect.ts:183](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L183)*
 
 **Returns:** `boolean`
 
@@ -269,7 +269,7 @@ ___
 
 **get isDisabled**(): `boolean`
 
-*Defined in [components/input/InputSelect.ts:179](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L179)*
+*Defined in [components/input/InputSelect.ts:179](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L179)*
 
 **Returns:** `boolean`
 
@@ -280,7 +280,7 @@ ___
 
 **get isHideSelected**(): `boolean`
 
-*Defined in [components/input/InputSelect.ts:187](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L187)*
+*Defined in [components/input/InputSelect.ts:187](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L187)*
 
 **Returns:** `boolean`
 
@@ -291,7 +291,7 @@ ___
 
 **get isMultiple**(): `boolean`
 
-*Defined in [components/input/InputSelect.ts:167](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L167)*
+*Defined in [components/input/InputSelect.ts:167](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L167)*
 
 **Returns:** `boolean`
 
@@ -302,7 +302,7 @@ ___
 
 **get isMultipleNotTaggable**(): `boolean`
 
-*Defined in [components/input/InputSelect.ts:171](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L171)*
+*Defined in [components/input/InputSelect.ts:171](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L171)*
 
 **Returns:** `boolean`
 
@@ -313,7 +313,7 @@ ___
 
 **get isTaggable**(): `boolean`
 
-*Defined in [components/input/InputSelect.ts:175](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L175)*
+*Defined in [components/input/InputSelect.ts:175](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L175)*
 
 **Returns:** `boolean`
 
@@ -324,7 +324,7 @@ ___
 
 **get vBind**(): `object`
 
-*Defined in [components/input/InputSelect.ts:117](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L117)*
+*Defined in [components/input/InputSelect.ts:117](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L117)*
 
 **Returns:** `object`
 
@@ -335,7 +335,7 @@ ___
 
 **get vOn**(): `object`
 
-*Defined in [components/input/InputSelect.ts:121](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L121)*
+*Defined in [components/input/InputSelect.ts:121](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L121)*
 
 **Returns:** `object`
 
@@ -349,7 +349,7 @@ ___
 
 ▸ **itemsEvent**(val: *`InputItems`*): `void`
 
-*Defined in [components/input/InputSelect.ts:111](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L111)*
+*Defined in [components/input/InputSelect.ts:111](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L111)*
 
 **Parameters:**
 
@@ -366,7 +366,7 @@ ___
 
 ▸ **removeEvent**(val: *[IResource](../interfaces/iresource.md)*): `void`
 
-*Defined in [components/input/InputSelect.ts:208](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L208)*
+*Defined in [components/input/InputSelect.ts:208](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L208)*
 
 **Parameters:**
 
@@ -383,7 +383,7 @@ ___
 
 ▸ **tagEvent**(val: *`string`*): `void`
 
-*Defined in [components/input/InputSelect.ts:191](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L191)*
+*Defined in [components/input/InputSelect.ts:191](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L191)*
 
 **Parameters:**
 
@@ -400,7 +400,7 @@ ___
 
 ▸ **valueEvent**(val: *`InputItems`*): `void`
 
-*Defined in [components/input/InputSelect.ts:102](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/components/input/InputSelect.ts#L102)*
+*Defined in [components/input/InputSelect.ts:102](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/input/InputSelect.ts#L102)*
 
 **Parameters:**
 

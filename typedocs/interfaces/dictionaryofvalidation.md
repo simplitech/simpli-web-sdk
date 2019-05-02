@@ -24,7 +24,7 @@
 
 **● properties**: *`object`*
 
-*Defined in [interfaces/schema.interface.ts:86](https://github.com/simplitech/simpli-web-sdk/blob/a829314/src/interfaces/schema.interface.ts#L86)*
+*Defined in [interfaces/schema.interface.ts:86](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L86)*
 
 #### Type declaration
 
