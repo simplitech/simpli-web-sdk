@@ -11,7 +11,7 @@ export interface SocketConfig {
 
 export interface SocketInstance {
   config: SocketConfig
-  connect: <T>(name: string, classType: ClassType<T>, url: string) => SocketConnection<T>
+  connect: <T>(name: string, url: string, classType?: ClassType<T>) => SocketConnection<T>
   disconnect: (name: string) => void
   getConnection: <T>(name: string) => SocketConnection<T>
   disconnectAll: () => void

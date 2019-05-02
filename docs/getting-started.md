@@ -1,4 +1,4 @@
-## Geting Started
+# Geting Started
 
 Once you have installed `simpli-web-sdk` into your dependencies, you have to provides some settings which is:
 
@@ -126,7 +126,7 @@ import {Lang, Currency, LocaleOptions} from '@/simpli'
   
 /**  
  * App languages pack
- * The same provided by vue-i18n
+ * That is the 'message' param provided in vue-i18n
  */
 import enUs from '@/locale/en-US/lang'  
 import ptBr from '@/locale/pt-BR/lang'  
@@ -150,8 +150,8 @@ export const defaultCurrency = process.env.VUE_APP_CURRENCY as Currency
  * vue-i18n locale
  */
 export const localeVueI18n: LocaleOptions = {  
-  [Lang.EN_US]: enUs,  
-  [Lang.PT_BR]: ptBr,  
+  [Lang.EN_US]: enUs,
+  [Lang.PT_BR]: ptBr,
 }  
   
 /**  

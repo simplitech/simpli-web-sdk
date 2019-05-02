@@ -17,4 +17,5 @@
 ## Utils
 
 ## Next Topic
-[Check it out the complete API](../typedocs/README.md)
+[Extra Settings](./extra-settings.md)
+
