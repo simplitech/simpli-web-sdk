@@ -9,4 +9,4 @@
 ## EnumCollection (alias)
 
 ## Next Topic
-[Schemas](./schemas.md)
+[Helpers](./helpers.md)

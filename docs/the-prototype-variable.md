@@ -39,7 +39,7 @@ $.socket.connect('notification', 'path/to/url') // socket connection
 
 $.component.MyComponent // access your global component
 
-$.filter.truncate('foobar', 3) // it will return 'foo...'
+$.filter.truncate('foobar', 3) // it returns 'foo...'
 
 $.router.push('/login') // go to login page
 

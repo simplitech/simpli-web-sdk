@@ -24,7 +24,7 @@ const socket: SocketStatic = {
       }
     }
 
-    const getConnection = (name: string) => socketConnection[name]
+    const getConnection = (name: string) => socketConnection[name] || null
 
     const disconnectAll = () => {
       for (const name in socketConnection) {

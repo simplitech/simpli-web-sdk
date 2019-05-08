@@ -1,6 +1,6 @@
 # Geting Started
 
-Once you have installed `simpli-web-sdk` into your dependencies, you have to provides some settings which is:
+Once you have installed `simpli-web-sdk` into your dependencies, you have to provide some settings which is:
 
 - Axios instance
 - Socket instance
@@ -11,9 +11,9 @@ Once you have installed `simpli-web-sdk` into your dependencies, you have to pro
 - Language definitions
 - Router definitions
 
-All those settings must be defined in `Simpli` class and then run in `Simpli.install()` to apply.
+All those settings must be defined in `Simpli` class and then run `Simpli.install()` to apply.
 
-You may have this: 
+You might have this: 
 
 ```typescript
 import Simpli from 'simpli-web-sdk'  
@@ -42,7 +42,7 @@ Simpli.install()
 // config/http.config.ts
 
 import axios, {AxiosError} from 'axios'
-import {$, Helper, Enum, socket} from '@/simpli'  
+import {$, Helper, Enum, socket} from 'simpli-web-sdk'  
 import {AppHelper} from '@/helpers' // helpers provided by your code
 
 /**  
@@ -122,7 +122,7 @@ export {axiosInstance, socketInstance}
 ```typescript
 // config/locale.config.ts
 
-import {Lang, Currency, LocaleOptions} from '@/simpli'  
+import {Lang, Currency, LocaleOptions} from 'simpli-web-sdk'  
   
 /**  
  * App languages pack
@@ -167,7 +167,7 @@ export const localeAjvI18n: LocaleOptions = {
 ```typescript
 // config/component.config.ts
 
-import {ComponentOptions} from '@/simpli'  
+import {ComponentOptions} from 'simpli-web-sdk'  
 import MyComponent from '@/components/MyComponent.vue'  
   
 /**  
@@ -182,7 +182,7 @@ export const components: ComponentOptions = {
 ```typescript
 // config/filter.config.ts
 
-import {FilterOptions} from '@/simpli'  
+import {FilterOptions} from 'simpli-web-sdk'  
   
 /**  
  * VUE Filters

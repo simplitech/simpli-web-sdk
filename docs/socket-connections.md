@@ -38,7 +38,9 @@ function onLogin(id: number, token: string) {
 function someFunction() {
   const connection = $.socket.getConnection('notification')
 
-  connection.onData((resp: Notification) => console.log(resp))
+  if (connection) {
+    connection.onData((resp: Notification) => console.log(resp))
+  }
 }
 
 function onLogout() {
@@ -77,4 +79,4 @@ function onLogout() {
 ```
 
 ## Next Topic
-[Models](./models.md)
+[Components](./components.md)
