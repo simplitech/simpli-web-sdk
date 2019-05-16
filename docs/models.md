@@ -206,7 +206,7 @@ In general, there are three types of models: `Request`, `Response`, `Resource`.
 ### Use resource models for CRUDs
 
 For `Resource` models, you must extend the [Resource](../typedocs/classes/resource.md) class which belongs to the [Model](../typedocs/classes/model.md) class.
-See the [Next Topic](./resources-and-requests.md) for more information about it.
+See the [Next Topic](http-requests.md) for more information about it.
 
 ### Use Request and Response suffix
 
@@ -240,4 +240,4 @@ export default class AuthRequest extends Model {
 ```
 
 ## Next Topic
-[Requests and Resources](./resources-and-requests.md)
+[Requests and Resources](http-requests.md)

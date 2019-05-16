@@ -116,7 +116,7 @@ export abstract class Resource extends Model implements IResource {
     return this.$allParamKeys[0] || null
   }
 
-  async $getOne(...ids: ID[]): Promise<this> {
+  async $getOne(...ids: ID[]): Promise<AxiosResponse<this>> {
     const params: any = {}
     const allParamKeys = this.$allParamKeys
 
@@ -130,15 +130,15 @@ export abstract class Resource extends Model implements IResource {
       .query(params)
       .name(this.$getSpinnerName('getOne'))
       .as(this)
-      .getData()
+      .getResponse()
   }
 
-  async $getMany(params?: any): Promise<this[]> {
+  async $getMany(params?: any): Promise<AxiosResponse<this[]>> {
     return await this.$action
       .query(params)
       .name(this.$getSpinnerName('getMany'))
       .asArrayOf(this.$clone())
-      .getData()
+      .getResponse()
   }
 
   async $query(params?: any): Promise<AxiosResponse<this>> {

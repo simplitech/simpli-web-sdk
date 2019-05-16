@@ -26,7 +26,7 @@ export class ResourceCollection<R extends Resource> extends Collection<R> implem
 
   protected items: R[] = []
 
-  protected readonly filters: QueryFilter[] = []
+  protected filters: QueryFilter[] = []
 
   readonly classType: ClassType<R>
 
@@ -65,6 +65,11 @@ export class ResourceCollection<R extends Resource> extends Collection<R> implem
 
   addFilter(filter: QueryFilter) {
     this.filters.push(filter)
+    return this
+  }
+
+  cleanFilters() {
+    this.filters = []
     return this
   }
 

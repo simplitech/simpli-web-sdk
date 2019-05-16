@@ -7,23 +7,37 @@ import { Dictionary, FieldData, ISchema, SchemaSet } from '../../interfaces'
 export abstract class Model implements ISchema {
   readonly $schemaSet: SchemaSet = {}
 
-  async $list(url: string): Promise<AxiosResponse<this[]>> {
+  async $listFrom(url: string): Promise<AxiosResponse<this[]>> {
     return await Request.get(url)
       .name(this.$getSpinnerName('list'))
       .asArrayOf(this.$clone())
       .getResponse()
   }
 
-  async $populate(url: string): Promise<AxiosResponse<this>> {
+  async $populateFrom(url: string): Promise<AxiosResponse<this>> {
     return await Request.get(url)
       .name(this.$getSpinnerName('populate'))
       .as(this)
       .getResponse()
   }
 
-  async $persist(url: string): Promise<AxiosResponse<any>> {
+  async $persistFrom(url: string): Promise<AxiosResponse<any>> {
     return await Request.post(url, this)
       .name(this.$getSpinnerName('persist'))
+      .asAny()
+      .getResponse()
+  }
+
+  async $updateFrom(url: string): Promise<AxiosResponse<any>> {
+    return await Request.put(url, this)
+      .name(this.$getSpinnerName('update'))
+      .asAny()
+      .getResponse()
+  }
+
+  async $removeFrom(url: string): Promise<AxiosResponse<any>> {
+    return await Request.delete(url)
+      .name(this.$getSpinnerName('remove'))
       .asAny()
       .getResponse()
   }

@@ -55,9 +55,8 @@ You may also get this package installed and ready-to-use by running our boilerpl
 * [Components](./docs/components.md)
 * [Schemas](./docs/schemas.md)
 * [Models](./docs/models.md)
-* [Requests and Resources](./docs/resources-and-requests.md)
+* [HTTP Requests](docs/http-requests.md)
 * [Collections](./docs/collections.md)
-* [Helpers](./docs/helpers.md)
 * [Extra Settings](./docs/extra-settings.md)
 
 ## [Documentation API](./typedocs/README.md)
