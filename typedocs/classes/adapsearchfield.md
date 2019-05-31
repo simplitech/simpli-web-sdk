@@ -30,7 +30,7 @@
 
 **● collection**: *[PageCollection](pagecollection.md)<[Resource](resource.md)>*
 
-*Defined in [components/adap/AdapSearchfield.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/adap/AdapSearchfield.ts#L18)*
+*Defined in [components/adap/AdapSearchfield.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapSearchfield.ts#L18)*
 
 ___
 <a id="debouncetimer"></a>
@@ -39,7 +39,7 @@ ___
 
 **● debounceTimer**: *`number`*
 
-*Defined in [components/adap/AdapSearchfield.ts:21](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/adap/AdapSearchfield.ts#L21)*
+*Defined in [components/adap/AdapSearchfield.ts:21](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapSearchfield.ts#L21)*
 
 ___
 <a id="spinner"></a>
@@ -48,7 +48,7 @@ ___
 
 **● spinner**: *`string`*
 
-*Defined in [components/adap/AdapSearchfield.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/adap/AdapSearchfield.ts#L24)*
+*Defined in [components/adap/AdapSearchfield.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapSearchfield.ts#L24)*
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 **get debounce**(): `fetch` & `Cancelable`
 
-*Defined in [components/adap/AdapSearchfield.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/adap/AdapSearchfield.ts#L26)*
+*Defined in [components/adap/AdapSearchfield.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapSearchfield.ts#L26)*
 
 **Returns:** `fetch` & `Cancelable`
 

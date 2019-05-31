@@ -28,7 +28,7 @@
 
 **● collection**: *[PageCollection](pagecollection.md)<[Resource](resource.md)>*
 
-*Defined in [components/mixins/MixinQueryRouter.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinQueryRouter.ts#L8)*
+*Defined in [components/mixins/MixinQueryRouter.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinQueryRouter.ts#L8)*
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 ▸ **query**(query?: *[QueryRouter](../interfaces/queryrouter.md)*): `Promise`<`undefined` \| `AxiosResponse`<[PageCollection](pagecollection.md)<[Resource](resource.md)>>>
 
-*Defined in [components/mixins/MixinQueryRouter.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinQueryRouter.ts#L10)*
+*Defined in [components/mixins/MixinQueryRouter.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinQueryRouter.ts#L10)*
 
 **Parameters:**
 

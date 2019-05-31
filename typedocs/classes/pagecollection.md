@@ -51,6 +51,7 @@
 * [all](pagecollection.md#all)
 * [allWithPlaceholder](pagecollection.md#allwithplaceholder)
 * [appendResource](pagecollection.md#appendresource)
+* [cleanFilters](pagecollection.md#cleanfilters)
 * [dataFrom](pagecollection.md#datafrom)
 * [downloadCsv](pagecollection.md#downloadcsv)
 * [first](pagecollection.md#first)
@@ -93,7 +94,7 @@
 
 *Overrides [ResourceCollection](resourcecollection.md).[constructor](resourcecollection.md#constructor)*
 
-*Defined in [app/collection/PageCollection.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L9)*
+*Defined in [app/collection/PageCollection.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L9)*
 
 **Parameters:**
 
@@ -113,7 +114,7 @@ ___
 
 **● asc**: *`boolean` \| `null`* =  null
 
-*Defined in [app/collection/PageCollection.ts:32](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L32)*
+*Defined in [app/collection/PageCollection.ts:32](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L32)*
 
 ___
 <a id="classtype"></a>
@@ -124,7 +125,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[classType](resourcecollection.md#classtype)*
 
-*Defined in [app/collection/ResourceCollection.ts:31](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L31)*
+*Defined in [app/collection/ResourceCollection.ts:31](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L31)*
 
 ___
 <a id="currentpage"></a>
@@ -133,7 +134,7 @@ ___
 
 **● currentPage**: *`number` \| `null`* =  PageCollection.defaultCurrentPage
 
-*Defined in [app/collection/PageCollection.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L23)*
+*Defined in [app/collection/PageCollection.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L23)*
 
 ___
 <a id="filters"></a>
@@ -144,7 +145,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[filters](resourcecollection.md#filters)*
 
-*Defined in [app/collection/ResourceCollection.ts:29](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L29)*
+*Defined in [app/collection/ResourceCollection.ts:29](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L29)*
 
 ___
 <a id="instance"></a>
@@ -155,7 +156,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[instance](resourcecollection.md#instance)*
 
-*Defined in [app/collection/ResourceCollection.ts:33](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L33)*
+*Defined in [app/collection/ResourceCollection.ts:33](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L33)*
 
 ___
 <a id="items"></a>
@@ -166,7 +167,7 @@ ___
 
 *Overrides [ResourceCollection](resourcecollection.md).[items](resourcecollection.md#items)*
 
-*Defined in [app/collection/PageCollection.ts:36](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L36)*
+*Defined in [app/collection/PageCollection.ts:36](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L36)*
 
 ___
 <a id="orderby"></a>
@@ -175,7 +176,7 @@ ___
 
 **● orderBy**: *`string` \| `null`* =  null
 
-*Defined in [app/collection/PageCollection.ts:29](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L29)*
+*Defined in [app/collection/PageCollection.ts:29](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L29)*
 
 ___
 <a id="perpage"></a>
@@ -184,7 +185,7 @@ ___
 
 **● perPage**: *`number` \| `null`* =  PageCollection.defaultPerPage
 
-*Defined in [app/collection/PageCollection.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L26)*
+*Defined in [app/collection/PageCollection.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L26)*
 
 ___
 <a id="search"></a>
@@ -193,7 +194,7 @@ ___
 
 **● search**: *`string` \| `null`* =  null
 
-*Defined in [app/collection/PageCollection.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L20)*
+*Defined in [app/collection/PageCollection.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L20)*
 
 ___
 <a id="total"></a>
@@ -202,7 +203,7 @@ ___
 
 **● total**: *`number` \| `null`* =  null
 
-*Defined in [app/collection/PageCollection.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L39)*
+*Defined in [app/collection/PageCollection.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L39)*
 
 ___
 <a id="defaultcurrentpage"></a>
@@ -211,7 +212,7 @@ ___
 
 **● defaultCurrentPage**: *`number`* = 0
 
-*Defined in [app/collection/PageCollection.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L16)*
+*Defined in [app/collection/PageCollection.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L16)*
 
 ___
 <a id="defaultminchartosearch"></a>
@@ -220,7 +221,7 @@ ___
 
 **● defaultMinCharToSearch**: *`number`* = 3
 
-*Defined in [app/collection/PageCollection.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L15)*
+*Defined in [app/collection/PageCollection.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L15)*
 
 ___
 <a id="defaultperpage"></a>
@@ -229,7 +230,7 @@ ___
 
 **● defaultPerPage**: *`number`* = 20
 
-*Defined in [app/collection/PageCollection.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L17)*
+*Defined in [app/collection/PageCollection.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L17)*
 
 ___
 
@@ -241,7 +242,7 @@ ___
 
 **get lastPage**(): `number`
 
-*Defined in [app/collection/PageCollection.ts:41](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L41)*
+*Defined in [app/collection/PageCollection.ts:41](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L41)*
 
 **Returns:** `number`
 
@@ -254,7 +255,7 @@ ___
 
 *Inherited from [Collection](collection.md).[lodash](collection.md#lodash)*
 
-*Defined in [app/collection/Collection.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L10)*
+*Defined in [app/collection/Collection.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L10)*
 
 **Returns:** `LoDashExplicitWrapper`<`T`[]>
 
@@ -267,7 +268,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[params](resourcecollection.md#params)*
 
-*Defined in [app/collection/ResourceCollection.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L35)*
+*Defined in [app/collection/ResourceCollection.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L35)*
 
 **Returns:** [Dictionary](../interfaces/dictionary.md)<`any`>
 
@@ -280,7 +281,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[spinnerName](resourcecollection.md#spinnername)*
 
-*Defined in [app/collection/ResourceCollection.ts:46](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L46)*
+*Defined in [app/collection/ResourceCollection.ts:46](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L46)*
 
 **Returns:** `string`
 
@@ -296,7 +297,7 @@ ___
 
 *Inherited from [Collection](collection.md).[add](collection.md#add)*
 
-*Defined in [app/collection/Collection.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L30)*
+*Defined in [app/collection/Collection.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L30)*
 
 **Parameters:**
 
@@ -316,7 +317,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[addFilter](resourcecollection.md#addfilter)*
 
-*Defined in [app/collection/ResourceCollection.ts:66](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L66)*
+*Defined in [app/collection/ResourceCollection.ts:66](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L66)*
 
 **Parameters:**
 
@@ -337,7 +338,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[addResource](resourcecollection.md#addresource)*
 
-*Defined in [app/collection/ResourceCollection.ts:99](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L99)*
+*Defined in [app/collection/ResourceCollection.ts:104](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L104)*
 
 **Parameters:**
 
@@ -358,7 +359,7 @@ ___
 
 *Inherited from [Collection](collection.md).[all](collection.md#all)*
 
-*Defined in [app/collection/Collection.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L14)*
+*Defined in [app/collection/Collection.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L14)*
 
 **Returns:** `T`[]
 
@@ -373,7 +374,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[allWithPlaceholder](resourcecollection.md#allwithplaceholder)*
 
-*Defined in [app/collection/ResourceCollection.ts:87](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L87)*
+*Defined in [app/collection/ResourceCollection.ts:92](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L92)*
 
 **Parameters:**
 
@@ -394,7 +395,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[appendResource](resourcecollection.md#appendresource)*
 
-*Defined in [app/collection/ResourceCollection.ts:116](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L116)*
+*Defined in [app/collection/ResourceCollection.ts:121](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L121)*
 
 **Parameters:**
 
@@ -402,6 +403,19 @@ ___
 | ------ | ------ |
 | id | [ID](../enums/lang.md#id) |
 | tag | [TAG](../#tag) |
+
+**Returns:** `this`
+
+___
+<a id="cleanfilters"></a>
+
+###  cleanFilters
+
+▸ **cleanFilters**(): `this`
+
+*Inherited from [ResourceCollection](resourcecollection.md).[cleanFilters](resourcecollection.md#cleanfilters)*
+
+*Defined in [app/collection/ResourceCollection.ts:71](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L71)*
 
 **Returns:** `this`
 
@@ -414,7 +428,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[dataFrom](resourcecollection.md#datafrom)*
 
-*Defined in [app/collection/ResourceCollection.ts:75](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L75)*
+*Defined in [app/collection/ResourceCollection.ts:80](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L80)*
 
 **Parameters:**
 
@@ -433,7 +447,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[downloadCsv](resourcecollection.md#downloadcsv)*
 
-*Defined in [app/collection/ResourceCollection.ts:79](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L79)*
+*Defined in [app/collection/ResourceCollection.ts:84](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L84)*
 
 **Parameters:**
 
@@ -453,7 +467,7 @@ ___
 
 *Inherited from [Collection](collection.md).[first](collection.md#first)*
 
-*Defined in [app/collection/Collection.ts:22](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L22)*
+*Defined in [app/collection/Collection.ts:22](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L22)*
 
 **Returns:** `T`
 
@@ -466,7 +480,7 @@ ___
 
 *Inherited from [Collection](collection.md).[get](collection.md#get)*
 
-*Defined in [app/collection/Collection.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L18)*
+*Defined in [app/collection/Collection.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L18)*
 
 **Parameters:**
 
@@ -487,7 +501,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[getManyResource](resourcecollection.md#getmanyresource)*
 
-*Defined in [app/collection/ResourceCollection.ts:95](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L95)*
+*Defined in [app/collection/ResourceCollection.ts:100](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L100)*
 
 **Parameters:**
 
@@ -508,7 +522,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[getResource](resourcecollection.md#getresource)*
 
-*Defined in [app/collection/ResourceCollection.ts:91](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L91)*
+*Defined in [app/collection/ResourceCollection.ts:96](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L96)*
 
 **Parameters:**
 
@@ -527,7 +541,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[headerFrom](resourcecollection.md#headerfrom)*
 
-*Defined in [app/collection/ResourceCollection.ts:71](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L71)*
+*Defined in [app/collection/ResourceCollection.ts:76](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L76)*
 
 **Parameters:**
 
@@ -546,7 +560,7 @@ ___
 
 *Inherited from [Collection](collection.md).[isEmpty](collection.md#isempty)*
 
-*Defined in [app/collection/Collection.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L49)*
+*Defined in [app/collection/Collection.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L49)*
 
 **Returns:** `boolean`
 
@@ -559,7 +573,7 @@ ___
 
 *Inherited from [Collection](collection.md).[isNotEmpty](collection.md#isnotempty)*
 
-*Defined in [app/collection/Collection.ts:53](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L53)*
+*Defined in [app/collection/Collection.ts:53](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L53)*
 
 **Returns:** `boolean`
 
@@ -572,7 +586,7 @@ ___
 
 *Inherited from [Collection](collection.md).[last](collection.md#last)*
 
-*Defined in [app/collection/Collection.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L26)*
+*Defined in [app/collection/Collection.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L26)*
 
 **Returns:** `T`
 
@@ -587,7 +601,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[prependNullResource](resourcecollection.md#prependnullresource)*
 
-*Defined in [app/collection/ResourceCollection.ts:112](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L112)*
+*Defined in [app/collection/ResourceCollection.ts:117](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L117)*
 
 **Parameters:**
 
@@ -609,7 +623,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[prependResource](resourcecollection.md#prependresource)*
 
-*Defined in [app/collection/ResourceCollection.ts:107](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L107)*
+*Defined in [app/collection/ResourceCollection.ts:112](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L112)*
 
 **Parameters:**
 
@@ -629,7 +643,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[queryAs](resourcecollection.md#queryas)*
 
-*Defined in [app/collection/ResourceCollection.ts:58](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L58)*
+*Defined in [app/collection/ResourceCollection.ts:58](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L58)*
 
 **Type parameters:**
 
@@ -651,7 +665,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[queryAsArray](resourcecollection.md#queryasarray)*
 
-*Defined in [app/collection/ResourceCollection.ts:50](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L50)*
+*Defined in [app/collection/ResourceCollection.ts:50](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L50)*
 
 **Returns:** `Promise`<`AxiosResponse`<`R`[]>>
 
@@ -662,7 +676,7 @@ ___
 
 ▸ **queryAsPage**(): `Promise`<`AxiosResponse`<`this`>>
 
-*Defined in [app/collection/PageCollection.ts:74](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L74)*
+*Defined in [app/collection/PageCollection.ts:74](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L74)*
 
 **Returns:** `Promise`<`AxiosResponse`<`this`>>
 
@@ -673,7 +687,7 @@ ___
 
 ▸ **queryCurrentPage**(val: *`number`*): `Promise`<`AxiosResponse`<`this`>>
 
-*Defined in [app/collection/PageCollection.ts:100](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L100)*
+*Defined in [app/collection/PageCollection.ts:100](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L100)*
 
 **Parameters:**
 
@@ -690,7 +704,7 @@ ___
 
 ▸ **queryNextPage**(): `Promise`<`AxiosResponse`<`this`> \| `void`>
 
-*Defined in [app/collection/PageCollection.ts:117](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L117)*
+*Defined in [app/collection/PageCollection.ts:117](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L117)*
 
 **Returns:** `Promise`<`AxiosResponse`<`this`> \| `void`>
 
@@ -701,7 +715,7 @@ ___
 
 ▸ **queryOrderBy**(column: *`string`*): `Promise`<`AxiosResponse`<`this`>>
 
-*Defined in [app/collection/PageCollection.ts:90](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L90)*
+*Defined in [app/collection/PageCollection.ts:90](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L90)*
 
 **Parameters:**
 
@@ -718,7 +732,7 @@ ___
 
 ▸ **queryPrevPage**(): `Promise`<`AxiosResponse`<`this`> \| `void`>
 
-*Defined in [app/collection/PageCollection.ts:109](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L109)*
+*Defined in [app/collection/PageCollection.ts:109](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L109)*
 
 **Returns:** `Promise`<`AxiosResponse`<`this`> \| `void`>
 
@@ -729,7 +743,7 @@ ___
 
 ▸ **querySearch**(): `Promise`<`AxiosResponse`<`this`> \| `void`>
 
-*Defined in [app/collection/PageCollection.ts:82](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L82)*
+*Defined in [app/collection/PageCollection.ts:82](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L82)*
 
 **Returns:** `Promise`<`AxiosResponse`<`this`> \| `void`>
 
@@ -742,7 +756,7 @@ ___
 
 *Inherited from [Collection](collection.md).[remove](collection.md#remove)*
 
-*Defined in [app/collection/Collection.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L38)*
+*Defined in [app/collection/Collection.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L38)*
 
 **Parameters:**
 
@@ -763,7 +777,7 @@ ___
 
 *Inherited from [ResourceCollection](resourcecollection.md).[removeResource](resourcecollection.md#removeresource)*
 
-*Defined in [app/collection/ResourceCollection.ts:103](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/ResourceCollection.ts#L103)*
+*Defined in [app/collection/ResourceCollection.ts:108](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/ResourceCollection.ts#L108)*
 
 **Parameters:**
 
@@ -780,7 +794,7 @@ ___
 
 ▸ **setAsc**(val: *`boolean` \| `null`*): `this`
 
-*Defined in [app/collection/PageCollection.ts:69](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L69)*
+*Defined in [app/collection/PageCollection.ts:69](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L69)*
 
 **Parameters:**
 
@@ -797,7 +811,7 @@ ___
 
 ▸ **setCurrentPage**(val: *`number` \| `null`*): `this`
 
-*Defined in [app/collection/PageCollection.ts:54](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L54)*
+*Defined in [app/collection/PageCollection.ts:54](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L54)*
 
 **Parameters:**
 
@@ -814,7 +828,7 @@ ___
 
 ▸ **setOrderBy**(val: *`string` \| `null`*): `this`
 
-*Defined in [app/collection/PageCollection.ts:64](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L64)*
+*Defined in [app/collection/PageCollection.ts:64](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L64)*
 
 **Parameters:**
 
@@ -831,7 +845,7 @@ ___
 
 ▸ **setPerPage**(val: *`number` \| `null`*): `this`
 
-*Defined in [app/collection/PageCollection.ts:59](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L59)*
+*Defined in [app/collection/PageCollection.ts:59](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L59)*
 
 **Parameters:**
 
@@ -848,7 +862,7 @@ ___
 
 ▸ **setSearch**(val: *`string` \| `null`*): `this`
 
-*Defined in [app/collection/PageCollection.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L49)*
+*Defined in [app/collection/PageCollection.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L49)*
 
 **Parameters:**
 
@@ -867,7 +881,7 @@ ___
 
 *Inherited from [Collection](collection.md).[size](collection.md#size)*
 
-*Defined in [app/collection/Collection.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L45)*
+*Defined in [app/collection/Collection.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L45)*
 
 **Returns:** `number`
 
@@ -878,7 +892,7 @@ ___
 
 ▸ **whole**(): `this`
 
-*Defined in [app/collection/PageCollection.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/PageCollection.ts#L45)*
+*Defined in [app/collection/PageCollection.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/PageCollection.ts#L45)*
 
 **Returns:** `this`
 

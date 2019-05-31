@@ -10,8 +10,6 @@
 * [FileFormat](enums/fileformat.md)
 * [HttpStatus](enums/httpstatus.md)
 * [Lang](enums/lang.md)
-* [State](enums/state.md)
-* [View](enums/view.md)
 
 ### Classes
 
@@ -76,7 +74,6 @@
 * [IResource](interfaces/iresource.md)
 * [IResourceCollection](interfaces/iresourcecollection.md)
 * [ISchema](interfaces/ischema.md)
-* [Loader](interfaces/loader.md)
 * [LocaleOptions](interfaces/localeoptions.md)
 * [MaskToken](interfaces/masktoken.md)
 * [QueryRouter](interfaces/queryrouter.md)
@@ -93,7 +90,6 @@
 
 ### Type aliases
 
-* [CP](#cp)
 * [ClassType](#classtype)
 * [EnumType](#enumtype)
 * [FieldContent](#fieldcontent)
@@ -109,7 +105,6 @@
 
 ### Variables
 
-* [Event](#event)
 * [classToClass](#classtoclass)
 * [classToClassFromExist](#classtoclassfromexist)
 * [classToPlain](#classtoplain)
@@ -179,22 +174,13 @@
 
 ## Type aliases
 
-<a id="cp"></a>
-
-###  CP
-
-**Ƭ CP**: *`Comp`<`any`, `any`, `any`, `any`> \| `AsyncComp`<`any`, `any`, `any`, `any`>*
-
-*Defined in [components/utils/Await.ts:28](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Await.ts#L28)*
-
-___
 <a id="classtype"></a>
 
 ###  ClassType
 
 **Ƭ ClassType**: *`object`*
 
-*Defined in [interfaces/general.interface.ts:1](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L1)*
+*Defined in [interfaces/general.interface.ts:1](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/general.interface.ts#L1)*
 
 #### Type declaration
 
@@ -205,7 +191,7 @@ ___
 
 **Ƭ EnumType**: *`Record`<`keyof E`, `number` \| `string`> & `object`*
 
-*Defined in [interfaces/general.interface.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L7)*
+*Defined in [interfaces/general.interface.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/general.interface.ts#L7)*
 
 ___
 <a id="fieldcontent"></a>
@@ -214,7 +200,7 @@ ___
 
 **Ƭ FieldContent**: *[FieldComponent](interfaces/fieldcomponent.md) \| [FieldData](#fielddata)*
 
-*Defined in [interfaces/schema.interface.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L25)*
+*Defined in [interfaces/schema.interface.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L25)*
 
 ___
 <a id="fieldcontroller"></a>
@@ -223,7 +209,7 @@ ___
 
 **Ƭ FieldController**: *`function`*
 
-*Defined in [interfaces/schema.interface.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L23)*
+*Defined in [interfaces/schema.interface.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L23)*
 
 #### Type declaration
 ▸(schema: *[SchemaResult](interfaces/schemaresult.md)<`M`>*): [FieldContent](#fieldcontent)
@@ -243,7 +229,7 @@ ___
 
 **Ƭ FieldData**: *`string` \| `number` \| `null`*
 
-*Defined in [interfaces/schema.interface.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L27)*
+*Defined in [interfaces/schema.interface.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L27)*
 
 ___
 <a id="fieldvalidation"></a>
@@ -252,7 +238,7 @@ ___
 
 **Ƭ FieldValidation**: *`FieldValidation<V>`*
 
-*Defined in [interfaces/schema.interface.ts:37](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L37)*
+*Defined in [interfaces/schema.interface.ts:37](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L37)*
 
 ___
 <a id="id"></a>
@@ -261,7 +247,7 @@ ___
 
 **Ƭ ID**: *`number` \| `string`*
 
-*Defined in [interfaces/resource.interface.ts:3](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/resource.interface.ts#L3)*
+*Defined in [interfaces/resource.interface.ts:3](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/resource.interface.ts#L3)*
 
 ___
 <a id="inputtype"></a>
@@ -270,7 +256,7 @@ ___
 
 **Ƭ InputType**: *`string` \| `number` \| `null`*
 
-*Defined in [interfaces/general.interface.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L9)*
+*Defined in [interfaces/general.interface.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/general.interface.ts#L9)*
 
 ___
 <a id="normalizeditem"></a>
@@ -279,7 +265,7 @@ ___
 
 **Ƭ NormalizedItem**: *`Record`<`keyof B`, `string`> & `object`*
 
-*Defined in [interfaces/general.interface.ts:34](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L34)*
+*Defined in [interfaces/general.interface.ts:34](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/general.interface.ts#L34)*
 
 ___
 <a id="queryfilter"></a>
@@ -288,7 +274,7 @@ ___
 
 **Ƭ QueryFilter**: *[Dictionary](interfaces/dictionary.md)<`any`>*
 
-*Defined in [interfaces/general.interface.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L15)*
+*Defined in [interfaces/general.interface.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/general.interface.ts#L15)*
 
 ___
 <a id="responsetype"></a>
@@ -297,7 +283,7 @@ ___
 
 **Ƭ ResponseType**: *[ClassType](#classtype)<`T`> \| `T`*
 
-*Defined in [interfaces/general.interface.ts:5](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L5)*
+*Defined in [interfaces/general.interface.ts:5](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/general.interface.ts#L5)*
 
 ___
 <a id="tag"></a>
@@ -306,30 +292,19 @@ ___
 
 **Ƭ TAG**: *`string`*
 
-*Defined in [interfaces/resource.interface.ts:5](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/resource.interface.ts#L5)*
+*Defined in [interfaces/resource.interface.ts:5](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/resource.interface.ts#L5)*
 
 ___
 
 ## Variables
 
-<a id="event"></a>
-
-### `<Const>` Event
-
-**● Event**: *`object` & `object` & `Vue`* =  new Vue()
-
-*Defined in [components/utils/Await.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Await.ts#L39)*
-*Defined in [components/utils/Modal.ts:29](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Modal.ts#L29)*
-*Defined in [components/utils/Tip.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/utils/Tip.ts#L15)*
-
-___
 <a id="classtoclass"></a>
 
 ### `<Const>` classToClass
 
 **● classToClass**: *`classToClass`* =  ClassTransformer.classToClass
 
-*Defined in [helpers/transform.helper.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/transform.helper.ts#L30)*
+*Defined in [helpers/transform.helper.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/transform.helper.ts#L30)*
 
 Converts class (constructor) object to new class (constructor) object. Also works with arrays.
 
@@ -340,7 +315,7 @@ ___
 
 **● classToClassFromExist**: *`classToClassFromExist`* =  ClassTransformer.classToClassFromExist
 
-*Defined in [helpers/transform.helper.ts:37](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/transform.helper.ts#L37)*
+*Defined in [helpers/transform.helper.ts:37](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/transform.helper.ts#L37)*
 
 Converts class (constructor) object to plain (literal) object. Uses given plain object as source object (it means fills given plain object with data from class object). Also works with arrays.
 
@@ -351,7 +326,7 @@ ___
 
 **● classToPlain**: *`classToPlain`* =  ClassTransformer.classToPlain
 
-*Defined in [helpers/transform.helper.ts:6](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/transform.helper.ts#L6)*
+*Defined in [helpers/transform.helper.ts:6](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/transform.helper.ts#L6)*
 
 Converts class (constructor) object to plain (literal) object. Also works with arrays.
 
@@ -362,7 +337,7 @@ ___
 
 **● classToPlainFromExist**: *`classToPlainFromExist`* =  ClassTransformer.classToPlainFromExist
 
-*Defined in [helpers/transform.helper.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/transform.helper.ts#L13)*
+*Defined in [helpers/transform.helper.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/transform.helper.ts#L13)*
 
 Converts class (constructor) object to plain (literal) object. Uses given plain object as source object (it means fills given plain object with data from class object). Also works with arrays.
 
@@ -373,7 +348,7 @@ ___
 
 **● deserialize**: *`deserialize`* =  ClassTransformer.deserialize
 
-*Defined in [helpers/transform.helper.ts:47](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/transform.helper.ts#L47)*
+*Defined in [helpers/transform.helper.ts:47](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/transform.helper.ts#L47)*
 
 Deserializes given JSON string to a object of the given class.
 
@@ -384,7 +359,7 @@ ___
 
 **● deserializeArray**: *`deserializeArray`* =  ClassTransformer.deserializeArray
 
-*Defined in [helpers/transform.helper.ts:52](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/transform.helper.ts#L52)*
+*Defined in [helpers/transform.helper.ts:52](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/transform.helper.ts#L52)*
 
 Deserializes given JSON string to an array of objects of the given class.
 
@@ -395,7 +370,7 @@ ___
 
 **● plainToClass**: *`plainToClass`* =  ClassTransformer.plainToClass
 
-*Defined in [helpers/transform.helper.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/transform.helper.ts#L18)*
+*Defined in [helpers/transform.helper.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/transform.helper.ts#L18)*
 
 Converts plain (literal) object to class (constructor) object. Also works with arrays.
 
@@ -406,7 +381,7 @@ ___
 
 **● plainToClassFromExist**: *`plainToClassFromExist`* =  ClassTransformer.plainToClassFromExist
 
-*Defined in [helpers/transform.helper.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/transform.helper.ts#L25)*
+*Defined in [helpers/transform.helper.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/transform.helper.ts#L25)*
 
 Converts plain (literal) object to class (constructor) object. Uses given object as source object (it means fills given object with data from plain object). Also works with arrays.
 
@@ -417,7 +392,7 @@ ___
 
 **● serialize**: *`serialize`* =  ClassTransformer.serialize
 
-*Defined in [helpers/transform.helper.ts:42](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/transform.helper.ts#L42)*
+*Defined in [helpers/transform.helper.ts:42](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/transform.helper.ts#L42)*
 
 Serializes given object to a JSON string.
 
@@ -431,7 +406,7 @@ ___
 
 ▸ **HttpExclude**(): `function`
 
-*Defined in [decorators/http.decorator.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/decorators/http.decorator.ts#L27)*
+*Defined in [decorators/http.decorator.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/decorators/http.decorator.ts#L27)*
 
 **Returns:** `function`
 
@@ -442,7 +417,7 @@ ___
 
 ▸ **HttpExpose**(name?: *`undefined` \| `string`*): `function`
 
-*Defined in [decorators/http.decorator.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/decorators/http.decorator.ts#L15)*
+*Defined in [decorators/http.decorator.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/decorators/http.decorator.ts#L15)*
 
 **Parameters:**
 
@@ -459,7 +434,7 @@ ___
 
 ▸ **RequestExclude**(): `function`
 
-*Defined in [decorators/http.decorator.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/decorators/http.decorator.ts#L19)*
+*Defined in [decorators/http.decorator.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/decorators/http.decorator.ts#L19)*
 
 **Returns:** `function`
 
@@ -470,7 +445,7 @@ ___
 
 ▸ **RequestExpose**(name?: *`undefined` \| `string`*): `function`
 
-*Defined in [decorators/http.decorator.ts:11](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/decorators/http.decorator.ts#L11)*
+*Defined in [decorators/http.decorator.ts:11](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/decorators/http.decorator.ts#L11)*
 
 **Parameters:**
 
@@ -487,7 +462,7 @@ ___
 
 ▸ **ResponseExclude**(): `function`
 
-*Defined in [decorators/http.decorator.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/decorators/http.decorator.ts#L23)*
+*Defined in [decorators/http.decorator.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/decorators/http.decorator.ts#L23)*
 
 **Returns:** `function`
 
@@ -498,7 +473,7 @@ ___
 
 ▸ **ResponseExpose**(name?: *`undefined` \| `string`*): `function`
 
-*Defined in [decorators/http.decorator.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/decorators/http.decorator.ts#L7)*
+*Defined in [decorators/http.decorator.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/decorators/http.decorator.ts#L7)*
 
 **Parameters:**
 
@@ -515,7 +490,7 @@ ___
 
 ▸ **ResponseSerialize**(func: *`Function`*): `function`
 
-*Defined in [decorators/http.decorator.ts:3](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/decorators/http.decorator.ts#L3)*
+*Defined in [decorators/http.decorator.ts:3](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/decorators/http.decorator.ts#L3)*
 
 **Parameters:**
 
@@ -532,7 +507,7 @@ ___
 
 ▸ **abort**(body: *`string`*, title?: *`undefined` \| `string`*, useI18n?: *`boolean`*, config?: *`SnotifyToastConfig`*): `void`
 
-*Defined in [helpers/toast.helper.ts:41](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/toast.helper.ts#L41)*
+*Defined in [helpers/toast.helper.ts:41](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/toast.helper.ts#L41)*
 
 **Parameters:**
 
@@ -552,7 +527,7 @@ ___
 
 ▸ **addResource**<`R`>(list: *`Array`<`R` \| [IResource](interfaces/iresource.md)>*, item: *`R` \| [IResource](interfaces/iresource.md)*, index?: *`undefined` \| `number`*): `void`
 
-*Defined in [helpers/resource.helper.ts:43](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/resource.helper.ts#L43)*
+*Defined in [helpers/resource.helper.ts:43](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/resource.helper.ts#L43)*
 
 **Type parameters:**
 
@@ -574,7 +549,7 @@ ___
 
 ▸ **allWithPlaceholder**<`R`>(list: *`Array`<`R` \| [IResource](interfaces/iresource.md)>*, placeholder?: *`string` \| `null`*): `Array`<`R` \| [IResource](interfaces/iresource.md) \| `null`>
 
-*Defined in [helpers/resource.helper.ts:5](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/resource.helper.ts#L5)*
+*Defined in [helpers/resource.helper.ts:5](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/resource.helper.ts#L5)*
 
 **Type parameters:**
 
@@ -595,7 +570,7 @@ ___
 
 ▸ **appendResource**<`R`>(list: *`Array`<`R` \| [IResource](interfaces/iresource.md)>*, item: *`R` \| [IResource](interfaces/iresource.md)*): `Array`<`R` \| [IResource](interfaces/iresource.md)>
 
-*Defined in [helpers/resource.helper.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/resource.helper.ts#L35)*
+*Defined in [helpers/resource.helper.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/resource.helper.ts#L35)*
 
 **Type parameters:**
 
@@ -616,7 +591,7 @@ ___
 
 ▸ **bool**(val?: *`boolean` \| `null`*): `string`
 
-*Defined in [helpers/filter.helper.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/filter.helper.ts#L8)*
+*Defined in [helpers/filter.helper.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/filter.helper.ts#L8)*
 
 **Parameters:**
 
@@ -633,7 +608,7 @@ ___
 
 ▸ **buildResource**($id: *[ID](enums/lang.md#id)*, $tag: *[TAG](#tag)*): [IResource](interfaces/iresource.md)
 
-*Defined in [helpers/utils.helper.ts:21](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/utils.helper.ts#L21)*
+*Defined in [helpers/utils.helper.ts:21](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/utils.helper.ts#L21)*
 
 **Parameters:**
 
@@ -651,7 +626,7 @@ ___
 
 ▸ **clone**<`T`>(fromEntity: *`T`*): `T`
 
-*Defined in [helpers/utils.helper.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/utils.helper.ts#L17)*
+*Defined in [helpers/utils.helper.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/utils.helper.ts#L17)*
 
 **Type parameters:**
 
@@ -671,7 +646,7 @@ ___
 
 ▸ **cnpj**(val?: *`string` \| `number` \| `null`*): `string`
 
-*Defined in [helpers/filter.helper.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/filter.helper.ts#L48)*
+*Defined in [helpers/filter.helper.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/filter.helper.ts#L48)*
 
 **Parameters:**
 
@@ -688,7 +663,7 @@ ___
 
 ▸ **copyToClipboard**(text: *`string`*): `void`
 
-*Defined in [helpers/utils.helper.ts:100](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/utils.helper.ts#L100)*
+*Defined in [helpers/utils.helper.ts:100](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/utils.helper.ts#L100)*
 
 **Parameters:**
 
@@ -705,7 +680,7 @@ ___
 
 ▸ **cpf**(val?: *`string` \| `number` \| `null`*): `string`
 
-*Defined in [helpers/filter.helper.ts:44](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/filter.helper.ts#L44)*
+*Defined in [helpers/filter.helper.ts:44](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/filter.helper.ts#L44)*
 
 **Parameters:**
 
@@ -722,7 +697,7 @@ ___
 
 ▸ **cpfOrCnpj**(val?: *`string` \| `number` \| `null`*): `string`
 
-*Defined in [helpers/filter.helper.ts:52](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/filter.helper.ts#L52)*
+*Defined in [helpers/filter.helper.ts:52](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/filter.helper.ts#L52)*
 
 **Parameters:**
 
@@ -739,7 +714,7 @@ ___
 
 ▸ **createCsvFile**(filename: *`string`*, csvStr: *`string`*): `void`
 
-*Defined in [helpers/utils.helper.ts:31](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/utils.helper.ts#L31)*
+*Defined in [helpers/utils.helper.ts:31](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/utils.helper.ts#L31)*
 
 **Parameters:**
 
@@ -757,7 +732,7 @@ ___
 
 ▸ **csvToData**(urlOrFile: *`string` \| `File`*): `Promise`<`ParseResult`>
 
-*Defined in [helpers/utils.helper.ts:58](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/utils.helper.ts#L58)*
+*Defined in [helpers/utils.helper.ts:58](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/utils.helper.ts#L58)*
 
 **Parameters:**
 
@@ -774,7 +749,7 @@ ___
 
 ▸ **csvToNormalizedData**<`T`>(urlOrFile: *`string` \| `File`*, blueprint: *`T`*): `Promise`<`Array`<[NormalizedItem](#normalizeditem)<`T`>>>
 
-*Defined in [helpers/utils.helper.ts:50](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/utils.helper.ts#L50)*
+*Defined in [helpers/utils.helper.ts:50](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/utils.helper.ts#L50)*
 
 **Type parameters:**
 
@@ -795,7 +770,7 @@ ___
 
 ▸ **date**(date?: *`string` \| `Date` \| `Moment` \| `null`*): `string`
 
-*Defined in [helpers/filter.helper.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/filter.helper.ts#L16)*
+*Defined in [helpers/filter.helper.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/filter.helper.ts#L16)*
 
 **Parameters:**
 
@@ -812,7 +787,7 @@ ___
 
 ▸ **datetime**(date?: *`string` \| `Date` \| `Moment` \| `null`*): `string`
 
-*Defined in [helpers/filter.helper.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/filter.helper.ts#L12)*
+*Defined in [helpers/filter.helper.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/filter.helper.ts#L12)*
 
 **Parameters:**
 
@@ -829,7 +804,7 @@ ___
 
 ▸ **error**(body: *`string`*, title?: *`undefined` \| `string`*, useI18n?: *`boolean`*, config?: *`SnotifyToastConfig`*): `void`
 
-*Defined in [helpers/toast.helper.ts:21](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/toast.helper.ts#L21)*
+*Defined in [helpers/toast.helper.ts:21](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/toast.helper.ts#L21)*
 
 **Parameters:**
 
@@ -849,7 +824,7 @@ ___
 
 ▸ **errorAndPush**(body: *`string`*, uri: *`string`*, title?: *`undefined` \| `string`*, useI18n?: *`boolean`*, config?: *`SnotifyToastConfig`*): `void`
 
-*Defined in [helpers/toast.helper.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/toast.helper.ts#L30)*
+*Defined in [helpers/toast.helper.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/toast.helper.ts#L30)*
 
 **Parameters:**
 
@@ -870,7 +845,7 @@ ___
 
 ▸ **errorValidation**(message: *`string`*): `void`
 
-*Defined in [helpers/toast.helper.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/toast.helper.ts#L26)*
+*Defined in [helpers/toast.helper.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/toast.helper.ts#L26)*
 
 **Parameters:**
 
@@ -887,7 +862,7 @@ ___
 
 ▸ **getManyResource**<`R`>(list: *`Array`<`R` \| [IResource](interfaces/iresource.md)>*, ids: *[ID](enums/lang.md#id)[]*): `Array`<`R` \| [IResource](interfaces/iresource.md)>
 
-*Defined in [helpers/resource.helper.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/resource.helper.ts#L23)*
+*Defined in [helpers/resource.helper.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/resource.helper.ts#L23)*
 
 **Type parameters:**
 
@@ -908,7 +883,7 @@ ___
 
 ▸ **getResource**<`R`>(list: *`Array`<`R` \| [IResource](interfaces/iresource.md)>*, id: *[ID](enums/lang.md#id) \| `null`*): `R` \| [IResource](interfaces/iresource.md) \| `null`
 
-*Defined in [helpers/resource.helper.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/resource.helper.ts#L19)*
+*Defined in [helpers/resource.helper.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/resource.helper.ts#L19)*
 
 **Type parameters:**
 
@@ -929,7 +904,7 @@ ___
 
 ▸ **historyBack**(): `void`
 
-*Defined in [helpers/router.helper.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/router.helper.ts#L24)*
+*Defined in [helpers/router.helper.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/router.helper.ts#L24)*
 
 **Returns:** `void`
 
@@ -940,7 +915,7 @@ ___
 
 ▸ **info**(body: *`string`*, title?: *`undefined` \| `string`*, useI18n?: *`boolean`*, config?: *`SnotifyToastConfig`*): `void`
 
-*Defined in [helpers/toast.helper.ts:62](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/toast.helper.ts#L62)*
+*Defined in [helpers/toast.helper.ts:62](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/toast.helper.ts#L62)*
 
 **Parameters:**
 
@@ -960,7 +935,7 @@ ___
 
 ▸ **infoAndPush**(body: *`string`*, uri: *`string`*, title?: *`undefined` \| `string`*, useI18n?: *`boolean`*, config?: *`SnotifyToastConfig`*): `void`
 
-*Defined in [helpers/toast.helper.ts:67](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/toast.helper.ts#L67)*
+*Defined in [helpers/toast.helper.ts:67](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/toast.helper.ts#L67)*
 
 **Parameters:**
 
@@ -981,7 +956,7 @@ ___
 
 ▸ **listObject**(obj: *[Dictionary](interfaces/dictionary.md)<[ID](enums/lang.md#id)>*, i18nPath?: *`undefined` \| `string`*): [IResource](interfaces/iresource.md)[]
 
-*Defined in [helpers/utils.helper.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/utils.helper.ts#L25)*
+*Defined in [helpers/utils.helper.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/utils.helper.ts#L25)*
 
 **Parameters:**
 
@@ -999,7 +974,7 @@ ___
 
 ▸ **normalizeData**<`T`>(data: *`any`[]*, blueprint: *`T`*): `Array`<[NormalizedItem](#normalizeditem)<`T`>>
 
-*Defined in [helpers/utils.helper.ts:77](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/utils.helper.ts#L77)*
+*Defined in [helpers/utils.helper.ts:77](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/utils.helper.ts#L77)*
 
 **Type parameters:**
 
@@ -1020,7 +995,7 @@ ___
 
 ▸ **openUrl**(url: *`string`*, targetBlank?: *`undefined` \| `false` \| `true`*): `null` \| `Window`
 
-*Defined in [helpers/router.helper.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/router.helper.ts#L20)*
+*Defined in [helpers/router.helper.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/router.helper.ts#L20)*
 
 **Parameters:**
 
@@ -1038,7 +1013,7 @@ ___
 
 ▸ **pad**(val?: *`string` \| `number` \| `null`*, length?: *`undefined` \| `number`*): `string`
 
-*Defined in [helpers/filter.helper.ts:56](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/filter.helper.ts#L56)*
+*Defined in [helpers/filter.helper.ts:56](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/filter.helper.ts#L56)*
 
 **Parameters:**
 
@@ -1056,7 +1031,7 @@ ___
 
 ▸ **phone**(val?: *`string` \| `number` \| `null`*): `string`
 
-*Defined in [helpers/filter.helper.ts:32](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/filter.helper.ts#L32)*
+*Defined in [helpers/filter.helper.ts:32](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/filter.helper.ts#L32)*
 
 **Parameters:**
 
@@ -1073,7 +1048,7 @@ ___
 
 ▸ **prependResource**<`R`>(list: *`Array`<`R` \| [IResource](interfaces/iresource.md)>*, item: *`R` \| [IResource](interfaces/iresource.md)*): `Array`<`R` \| [IResource](interfaces/iresource.md)>
 
-*Defined in [helpers/resource.helper.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/resource.helper.ts#L27)*
+*Defined in [helpers/resource.helper.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/resource.helper.ts#L27)*
 
 **Type parameters:**
 
@@ -1094,7 +1069,7 @@ ___
 
 ▸ **push**(uri: *`string`*): `void`
 
-*Defined in [helpers/router.helper.ts:4](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/router.helper.ts#L4)*
+*Defined in [helpers/router.helper.ts:4](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/router.helper.ts#L4)*
 
 **Parameters:**
 
@@ -1111,7 +1086,7 @@ ___
 
 ▸ **pushByName**(name: *`string`*, ...ids: *[ID](enums/lang.md#id)[]*): `void`
 
-*Defined in [helpers/router.helper.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/router.helper.ts#L8)*
+*Defined in [helpers/router.helper.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/router.helper.ts#L8)*
 
 **Parameters:**
 
@@ -1129,7 +1104,7 @@ ___
 
 ▸ **removeDelimiters**(val?: *`string` \| `number` \| `null`*): `string`
 
-*Defined in [helpers/filter.helper.ts:28](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/filter.helper.ts#L28)*
+*Defined in [helpers/filter.helper.ts:28](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/filter.helper.ts#L28)*
 
 **Parameters:**
 
@@ -1146,7 +1121,7 @@ ___
 
 ▸ **removeResource**<`R`>(list: *`Array`<`R` \| [IResource](interfaces/iresource.md)>*, id: *[ID](enums/lang.md#id)*): `void`
 
-*Defined in [helpers/resource.helper.ts:51](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/resource.helper.ts#L51)*
+*Defined in [helpers/resource.helper.ts:51](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/resource.helper.ts#L51)*
 
 **Type parameters:**
 
@@ -1167,7 +1142,7 @@ ___
 
 ▸ **rg**(val?: *`string` \| `number` \| `null`*): `string`
 
-*Defined in [helpers/filter.helper.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/filter.helper.ts#L40)*
+*Defined in [helpers/filter.helper.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/filter.helper.ts#L40)*
 
 **Parameters:**
 
@@ -1184,7 +1159,7 @@ ___
 
 ▸ **sleep**(ms: *`number`*): `Promise`<`Object`>
 
-*Defined in [helpers/utils.helper.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/utils.helper.ts#L13)*
+*Defined in [helpers/utils.helper.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/utils.helper.ts#L13)*
 
 **Parameters:**
 
@@ -1201,7 +1176,7 @@ ___
 
 ▸ **success**(body: *`string`*, title?: *`undefined` \| `string`*, useI18n?: *`boolean`*, config?: *`SnotifyToastConfig`*): `void`
 
-*Defined in [helpers/toast.helper.ts:5](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/toast.helper.ts#L5)*
+*Defined in [helpers/toast.helper.ts:5](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/toast.helper.ts#L5)*
 
 **Parameters:**
 
@@ -1221,7 +1196,7 @@ ___
 
 ▸ **successAndPush**(body: *`string`*, uri: *`string`*, title?: *`undefined` \| `string`*, useI18n?: *`boolean`*, config?: *`SnotifyToastConfig`*): `void`
 
-*Defined in [helpers/toast.helper.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/toast.helper.ts#L10)*
+*Defined in [helpers/toast.helper.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/toast.helper.ts#L10)*
 
 **Parameters:**
 
@@ -1242,7 +1217,7 @@ ___
 
 ▸ **time**(date?: *`string` \| `Date` \| `Moment` \| `null`*): `string`
 
-*Defined in [helpers/filter.helper.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/filter.helper.ts#L20)*
+*Defined in [helpers/filter.helper.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/filter.helper.ts#L20)*
 
 **Parameters:**
 
@@ -1259,7 +1234,7 @@ ___
 
 ▸ **toString**(val?: *`string` \| `number` \| `null`*): `string`
 
-*Defined in [helpers/filter.helper.ts:4](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/filter.helper.ts#L4)*
+*Defined in [helpers/filter.helper.ts:4](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/filter.helper.ts#L4)*
 
 **Parameters:**
 
@@ -1276,7 +1251,7 @@ ___
 
 ▸ **truncate**(val?: *`string` \| `number` \| `null`*, length?: *`undefined` \| `number`*): `string`
 
-*Defined in [helpers/filter.helper.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/filter.helper.ts#L24)*
+*Defined in [helpers/filter.helper.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/filter.helper.ts#L24)*
 
 **Parameters:**
 
@@ -1294,7 +1269,7 @@ ___
 
 ▸ **uid**(prefix?: *`undefined` \| `string`*, suffix?: *`undefined` \| `string`*): `string`
 
-*Defined in [helpers/utils.helper.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/utils.helper.ts#L9)*
+*Defined in [helpers/utils.helper.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/utils.helper.ts#L9)*
 
 **Parameters:**
 
@@ -1312,7 +1287,7 @@ ___
 
 ▸ **warning**(body: *`string`*, title?: *`undefined` \| `string`*, useI18n?: *`boolean`*, config?: *`SnotifyToastConfig`*): `void`
 
-*Defined in [helpers/toast.helper.ts:46](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/toast.helper.ts#L46)*
+*Defined in [helpers/toast.helper.ts:46](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/toast.helper.ts#L46)*
 
 **Parameters:**
 
@@ -1332,7 +1307,7 @@ ___
 
 ▸ **warningAndPush**(body: *`string`*, uri: *`string`*, title?: *`undefined` \| `string`*, useI18n?: *`boolean`*, config?: *`SnotifyToastConfig`*): `void`
 
-*Defined in [helpers/toast.helper.ts:51](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/toast.helper.ts#L51)*
+*Defined in [helpers/toast.helper.ts:51](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/toast.helper.ts#L51)*
 
 **Parameters:**
 
@@ -1353,7 +1328,7 @@ ___
 
 ▸ **zipcode**(val?: *`string` \| `number` \| `null`*): `string`
 
-*Defined in [helpers/filter.helper.ts:36](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/helpers/filter.helper.ts#L36)*
+*Defined in [helpers/filter.helper.ts:36](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/helpers/filter.helper.ts#L36)*
 
 **Parameters:**
 

@@ -26,7 +26,7 @@
 
 **● additionalItems**: *`undefined` \| `false` \| `true`*
 
-*Defined in [interfaces/schema.interface.ts:82](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L82)*
+*Defined in [interfaces/schema.interface.ts:82](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L82)*
 
 ___
 <a id="maxitems"></a>
@@ -35,7 +35,7 @@ ___
 
 **● maxItems**: *`undefined` \| `number`*
 
-*Defined in [interfaces/schema.interface.ts:80](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L80)*
+*Defined in [interfaces/schema.interface.ts:80](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L80)*
 
 ___
 <a id="minitems"></a>
@@ -44,7 +44,7 @@ ___
 
 **● minItems**: *`undefined` \| `number`*
 
-*Defined in [interfaces/schema.interface.ts:79](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L79)*
+*Defined in [interfaces/schema.interface.ts:79](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L79)*
 
 ___
 <a id="type"></a>
@@ -53,7 +53,7 @@ ___
 
 **● type**: *"array" \| "null" \| `Array`<"array" \| "null">*
 
-*Defined in [interfaces/schema.interface.ts:78](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L78)*
+*Defined in [interfaces/schema.interface.ts:78](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L78)*
 
 ___
 <a id="uniqueitems"></a>
@@ -62,7 +62,7 @@ ___
 
 **● uniqueItems**: *`undefined` \| `false` \| `true`*
 
-*Defined in [interfaces/schema.interface.ts:81](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L81)*
+*Defined in [interfaces/schema.interface.ts:81](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L81)*
 
 ___
 

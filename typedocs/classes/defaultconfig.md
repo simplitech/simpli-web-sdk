@@ -23,7 +23,7 @@
 
 **components**: *`object`*
 
-*Defined in [app/config/DefaultConfig.ts:6](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L6)*
+*Defined in [app/config/DefaultConfig.ts:6](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L6)*
 
 <a id="components.adaporderby"></a>
 
@@ -31,7 +31,7 @@
 
 **● AdapOrderby**: *[AdapOrderby](adaporderby.md)* =  Component.AdapOrderby
 
-*Defined in [app/config/DefaultConfig.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L13)*
+*Defined in [app/config/DefaultConfig.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L13)*
 
 ___
 <a id="components.adappagination"></a>
@@ -40,7 +40,7 @@ ___
 
 **● AdapPagination**: *[AdapPagination](adappagination.md)* =  Component.AdapPagination
 
-*Defined in [app/config/DefaultConfig.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L14)*
+*Defined in [app/config/DefaultConfig.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L14)*
 
 ___
 <a id="components.adapsearchfield"></a>
@@ -49,7 +49,7 @@ ___
 
 **● AdapSearchfield**: *[AdapSearchfield](adapsearchfield.md)* =  Component.AdapSearchfield
 
-*Defined in [app/config/DefaultConfig.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L15)*
+*Defined in [app/config/DefaultConfig.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L15)*
 
 ___
 <a id="components.await"></a>
@@ -58,7 +58,7 @@ ___
 
 **● Await**: *[Await](await.md)* =  Component.Await
 
-*Defined in [app/config/DefaultConfig.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L8)*
+*Defined in [app/config/DefaultConfig.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L8)*
 
 ___
 <a id="components.inputcheckbox"></a>
@@ -67,7 +67,7 @@ ___
 
 **● InputCheckbox**: *[InputCheckbox](inputcheckbox.md)* =  Component.InputCheckbox
 
-*Defined in [app/config/DefaultConfig.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L16)*
+*Defined in [app/config/DefaultConfig.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L16)*
 
 ___
 <a id="components.inputselect"></a>
@@ -76,7 +76,7 @@ ___
 
 **● InputSelect**: *[InputSelect](inputselect.md)* =  Component.InputSelect
 
-*Defined in [app/config/DefaultConfig.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L17)*
+*Defined in [app/config/DefaultConfig.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L17)*
 
 ___
 <a id="components.inputtext"></a>
@@ -85,7 +85,7 @@ ___
 
 **● InputText**: *[InputText](inputtext.md)* =  Component.InputText
 
-*Defined in [app/config/DefaultConfig.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L18)*
+*Defined in [app/config/DefaultConfig.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L18)*
 
 ___
 <a id="components.modal"></a>
@@ -94,7 +94,7 @@ ___
 
 **● Modal**: *[Modal](modal.md)* =  Component.Modal
 
-*Defined in [app/config/DefaultConfig.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L9)*
+*Defined in [app/config/DefaultConfig.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L9)*
 
 ___
 <a id="components.multiselect"></a>
@@ -103,7 +103,7 @@ ___
 
 **● Multiselect**: *`Multiselect`* =  Component.Multiselect
 
-*Defined in [app/config/DefaultConfig.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L7)*
+*Defined in [app/config/DefaultConfig.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L7)*
 
 ___
 <a id="components.renderanchor"></a>
@@ -112,7 +112,7 @@ ___
 
 **● RenderAnchor**: *[RenderAnchor](renderanchor.md)* =  Component.RenderAnchor
 
-*Defined in [app/config/DefaultConfig.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L19)*
+*Defined in [app/config/DefaultConfig.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L19)*
 
 ___
 <a id="components.renderimage"></a>
@@ -121,7 +121,7 @@ ___
 
 **● RenderImage**: *[RenderImage](renderimage.md)* =  Component.RenderImage
 
-*Defined in [app/config/DefaultConfig.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L20)*
+*Defined in [app/config/DefaultConfig.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L20)*
 
 ___
 <a id="components.renderschema"></a>
@@ -130,7 +130,7 @@ ___
 
 **● RenderSchema**: *[RenderSchema](renderschema.md)* =  Component.RenderSchema
 
-*Defined in [app/config/DefaultConfig.ts:11](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L11)*
+*Defined in [app/config/DefaultConfig.ts:11](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L11)*
 
 ___
 <a id="components.tip"></a>
@@ -139,7 +139,7 @@ ___
 
 **● Tip**: *[Tip](tip.md)* =  Component.Tip
 
-*Defined in [app/config/DefaultConfig.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L10)*
+*Defined in [app/config/DefaultConfig.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L10)*
 
 ___
 <a id="components.transitionexpand"></a>
@@ -148,7 +148,7 @@ ___
 
 **● TransitionExpand**: *`object`* =  Component.TransitionExpand
 
-*Defined in [app/config/DefaultConfig.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L12)*
+*Defined in [app/config/DefaultConfig.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L12)*
 
 #### Type declaration
 
@@ -161,7 +161,7 @@ ___
 
 **filters**: *`object`*
 
-*Defined in [app/config/DefaultConfig.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L23)*
+*Defined in [app/config/DefaultConfig.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L23)*
 
 <a id="filters.cnpj"></a>
 
@@ -169,7 +169,7 @@ ___
 
 ▸ **cnpj**(value?: *`undefined` \| `string`*): `string`
 
-*Defined in [app/config/DefaultConfig.ts:65](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L65)*
+*Defined in [app/config/DefaultConfig.ts:65](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L65)*
 
 **Parameters:**
 
@@ -186,7 +186,7 @@ ___
 
 ▸ **cpf**(value?: *`undefined` \| `string`*): `string`
 
-*Defined in [app/config/DefaultConfig.ts:58](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L58)*
+*Defined in [app/config/DefaultConfig.ts:58](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L58)*
 
 **Parameters:**
 
@@ -203,7 +203,7 @@ ___
 
 ▸ **cpfOrCnpj**(val?: *`undefined` \| `string`*): `string`
 
-*Defined in [app/config/DefaultConfig.ts:72](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L72)*
+*Defined in [app/config/DefaultConfig.ts:72](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L72)*
 
 **Parameters:**
 
@@ -220,7 +220,7 @@ ___
 
 ▸ **pad**(value?: *`undefined` \| `string`*, length?: *`any`*): `string`
 
-*Defined in [app/config/DefaultConfig.ts:90](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L90)*
+*Defined in [app/config/DefaultConfig.ts:90](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L90)*
 
 **Parameters:**
 
@@ -238,7 +238,7 @@ ___
 
 ▸ **phone**(value?: *`undefined` \| `string`*): `string`
 
-*Defined in [app/config/DefaultConfig.ts:37](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L37)*
+*Defined in [app/config/DefaultConfig.ts:37](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L37)*
 
 **Parameters:**
 
@@ -255,7 +255,7 @@ ___
 
 ▸ **removeDelimiters**(value?: *`undefined` \| `string`*): `string`
 
-*Defined in [app/config/DefaultConfig.ts:32](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L32)*
+*Defined in [app/config/DefaultConfig.ts:32](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L32)*
 
 **Parameters:**
 
@@ -272,7 +272,7 @@ ___
 
 ▸ **rg**(value?: *`undefined` \| `string`*): `string`
 
-*Defined in [app/config/DefaultConfig.ts:51](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L51)*
+*Defined in [app/config/DefaultConfig.ts:51](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L51)*
 
 **Parameters:**
 
@@ -289,7 +289,7 @@ ___
 
 ▸ **truncate**(value?: *`undefined` \| `string`*, length?: *`undefined` \| `number`*): `string`
 
-*Defined in [app/config/DefaultConfig.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L24)*
+*Defined in [app/config/DefaultConfig.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L24)*
 
 **Parameters:**
 
@@ -307,7 +307,7 @@ ___
 
 ▸ **zipcode**(value?: *`undefined` \| `string`*): `string`
 
-*Defined in [app/config/DefaultConfig.ts:44](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/DefaultConfig.ts#L44)*
+*Defined in [app/config/DefaultConfig.ts:44](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/DefaultConfig.ts#L44)*
 
 **Parameters:**
 

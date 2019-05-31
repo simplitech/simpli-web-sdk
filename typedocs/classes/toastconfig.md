@@ -27,7 +27,7 @@
 
 **● ToastDefaultStyle**: *`string`* = "material-theme"
 
-*Defined in [app/config/ToastConfig.ts:4](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/ToastConfig.ts#L4)*
+*Defined in [app/config/ToastConfig.ts:4](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/ToastConfig.ts#L4)*
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 **ToastDefaultConfig**: *`object`*
 
-*Defined in [app/config/ToastConfig.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/ToastConfig.ts#L12)*
+*Defined in [app/config/ToastConfig.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/ToastConfig.ts#L12)*
 
 <a id="toastdefaultconfig.backdrop"></a>
 
@@ -47,7 +47,7 @@ ___
 
 **● backdrop**: *`number`* =  -1
 
-*Defined in [app/config/ToastConfig.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/ToastConfig.ts#L20)*
+*Defined in [app/config/ToastConfig.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/ToastConfig.ts#L20)*
 
 ___
 <a id="toastdefaultconfig.bodymaxlength"></a>
@@ -56,7 +56,7 @@ ___
 
 **● bodyMaxLength**: *`number`* = 127
 
-*Defined in [app/config/ToastConfig.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/ToastConfig.ts#L19)*
+*Defined in [app/config/ToastConfig.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/ToastConfig.ts#L19)*
 
 ___
 <a id="toastdefaultconfig.closeonclick"></a>
@@ -65,7 +65,7 @@ ___
 
 **● closeOnClick**: *`true`* = true
 
-*Defined in [app/config/ToastConfig.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/ToastConfig.ts#L16)*
+*Defined in [app/config/ToastConfig.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/ToastConfig.ts#L16)*
 
 ___
 <a id="toastdefaultconfig.pauseonhover"></a>
@@ -74,7 +74,7 @@ ___
 
 **● pauseOnHover**: *`true`* = true
 
-*Defined in [app/config/ToastConfig.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/ToastConfig.ts#L17)*
+*Defined in [app/config/ToastConfig.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/ToastConfig.ts#L17)*
 
 ___
 <a id="toastdefaultconfig.position"></a>
@@ -83,7 +83,7 @@ ___
 
 **● position**: *`rightBottom`* =  SnotifyPosition.rightBottom
 
-*Defined in [app/config/ToastConfig.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/ToastConfig.ts#L14)*
+*Defined in [app/config/ToastConfig.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/ToastConfig.ts#L14)*
 
 ___
 <a id="toastdefaultconfig.showprogressbar"></a>
@@ -92,7 +92,7 @@ ___
 
 **● showProgressBar**: *`true`* = true
 
-*Defined in [app/config/ToastConfig.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/ToastConfig.ts#L15)*
+*Defined in [app/config/ToastConfig.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/ToastConfig.ts#L15)*
 
 ___
 <a id="toastdefaultconfig.timeout"></a>
@@ -101,7 +101,7 @@ ___
 
 **● timeout**: *`number`* = 5000
 
-*Defined in [app/config/ToastConfig.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/ToastConfig.ts#L13)*
+*Defined in [app/config/ToastConfig.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/ToastConfig.ts#L13)*
 
 ___
 <a id="toastdefaultconfig.titlemaxlength"></a>
@@ -110,7 +110,7 @@ ___
 
 **● titleMaxLength**: *`number`* = 31
 
-*Defined in [app/config/ToastConfig.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/ToastConfig.ts#L18)*
+*Defined in [app/config/ToastConfig.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/ToastConfig.ts#L18)*
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 **ToastGlobalConfig**: *`object`*
 
-*Defined in [app/config/ToastConfig.ts:6](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/ToastConfig.ts#L6)*
+*Defined in [app/config/ToastConfig.ts:6](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/ToastConfig.ts#L6)*
 
 <a id="toastglobalconfig.maxatposition"></a>
 
@@ -129,7 +129,7 @@ ___
 
 **● maxAtPosition**: *`number`* = 5
 
-*Defined in [app/config/ToastConfig.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/ToastConfig.ts#L9)*
+*Defined in [app/config/ToastConfig.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/ToastConfig.ts#L9)*
 
 ___
 <a id="toastglobalconfig.maxonscreen"></a>
@@ -138,7 +138,7 @@ ___
 
 **● maxOnScreen**: *`number`* = 5
 
-*Defined in [app/config/ToastConfig.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/ToastConfig.ts#L8)*
+*Defined in [app/config/ToastConfig.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/ToastConfig.ts#L8)*
 
 ___
 <a id="toastglobalconfig.newontop"></a>
@@ -147,7 +147,7 @@ ___
 
 **● newOnTop**: *`true`* = true
 
-*Defined in [app/config/ToastConfig.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/config/ToastConfig.ts#L7)*
+*Defined in [app/config/ToastConfig.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/config/ToastConfig.ts#L7)*
 
 ___
 

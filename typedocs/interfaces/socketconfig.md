@@ -22,7 +22,7 @@
 
 **● baseURL**: *`undefined` \| `string`*
 
-*Defined in [interfaces/socket.interface.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/socket.interface.ts#L9)*
+*Defined in [interfaces/socket.interface.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/socket.interface.ts#L9)*
 
 ___
 

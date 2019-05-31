@@ -45,7 +45,7 @@
 
 ⊕ **new SchemaBuilder**(schema: *[Schema](schema.md)*, model: *`M`*, fieldName: *`string`*): [SchemaBuilder](schemabuilder.md)
 
-*Defined in [app/utils/SchemaBuilder.ts:4](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/SchemaBuilder.ts#L4)*
+*Defined in [app/utils/SchemaBuilder.ts:4](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/SchemaBuilder.ts#L4)*
 
 **Parameters:**
 
@@ -69,7 +69,7 @@ ___
 
 *Implementation of [SchemaResult](../interfaces/schemaresult.md).[attrs](../interfaces/schemaresult.md#attrs)*
 
-*Defined in [app/utils/SchemaBuilder.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/SchemaBuilder.ts#L24)*
+*Defined in [app/utils/SchemaBuilder.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/SchemaBuilder.ts#L24)*
 
 ___
 <a id="fieldname"></a>
@@ -80,7 +80,7 @@ ___
 
 *Implementation of [SchemaResult](../interfaces/schemaresult.md).[fieldName](../interfaces/schemaresult.md#fieldname)*
 
-*Defined in [app/utils/SchemaBuilder.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/SchemaBuilder.ts#L23)*
+*Defined in [app/utils/SchemaBuilder.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/SchemaBuilder.ts#L23)*
 
 ___
 <a id="listeners"></a>
@@ -91,7 +91,7 @@ ___
 
 *Implementation of [SchemaResult](../interfaces/schemaresult.md).[listeners](../interfaces/schemaresult.md#listeners)*
 
-*Defined in [app/utils/SchemaBuilder.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/SchemaBuilder.ts#L25)*
+*Defined in [app/utils/SchemaBuilder.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/SchemaBuilder.ts#L25)*
 
 ___
 <a id="model"></a>
@@ -102,7 +102,7 @@ ___
 
 *Implementation of [SchemaResult](../interfaces/schemaresult.md).[model](../interfaces/schemaresult.md#model)*
 
-*Defined in [app/utils/SchemaBuilder.ts:22](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/SchemaBuilder.ts#L22)*
+*Defined in [app/utils/SchemaBuilder.ts:22](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/SchemaBuilder.ts#L22)*
 
 ___
 <a id="schema"></a>
@@ -111,7 +111,7 @@ ___
 
 **● schema**: *[Schema](schema.md)*
 
-*Defined in [app/utils/SchemaBuilder.ts:21](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/SchemaBuilder.ts#L21)*
+*Defined in [app/utils/SchemaBuilder.ts:21](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/SchemaBuilder.ts#L21)*
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 ▸ **get**(): [FieldContent](../#fieldcontent)
 
-*Defined in [app/utils/SchemaBuilder.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/SchemaBuilder.ts#L27)*
+*Defined in [app/utils/SchemaBuilder.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/SchemaBuilder.ts#L27)*
 
 **Returns:** [FieldContent](../#fieldcontent)
 
@@ -134,7 +134,7 @@ ___
 
 ▸ **getAjv**<`V`>(): [FieldValidation](../#fieldvalidation)<`V`> \| `null`
 
-*Defined in [app/utils/SchemaBuilder.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/SchemaBuilder.ts#L48)*
+*Defined in [app/utils/SchemaBuilder.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/SchemaBuilder.ts#L48)*
 
 **Type parameters:**
 
@@ -149,7 +149,7 @@ ___
 
 ▸ **getComponent**<`V`>(): [FieldComponent](../interfaces/fieldcomponent.md)<`V`> \| `null`
 
-*Defined in [app/utils/SchemaBuilder.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/SchemaBuilder.ts#L40)*
+*Defined in [app/utils/SchemaBuilder.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/SchemaBuilder.ts#L40)*
 
 **Type parameters:**
 
@@ -164,7 +164,7 @@ ___
 
 ▸ **getData**(): [FieldData](../#fielddata)
 
-*Defined in [app/utils/SchemaBuilder.ts:32](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/SchemaBuilder.ts#L32)*
+*Defined in [app/utils/SchemaBuilder.ts:32](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/SchemaBuilder.ts#L32)*
 
 **Returns:** [FieldData](../#fielddata)
 
@@ -175,7 +175,7 @@ ___
 
 ▸ **setAttrs**(val: *`Record`<`string`, `string`>*): `this`
 
-*Defined in [app/utils/SchemaBuilder.ts:11](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/SchemaBuilder.ts#L11)*
+*Defined in [app/utils/SchemaBuilder.ts:11](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/SchemaBuilder.ts#L11)*
 
 **Parameters:**
 
@@ -192,7 +192,7 @@ ___
 
 ▸ **setListeners**(val: *`Record`<`string`, `Function` \| `Function`[]>*): `this`
 
-*Defined in [app/utils/SchemaBuilder.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/SchemaBuilder.ts#L16)*
+*Defined in [app/utils/SchemaBuilder.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/SchemaBuilder.ts#L16)*
 
 **Parameters:**
 

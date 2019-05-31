@@ -28,10 +28,12 @@
 * [$getSchemaName](model.md#_getschemaname)
 * [$getSpinnerName](model.md#_getspinnername)
 * [$headerFrom](model.md#_headerfrom)
-* [$list](model.md#_list)
-* [$persist](model.md#_persist)
-* [$populate](model.md#_populate)
+* [$listFrom](model.md#_listfrom)
+* [$persistFrom](model.md#_persistfrom)
+* [$populateFrom](model.md#_populatefrom)
+* [$removeFrom](model.md#_removefrom)
 * [$translateFrom](model.md#_translatefrom)
+* [$updateFrom](model.md#_updatefrom)
 * [$validate](model.md#_validate)
 
 ---
@@ -46,7 +48,7 @@
 
 *Implementation of [ISchema](../interfaces/ischema.md).[$schemaSet](../interfaces/ischema.md#_schemaset)*
 
-*Defined in [app/utils/Model.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L8)*
+*Defined in [app/utils/Model.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L8)*
 
 ___
 
@@ -58,7 +60,7 @@ ___
 
 ▸ **$allFieldsFrom**(schemaRef: *`string`*): `string`[]
 
-*Defined in [app/utils/Model.ts:44](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L44)*
+*Defined in [app/utils/Model.ts:58](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L58)*
 
 **Parameters:**
 
@@ -75,7 +77,7 @@ ___
 
 ▸ **$allHeadersFrom**(schemaRef: *`string`*): `string`[]
 
-*Defined in [app/utils/Model.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L49)*
+*Defined in [app/utils/Model.ts:63](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L63)*
 
 **Parameters:**
 
@@ -92,7 +94,7 @@ ___
 
 ▸ **$clone**(): `this`
 
-*Defined in [app/utils/Model.ts:74](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L74)*
+*Defined in [app/utils/Model.ts:88](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L88)*
 
 **Returns:** `this`
 
@@ -103,7 +105,7 @@ ___
 
 ▸ **$dataFrom**(schemaRef: *`string`*): [Dictionary](../interfaces/dictionary.md)<[FieldData](../#fielddata)>
 
-*Defined in [app/utils/Model.ts:59](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L59)*
+*Defined in [app/utils/Model.ts:73](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L73)*
 
 **Parameters:**
 
@@ -120,7 +122,7 @@ ___
 
 ▸ **$getSchema**(schemaRef: *`string`*): [Schema](schema.md) \| `null`
 
-*Defined in [app/utils/Model.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L35)*
+*Defined in [app/utils/Model.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L49)*
 
 **Parameters:**
 
@@ -137,7 +139,7 @@ ___
 
 ▸ **$getSchemaName**(schemaRef: *`string`*): `string` \| `null`
 
-*Defined in [app/utils/Model.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L39)*
+*Defined in [app/utils/Model.ts:53](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L53)*
 
 **Parameters:**
 
@@ -154,7 +156,7 @@ ___
 
 ▸ **$getSpinnerName**(command: *`string`*): `string`
 
-*Defined in [app/utils/Model.ts:31](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L31)*
+*Defined in [app/utils/Model.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L45)*
 
 **Parameters:**
 
@@ -171,7 +173,7 @@ ___
 
 ▸ **$headerFrom**(schemaRef: *`string`*): [Dictionary](../interfaces/dictionary.md)<`string`>
 
-*Defined in [app/utils/Model.ts:54](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L54)*
+*Defined in [app/utils/Model.ts:68](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L68)*
 
 **Parameters:**
 
@@ -182,13 +184,13 @@ ___
 **Returns:** [Dictionary](../interfaces/dictionary.md)<`string`>
 
 ___
-<a id="_list"></a>
+<a id="_listfrom"></a>
 
-###  $list
+###  $listFrom
 
-▸ **$list**(url: *`string`*): `Promise`<`AxiosResponse`<`this`[]>>
+▸ **$listFrom**(url: *`string`*): `Promise`<`AxiosResponse`<`this`[]>>
 
-*Defined in [app/utils/Model.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L10)*
+*Defined in [app/utils/Model.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L10)*
 
 **Parameters:**
 
@@ -199,13 +201,13 @@ ___
 **Returns:** `Promise`<`AxiosResponse`<`this`[]>>
 
 ___
-<a id="_persist"></a>
+<a id="_persistfrom"></a>
 
-###  $persist
+###  $persistFrom
 
-▸ **$persist**(url: *`string`*): `Promise`<`AxiosResponse`<`any`>>
+▸ **$persistFrom**(url: *`string`*): `Promise`<`AxiosResponse`<`any`>>
 
-*Defined in [app/utils/Model.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L24)*
+*Defined in [app/utils/Model.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L24)*
 
 **Parameters:**
 
@@ -216,13 +218,13 @@ ___
 **Returns:** `Promise`<`AxiosResponse`<`any`>>
 
 ___
-<a id="_populate"></a>
+<a id="_populatefrom"></a>
 
-###  $populate
+###  $populateFrom
 
-▸ **$populate**(url: *`string`*): `Promise`<`AxiosResponse`<`this`>>
+▸ **$populateFrom**(url: *`string`*): `Promise`<`AxiosResponse`<`this`>>
 
-*Defined in [app/utils/Model.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L17)*
+*Defined in [app/utils/Model.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L17)*
 
 **Parameters:**
 
@@ -233,13 +235,30 @@ ___
 **Returns:** `Promise`<`AxiosResponse`<`this`>>
 
 ___
+<a id="_removefrom"></a>
+
+###  $removeFrom
+
+▸ **$removeFrom**(url: *`string`*): `Promise`<`AxiosResponse`<`any`>>
+
+*Defined in [app/utils/Model.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L38)*
+
+**Parameters:**
+
+| Name | Type |
+| ------ | ------ |
+| url | `string` |
+
+**Returns:** `Promise`<`AxiosResponse`<`any`>>
+
+___
 <a id="_translatefrom"></a>
 
 ###  $translateFrom
 
 ▸ **$translateFrom**(schemaRef: *`string`*, fiendName: *`string`*): `string`
 
-*Defined in [app/utils/Model.ts:64](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L64)*
+*Defined in [app/utils/Model.ts:78](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L78)*
 
 **Parameters:**
 
@@ -251,13 +270,30 @@ ___
 **Returns:** `string`
 
 ___
+<a id="_updatefrom"></a>
+
+###  $updateFrom
+
+▸ **$updateFrom**(url: *`string`*): `Promise`<`AxiosResponse`<`any`>>
+
+*Defined in [app/utils/Model.ts:31](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L31)*
+
+**Parameters:**
+
+| Name | Type |
+| ------ | ------ |
+| url | `string` |
+
+**Returns:** `Promise`<`AxiosResponse`<`any`>>
+
+___
 <a id="_validate"></a>
 
 ###  $validate
 
 ▸ **$validate**(schemaRef?: *`string`*): `void`
 
-*Defined in [app/utils/Model.ts:69](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Model.ts#L69)*
+*Defined in [app/utils/Model.ts:83](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L83)*
 
 **Parameters:**
 

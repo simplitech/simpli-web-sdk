@@ -61,7 +61,7 @@
 
 *Overrides [Collection](collection.md).[constructor](collection.md#constructor)*
 
-*Defined in [app/collection/EnumCollection.ts:6](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/EnumCollection.ts#L6)*
+*Defined in [app/collection/EnumCollection.ts:6](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/EnumCollection.ts#L6)*
 
 **Parameters:**
 
@@ -84,7 +84,7 @@ ___
 
 *Overrides [Collection](collection.md).[items](collection.md#items)*
 
-*Defined in [app/collection/EnumCollection.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/EnumCollection.ts#L12)*
+*Defined in [app/collection/EnumCollection.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/EnumCollection.ts#L12)*
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 *Inherited from [Collection](collection.md).[lodash](collection.md#lodash)*
 
-*Defined in [app/collection/Collection.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L10)*
+*Defined in [app/collection/Collection.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L10)*
 
 **Returns:** `LoDashExplicitWrapper`<`T`[]>
 
@@ -114,7 +114,7 @@ ___
 
 *Inherited from [Collection](collection.md).[add](collection.md#add)*
 
-*Defined in [app/collection/Collection.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L30)*
+*Defined in [app/collection/Collection.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L30)*
 
 **Parameters:**
 
@@ -134,7 +134,7 @@ ___
 
 *Implementation of [IResourceCollection](../interfaces/iresourcecollection.md).[addResource](../interfaces/iresourcecollection.md#addresource)*
 
-*Defined in [app/collection/EnumCollection.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/EnumCollection.ts#L26)*
+*Defined in [app/collection/EnumCollection.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/EnumCollection.ts#L26)*
 
 **Parameters:**
 
@@ -155,7 +155,7 @@ ___
 
 *Inherited from [Collection](collection.md).[all](collection.md#all)*
 
-*Defined in [app/collection/Collection.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L14)*
+*Defined in [app/collection/Collection.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L14)*
 
 **Returns:** `T`[]
 
@@ -168,7 +168,7 @@ ___
 
 *Implementation of [IResourceCollection](../interfaces/iresourcecollection.md).[allWithPlaceholder](../interfaces/iresourcecollection.md#allwithplaceholder)*
 
-*Defined in [app/collection/EnumCollection.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/EnumCollection.ts#L14)*
+*Defined in [app/collection/EnumCollection.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/EnumCollection.ts#L14)*
 
 **Parameters:**
 
@@ -187,7 +187,7 @@ ___
 
 *Implementation of [IResourceCollection](../interfaces/iresourcecollection.md).[appendResource](../interfaces/iresourcecollection.md#appendresource)*
 
-*Defined in [app/collection/EnumCollection.ts:43](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/EnumCollection.ts#L43)*
+*Defined in [app/collection/EnumCollection.ts:43](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/EnumCollection.ts#L43)*
 
 **Parameters:**
 
@@ -207,7 +207,7 @@ ___
 
 *Inherited from [Collection](collection.md).[first](collection.md#first)*
 
-*Defined in [app/collection/Collection.ts:22](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L22)*
+*Defined in [app/collection/Collection.ts:22](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L22)*
 
 **Returns:** `T`
 
@@ -220,7 +220,7 @@ ___
 
 *Inherited from [Collection](collection.md).[get](collection.md#get)*
 
-*Defined in [app/collection/Collection.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L18)*
+*Defined in [app/collection/Collection.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L18)*
 
 **Parameters:**
 
@@ -239,7 +239,7 @@ ___
 
 *Implementation of [IResourceCollection](../interfaces/iresourcecollection.md).[getManyResource](../interfaces/iresourcecollection.md#getmanyresource)*
 
-*Defined in [app/collection/EnumCollection.ts:22](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/EnumCollection.ts#L22)*
+*Defined in [app/collection/EnumCollection.ts:22](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/EnumCollection.ts#L22)*
 
 **Parameters:**
 
@@ -258,7 +258,7 @@ ___
 
 *Implementation of [IResourceCollection](../interfaces/iresourcecollection.md).[getResource](../interfaces/iresourcecollection.md#getresource)*
 
-*Defined in [app/collection/EnumCollection.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/EnumCollection.ts#L18)*
+*Defined in [app/collection/EnumCollection.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/EnumCollection.ts#L18)*
 
 **Parameters:**
 
@@ -277,7 +277,7 @@ ___
 
 *Inherited from [Collection](collection.md).[isEmpty](collection.md#isempty)*
 
-*Defined in [app/collection/Collection.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L49)*
+*Defined in [app/collection/Collection.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L49)*
 
 **Returns:** `boolean`
 
@@ -290,7 +290,7 @@ ___
 
 *Inherited from [Collection](collection.md).[isNotEmpty](collection.md#isnotempty)*
 
-*Defined in [app/collection/Collection.ts:53](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L53)*
+*Defined in [app/collection/Collection.ts:53](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L53)*
 
 **Returns:** `boolean`
 
@@ -303,7 +303,7 @@ ___
 
 *Inherited from [Collection](collection.md).[last](collection.md#last)*
 
-*Defined in [app/collection/Collection.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L26)*
+*Defined in [app/collection/Collection.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L26)*
 
 **Returns:** `T`
 
@@ -316,7 +316,7 @@ ___
 
 *Implementation of [IResourceCollection](../interfaces/iresourcecollection.md).[prependNullResource](../interfaces/iresourcecollection.md#prependnullresource)*
 
-*Defined in [app/collection/EnumCollection.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/EnumCollection.ts#L39)*
+*Defined in [app/collection/EnumCollection.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/EnumCollection.ts#L39)*
 
 **Parameters:**
 
@@ -336,7 +336,7 @@ ___
 
 *Implementation of [IResourceCollection](../interfaces/iresourcecollection.md).[prependResource](../interfaces/iresourcecollection.md#prependresource)*
 
-*Defined in [app/collection/EnumCollection.ts:34](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/EnumCollection.ts#L34)*
+*Defined in [app/collection/EnumCollection.ts:34](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/EnumCollection.ts#L34)*
 
 **Parameters:**
 
@@ -356,7 +356,7 @@ ___
 
 *Inherited from [Collection](collection.md).[remove](collection.md#remove)*
 
-*Defined in [app/collection/Collection.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L38)*
+*Defined in [app/collection/Collection.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L38)*
 
 **Parameters:**
 
@@ -375,7 +375,7 @@ ___
 
 *Implementation of [IResourceCollection](../interfaces/iresourcecollection.md).[removeResource](../interfaces/iresourcecollection.md#removeresource)*
 
-*Defined in [app/collection/EnumCollection.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/EnumCollection.ts#L30)*
+*Defined in [app/collection/EnumCollection.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/EnumCollection.ts#L30)*
 
 **Parameters:**
 
@@ -394,7 +394,7 @@ ___
 
 *Inherited from [Collection](collection.md).[size](collection.md#size)*
 
-*Defined in [app/collection/Collection.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/collection/Collection.ts#L45)*
+*Defined in [app/collection/Collection.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L45)*
 
 **Returns:** `number`
 

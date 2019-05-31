@@ -27,7 +27,7 @@
 
 **● exclusiveMaximum**: *`undefined` \| `false` \| `true`*
 
-*Defined in [interfaces/schema.interface.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L48)*
+*Defined in [interfaces/schema.interface.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L48)*
 
 ___
 <a id="exclusiveminimum"></a>
@@ -36,7 +36,7 @@ ___
 
 **● exclusiveMinimum**: *`undefined` \| `false` \| `true`*
 
-*Defined in [interfaces/schema.interface.ts:47](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L47)*
+*Defined in [interfaces/schema.interface.ts:47](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L47)*
 
 ___
 <a id="max"></a>
@@ -45,7 +45,7 @@ ___
 
 **● max**: *`undefined` \| `number`*
 
-*Defined in [interfaces/schema.interface.ts:46](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L46)*
+*Defined in [interfaces/schema.interface.ts:46](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L46)*
 
 ___
 <a id="min"></a>
@@ -54,7 +54,7 @@ ___
 
 **● min**: *`undefined` \| `number`*
 
-*Defined in [interfaces/schema.interface.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L45)*
+*Defined in [interfaces/schema.interface.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L45)*
 
 ___
 <a id="multipleof"></a>
@@ -63,7 +63,7 @@ ___
 
 **● multipleOf**: *`undefined` \| `number`*
 
-*Defined in [interfaces/schema.interface.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L49)*
+*Defined in [interfaces/schema.interface.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L49)*
 
 ___
 <a id="type"></a>
@@ -72,7 +72,7 @@ ___
 
 **● type**: *"number" \| "integer" \| "null" \| `Array`<"number" \| "integer" \| "null">*
 
-*Defined in [interfaces/schema.interface.ts:44](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/schema.interface.ts#L44)*
+*Defined in [interfaces/schema.interface.ts:44](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L44)*
 
 ___
 

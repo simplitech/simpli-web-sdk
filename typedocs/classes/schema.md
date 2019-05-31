@@ -43,7 +43,7 @@
 
 **● fieldSet**: *[FieldSet](../interfaces/fieldset.md)<`any`>*
 
-*Defined in [app/utils/Schema.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Schema.ts#L12)*
+*Defined in [app/utils/Schema.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Schema.ts#L12)*
 
 ___
 <a id="name"></a>
@@ -52,7 +52,7 @@ ___
 
 **● name**: *`string`*
 
-*Defined in [app/utils/Schema.ts:11](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Schema.ts#L11)*
+*Defined in [app/utils/Schema.ts:11](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Schema.ts#L11)*
 
 ___
 <a id="defaulti18npath"></a>
@@ -61,7 +61,7 @@ ___
 
 **● defaultI18nPath**: *`string`* = "schema.{schemaName}.{fieldName}"
 
-*Defined in [app/utils/Schema.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Schema.ts#L9)*
+*Defined in [app/utils/Schema.ts:9](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Schema.ts#L9)*
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 **get allFields**(): `string`[]
 
-*Defined in [app/utils/Schema.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Schema.ts#L14)*
+*Defined in [app/utils/Schema.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Schema.ts#L14)*
 
 **Returns:** `string`[]
 
@@ -84,7 +84,7 @@ ___
 
 **get allHeaders**(): `string`[]
 
-*Defined in [app/utils/Schema.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Schema.ts#L18)*
+*Defined in [app/utils/Schema.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Schema.ts#L18)*
 
 **Returns:** `string`[]
 
@@ -95,7 +95,7 @@ ___
 
 **get header**(): [Dictionary](../interfaces/dictionary.md)<`string`>
 
-*Defined in [app/utils/Schema.ts:22](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Schema.ts#L22)*
+*Defined in [app/utils/Schema.ts:22](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Schema.ts#L22)*
 
 **Returns:** [Dictionary](../interfaces/dictionary.md)<`string`>
 
@@ -109,7 +109,7 @@ ___
 
 ▸ **build**<`M`>(model: *`M`*, fieldName: *`string`*): [SchemaBuilder](schemabuilder.md)<`M`>
 
-*Defined in [app/utils/Schema.ts:34](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Schema.ts#L34)*
+*Defined in [app/utils/Schema.ts:34](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Schema.ts#L34)*
 
 **Type parameters:**
 
@@ -130,7 +130,7 @@ ___
 
 ▸ **downloadCsv**<`M`>(list: *`M`[]*, customTitle?: *`undefined` \| `string`*): `void`
 
-*Defined in [app/utils/Schema.ts:96](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Schema.ts#L96)*
+*Defined in [app/utils/Schema.ts:96](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Schema.ts#L96)*
 
 **Type parameters:**
 
@@ -151,7 +151,7 @@ ___
 
 ▸ **getAjvSchema**<`M`>(model: *`M`*): [DictionaryOfValidation](../interfaces/dictionaryofvalidation.md)<[FieldValidation](../#fieldvalidation)>
 
-*Defined in [app/utils/Schema.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Schema.ts#L48)*
+*Defined in [app/utils/Schema.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Schema.ts#L48)*
 
 **Type parameters:**
 
@@ -171,7 +171,7 @@ ___
 
 ▸ **getModelData**<`M`>(model: *`M`*): [Dictionary](../interfaces/dictionary.md)<[FieldData](../#fielddata)>
 
-*Defined in [app/utils/Schema.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Schema.ts#L38)*
+*Defined in [app/utils/Schema.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Schema.ts#L38)*
 
 **Type parameters:**
 
@@ -191,7 +191,7 @@ ___
 
 ▸ **toCsv**<`M`>(list: *`M`[]*): `string`
 
-*Defined in [app/utils/Schema.ts:88](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Schema.ts#L88)*
+*Defined in [app/utils/Schema.ts:88](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Schema.ts#L88)*
 
 **Type parameters:**
 
@@ -211,7 +211,7 @@ ___
 
 ▸ **toJson**<`M`>(list: *`M`[]*): `string`
 
-*Defined in [app/utils/Schema.ts:92](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Schema.ts#L92)*
+*Defined in [app/utils/Schema.ts:92](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Schema.ts#L92)*
 
 **Type parameters:**
 
@@ -231,7 +231,7 @@ ___
 
 ▸ **toList**<`M`>(list: *`M`[]*): `Array`<[Dictionary](../interfaces/dictionary.md)<[FieldData](../#fielddata)>>
 
-*Defined in [app/utils/Schema.ts:81](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Schema.ts#L81)*
+*Defined in [app/utils/Schema.ts:81](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Schema.ts#L81)*
 
 **Type parameters:**
 
@@ -251,7 +251,7 @@ ___
 
 ▸ **translateFrom**(fieldName: *`string`*): `string`
 
-*Defined in [app/utils/Schema.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Schema.ts#L26)*
+*Defined in [app/utils/Schema.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Schema.ts#L26)*
 
 **Parameters:**
 
@@ -268,7 +268,7 @@ ___
 
 ▸ **validate**<`M`>(model: *`M`*): `void`
 
-*Defined in [app/utils/Schema.ts:67](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Schema.ts#L67)*
+*Defined in [app/utils/Schema.ts:67](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Schema.ts#L67)*
 
 **Type parameters:**
 
@@ -288,7 +288,7 @@ ___
 
 ▸ **validateErrors**<`M`>(model: *`M`*): `ErrorObject`[] \| `null`
 
-*Defined in [app/utils/Schema.ts:63](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/utils/Schema.ts#L63)*
+*Defined in [app/utils/Schema.ts:63](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Schema.ts#L63)*
 
 **Type parameters:**
 

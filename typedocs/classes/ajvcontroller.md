@@ -32,7 +32,7 @@
 
 ⊕ **new AjvController**(locale: *[Lang](../enums/lang.md)*, messages?: *[Dictionary](../interfaces/dictionary.md)<`function`>*): [AjvController](ajvcontroller.md)
 
-*Defined in [app/ajv/AjvController.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/ajv/AjvController.ts#L8)*
+*Defined in [app/ajv/AjvController.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/ajv/AjvController.ts#L8)*
 
 **Parameters:**
 
@@ -53,7 +53,7 @@ ___
 
 **● i18n**: *[AjvI18n](ajvi18n.md)*
 
-*Defined in [app/ajv/AjvController.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/ajv/AjvController.ts#L26)*
+*Defined in [app/ajv/AjvController.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/ajv/AjvController.ts#L26)*
 
 ___
 <a id="instance"></a>
@@ -62,7 +62,7 @@ ___
 
 **● instance**: *`AnotherJsonValidator.Ajv`*
 
-*Defined in [app/ajv/AjvController.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/ajv/AjvController.ts#L27)*
+*Defined in [app/ajv/AjvController.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/ajv/AjvController.ts#L27)*
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 ▸ **validate**(schemaKeyRef: *`object` \| `string` \| `boolean`*, data: *`any`*): `void`
 
-*Defined in [app/ajv/AjvController.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/ajv/AjvController.ts#L40)*
+*Defined in [app/ajv/AjvController.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/ajv/AjvController.ts#L40)*
 
 **Parameters:**
 
@@ -92,7 +92,7 @@ ___
 
 ▸ **validateErrors**(schemaKeyRef: *`object` \| `string` \| `boolean`*, data: *`any`*): `ErrorObject`[] \| `null`
 
-*Defined in [app/ajv/AjvController.ts:29](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/ajv/AjvController.ts#L29)*
+*Defined in [app/ajv/AjvController.ts:29](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/ajv/AjvController.ts#L29)*
 
 **Parameters:**
 

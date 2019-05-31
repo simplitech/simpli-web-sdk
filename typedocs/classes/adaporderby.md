@@ -31,7 +31,7 @@
 
 **● collection**: *[PageCollection](pagecollection.md)<[Resource](resource.md)>*
 
-*Defined in [components/adap/AdapOrderby.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/adap/AdapOrderby.ts#L18)*
+*Defined in [components/adap/AdapOrderby.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapOrderby.ts#L18)*
 
 ___
 <a id="label"></a>
@@ -40,7 +40,7 @@ ___
 
 **● label**: *`string`*
 
-*Defined in [components/adap/AdapOrderby.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/adap/AdapOrderby.ts#L24)*
+*Defined in [components/adap/AdapOrderby.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapOrderby.ts#L24)*
 
 ___
 <a id="name"></a>
@@ -49,7 +49,7 @@ ___
 
 **● name**: *`string`*
 
-*Defined in [components/adap/AdapOrderby.ts:21](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/adap/AdapOrderby.ts#L21)*
+*Defined in [components/adap/AdapOrderby.ts:21](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapOrderby.ts#L21)*
 
 ___
 <a id="spinner"></a>
@@ -58,7 +58,7 @@ ___
 
 **● spinner**: *`string`*
 
-*Defined in [components/adap/AdapOrderby.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/adap/AdapOrderby.ts#L27)*
+*Defined in [components/adap/AdapOrderby.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapOrderby.ts#L27)*
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 ▸ **orderBy**(): `Promise`<`void`>
 
-*Defined in [components/adap/AdapOrderby.ts:29](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/adap/AdapOrderby.ts#L29)*
+*Defined in [components/adap/AdapOrderby.ts:29](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapOrderby.ts#L29)*
 
 **Returns:** `Promise`<`void`>
 

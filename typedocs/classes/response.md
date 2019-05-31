@@ -69,7 +69,7 @@ async function example() {
 
 ⊕ **new Response**(request: *[Request](request.md)*, responseType?: *[ResponseType](../#responsetype)<`T`>*): [Response](response.md)
 
-*Defined in [app/http/Response.ts:42](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Response.ts#L42)*
+*Defined in [app/http/Response.ts:42](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Response.ts#L42)*
 
 Assigns a new response instance with a provided request instance.
 
@@ -101,7 +101,7 @@ ___
 
 ▸ **delay**(requestDelay: *`number`*): `this`
 
-*Defined in [app/http/Response.ts:123](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Response.ts#L123)*
+*Defined in [app/http/Response.ts:123](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Response.ts#L123)*
 
 Provides a delay of any request from this instance.
 
@@ -122,7 +122,7 @@ ___
 
 ▸ **getData**(): `Promise`<`T`>
 
-*Defined in [app/http/Response.ts:150](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Response.ts#L150)*
+*Defined in [app/http/Response.ts:150](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Response.ts#L150)*
 
 Makes a HTTP request and returns the data content from response.
 
@@ -154,7 +154,7 @@ ___
 
 ▸ **getResponse**(onResponse?: *`undefined` \| `function`*): `Promise`<`AxiosResponse`<`T`>>
 
-*Defined in [app/http/Response.ts:168](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Response.ts#L168)*
+*Defined in [app/http/Response.ts:168](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Response.ts#L168)*
 
 Makes a HTTP request and returns the response content.
 
@@ -183,7 +183,7 @@ ___
 
 ▸ **name**(requestName: *`string`*): `this`
 
-*Defined in [app/http/Response.ts:113](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Response.ts#L113)*
+*Defined in [app/http/Response.ts:113](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Response.ts#L113)*
 
 Gives a name of this request which is used in [Await](await.md) component.
 

@@ -25,7 +25,7 @@
 
 **● asc**: *`undefined` \| `string`*
 
-*Defined in [interfaces/general.interface.ts:21](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L21)*
+*Defined in [interfaces/general.interface.ts:21](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/general.interface.ts#L21)*
 
 ___
 <a id="order"></a>
@@ -34,7 +34,7 @@ ___
 
 **● order**: *`undefined` \| `string`*
 
-*Defined in [interfaces/general.interface.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L20)*
+*Defined in [interfaces/general.interface.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/general.interface.ts#L20)*
 
 ___
 <a id="page"></a>
@@ -43,7 +43,7 @@ ___
 
 **● page**: *`undefined` \| `string`*
 
-*Defined in [interfaces/general.interface.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L19)*
+*Defined in [interfaces/general.interface.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/general.interface.ts#L19)*
 
 ___
 <a id="q"></a>
@@ -52,7 +52,7 @@ ___
 
 **● q**: *`undefined` \| `string`*
 
-*Defined in [interfaces/general.interface.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/interfaces/general.interface.ts#L18)*
+*Defined in [interfaces/general.interface.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/general.interface.ts#L18)*
 
 ___
 

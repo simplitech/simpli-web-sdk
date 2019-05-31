@@ -26,7 +26,7 @@
 
 **● alt**: *`undefined` \| `string`*
 
-*Defined in [components/render/RenderImage.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/render/RenderImage.ts#L15)*
+*Defined in [components/render/RenderImage.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/render/RenderImage.ts#L15)*
 
 ___
 <a id="innerclass"></a>
@@ -35,7 +35,7 @@ ___
 
 **● innerClass**: *`undefined` \| `string`*
 
-*Defined in [components/render/RenderImage.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/render/RenderImage.ts#L18)*
+*Defined in [components/render/RenderImage.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/render/RenderImage.ts#L18)*
 
 ___
 <a id="src"></a>
@@ -44,7 +44,7 @@ ___
 
 **● src**: *`undefined` \| `string`*
 
-*Defined in [components/render/RenderImage.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/render/RenderImage.ts#L12)*
+*Defined in [components/render/RenderImage.ts:12](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/render/RenderImage.ts#L12)*
 
 ___
 

@@ -2,6 +2,30 @@
 
 # Class: Simpli
 
+Static class used to initializing this library
+
+```typescript
+import Simpli from 'simpli-web-sdk'
+
+import {axiosInstance, socketInstance} from '@/config/http.config'
+import {defaultCurrency, defaultLang, localeVueI18n, localeAjvI18n} from '@/config/locale.config'
+import {components} from '@/config/component.config'
+import {filters} from '@/config/filter.config'
+import {router} from '@/config/router.config'
+
+Simpli.axios = axiosInstance
+Simpli.socket = socketInstance
+Simpli.lang = defaultLang
+Simpli.currency = defaultCurrency
+Simpli.components = components
+Simpli.filters = filters
+Simpli.locale = localeVueI18n
+Simpli.localeAjv = localeAjvI18n
+Simpli.router = router
+
+Simpli.install()
+```
+
 ## Hierarchy
 
 **Simpli**
@@ -20,19 +44,11 @@
 * [router](simpli.md#router)
 * [socket](simpli.md#socket)
 
-### Accessors
-
-* [$prototype](simpli.md#_prototype)
-
 ### Methods
 
 * [changeCurrency](simpli.md#changecurrency)
 * [changeLocale](simpli.md#changelocale)
 * [install](simpli.md#install)
-
-### Object literals
-
-* [defaultLocale](simpli.md#defaultlocale)
 
 ---
 
@@ -44,7 +60,19 @@
 
 **● axios**: *`AxiosInstance`*
 
-*Defined in [simpli.ts:84](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L84)*
+*Defined in [simpli.ts:344](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L344)*
+
+Setup of the [axios](https://github.com/axios/axios) instance in order to use a native HTTP request.
+
+```typescript
+import Simpli from 'simpli-web-sdk'
+
+Simpli.axios = axios.create({
+  baseURL: process.env.VUE_APP_API_URL,
+})
+
+Simpli.install()
+```
 
 ___
 <a id="components"></a>
@@ -53,7 +81,20 @@ ___
 
 **● components**: *[ComponentOptions](../interfaces/componentoptions.md)*
 
-*Defined in [simpli.ts:86](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L86)*
+*Defined in [simpli.ts:375](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L375)*
+
+Setup of the global Vue components.
+
+```typescript
+import Simpli from 'simpli-web-sdk'
+import MyComponent from '@/components/MyComponent.vue'
+
+Simpli.components = {
+  MyComponent,
+}
+
+Simpli.install()
+```
 
 ___
 <a id="currency"></a>
@@ -62,7 +103,17 @@ ___
 
 **● currency**: *[Currency](../enums/currency.md)* =  Currency.USD
 
-*Defined in [simpli.ts:92](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L92)*
+*Defined in [simpli.ts:472](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L472)*
+
+Setups the default currency.
+
+```typescript
+import Simpli, {Currency} from 'simpli-web-sdk'
+
+Simpli.currency = Currency.BRL
+
+Simpli.install()
+```
 
 ___
 <a id="filters"></a>
@@ -71,7 +122,21 @@ ___
 
 **● filters**: *[FilterOptions](../interfaces/filteroptions.md)*
 
-*Defined in [simpli.ts:87](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L87)*
+*Defined in [simpli.ts:392](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L392)*
+
+Setup of the global Vue filters.
+
+```typescript
+import Simpli from 'simpli-web-sdk'
+
+Simpli.filters = {
+  exclamation: (value?: string): string => {
+    return value ? `${value}!!` : ''
+  },
+}
+
+Simpli.install()
+```
 
 ___
 <a id="lang"></a>
@@ -80,7 +145,17 @@ ___
 
 **● lang**: *[Lang](../enums/lang.md)* =  Lang.EN_US
 
-*Defined in [simpli.ts:91](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L91)*
+*Defined in [simpli.ts:459](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L459)*
+
+Setups the default language.
+
+```typescript
+import Simpli, {Lang} from 'simpli-web-sdk'
+
+Simpli.lang = Lang.PT_BR
+
+Simpli.install()
+```
 
 ___
 <a id="locale"></a>
@@ -89,7 +164,20 @@ ___
 
 **● locale**: *[LocaleOptions](../interfaces/localeoptions.md)*
 
-*Defined in [simpli.ts:88](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L88)*
+*Defined in [simpli.ts:408](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L408)*
+
+Setup of locale from [vue-i18n](https://kazupon.github.io/vue-i18n/introduction.html)
+
+```typescript
+import Simpli, {Lang} from 'simpli-web-sdk'
+
+Simpli.locale = {
+  [Lang.EN_US]: enUs,
+  [Lang.PT_BR]: ptBr,
+}
+
+Simpli.install()
+```
 
 ___
 <a id="localeajv"></a>
@@ -98,7 +186,20 @@ ___
 
 **● localeAjv**: *[LocaleOptions](../interfaces/localeoptions.md)*
 
-*Defined in [simpli.ts:89](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L89)*
+*Defined in [simpli.ts:424](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L424)*
+
+Setup of validation from [ajv](https://ajv.js.org/) module
+
+```typescript
+import Simpli, {Lang} from 'simpli-web-sdk'
+
+export const localeAjvI18n: LocaleOptions = {
+  [Lang.EN_US]: require('ajv-i18n/localize/en'),
+  [Lang.PT_BR]: require('ajv-i18n/localize/pt-BR'),
+}
+
+Simpli.install()
+```
 
 ___
 <a id="router"></a>
@@ -107,7 +208,26 @@ ___
 
 **● router**: *`RouterOptions`*
 
-*Defined in [simpli.ts:90](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L90)*
+*Defined in [simpli.ts:446](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L446)*
+
+Setups the `router` variable from [vue-router](https://router.vuejs.org/) module.
+
+```typescript
+import Simpli from 'simpli-web-sdk'
+import SignInView from '@/views/SignInView.vue'
+
+Simpli.router = {
+  routes: [
+    {
+      path: '/sign-in',
+      name: 'signIn',
+      component: SignInView,
+    },
+  ],
+}
+
+Simpli.install()
+```
 
 ___
 <a id="socket"></a>
@@ -116,21 +236,19 @@ ___
 
 **● socket**: *[SocketInstance](../interfaces/socketinstance.md)*
 
-*Defined in [simpli.ts:85](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L85)*
+*Defined in [simpli.ts:359](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L359)*
 
-___
+Setup of the [SocketInstance](../interfaces/socketinstance.md) in order to use socket connection.
 
-## Accessors
+```typescript
+import Simpli from 'simpli-web-sdk'
 
-<a id="_prototype"></a>
+Simpli.socket = socket.create({
+  baseURL: process.env.VUE_APP_SOCKET_URL,
+})
 
-### `<Static>` $prototype
-
-**get $prototype**(): [$Prototype](../interfaces/_prototype.md)
-
-*Defined in [simpli.ts:99](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L99)*
-
-**Returns:** [$Prototype](../interfaces/_prototype.md)
+Simpli.install()
+```
 
 ___
 
@@ -142,13 +260,15 @@ ___
 
 ▸ **changeCurrency**(currency: *[Currency](../enums/currency.md)*): `void`
 
-*Defined in [simpli.ts:108](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L108)*
+*Defined in [simpli.ts:514](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L514)*
+
+Change the current language of the app
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| currency | [Currency](../enums/currency.md) |
+| Name | Type | Description |
+| ------ | ------ | ------ |
+| currency | [Currency](../enums/currency.md) |  Desired currency<br><br>```typescript import Simpli, {Currency} from 'simpli-web-sdk'<br><br>Simpli.changeCurrency(Currency.BRL) ``` |
 
 **Returns:** `void`
 
@@ -159,13 +279,15 @@ ___
 
 ▸ **changeLocale**(lang: *[Lang](../enums/lang.md)*): `void`
 
-*Defined in [simpli.ts:103](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L103)*
+*Defined in [simpli.ts:499](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L499)*
+
+Change the current language of the app
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| lang | [Lang](../enums/lang.md) |
+| Name | Type | Description |
+| ------ | ------ | ------ |
+| lang | [Lang](../enums/lang.md) |  Desired language<br><br>```typescript import Simpli, {Lang} from 'simpli-web-sdk'<br><br>Simpli.changeLocale(Lang.PT\_BR) ``` |
 
 **Returns:** `void`
 
@@ -176,34 +298,11 @@ ___
 
 ▸ **install**(): `void`
 
-*Defined in [simpli.ts:117](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L117)*
+*Defined in [simpli.ts:526](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L526)*
+
+Applies the Simpli setup
 
 **Returns:** `void`
-
-___
-
-## Object literals
-
-<a id="defaultlocale"></a>
-
-### `<Static>` defaultLocale
-
-**defaultLocale**: *`object`*
-
-*Defined in [simpli.ts:94](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L94)*
-
-<a id="defaultlocale.__computed"></a>
-
-####  __computed
-
-**● __computed**: *`object`* =  ptBr
-
-*Defined in [simpli.ts:95](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L95)*
-*Defined in [simpli.ts:96](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/simpli.ts#L96)*
-
-#### Type declaration
-
-___
 
 ___
 

@@ -57,7 +57,7 @@ This class should be used as an extended class Use whenever it is necessary to u
 
 **● COMPRESS_CONFIG**: *`Options`* =  UploadConfig.compressedImageStandard
 
-*Defined in [components/mixins/MixinUpload.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L24)*
+*Defined in [components/mixins/MixinUpload.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L24)*
 
 ___
 <a id="cropper_ref"></a>
@@ -66,7 +66,7 @@ ___
 
 **● CROPPER_REF**: *`string`* = "cropper"
 
-*Defined in [components/mixins/MixinUpload.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L20)*
+*Defined in [components/mixins/MixinUpload.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L20)*
 
 ___
 <a id="upload_config"></a>
@@ -75,7 +75,7 @@ ___
 
 **● UPLOAD_CONFIG**: *[UploadConfig](uploadconfig.md)* =  new UploadConfig()
 
-*Defined in [components/mixins/MixinUpload.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L23)*
+*Defined in [components/mixins/MixinUpload.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L23)*
 
 ___
 <a id="upload_ref"></a>
@@ -84,7 +84,7 @@ ___
 
 **● UPLOAD_REF**: *`string`* = "upload"
 
-*Defined in [components/mixins/MixinUpload.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L19)*
+*Defined in [components/mixins/MixinUpload.ts:19](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L19)*
 
 ___
 <a id="use_crop"></a>
@@ -93,7 +93,7 @@ ___
 
 **● USE_CROP**: *`boolean`* = false
 
-*Defined in [components/mixins/MixinUpload.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L25)*
+*Defined in [components/mixins/MixinUpload.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L25)*
 
 ___
 <a id="cache"></a>
@@ -102,7 +102,7 @@ ___
 
 **● cache**: *`string`[]* =  []
 
-*Defined in [components/mixins/MixinUpload.ts:28](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L28)*
+*Defined in [components/mixins/MixinUpload.ts:28](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L28)*
 
 ___
 <a id="cropper"></a>
@@ -111,7 +111,7 @@ ___
 
 **● cropper**: *`Cropper` \| `null`* =  null
 
-*Defined in [components/mixins/MixinUpload.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L30)*
+*Defined in [components/mixins/MixinUpload.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L30)*
 
 ___
 <a id="files"></a>
@@ -120,7 +120,7 @@ ___
 
 **● files**: *[FileObject](../interfaces/fileobject.md)[]* =  []
 
-*Defined in [components/mixins/MixinUpload.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L27)*
+*Defined in [components/mixins/MixinUpload.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L27)*
 
 ___
 <a id="shown"></a>
@@ -129,7 +129,7 @@ ___
 
 **● shown**: *`boolean`* = false
 
-*Defined in [components/mixins/MixinUpload.ts:32](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L32)*
+*Defined in [components/mixins/MixinUpload.ts:32](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L32)*
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 **get fileError**(): `string` \| `false`
 
-*Defined in [components/mixins/MixinUpload.ts:81](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L81)*
+*Defined in [components/mixins/MixinUpload.ts:81](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L81)*
 
 **Returns:** `string` \| `false`
 
@@ -152,7 +152,7 @@ ___
 
 **get isCompleted**(): `number` \| `false`
 
-*Defined in [components/mixins/MixinUpload.ts:91](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L91)*
+*Defined in [components/mixins/MixinUpload.ts:91](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L91)*
 
 **Returns:** `number` \| `false`
 
@@ -163,7 +163,7 @@ ___
 
 **get isCropperMode**(): `boolean`
 
-*Defined in [components/mixins/MixinUpload.ts:101](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L101)*
+*Defined in [components/mixins/MixinUpload.ts:101](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L101)*
 
 **Returns:** `boolean`
 
@@ -174,7 +174,7 @@ ___
 
 **get resources**(): `Promise`<`AxiosResponse`<`string`>>[]
 
-*Defined in [components/mixins/MixinUpload.ts:70](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L70)*
+*Defined in [components/mixins/MixinUpload.ts:70](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L70)*
 
 **Returns:** `Promise`<`AxiosResponse`<`string`>>[]
 
@@ -188,7 +188,7 @@ ___
 
 ▸ **compressImage**(newFile: *[FileObject](../interfaces/fileobject.md)*): `Promise`<`void`>
 
-*Defined in [components/mixins/MixinUpload.ts:178](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L178)*
+*Defined in [components/mixins/MixinUpload.ts:178](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L178)*
 
 **Parameters:**
 
@@ -205,7 +205,7 @@ ___
 
 ▸ **exitCropperMode**(): `void`
 
-*Defined in [components/mixins/MixinUpload.ts:246](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L246)*
+*Defined in [components/mixins/MixinUpload.ts:246](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L246)*
 
 **Returns:** `void`
 
@@ -216,7 +216,7 @@ ___
 
 ▸ **extension**(file: *[FileObject](../interfaces/fileobject.md)*): `string`
 
-*Defined in [components/mixins/MixinUpload.ts:60](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L60)*
+*Defined in [components/mixins/MixinUpload.ts:60](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L60)*
 
 **Parameters:**
 
@@ -233,7 +233,7 @@ ___
 
 ▸ **inputFile**(newFile: *[FileObject](../interfaces/fileobject.md)*, oldFile: *[FileObject](../interfaces/fileobject.md)*): `Promise`<`void`>
 
-*Defined in [components/mixins/MixinUpload.ts:136](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L136)*
+*Defined in [components/mixins/MixinUpload.ts:136](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L136)*
 
 **Parameters:**
 
@@ -251,7 +251,7 @@ ___
 
 ▸ **inputFilter**(newFile: *[FileObject](../interfaces/fileobject.md)*, oldFile: *[FileObject](../interfaces/fileobject.md)*, prevent: *`Function`*): `Promise`<`any`>
 
-*Defined in [components/mixins/MixinUpload.ts:105](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L105)*
+*Defined in [components/mixins/MixinUpload.ts:105](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L105)*
 
 **Parameters:**
 
@@ -270,7 +270,7 @@ ___
 
 ▸ **onUploadEnd**(urls: *`string`[]*): `void`
 
-*Defined in [components/mixins/MixinUpload.ts:56](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L56)*
+*Defined in [components/mixins/MixinUpload.ts:56](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L56)*
 
 Event when the upload ends Do nothing unless it is implemented by the child
 
@@ -289,7 +289,7 @@ ___
 
 ▸ **onUploadReady**(): `void`
 
-*Defined in [components/mixins/MixinUpload.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L40)*
+*Defined in [components/mixins/MixinUpload.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L40)*
 
 Event when the upload inputs a file Do nothing unless it is implemented by the child
 
@@ -302,7 +302,7 @@ ___
 
 ▸ **onUploadStart**(): `void`
 
-*Defined in [components/mixins/MixinUpload.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L48)*
+*Defined in [components/mixins/MixinUpload.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L48)*
 
 Event when the upload starts Do nothing unless it is implemented by the child
 
@@ -315,7 +315,7 @@ ___
 
 ▸ **removeUploadFile**(file: *[FileObject](../interfaces/fileobject.md)*): `void`
 
-*Defined in [components/mixins/MixinUpload.ts:239](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L239)*
+*Defined in [components/mixins/MixinUpload.ts:239](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L239)*
 
 **Parameters:**
 
@@ -332,7 +332,7 @@ ___
 
 ▸ **resetUpload**(): `void`
 
-*Defined in [components/mixins/MixinUpload.ts:250](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L250)*
+*Defined in [components/mixins/MixinUpload.ts:250](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L250)*
 
 **Returns:** `void`
 
@@ -343,7 +343,7 @@ ___
 
 ▸ **startUpload**(): `Promise`<`void`>
 
-*Defined in [components/mixins/MixinUpload.ts:208](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L208)*
+*Defined in [components/mixins/MixinUpload.ts:208](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L208)*
 
 **Returns:** `Promise`<`void`>
 
@@ -354,7 +354,7 @@ ___
 
 ▸ **triggerEvent**(): `Promise`<`void`>
 
-*Defined in [components/mixins/MixinUpload.ts:256](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L256)*
+*Defined in [components/mixins/MixinUpload.ts:256](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L256)*
 
 **Returns:** `Promise`<`void`>
 
@@ -365,7 +365,7 @@ ___
 
 ▸ **validate**(): `void`
 
-*Defined in [components/mixins/MixinUpload.ts:199](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/components/mixins/MixinUpload.ts#L199)*
+*Defined in [components/mixins/MixinUpload.ts:199](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/mixins/MixinUpload.ts#L199)*
 
 **Returns:** `void`
 

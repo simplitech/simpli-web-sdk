@@ -76,7 +76,7 @@ async function example() {
 
 ⊕ **new Request**(axiosConfig: *`AxiosRequestConfig`*): [Request](request.md)
 
-*Defined in [app/http/Request.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Request.ts#L40)*
+*Defined in [app/http/Request.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Request.ts#L40)*
 
 Assigns a new request instance which may have a custom Axios configuration.
 
@@ -108,7 +108,7 @@ ___
 
 ▸ **as**<`T`>(responseType?: *[ResponseType](../#responsetype)<`T`>*): [Response](response.md)<`T`>
 
-*Defined in [app/http/Request.ts:281](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Request.ts#L281)*
+*Defined in [app/http/Request.ts:281](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Request.ts#L281)*
 
 Creates a response instance from [Response](response.md) and states its type as `a given param`.
 
@@ -152,7 +152,7 @@ ___
 
 ▸ **asAny**(): [Response](response.md)<`any`>
 
-*Defined in [app/http/Request.ts:328](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Request.ts#L328)*
+*Defined in [app/http/Request.ts:328](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Request.ts#L328)*
 
 Creates a response instance from [Response](response.md) and states its type as `any`. This is an alias of `as<any>()`
 
@@ -175,7 +175,7 @@ ___
 
 ▸ **asArrayOf**<`T`>(responseType?: *[ResponseType](../#responsetype)<`T`>*): [Response](response.md)<`T`[]>
 
-*Defined in [app/http/Request.ts:310](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Request.ts#L310)*
+*Defined in [app/http/Request.ts:310](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Request.ts#L310)*
 
 Creates a response instance from [Response](response.md) and states its type as `array of a given param`.
 
@@ -219,7 +219,7 @@ ___
 
 ▸ **asBoolean**(): [Response](response.md)<`boolean`>
 
-*Defined in [app/http/Request.ts:400](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Request.ts#L400)*
+*Defined in [app/http/Request.ts:400](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Request.ts#L400)*
 
 Creates a response instance from [Response](response.md) and states its type as `boolean`. This is an alias of `as<boolean>()`
 
@@ -242,7 +242,7 @@ ___
 
 ▸ **asNumber**(): [Response](response.md)<`number`>
 
-*Defined in [app/http/Request.ts:382](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Request.ts#L382)*
+*Defined in [app/http/Request.ts:382](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Request.ts#L382)*
 
 Creates a response instance from [Response](response.md) and states its type as `number`. This is an alias of `as<number>()`
 
@@ -265,7 +265,7 @@ ___
 
 ▸ **asString**(): [Response](response.md)<`string`>
 
-*Defined in [app/http/Request.ts:364](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Request.ts#L364)*
+*Defined in [app/http/Request.ts:364](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Request.ts#L364)*
 
 Creates a response instance from [Response](response.md) and states its type as `string`. This is an alias of `as<string>()`
 
@@ -288,7 +288,7 @@ ___
 
 ▸ **asVoid**(): [Response](response.md)<`void`>
 
-*Defined in [app/http/Request.ts:346](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Request.ts#L346)*
+*Defined in [app/http/Request.ts:346](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Request.ts#L346)*
 
 Creates a response instance from [Response](response.md) and states its type as `void`. This is an alias of `as<void>()`
 
@@ -311,7 +311,7 @@ ___
 
 ▸ **delay**(requestDelay: *`number`*): `this`
 
-*Defined in [app/http/Request.ts:251](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Request.ts#L251)*
+*Defined in [app/http/Request.ts:251](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Request.ts#L251)*
 
 Provides a delay of any request from this instance.
 
@@ -341,7 +341,7 @@ ___
 
 ▸ **name**(requestName: *`string`*): `this`
 
-*Defined in [app/http/Request.ts:231](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Request.ts#L231)*
+*Defined in [app/http/Request.ts:231](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Request.ts#L231)*
 
 Gives a name of this request which is used in [Await](await.md) component.
 
@@ -379,7 +379,7 @@ ___
 
 ▸ **delete**(url: *`string`*, axiosConfig?: *`AxiosRequestConfig`*): [Request](request.md)
 
-*Defined in [app/http/Request.ts:112](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Request.ts#L112)*
+*Defined in [app/http/Request.ts:112](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Request.ts#L112)*
 
 Creates a Request instance with the HTTP DELETE methods preset.
 
@@ -409,7 +409,7 @@ ___
 
 ▸ **get**(url: *`string`*, axiosConfig?: *`AxiosRequestConfig`*): [Request](request.md)
 
-*Defined in [app/http/Request.ts:92](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Request.ts#L92)*
+*Defined in [app/http/Request.ts:92](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Request.ts#L92)*
 
 Creates a Request instance with the HTTP GET methods preset.
 
@@ -439,7 +439,7 @@ ___
 
 ▸ **head**(url: *`string`*, axiosConfig?: *`AxiosRequestConfig`*): [Request](request.md)
 
-*Defined in [app/http/Request.ts:132](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Request.ts#L132)*
+*Defined in [app/http/Request.ts:132](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Request.ts#L132)*
 
 Creates a Request instance with the HTTP HEAD methods preset.
 
@@ -469,7 +469,7 @@ ___
 
 ▸ **patch**(url: *`string`*, data?: *`any`*, axiosConfig?: *`AxiosRequestConfig`*): [Request](request.md)
 
-*Defined in [app/http/Request.ts:195](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Request.ts#L195)*
+*Defined in [app/http/Request.ts:195](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Request.ts#L195)*
 
 Creates a Request instance with the HTTP PATCH methods preset.
 
@@ -500,7 +500,7 @@ ___
 
 ▸ **post**(url: *`string`*, data?: *`any`*, axiosConfig?: *`AxiosRequestConfig`*): [Request](request.md)
 
-*Defined in [app/http/Request.ts:153](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Request.ts#L153)*
+*Defined in [app/http/Request.ts:153](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Request.ts#L153)*
 
 Creates a Request instance with the HTTP POST methods preset.
 
@@ -531,7 +531,7 @@ ___
 
 ▸ **put**(url: *`string`*, data?: *`any`*, axiosConfig?: *`AxiosRequestConfig`*): [Request](request.md)
 
-*Defined in [app/http/Request.ts:174](https://github.com/simplitech/simpli-web-sdk/blob/4ed922b/src/app/http/Request.ts#L174)*
+*Defined in [app/http/Request.ts:174](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/http/Request.ts#L174)*
 
 Creates a Request instance with the HTTP PUT methods preset.
 
