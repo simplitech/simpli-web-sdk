@@ -27,15 +27,15 @@ Search into the list. [See Docs](../typedocs/classes/adapsearchfield.md).
 Input components are useful for [Schema](./schemas.md).
 They are like a `<input>`, `<textarea>`, `<select>` tag, but these components have extra features such as `mask` and `included label`.
 
-### InputText
+### [InputText](../typedocs/classes/inputtext.md)
 
 A mix of `<input>` and `<textarea>`. Usage to send `string`, `number` value. [See Docs](../typedocs/classes/inputtext.md).
 
-### InputCheckbox
+### [InputCheckbox](../typedocs/classes/inputcheckbox.md)
 
 Works with checkbox or radio. Usage to send `boolean` value. [See Docs](../typedocs/classes/inputcheckbox.md).
 
-### InputSelect
+### [InputSelect](../typedocs/classes/inputselect.md)
 
 It uses the [VueMultiselect](https://vue-multiselect.js.org/) component. Usage to send `object` or `array` value. [See Docs](../typedocs/classes/inputselect.md).
 
@@ -43,15 +43,15 @@ It uses the [VueMultiselect](https://vue-multiselect.js.org/) component. Usage t
 
 Generic components. Useful in anywhere.
 
-### Await
+### [Await](../typedocs/classes/await.md)
 
 Controls the animation of spinner when something is loading. [See Docs](../typedocs/classes/await.md).
 
-### Modal
+### [Modal](../typedocs/classes/modal.md)
 
 Controls the modals (popups). [See Docs](../typedocs/classes/modal.md)
 
-### Tip
+### [Tip](../typedocs/classes/tip.md)
 
 Controls the tooltips. [See Docs](../typedocs/classes/tip.md)
 

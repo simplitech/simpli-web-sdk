@@ -8,7 +8,7 @@ Take a look of its content:
 
 | Variable | Alias inside a Vue component | Details |
 |--|--|--|
-| $.axios | this.$axios | access of axios instance |
+| $.axios | this.$axios | access of [axios](https://github.com/axios/axios) instance |
 | $.socket | this.$socket | access of socket instance |
 | $.components | - | gets global Vue components |
 | $.filters | - | gets global Vue filters |
@@ -21,11 +21,11 @@ Take a look of its content:
 | $.te | this.$te | gets the `te` variable from [vue-i18n](https://kazupon.github.io/vue-i18n/introduction.html) module |
 | $.d | this.$d | gets the `d` variable from [vue-i18n](https://kazupon.github.io/vue-i18n/introduction.html) module |
 | $.n | this.$n | gets the `n` variable from [vue-i18n](https://kazupon.github.io/vue-i18n/introduction.html) module |
-| $.snotify | this.$snotify | variable from [vue-snotify](https://artemsky.github.io/vue-snotify/documentation/index.html) module |
+| $.snotify | this.$snotify | gets the variable from [vue-snotify](https://artemsky.github.io/vue-snotify/documentation/index.html) module |
 | $.ajv | this.$ajv | gets the `ajv` variable from [ajv](https://ajv.js.org/) module |
-| $.await | this.$await | controller of [Await](../typedocs/classes/await.md) Component |
-| $.modal | this.$modal | controller of [Modal](../typedocs/classes/modal.md) Component |
-| $.tip | this.$tip | controller of [Tip](../typedocs/classes/tip.md) Component |
+| $.await | this.$await | the controller of [Await](../typedocs/classes/await.md) Component |
+| $.modal | this.$modal | the controller of [Modal](../typedocs/classes/modal.md) Component |
+| $.tip | this.$tip | the controller of [Tip](../typedocs/classes/tip.md) Component |
 
 ## Examples of usage
 
@@ -33,7 +33,7 @@ Take a look of its content:
 import {$} from 'simpli-web-sdk'
 import {schema, data} from '@/ajv/mySchema'
 
-$.await.get('path/to/url') // request from the native axios
+$.axios.get('path/to/url') // request from the native axios
 
 $.socket.connect('notification', 'path/to/url') // socket connection
 
@@ -62,7 +62,7 @@ $.modal.open('modalName') // open a modal by his name
 $.tip.show('tipName') // show a tip by his name
 ```
 
-Each of individual variables have more details in [Docs](../typedocs/README.md)
+Each of individual variables have more details in [Docs](../typedocs/classes/_.md)
 
 ## Next Topic
 [Socket Connections](./socket-connections.md)

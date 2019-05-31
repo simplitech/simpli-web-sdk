@@ -240,7 +240,7 @@ Your template may look like this:
       <tbody>
       <tr v-for="(user, i) in users" :key="i">
         <td v-for="(field, j) in schema.allFields" :key="j">
-          <render-schema v-model="user[i]" :schema="schema" :field="field"/>
+          <render-schema v-model="users[i]" :schema="schema" :field="field"/>
         </td>
       </tr>
       </tbody>

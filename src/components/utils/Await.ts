@@ -22,21 +22,28 @@ const template = `
 
 import { Component as Comp, AsyncComponent as AsyncComp } from 'vue/types'
 import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Dictionary } from '../../interfaces'
 import { sleep } from '../../helpers'
 import { $ } from '../../simpli'
 
+/**
+ * @hidden
+ */
 export type CP = Comp<any, any, any, any> | AsyncComp<any, any, any, any>
-export interface Loader {
-  [key: string]: CP
-}
 
+/**
+ * @hidden
+ */
+export const Event = new Vue()
+
+/**
+ * @hidden
+ */
 export enum View {
   DEFAULT,
   LOADING,
   ERROR,
 }
-
-export const Event = new Vue()
 
 export class AwaitController {
   defaultTransition: string | null = null
@@ -45,7 +52,7 @@ export class AwaitController {
   defaultSpinnerPadding = '10px'
   defaultSpinnerScale = 1
 
-  loaders: Loader = {}
+  loaders: Dictionary<CP> = {}
 
   addLoader(name: string, component: CP) {
     this.loaders = Object.assign(this.loaders, { [name]: component })

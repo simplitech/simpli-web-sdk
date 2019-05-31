@@ -26,8 +26,14 @@ const template = `
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import { $ } from '../../simpli'
 
+/**
+ * @hidden
+ */
 export const Event = new Vue()
 
+/**
+ * @hidden
+ */
 export enum State {
   HIDDEN,
   SHOWN,
