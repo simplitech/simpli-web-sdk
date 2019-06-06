@@ -56,7 +56,7 @@ Please, contribute if you need a missing currency
 
 **AUD**:  = "AUD"
 
-*Defined in [enums/Currency.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L30)*
+*Defined in [enums/Currency.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L30)*
 
 Australian dollar
 
@@ -67,7 +67,7 @@ ___
 
 **BRL**:  = "BRL"
 
-*Defined in [enums/Currency.ts:100](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L100)*
+*Defined in [enums/Currency.ts:100](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L100)*
 
 Brazilian real
 
@@ -78,7 +78,7 @@ ___
 
 **CAD**:  = "CAD"
 
-*Defined in [enums/Currency.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L35)*
+*Defined in [enums/Currency.ts:35](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L35)*
 
 Canadian dollar
 
@@ -89,7 +89,7 @@ ___
 
 **CHF**:  = "CHF"
 
-*Defined in [enums/Currency.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L40)*
+*Defined in [enums/Currency.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L40)*
 
 Swiss franc
 
@@ -100,7 +100,7 @@ ___
 
 **CLP**:  = "CLP"
 
-*Defined in [enums/Currency.ts:155](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L155)*
+*Defined in [enums/Currency.ts:155](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L155)*
 
 Chilean peso
 
@@ -111,7 +111,7 @@ ___
 
 **CNY**:  = "CNY"
 
-*Defined in [enums/Currency.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L45)*
+*Defined in [enums/Currency.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L45)*
 
 Renminbi
 
@@ -122,7 +122,7 @@ ___
 
 **COP**:  = "COP"
 
-*Defined in [enums/Currency.ts:165](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L165)*
+*Defined in [enums/Currency.ts:165](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L165)*
 
 Colombian peso
 
@@ -133,7 +133,7 @@ ___
 
 **CZK**:  = "CZK"
 
-*Defined in [enums/Currency.ts:145](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L145)*
+*Defined in [enums/Currency.ts:145](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L145)*
 
 Czech koruna
 
@@ -144,7 +144,7 @@ ___
 
 **DKK**:  = "DKK"
 
-*Defined in [enums/Currency.ts:110](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L110)*
+*Defined in [enums/Currency.ts:110](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L110)*
 
 Danish krone
 
@@ -155,7 +155,7 @@ ___
 
 **EUR**:  = "EUR"
 
-*Defined in [enums/Currency.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L15)*
+*Defined in [enums/Currency.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L15)*
 
 Euro
 
@@ -166,7 +166,7 @@ ___
 
 **GBP**:  = "GBP"
 
-*Defined in [enums/Currency.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L25)*
+*Defined in [enums/Currency.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L25)*
 
 Pound sterling
 
@@ -177,7 +177,7 @@ ___
 
 **HKD**:  = "HKD"
 
-*Defined in [enums/Currency.ts:70](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L70)*
+*Defined in [enums/Currency.ts:70](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L70)*
 
 Hong Kong dollar
 
@@ -188,7 +188,7 @@ ___
 
 **HUF**:  = "HUF"
 
-*Defined in [enums/Currency.ts:135](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L135)*
+*Defined in [enums/Currency.ts:135](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L135)*
 
 Hungarian forint
 
@@ -199,7 +199,7 @@ ___
 
 **IDR**:  = "IDR"
 
-*Defined in [enums/Currency.ts:160](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L160)*
+*Defined in [enums/Currency.ts:160](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L160)*
 
 Indonesian rupiah
 
@@ -210,7 +210,7 @@ ___
 
 **ILS**:  = "ILS"
 
-*Defined in [enums/Currency.ts:150](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L150)*
+*Defined in [enums/Currency.ts:150](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L150)*
 
 Israeli shekel
 
@@ -221,7 +221,7 @@ ___
 
 **INR**:  = "INR"
 
-*Defined in [enums/Currency.ts:95](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L95)*
+*Defined in [enums/Currency.ts:95](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L95)*
 
 Indian rupee
 
@@ -232,7 +232,7 @@ ___
 
 **JPY**:  = "JPY"
 
-*Defined in [enums/Currency.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L20)*
+*Defined in [enums/Currency.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L20)*
 
 Japanese yen
 
@@ -243,7 +243,7 @@ ___
 
 **KRW**:  = "KRW"
 
-*Defined in [enums/Currency.ts:80](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L80)*
+*Defined in [enums/Currency.ts:80](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L80)*
 
 South Korean won
 
@@ -254,7 +254,7 @@ ___
 
 **MXN**:  = "MXN"
 
-*Defined in [enums/Currency.ts:60](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L60)*
+*Defined in [enums/Currency.ts:60](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L60)*
 
 Mexican peso
 
@@ -265,7 +265,7 @@ ___
 
 **MYR**:  = "MYR"
 
-*Defined in [enums/Currency.ts:130](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L130)*
+*Defined in [enums/Currency.ts:130](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L130)*
 
 Malaysian ringgit
 
@@ -276,7 +276,7 @@ ___
 
 **NOK**:  = "NOK"
 
-*Defined in [enums/Currency.ts:75](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L75)*
+*Defined in [enums/Currency.ts:75](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L75)*
 
 Norwegian krone
 
@@ -287,7 +287,7 @@ ___
 
 **NZD**:  = "NZD"
 
-*Defined in [enums/Currency.ts:55](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L55)*
+*Defined in [enums/Currency.ts:55](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L55)*
 
 New Zealand dollar
 
@@ -298,7 +298,7 @@ ___
 
 **PEN**:  = "PEN"
 
-*Defined in [enums/Currency.ts:180](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L180)*
+*Defined in [enums/Currency.ts:180](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L180)*
 
 Peruvian sol
 
@@ -309,7 +309,7 @@ ___
 
 **PHP**:  = "PHP"
 
-*Defined in [enums/Currency.ts:170](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L170)*
+*Defined in [enums/Currency.ts:170](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L170)*
 
 Philippine peso
 
@@ -320,7 +320,7 @@ ___
 
 **PLN**:  = "PLN"
 
-*Defined in [enums/Currency.ts:115](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L115)*
+*Defined in [enums/Currency.ts:115](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L115)*
 
 Polish zloty
 
@@ -331,7 +331,7 @@ ___
 
 **RON**:  = "RON"
 
-*Defined in [enums/Currency.ts:175](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L175)*
+*Defined in [enums/Currency.ts:175](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L175)*
 
 Romanian leu
 
@@ -342,7 +342,7 @@ ___
 
 **RUB**:  = "RUB"
 
-*Defined in [enums/Currency.ts:90](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L90)*
+*Defined in [enums/Currency.ts:90](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L90)*
 
 Russian ruble
 
@@ -353,7 +353,7 @@ ___
 
 **SAR**:  = "SAR"
 
-*Defined in [enums/Currency.ts:140](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L140)*
+*Defined in [enums/Currency.ts:140](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L140)*
 
 Saudi riyal
 
@@ -364,7 +364,7 @@ ___
 
 **SEK**:  = "SEK"
 
-*Defined in [enums/Currency.ts:50](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L50)*
+*Defined in [enums/Currency.ts:50](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L50)*
 
 Swedish krona
 
@@ -375,7 +375,7 @@ ___
 
 **SGD**:  = "SGD"
 
-*Defined in [enums/Currency.ts:65](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L65)*
+*Defined in [enums/Currency.ts:65](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L65)*
 
 Singapore dollar
 
@@ -386,7 +386,7 @@ ___
 
 **THB**:  = "THB"
 
-*Defined in [enums/Currency.ts:125](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L125)*
+*Defined in [enums/Currency.ts:125](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L125)*
 
 Thai baht
 
@@ -397,7 +397,7 @@ ___
 
 **TRY**:  = "TRY"
 
-*Defined in [enums/Currency.ts:85](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L85)*
+*Defined in [enums/Currency.ts:85](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L85)*
 
 Turkish lira
 
@@ -408,7 +408,7 @@ ___
 
 **TWD**:  = "TWD"
 
-*Defined in [enums/Currency.ts:120](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L120)*
+*Defined in [enums/Currency.ts:120](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L120)*
 
 New Taiwan dollar
 
@@ -419,7 +419,7 @@ ___
 
 **USD**:  = "USD"
 
-*Defined in [enums/Currency.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L10)*
+*Defined in [enums/Currency.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L10)*
 
 United States dollar
 
@@ -430,7 +430,7 @@ ___
 
 **ZAR**:  = "ZAR"
 
-*Defined in [enums/Currency.ts:105](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/enums/Currency.ts#L105)*
+*Defined in [enums/Currency.ts:105](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/enums/Currency.ts#L105)*
 
 South African rand
 

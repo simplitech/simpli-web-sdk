@@ -488,13 +488,14 @@ export class Simpli {
 
   /**
    * Change the current language of the app
-   * @param lang Desired language
    *
    * ```typescript
    * import Simpli, {Lang} from 'simpli-web-sdk'
    *
    * Simpli.changeLocale(Lang.PT_BR)
    * ```
+   *
+   * @param lang Desired language
    */
   static changeLocale(lang: Lang) {
     Simpli.$.i18n.locale = lang
@@ -503,13 +504,14 @@ export class Simpli {
 
   /**
    * Change the current language of the app
-   * @param currency Desired currency
    *
    * ```typescript
    * import Simpli, {Currency} from 'simpli-web-sdk'
    *
    * Simpli.changeCurrency(Currency.BRL)
    * ```
+   *
+   * @param currency Desired currency
    */
   static changeCurrency(currency: Currency) {
     Vue.use(VueMoney, {

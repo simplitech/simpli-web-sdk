@@ -48,7 +48,7 @@
 
 ⊕ **new Collection**(items?: *`T`[]*): [Collection](collection.md)
 
-*Defined in [app/collection/Collection.ts:3](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L3)*
+*Defined in [app/collection/Collection.ts:3](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/collection/Collection.ts#L3)*
 
 **Parameters:**
 
@@ -68,7 +68,7 @@ ___
 
 **● items**: *`T`[]*
 
-*Defined in [app/collection/Collection.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L8)*
+*Defined in [app/collection/Collection.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/collection/Collection.ts#L8)*
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 **get lodash**(): `LoDashExplicitWrapper`<`T`[]>
 
-*Defined in [app/collection/Collection.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L10)*
+*Defined in [app/collection/Collection.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/collection/Collection.ts#L10)*
 
 **Returns:** `LoDashExplicitWrapper`<`T`[]>
 
@@ -94,7 +94,7 @@ ___
 
 ▸ **add**(item: *`T`*, index?: *`undefined` \| `number`*): `void`
 
-*Defined in [app/collection/Collection.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L30)*
+*Defined in [app/collection/Collection.ts:30](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/collection/Collection.ts#L30)*
 
 **Parameters:**
 
@@ -112,7 +112,7 @@ ___
 
 ▸ **all**(): `T`[]
 
-*Defined in [app/collection/Collection.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L14)*
+*Defined in [app/collection/Collection.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/collection/Collection.ts#L14)*
 
 **Returns:** `T`[]
 
@@ -123,7 +123,7 @@ ___
 
 ▸ **first**(): `T`
 
-*Defined in [app/collection/Collection.ts:22](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L22)*
+*Defined in [app/collection/Collection.ts:22](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/collection/Collection.ts#L22)*
 
 **Returns:** `T`
 
@@ -134,7 +134,7 @@ ___
 
 ▸ **get**(index: *`number`*): `T`
 
-*Defined in [app/collection/Collection.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L18)*
+*Defined in [app/collection/Collection.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/collection/Collection.ts#L18)*
 
 **Parameters:**
 
@@ -151,7 +151,7 @@ ___
 
 ▸ **isEmpty**(): `boolean`
 
-*Defined in [app/collection/Collection.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L49)*
+*Defined in [app/collection/Collection.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/collection/Collection.ts#L49)*
 
 **Returns:** `boolean`
 
@@ -162,7 +162,7 @@ ___
 
 ▸ **isNotEmpty**(): `boolean`
 
-*Defined in [app/collection/Collection.ts:53](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L53)*
+*Defined in [app/collection/Collection.ts:53](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/collection/Collection.ts#L53)*
 
 **Returns:** `boolean`
 
@@ -173,7 +173,7 @@ ___
 
 ▸ **last**(): `T`
 
-*Defined in [app/collection/Collection.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L26)*
+*Defined in [app/collection/Collection.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/collection/Collection.ts#L26)*
 
 **Returns:** `T`
 
@@ -184,7 +184,7 @@ ___
 
 ▸ **remove**(item: *`T`*): `void`
 
-*Defined in [app/collection/Collection.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L38)*
+*Defined in [app/collection/Collection.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/collection/Collection.ts#L38)*
 
 **Parameters:**
 
@@ -201,7 +201,7 @@ ___
 
 ▸ **size**(): `number`
 
-*Defined in [app/collection/Collection.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/collection/Collection.ts#L45)*
+*Defined in [app/collection/Collection.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/collection/Collection.ts#L45)*
 
 **Returns:** `number`
 

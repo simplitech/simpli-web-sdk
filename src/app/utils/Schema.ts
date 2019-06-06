@@ -64,7 +64,7 @@ export abstract class Schema {
     return $.ajv.validateErrors(this.getAjvSchema(model), model)
   }
 
-  validate<M>(model: M): void {
+  validate<M>(model: M, showErrorMessage = true): void {
     const errors = this.validateErrors(model)
 
     if (errors) {
@@ -73,7 +73,10 @@ export abstract class Schema {
       const fieldName = error.dataPath.replace(/^\./, '')
       const message = `${this.translateFrom(fieldName)} - ${error.message}`
 
-      Helper.errorValidation(message)
+      if (showErrorMessage) {
+        Helper.errorValidation(message)
+      }
+
       throw message
     }
   }

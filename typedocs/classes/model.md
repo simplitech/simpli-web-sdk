@@ -2,6 +2,8 @@
 
 # Class: Model
 
+Usage for processing of sending/receiving data and render data.
+
 ## Hierarchy
 
 **Model**
@@ -48,7 +50,13 @@
 
 *Implementation of [ISchema](../interfaces/ischema.md).[$schemaSet](../interfaces/ischema.md#_schemaset)*
 
-*Defined in [app/utils/Model.ts:8](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L8)*
+*Defined in [app/utils/Model.ts:33](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/utils/Model.ts#L33)*
+
+Associates instances of Schema into a model. `` ` ``typescript import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk' import {InputUserSchema} from '@/schema/User/InputUserSchema' import {ListUserSchema} from '@/schema/User/ListUserSchema' import {CsvUserSchema} from '@/schema/User/CsvUserSchema'
+
+export class User extends Model { @RequestExclude() // Exclude this field from request readonly $schemaSet: SchemaSet = { input: new InputUserSchema(), list: new ListUserSchema(), csv: new CsvUserSchema(), }
+
+email: string \| null = null name: string \| null = null } `` ` ``
 
 ___
 
@@ -60,7 +68,19 @@ ___
 
 ▸ **$allFieldsFrom**(schemaRef: *`string`*): `string`[]
 
-*Defined in [app/utils/Model.ts:58](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L58)*
+*Defined in [app/utils/Model.ts:270](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/utils/Model.ts#L270)*
+
+Gets all fields from a model's schema by its reference name. Returns empty array (\[\]) if it is not found.
+
+Alias of `this.$getSchema(schemaRef).allFields`
+
+`` ` ``typescript import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk' import {InputUserSchema} from '@/schema/User/InputUserSchema'
+
+export class User extends Model { @RequestExclude() // Exclude this field from request readonly $schemaSet: SchemaSet = { input: new InputUserSchema(), } }
+
+function example() { const user = new User() user.$allFieldsFrom('input') }
+
+@param schemaRef The schema reference name
 
 **Parameters:**
 
@@ -77,7 +97,19 @@ ___
 
 ▸ **$allHeadersFrom**(schemaRef: *`string`*): `string`[]
 
-*Defined in [app/utils/Model.ts:63](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L63)*
+*Defined in [app/utils/Model.ts:299](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/utils/Model.ts#L299)*
+
+Gets all headers from a model's schema by its reference name. Returns empty array (\[\]) if it is not found.
+
+Alias of `this.$getSchema(schemaRef).allHeaders`
+
+`` ` ``typescript import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk' import {InputUserSchema} from '@/schema/User/InputUserSchema'
+
+export class User extends Model { @RequestExclude() // Exclude this field from request readonly $schemaSet: SchemaSet = { input: new InputUserSchema(), } }
+
+function example() { const user = new User() user.$allHeadersFrom('input') }
+
+@param schemaRef The schema reference name
 
 **Parameters:**
 
@@ -94,7 +126,15 @@ ___
 
 ▸ **$clone**(): `this`
 
-*Defined in [app/utils/Model.ts:88](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L88)*
+*Defined in [app/utils/Model.ts:436](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/utils/Model.ts#L436)*
+
+Clones this model and return its clone.
+
+Alias of `Helper.clone(this)`
+
+`` ` ``typescript import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk' import {User} from '@/model/User'
+
+function example() { const user = new User() const clonedUser = user.$clone() }
 
 **Returns:** `this`
 
@@ -105,7 +145,19 @@ ___
 
 ▸ **$dataFrom**(schemaRef: *`string`*): [Dictionary](../interfaces/dictionary.md)<[FieldData](../#fielddata)>
 
-*Defined in [app/utils/Model.ts:73](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L73)*
+*Defined in [app/utils/Model.ts:357](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/utils/Model.ts#L357)*
+
+Gets the data as [Dictionary](../interfaces/dictionary.md) from a model's schema by its reference name. Returns empty object ({}) if it is not found.
+
+Alias of `this.$getSchema(schemaRef).getModelData(this)`
+
+`` ` ``typescript import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk' import {InputUserSchema} from '@/schema/User/InputUserSchema'
+
+export class User extends Model { @RequestExclude() // Exclude this field from request readonly $schemaSet: SchemaSet = { input: new InputUserSchema(), } }
+
+function example() { const user = new User() user.$dataFrom('input') }
+
+@param schemaRef The schema reference name
 
 **Parameters:**
 
@@ -122,7 +174,28 @@ ___
 
 ▸ **$getSchema**(schemaRef: *`string`*): [Schema](schema.md) \| `null`
 
-*Defined in [app/utils/Model.ts:49](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L49)*
+*Defined in [app/utils/Model.ts:213](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/utils/Model.ts#L213)*
+
+Gets a model's schema instance by its reference name. Returns null if it is not found.
+
+```typescript
+import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk'
+import {InputUserSchema} from '@/schema/User/InputUserSchema'
+
+export class User extends Model {
+  \@RequestExclude() // Exclude this field from request
+  readonly $schemaSet: SchemaSet = {
+    input: new InputUserSchema(),
+  }
+}
+
+function example() {
+  const user = new User()
+  user.$getSchema('input')
+}
+
+@param schemaRef The schema reference name
+```
 
 **Parameters:**
 
@@ -139,7 +212,19 @@ ___
 
 ▸ **$getSchemaName**(schemaRef: *`string`*): `string` \| `null`
 
-*Defined in [app/utils/Model.ts:53](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L53)*
+*Defined in [app/utils/Model.ts:241](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/utils/Model.ts#L241)*
+
+Gets the name of a model's schema by its reference name. Returns null if it is not found.
+
+Alias of `this.$getSchema(schemaRef).name`
+
+`` ` ``typescript import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk' import {InputUserSchema} from '@/schema/User/InputUserSchema'
+
+export class User extends Model { @RequestExclude() // Exclude this field from request readonly $schemaSet: SchemaSet = { input: new InputUserSchema(), } }
+
+function example() { const user = new User() user.$getSchemaName('input') }
+
+@param schemaRef The schema reference name
 
 **Parameters:**
 
@@ -156,13 +241,34 @@ ___
 
 ▸ **$getSpinnerName**(command: *`string`*): `string`
 
-*Defined in [app/utils/Model.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L45)*
+*Defined in [app/utils/Model.ts:186](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/utils/Model.ts#L186)*
+
+Customizes the spinner name. This methods should be overwrited in order to take its effect.
+
+```typescript
+import {Model} from 'simpli-web-sdk'
+
+export class User extends Model {
+  $getSpinnerName(command: string) {
+    return `user_${command}`
+  }
+
+  email: string \| null = null
+  name: string \| null = null
+}
+
+await function example() {
+  const user = new User()
+  await user.$populateFrom('/user/1')
+  // the spinner name is 'user_populate'
+}
+```
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| command | `string` |
+| Name | Type | Description |
+| ------ | ------ | ------ |
+| command | `string` |  The default spinner name of the [Await](await.md) component from methods $listFrom, $populateFrom, $persistFrom, $updateFrom and $removeFrom |
 
 **Returns:** `string`
 
@@ -173,7 +279,19 @@ ___
 
 ▸ **$headerFrom**(schemaRef: *`string`*): [Dictionary](../interfaces/dictionary.md)<`string`>
 
-*Defined in [app/utils/Model.ts:68](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L68)*
+*Defined in [app/utils/Model.ts:328](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/utils/Model.ts#L328)*
+
+Gets the header as [Dictionary](../interfaces/dictionary.md) from a model's schema by its reference name. Returns empty object ({}) if it is not found.
+
+Alias of `this.$getSchema(schemaRef).header`
+
+`` ` ``typescript import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk' import {InputUserSchema} from '@/schema/User/InputUserSchema'
+
+export class User extends Model { @RequestExclude() // Exclude this field from request readonly $schemaSet: SchemaSet = { input: new InputUserSchema(), } }
+
+function example() { const user = new User() user.$headerFrom('input') }
+
+@param schemaRef The schema reference name
 
 **Parameters:**
 
@@ -190,13 +308,25 @@ ___
 
 ▸ **$listFrom**(url: *`string`*): `Promise`<`AxiosResponse`<`this`[]>>
 
-*Defined in [app/utils/Model.ts:10](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L10)*
+*Defined in [app/utils/Model.ts:51](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/utils/Model.ts#L51)*
+
+Calls HTTP GET request, and defines the response as an array of this model. Note: the default spinner name of the [Await](await.md) component is 'list'.
+
+```typescript
+import {Model} from 'simpli-web-sdk'
+import {User} from '@/model/User'
+
+async function example() {
+  const resp = await new User().$listFrom('/user')
+  const users: User[] = resp.data
+}
+```
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| url | `string` |
+| Name | Type | Description |
+| ------ | ------ | ------ |
+| url | `string` |  The absolute or endpoint URL |
 
 **Returns:** `Promise`<`AxiosResponse`<`this`[]>>
 
@@ -207,13 +337,28 @@ ___
 
 ▸ **$persistFrom**(url: *`string`*): `Promise`<`AxiosResponse`<`any`>>
 
-*Defined in [app/utils/Model.ts:24](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L24)*
+*Defined in [app/utils/Model.ts:101](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/utils/Model.ts#L101)*
+
+Calls HTTP POST request, and defines the response as any type. Note: the default spinner name of the [Await](await.md) component is 'persist'.
+
+```typescript
+import {Model} from 'simpli-web-sdk'
+import {User} from '@/model/User'
+
+async function example() {
+  const user = new User()
+  user.name = 'Michael Jackson'
+
+  await user.$persistFrom('/user')
+  // the changes will be persisted
+}
+```
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| url | `string` |
+| Name | Type | Description |
+| ------ | ------ | ------ |
+| url | `string` |  The absolute or endpoint URL |
 
 **Returns:** `Promise`<`AxiosResponse`<`any`>>
 
@@ -224,13 +369,26 @@ ___
 
 ▸ **$populateFrom**(url: *`string`*): `Promise`<`AxiosResponse`<`this`>>
 
-*Defined in [app/utils/Model.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L17)*
+*Defined in [app/utils/Model.ts:75](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/utils/Model.ts#L75)*
+
+Calls HTTP GET request, and defines the response as this model. Note: the default spinner name of the [Await](await.md) component is 'populate'.
+
+```typescript
+import {Model} from 'simpli-web-sdk'
+import {User} from '@/model/User'
+
+async function example() {
+  const user = new User()
+  await user.$populateFrom('/user/1')
+  // the user will be populated
+}
+```
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| url | `string` |
+| Name | Type | Description |
+| ------ | ------ | ------ |
+| url | `string` |  The absolute or endpoint URL |
 
 **Returns:** `Promise`<`AxiosResponse`<`this`>>
 
@@ -241,13 +399,26 @@ ___
 
 ▸ **$removeFrom**(url: *`string`*): `Promise`<`AxiosResponse`<`any`>>
 
-*Defined in [app/utils/Model.ts:38](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L38)*
+*Defined in [app/utils/Model.ts:153](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/utils/Model.ts#L153)*
+
+Calls HTTP DELETE request, and defines the response as any type. Note: the default spinner name of the [Await](await.md) component is 'remove'.
+
+```typescript
+import {Model} from 'simpli-web-sdk'
+import {User} from '@/model/User'
+
+async function example() {
+  const user = new User()
+  await user.$removeFrom('/user/1')
+  // remove this user from database
+}
+```
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| url | `string` |
+| Name | Type | Description |
+| ------ | ------ | ------ |
+| url | `string` |  The absolute or endpoint URL |
 
 **Returns:** `Promise`<`AxiosResponse`<`any`>>
 
@@ -256,16 +427,28 @@ ___
 
 ###  $translateFrom
 
-▸ **$translateFrom**(schemaRef: *`string`*, fiendName: *`string`*): `string`
+▸ **$translateFrom**(schemaRef: *`string`*, fieldName: *`string`*): `string`
 
-*Defined in [app/utils/Model.ts:78](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L78)*
+*Defined in [app/utils/Model.ts:387](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/utils/Model.ts#L387)*
+
+Translates a field from a model's schema by its reference name. Returns empty string ('') if it is not found.
+
+Alias of `this.$getSchema(schemaRef).translateFrom(fieldName)`
+
+`` ` ``typescript import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk' import {InputUserSchema} from '@/schema/User/InputUserSchema'
+
+export class User extends Model { @RequestExclude() // Exclude this field from request readonly $schemaSet: SchemaSet = { input: new InputUserSchema(), } }
+
+function example() { const user = new User() user.$translateFrom('input', 'email') }
+
+@param schemaRef The schema reference name @param fieldName The schema's field name
 
 **Parameters:**
 
 | Name | Type |
 | ------ | ------ |
 | schemaRef | `string` |
-| fiendName | `string` |
+| fieldName | `string` |
 
 **Returns:** `string`
 
@@ -276,13 +459,30 @@ ___
 
 ▸ **$updateFrom**(url: *`string`*): `Promise`<`AxiosResponse`<`any`>>
 
-*Defined in [app/utils/Model.ts:31](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L31)*
+*Defined in [app/utils/Model.ts:129](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/utils/Model.ts#L129)*
+
+Calls HTTP PUT request, and defines the response as any type. Note: the default spinner name of the [Await](await.md) component is 'update'.
+
+```typescript
+import {Model} from 'simpli-web-sdk'
+import {User} from '@/model/User'
+
+async function example() {
+  const user = new User()
+  await user.$populateFrom('/user/1')
+
+  user.name = 'Michael Jackson'
+
+  await user.$updateFrom('/user/1')
+  // the changes will be persisted
+}
+```
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| url | `string` |
+| Name | Type | Description |
+| ------ | ------ | ------ |
+| url | `string` |  The absolute or endpoint URL |
 
 **Returns:** `Promise`<`AxiosResponse`<`any`>>
 
@@ -291,15 +491,28 @@ ___
 
 ###  $validate
 
-▸ **$validate**(schemaRef?: *`string`*): `void`
+▸ **$validate**(schemaRef?: *`string`*, showErrorMessage?: *`boolean`*): `void`
 
-*Defined in [app/utils/Model.ts:83](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/utils/Model.ts#L83)*
+*Defined in [app/utils/Model.ts:417](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/utils/Model.ts#L417)*
+
+Validates a model's schema by its reference name. If there are errors, then throw an exception.
+
+Alias of `this.$getSchema(schemaRef).validate(this, showErrorMessage)`
+
+`` ` ``typescript import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk' import {InputUserSchema} from '@/schema/User/InputUserSchema'
+
+export class User extends Model { @RequestExclude() // Exclude this field from request readonly $schemaSet: SchemaSet = { input: new InputUserSchema(), } }
+
+function example() { const user = new User() user.$validate('input') }
+
+@param schemaRef The schema reference name @param showErrorMessage If true, then spans the first error message to the user
 
 **Parameters:**
 
 | Name | Type | Default value |
 | ------ | ------ | ------ |
 | `Default value` schemaRef | `string` | &quot;input&quot; |
+| `Default value` showErrorMessage | `boolean` | true |
 
 **Returns:** `void`
 

@@ -43,7 +43,7 @@
 
 **● effect**: *`undefined` \| `string`*
 
-*Defined in [components/utils/Await.ts:91](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Await.ts#L91)*
+*Defined in [components/utils/Await.ts:91](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Await.ts#L91)*
 
 ___
 <a id="height"></a>
@@ -52,7 +52,7 @@ ___
 
 **● height**: *`undefined` \| `number`*
 
-*Defined in [components/utils/Await.ts:115](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Await.ts#L115)*
+*Defined in [components/utils/Await.ts:115](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Await.ts#L115)*
 
 ___
 <a id="init"></a>
@@ -61,7 +61,7 @@ ___
 
 **● init**: *`undefined` \| `false` \| `true`*
 
-*Defined in [components/utils/Await.ts:106](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Await.ts#L106)*
+*Defined in [components/utils/Await.ts:106](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Await.ts#L106)*
 
 ___
 <a id="name"></a>
@@ -70,7 +70,7 @@ ___
 
 **● name**: *`undefined` \| `string`*
 
-*Defined in [components/utils/Await.ts:88](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Await.ts#L88)*
+*Defined in [components/utils/Await.ts:88](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Await.ts#L88)*
 
 ___
 <a id="spinner"></a>
@@ -79,7 +79,7 @@ ___
 
 **● spinner**: *`undefined` \| `string`*
 
-*Defined in [components/utils/Await.ts:94](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Await.ts#L94)*
+*Defined in [components/utils/Await.ts:94](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Await.ts#L94)*
 
 ___
 <a id="spinnercolor"></a>
@@ -88,7 +88,7 @@ ___
 
 **● spinnerColor**: *`undefined` \| `string`*
 
-*Defined in [components/utils/Await.ts:97](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Await.ts#L97)*
+*Defined in [components/utils/Await.ts:97](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Await.ts#L97)*
 
 ___
 <a id="spinnerpadding"></a>
@@ -97,7 +97,7 @@ ___
 
 **● spinnerPadding**: *`undefined` \| `string`*
 
-*Defined in [components/utils/Await.ts:100](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Await.ts#L100)*
+*Defined in [components/utils/Await.ts:100](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Await.ts#L100)*
 
 ___
 <a id="spinnerscale"></a>
@@ -106,7 +106,7 @@ ___
 
 **● spinnerScale**: *`undefined` \| `number`*
 
-*Defined in [components/utils/Await.ts:103](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Await.ts#L103)*
+*Defined in [components/utils/Await.ts:103](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Await.ts#L103)*
 
 ___
 <a id="view"></a>
@@ -115,7 +115,7 @@ ___
 
 **● view**: *`View`* =  View.DEFAULT
 
-*Defined in [components/utils/Await.ts:114](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Await.ts#L114)*
+*Defined in [components/utils/Await.ts:114](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Await.ts#L114)*
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 **get hasErrorSlot**(): `boolean`
 
-*Defined in [components/utils/Await.ts:121](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Await.ts#L121)*
+*Defined in [components/utils/Await.ts:121](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Await.ts#L121)*
 
 **Returns:** `boolean`
 
@@ -138,7 +138,7 @@ ___
 
 **get hasLoadingSlot**(): `boolean`
 
-*Defined in [components/utils/Await.ts:117](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Await.ts#L117)*
+*Defined in [components/utils/Await.ts:117](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Await.ts#L117)*
 
 **Returns:** `boolean`
 
@@ -149,7 +149,7 @@ ___
 
 **get minHeight**(): `string`
 
-*Defined in [components/utils/Await.ts:125](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Await.ts#L125)*
+*Defined in [components/utils/Await.ts:125](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Await.ts#L125)*
 
 **Returns:** `string`
 
@@ -163,7 +163,7 @@ ___
 
 ▸ **beforeMount**(): `void`
 
-*Defined in [components/utils/Await.ts:133](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Await.ts#L133)*
+*Defined in [components/utils/Await.ts:133](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Await.ts#L133)*
 
 **Returns:** `void`
 
@@ -174,7 +174,7 @@ ___
 
 ▸ **mounted**(): `void`
 
-*Defined in [components/utils/Await.ts:129](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Await.ts#L129)*
+*Defined in [components/utils/Await.ts:129](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Await.ts#L129)*
 
 **Returns:** `void`
 

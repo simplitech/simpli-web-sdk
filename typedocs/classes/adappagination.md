@@ -39,7 +39,7 @@
 
 **● collection**: *[PageCollection](pagecollection.md)<[Resource](resource.md)>*
 
-*Defined in [components/adap/AdapPagination.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapPagination.ts#L40)*
+*Defined in [components/adap/AdapPagination.ts:40](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/adap/AdapPagination.ts#L40)*
 
 ___
 <a id="gap"></a>
@@ -48,7 +48,7 @@ ___
 
 **● gap**: *`number`*
 
-*Defined in [components/adap/AdapPagination.ts:43](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapPagination.ts#L43)*
+*Defined in [components/adap/AdapPagination.ts:43](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/adap/AdapPagination.ts#L43)*
 
 ___
 <a id="spinner"></a>
@@ -57,7 +57,7 @@ ___
 
 **● spinner**: *`string`*
 
-*Defined in [components/adap/AdapPagination.ts:46](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapPagination.ts#L46)*
+*Defined in [components/adap/AdapPagination.ts:46](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/adap/AdapPagination.ts#L46)*
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 **get current**(): `number`
 
-*Defined in [components/adap/AdapPagination.ts:52](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapPagination.ts#L52)*
+*Defined in [components/adap/AdapPagination.ts:52](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/adap/AdapPagination.ts#L52)*
 
 **Returns:** `number`
 
@@ -80,7 +80,7 @@ ___
 
 **get first**(): `number`
 
-*Defined in [components/adap/AdapPagination.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapPagination.ts#L48)*
+*Defined in [components/adap/AdapPagination.ts:48](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/adap/AdapPagination.ts#L48)*
 
 **Returns:** `number`
 
@@ -91,7 +91,7 @@ ___
 
 **get last**(): `number`
 
-*Defined in [components/adap/AdapPagination.ts:56](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapPagination.ts#L56)*
+*Defined in [components/adap/AdapPagination.ts:56](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/adap/AdapPagination.ts#L56)*
 
 **Returns:** `number`
 
@@ -105,7 +105,7 @@ ___
 
 ▸ **goto**(n: *`number`*): `Promise`<`void`>
 
-*Defined in [components/adap/AdapPagination.ts:60](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapPagination.ts#L60)*
+*Defined in [components/adap/AdapPagination.ts:60](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/adap/AdapPagination.ts#L60)*
 
 **Parameters:**
 
@@ -122,7 +122,7 @@ ___
 
 ▸ **index**(n: *`number`*): `number`
 
-*Defined in [components/adap/AdapPagination.ts:72](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapPagination.ts#L72)*
+*Defined in [components/adap/AdapPagination.ts:72](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/adap/AdapPagination.ts#L72)*
 
 **Parameters:**
 
@@ -139,7 +139,7 @@ ___
 
 ▸ **next**(): `Promise`<`void`>
 
-*Defined in [components/adap/AdapPagination.ts:64](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapPagination.ts#L64)*
+*Defined in [components/adap/AdapPagination.ts:64](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/adap/AdapPagination.ts#L64)*
 
 **Returns:** `Promise`<`void`>
 
@@ -150,7 +150,7 @@ ___
 
 ▸ **prev**(): `Promise`<`void`>
 
-*Defined in [components/adap/AdapPagination.ts:68](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/adap/AdapPagination.ts#L68)*
+*Defined in [components/adap/AdapPagination.ts:68](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/adap/AdapPagination.ts#L68)*
 
 **Returns:** `Promise`<`void`>
 

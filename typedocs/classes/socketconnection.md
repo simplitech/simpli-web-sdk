@@ -42,7 +42,7 @@
 
 ⊕ **new SocketConnection**(url: *`string`*): [SocketConnection](socketconnection.md)
 
-*Defined in [app/socket/SocketConnection.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/socket/SocketConnection.ts#L7)*
+*Defined in [app/socket/SocketConnection.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/socket/SocketConnection.ts#L7)*
 
 **Parameters:**
 
@@ -62,7 +62,7 @@ ___
 
 **● classType**: *[ClassType](../#classtype)<`T`>*
 
-*Defined in [app/socket/SocketConnection.ts:6](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/socket/SocketConnection.ts#L6)*
+*Defined in [app/socket/SocketConnection.ts:6](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/socket/SocketConnection.ts#L6)*
 
 ___
 <a id="socket"></a>
@@ -71,7 +71,7 @@ ___
 
 **● socket**: *`WebSocket`*
 
-*Defined in [app/socket/SocketConnection.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/socket/SocketConnection.ts#L7)*
+*Defined in [app/socket/SocketConnection.ts:7](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/socket/SocketConnection.ts#L7)*
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 ▸ **as**(classType: *[ClassType](../#classtype)<`T`>*): `this`
 
-*Defined in [app/socket/SocketConnection.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/socket/SocketConnection.ts#L18)*
+*Defined in [app/socket/SocketConnection.ts:18](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/socket/SocketConnection.ts#L18)*
 
 **Parameters:**
 
@@ -100,7 +100,7 @@ ___
 
 ▸ **disconnect**(): `void`
 
-*Defined in [app/socket/SocketConnection.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/socket/SocketConnection.ts#L23)*
+*Defined in [app/socket/SocketConnection.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/socket/SocketConnection.ts#L23)*
 
 **Returns:** `void`
 
@@ -111,7 +111,7 @@ ___
 
 ▸ **onClose**(callback: *`function`*): `void`
 
-*Defined in [app/socket/SocketConnection.ts:33](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/socket/SocketConnection.ts#L33)*
+*Defined in [app/socket/SocketConnection.ts:33](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/socket/SocketConnection.ts#L33)*
 
 **Parameters:**
 
@@ -128,7 +128,7 @@ ___
 
 ▸ **onClosePromise**(): `Promise`<`void`>
 
-*Defined in [app/socket/SocketConnection.ts:67](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/socket/SocketConnection.ts#L67)*
+*Defined in [app/socket/SocketConnection.ts:67](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/socket/SocketConnection.ts#L67)*
 
 **Returns:** `Promise`<`void`>
 
@@ -139,7 +139,7 @@ ___
 
 ▸ **onData**(callback: *`function`*): `void`
 
-*Defined in [app/socket/SocketConnection.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/socket/SocketConnection.ts#L45)*
+*Defined in [app/socket/SocketConnection.ts:45](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/socket/SocketConnection.ts#L45)*
 
 **Parameters:**
 
@@ -156,7 +156,7 @@ ___
 
 ▸ **onDataPromise**(): `Promise`<`void`>
 
-*Defined in [app/socket/SocketConnection.ts:83](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/socket/SocketConnection.ts#L83)*
+*Defined in [app/socket/SocketConnection.ts:83](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/socket/SocketConnection.ts#L83)*
 
 **Returns:** `Promise`<`void`>
 
@@ -167,7 +167,7 @@ ___
 
 ▸ **onError**(callback: *`function`*): `void`
 
-*Defined in [app/socket/SocketConnection.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/socket/SocketConnection.ts#L39)*
+*Defined in [app/socket/SocketConnection.ts:39](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/socket/SocketConnection.ts#L39)*
 
 **Parameters:**
 
@@ -184,7 +184,7 @@ ___
 
 ▸ **onErrorPromise**(): `Promise`<`void`>
 
-*Defined in [app/socket/SocketConnection.ts:75](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/socket/SocketConnection.ts#L75)*
+*Defined in [app/socket/SocketConnection.ts:75](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/socket/SocketConnection.ts#L75)*
 
 **Returns:** `Promise`<`void`>
 
@@ -195,7 +195,7 @@ ___
 
 ▸ **onOpen**(callback: *`function`*): `void`
 
-*Defined in [app/socket/SocketConnection.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/socket/SocketConnection.ts#L27)*
+*Defined in [app/socket/SocketConnection.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/socket/SocketConnection.ts#L27)*
 
 **Parameters:**
 
@@ -212,7 +212,7 @@ ___
 
 ▸ **onOpenPromise**(): `Promise`<`void`>
 
-*Defined in [app/socket/SocketConnection.ts:59](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/app/socket/SocketConnection.ts#L59)*
+*Defined in [app/socket/SocketConnection.ts:59](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/app/socket/SocketConnection.ts#L59)*
 
 **Returns:** `Promise`<`void`>
 

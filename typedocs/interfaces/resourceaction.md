@@ -39,7 +39,7 @@
 
 **● query**: *`function`*
 
-*Defined in [interfaces/resource.interface.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/resource.interface.ts#L13)*
+*Defined in [interfaces/resource.interface.ts:13](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/interfaces/resource.interface.ts#L13)*
 
 #### Type declaration
 ▸(params?: *`any`*): [Request](../classes/request.md)
@@ -59,7 +59,7 @@ ___
 
 **● remove**: *`function`*
 
-*Defined in [interfaces/resource.interface.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/resource.interface.ts#L16)*
+*Defined in [interfaces/resource.interface.ts:16](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/interfaces/resource.interface.ts#L16)*
 
 #### Type declaration
 ▸(params?: *`any`*): [Request](../classes/request.md)
@@ -79,7 +79,7 @@ ___
 
 **● save**: *`function`*
 
-*Defined in [interfaces/resource.interface.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/resource.interface.ts#L14)*
+*Defined in [interfaces/resource.interface.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/interfaces/resource.interface.ts#L14)*
 
 #### Type declaration
 ▸(paramsOrData?: *`any`*, data?: *`any`*): [Request](../classes/request.md)
@@ -100,7 +100,7 @@ ___
 
 **● update**: *`function`*
 
-*Defined in [interfaces/resource.interface.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/resource.interface.ts#L15)*
+*Defined in [interfaces/resource.interface.ts:15](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/interfaces/resource.interface.ts#L15)*
 
 #### Type declaration
 ▸(paramsOrData?: *`any`*, data?: *`any`*): [Request](../classes/request.md)

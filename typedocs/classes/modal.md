@@ -43,7 +43,7 @@
 
 **● backgroundEffect**: *`undefined` \| `string`*
 
-*Defined in [components/utils/Modal.ts:81](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L81)*
+*Defined in [components/utils/Modal.ts:81](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L81)*
 
 ___
 <a id="body"></a>
@@ -52,7 +52,7 @@ ___
 
 **● body**: *`HTMLElement` \| `null`* =  null
 
-*Defined in [components/utils/Modal.ts:99](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L99)*
+*Defined in [components/utils/Modal.ts:99](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L99)*
 
 ___
 <a id="bodyoverflowy"></a>
@@ -61,7 +61,7 @@ ___
 
 **● bodyOverflowY**: *`string` \| `null`* =  null
 
-*Defined in [components/utils/Modal.ts:100](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L100)*
+*Defined in [components/utils/Modal.ts:100](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L100)*
 
 ___
 <a id="closable"></a>
@@ -70,7 +70,7 @@ ___
 
 **● closable**: *`undefined` \| `false` \| `true`*
 
-*Defined in [components/utils/Modal.ts:84](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L84)*
+*Defined in [components/utils/Modal.ts:84](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L84)*
 
 ___
 <a id="closeoutside"></a>
@@ -79,7 +79,7 @@ ___
 
 **● closeOutside**: *`undefined` \| `false` \| `true`*
 
-*Defined in [components/utils/Modal.ts:87](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L87)*
+*Defined in [components/utils/Modal.ts:87](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L87)*
 
 ___
 <a id="effect"></a>
@@ -88,7 +88,7 @@ ___
 
 **● effect**: *`undefined` \| `string`*
 
-*Defined in [components/utils/Modal.ts:78](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L78)*
+*Defined in [components/utils/Modal.ts:78](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L78)*
 
 ___
 <a id="innerclass"></a>
@@ -97,7 +97,7 @@ ___
 
 **● innerClass**: *`undefined` \| `string`*
 
-*Defined in [components/utils/Modal.ts:75](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L75)*
+*Defined in [components/utils/Modal.ts:75](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L75)*
 
 ___
 <a id="name"></a>
@@ -106,7 +106,7 @@ ___
 
 **● name**: *`undefined` \| `string`*
 
-*Defined in [components/utils/Modal.ts:69](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L69)*
+*Defined in [components/utils/Modal.ts:69](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L69)*
 
 ___
 <a id="open"></a>
@@ -115,7 +115,7 @@ ___
 
 **● open**: *`any`*
 
-*Defined in [components/utils/Modal.ts:90](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L90)*
+*Defined in [components/utils/Modal.ts:90](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L90)*
 
 ___
 <a id="state"></a>
@@ -124,7 +124,7 @@ ___
 
 **● state**: *`State`* =  State.HIDDEN
 
-*Defined in [components/utils/Modal.ts:92](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L92)*
+*Defined in [components/utils/Modal.ts:92](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L92)*
 
 ___
 <a id="title"></a>
@@ -133,7 +133,7 @@ ___
 
 **● title**: *`undefined` \| `string`*
 
-*Defined in [components/utils/Modal.ts:72](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L72)*
+*Defined in [components/utils/Modal.ts:72](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L72)*
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 ▸ **beforeMount**(): `void`
 
-*Defined in [components/utils/Modal.ts:137](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L137)*
+*Defined in [components/utils/Modal.ts:137](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L137)*
 
 **Returns:** `void`
 
@@ -156,7 +156,7 @@ ___
 
 ▸ **closeAction**(force?: *`boolean`*): `void`
 
-*Defined in [components/utils/Modal.ts:124](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L124)*
+*Defined in [components/utils/Modal.ts:124](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L124)*
 
 **Parameters:**
 
@@ -173,7 +173,7 @@ ___
 
 ▸ **closeFromView**(e: *`Event`*): `void`
 
-*Defined in [components/utils/Modal.ts:131](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L131)*
+*Defined in [components/utils/Modal.ts:131](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L131)*
 
 **Parameters:**
 
@@ -190,7 +190,7 @@ ___
 
 ▸ **openAction**(payload: *`any`*): `void`
 
-*Defined in [components/utils/Modal.ts:119](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L119)*
+*Defined in [components/utils/Modal.ts:119](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L119)*
 
 **Parameters:**
 
@@ -207,7 +207,7 @@ ___
 
 ▸ **openEvent**(val: *`any`*): `void`
 
-*Defined in [components/utils/Modal.ts:103](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L103)*
+*Defined in [components/utils/Modal.ts:103](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L103)*
 
 **Parameters:**
 
@@ -224,7 +224,7 @@ ___
 
 ▸ **stateEvent**(val: *`State`*): `void`
 
-*Defined in [components/utils/Modal.ts:111](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Modal.ts#L111)*
+*Defined in [components/utils/Modal.ts:111](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Modal.ts#L111)*
 
 **Parameters:**
 

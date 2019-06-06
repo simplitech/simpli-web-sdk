@@ -60,7 +60,7 @@ Simpli.install()
 
 **● axios**: *`AxiosInstance`*
 
-*Defined in [simpli.ts:344](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L344)*
+*Defined in [simpli.ts:344](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/simpli.ts#L344)*
 
 Setup of the [axios](https://github.com/axios/axios) instance in order to use a native HTTP request.
 
@@ -81,7 +81,7 @@ ___
 
 **● components**: *[ComponentOptions](../interfaces/componentoptions.md)*
 
-*Defined in [simpli.ts:375](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L375)*
+*Defined in [simpli.ts:375](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/simpli.ts#L375)*
 
 Setup of the global Vue components.
 
@@ -103,7 +103,7 @@ ___
 
 **● currency**: *[Currency](../enums/currency.md)* =  Currency.USD
 
-*Defined in [simpli.ts:472](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L472)*
+*Defined in [simpli.ts:472](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/simpli.ts#L472)*
 
 Setups the default currency.
 
@@ -122,7 +122,7 @@ ___
 
 **● filters**: *[FilterOptions](../interfaces/filteroptions.md)*
 
-*Defined in [simpli.ts:392](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L392)*
+*Defined in [simpli.ts:392](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/simpli.ts#L392)*
 
 Setup of the global Vue filters.
 
@@ -145,7 +145,7 @@ ___
 
 **● lang**: *[Lang](../enums/lang.md)* =  Lang.EN_US
 
-*Defined in [simpli.ts:459](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L459)*
+*Defined in [simpli.ts:459](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/simpli.ts#L459)*
 
 Setups the default language.
 
@@ -164,7 +164,7 @@ ___
 
 **● locale**: *[LocaleOptions](../interfaces/localeoptions.md)*
 
-*Defined in [simpli.ts:408](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L408)*
+*Defined in [simpli.ts:408](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/simpli.ts#L408)*
 
 Setup of locale from [vue-i18n](https://kazupon.github.io/vue-i18n/introduction.html)
 
@@ -186,7 +186,7 @@ ___
 
 **● localeAjv**: *[LocaleOptions](../interfaces/localeoptions.md)*
 
-*Defined in [simpli.ts:424](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L424)*
+*Defined in [simpli.ts:424](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/simpli.ts#L424)*
 
 Setup of validation from [ajv](https://ajv.js.org/) module
 
@@ -208,7 +208,7 @@ ___
 
 **● router**: *`RouterOptions`*
 
-*Defined in [simpli.ts:446](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L446)*
+*Defined in [simpli.ts:446](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/simpli.ts#L446)*
 
 Setups the `router` variable from [vue-router](https://router.vuejs.org/) module.
 
@@ -236,7 +236,7 @@ ___
 
 **● socket**: *[SocketInstance](../interfaces/socketinstance.md)*
 
-*Defined in [simpli.ts:359](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L359)*
+*Defined in [simpli.ts:359](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/simpli.ts#L359)*
 
 Setup of the [SocketInstance](../interfaces/socketinstance.md) in order to use socket connection.
 
@@ -260,15 +260,21 @@ ___
 
 ▸ **changeCurrency**(currency: *[Currency](../enums/currency.md)*): `void`
 
-*Defined in [simpli.ts:514](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L514)*
+*Defined in [simpli.ts:516](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/simpli.ts#L516)*
 
 Change the current language of the app
+
+```typescript
+import Simpli, {Currency} from 'simpli-web-sdk'
+
+Simpli.changeCurrency(Currency.BRL)
+```
 
 **Parameters:**
 
 | Name | Type | Description |
 | ------ | ------ | ------ |
-| currency | [Currency](../enums/currency.md) |  Desired currency<br><br>```typescript import Simpli, {Currency} from 'simpli-web-sdk'<br><br>Simpli.changeCurrency(Currency.BRL) ``` |
+| currency | [Currency](../enums/currency.md) |  Desired currency |
 
 **Returns:** `void`
 
@@ -279,15 +285,21 @@ ___
 
 ▸ **changeLocale**(lang: *[Lang](../enums/lang.md)*): `void`
 
-*Defined in [simpli.ts:499](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L499)*
+*Defined in [simpli.ts:500](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/simpli.ts#L500)*
 
 Change the current language of the app
+
+```typescript
+import Simpli, {Lang} from 'simpli-web-sdk'
+
+Simpli.changeLocale(Lang.PT_BR)
+```
 
 **Parameters:**
 
 | Name | Type | Description |
 | ------ | ------ | ------ |
-| lang | [Lang](../enums/lang.md) |  Desired language<br><br>```typescript import Simpli, {Lang} from 'simpli-web-sdk'<br><br>Simpli.changeLocale(Lang.PT\_BR) ``` |
+| lang | [Lang](../enums/lang.md) |  Desired language |
 
 **Returns:** `void`
 
@@ -298,7 +310,7 @@ ___
 
 ▸ **install**(): `void`
 
-*Defined in [simpli.ts:526](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/simpli.ts#L526)*
+*Defined in [simpli.ts:528](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/simpli.ts#L528)*
 
 Applies the Simpli setup
 

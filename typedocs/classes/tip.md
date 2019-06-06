@@ -38,7 +38,7 @@
 
 **● effect**: *`undefined` \| `string`*
 
-*Defined in [components/utils/Tip.ts:60](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Tip.ts#L60)*
+*Defined in [components/utils/Tip.ts:60](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Tip.ts#L60)*
 
 ___
 <a id="innerclass"></a>
@@ -47,7 +47,7 @@ ___
 
 **● innerClass**: *`undefined` \| `string`*
 
-*Defined in [components/utils/Tip.ts:69](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Tip.ts#L69)*
+*Defined in [components/utils/Tip.ts:69](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Tip.ts#L69)*
 
 ___
 <a id="message"></a>
@@ -56,7 +56,7 @@ ___
 
 **● message**: *`undefined` \| `string`*
 
-*Defined in [components/utils/Tip.ts:57](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Tip.ts#L57)*
+*Defined in [components/utils/Tip.ts:57](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Tip.ts#L57)*
 
 ___
 <a id="name"></a>
@@ -65,7 +65,7 @@ ___
 
 **● name**: *`undefined` \| `string`*
 
-*Defined in [components/utils/Tip.ts:54](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Tip.ts#L54)*
+*Defined in [components/utils/Tip.ts:54](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Tip.ts#L54)*
 
 ___
 <a id="offset"></a>
@@ -74,7 +74,7 @@ ___
 
 **● offset**: *`undefined` \| `number`*
 
-*Defined in [components/utils/Tip.ts:66](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Tip.ts#L66)*
+*Defined in [components/utils/Tip.ts:66](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Tip.ts#L66)*
 
 ___
 <a id="state"></a>
@@ -83,7 +83,7 @@ ___
 
 **● state**: *`State`* =  State.HIDDEN
 
-*Defined in [components/utils/Tip.ts:71](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Tip.ts#L71)*
+*Defined in [components/utils/Tip.ts:71](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Tip.ts#L71)*
 
 ___
 <a id="width"></a>
@@ -92,7 +92,7 @@ ___
 
 **● width**: *`undefined` \| `string`*
 
-*Defined in [components/utils/Tip.ts:63](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Tip.ts#L63)*
+*Defined in [components/utils/Tip.ts:63](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Tip.ts#L63)*
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 ▸ **beforeMount**(): `void`
 
-*Defined in [components/utils/Tip.ts:109](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Tip.ts#L109)*
+*Defined in [components/utils/Tip.ts:109](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Tip.ts#L109)*
 
 **Returns:** `void`
 
@@ -115,7 +115,7 @@ ___
 
 ▸ **hide**(): `void`
 
-*Defined in [components/utils/Tip.ts:104](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Tip.ts#L104)*
+*Defined in [components/utils/Tip.ts:104](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Tip.ts#L104)*
 
 **Returns:** `void`
 
@@ -126,7 +126,7 @@ ___
 
 ▸ **mounted**(): `void`
 
-*Defined in [components/utils/Tip.ts:135](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Tip.ts#L135)*
+*Defined in [components/utils/Tip.ts:135](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Tip.ts#L135)*
 
 **Returns:** `void`
 
@@ -137,7 +137,7 @@ ___
 
 ▸ **show**(payload: *`any`*): `void`
 
-*Defined in [components/utils/Tip.ts:99](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Tip.ts#L99)*
+*Defined in [components/utils/Tip.ts:99](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Tip.ts#L99)*
 
 **Parameters:**
 
@@ -154,7 +154,7 @@ ___
 
 ▸ **stateEvent**(val: *`State`*): `Promise`<`void`>
 
-*Defined in [components/utils/Tip.ts:79](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/utils/Tip.ts#L79)*
+*Defined in [components/utils/Tip.ts:79](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/utils/Tip.ts#L79)*
 
 **Parameters:**
 

@@ -27,7 +27,7 @@
 
 **● href**: *`undefined` \| `string`*
 
-*Defined in [components/render/RenderAnchor.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/render/RenderAnchor.ts#L14)*
+*Defined in [components/render/RenderAnchor.ts:14](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/render/RenderAnchor.ts#L14)*
 
 ___
 <a id="innerclass"></a>
@@ -36,7 +36,7 @@ ___
 
 **● innerClass**: *`undefined` \| `string`*
 
-*Defined in [components/render/RenderAnchor.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/render/RenderAnchor.ts#L23)*
+*Defined in [components/render/RenderAnchor.ts:23](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/render/RenderAnchor.ts#L23)*
 
 ___
 <a id="label"></a>
@@ -45,7 +45,7 @@ ___
 
 **● label**: *`undefined` \| `string`*
 
-*Defined in [components/render/RenderAnchor.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/render/RenderAnchor.ts#L17)*
+*Defined in [components/render/RenderAnchor.ts:17](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/render/RenderAnchor.ts#L17)*
 
 ___
 <a id="target"></a>
@@ -54,7 +54,7 @@ ___
 
 **● target**: *`undefined` \| `string`*
 
-*Defined in [components/render/RenderAnchor.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/components/render/RenderAnchor.ts#L20)*
+*Defined in [components/render/RenderAnchor.ts:20](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/components/render/RenderAnchor.ts#L20)*
 
 ___
 

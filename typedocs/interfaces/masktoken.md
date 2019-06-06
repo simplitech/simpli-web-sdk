@@ -24,7 +24,7 @@
 
 **● escape**: *`undefined` \| `false` \| `true`*
 
-*Defined in [interfaces/general.interface.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/general.interface.ts#L27)*
+*Defined in [interfaces/general.interface.ts:27](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/interfaces/general.interface.ts#L27)*
 
 ___
 <a id="pattern"></a>
@@ -33,7 +33,7 @@ ___
 
 **● pattern**: *`RegExp`*
 
-*Defined in [interfaces/general.interface.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/general.interface.ts#L25)*
+*Defined in [interfaces/general.interface.ts:25](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/interfaces/general.interface.ts#L25)*
 
 ___
 <a id="transform"></a>
@@ -42,7 +42,7 @@ ___
 
 **● transform**: *`undefined` \| `function`*
 
-*Defined in [interfaces/general.interface.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/general.interface.ts#L26)*
+*Defined in [interfaces/general.interface.ts:26](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/interfaces/general.interface.ts#L26)*
 
 ___
 

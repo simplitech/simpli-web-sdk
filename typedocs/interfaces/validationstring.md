@@ -30,7 +30,7 @@
 
 **● format**: *"date" \| "datetime" \| "phone" \| "cpf" \| "cnpj" \| "cpfCnpj" \| "rg" \| "uri" \| "email" \| "hostname" \| "ipv4" \| "ipv6" \| `string`*
 
-*Defined in [interfaces/schema.interface.ts:57](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L57)*
+*Defined in [interfaces/schema.interface.ts:57](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/interfaces/schema.interface.ts#L57)*
 
 ___
 <a id="formatexclusivemaximum"></a>
@@ -39,7 +39,7 @@ ___
 
 **● formatExclusiveMaximum**: *`undefined` \| `false` \| `true`*
 
-*Defined in [interfaces/schema.interface.ts:74](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L74)*
+*Defined in [interfaces/schema.interface.ts:74](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/interfaces/schema.interface.ts#L74)*
 
 ___
 <a id="formatexclusiveminimum"></a>
@@ -48,7 +48,7 @@ ___
 
 **● formatExclusiveMinimum**: *`undefined` \| `false` \| `true`*
 
-*Defined in [interfaces/schema.interface.ts:73](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L73)*
+*Defined in [interfaces/schema.interface.ts:73](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/interfaces/schema.interface.ts#L73)*
 
 ___
 <a id="formatmaximum"></a>
@@ -57,7 +57,7 @@ ___
 
 **● formatMaximum**: *`undefined` \| `string`*
 
-*Defined in [interfaces/schema.interface.ts:72](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L72)*
+*Defined in [interfaces/schema.interface.ts:72](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/interfaces/schema.interface.ts#L72)*
 
 ___
 <a id="formatminimum"></a>
@@ -66,7 +66,7 @@ ___
 
 **● formatMinimum**: *`undefined` \| `string`*
 
-*Defined in [interfaces/schema.interface.ts:71](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L71)*
+*Defined in [interfaces/schema.interface.ts:71](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/interfaces/schema.interface.ts#L71)*
 
 ___
 <a id="maxlength"></a>
@@ -75,7 +75,7 @@ ___
 
 **● maxLength**: *`undefined` \| `number`*
 
-*Defined in [interfaces/schema.interface.ts:55](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L55)*
+*Defined in [interfaces/schema.interface.ts:55](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/interfaces/schema.interface.ts#L55)*
 
 ___
 <a id="minlength"></a>
@@ -84,7 +84,7 @@ ___
 
 **● minLength**: *`undefined` \| `number`*
 
-*Defined in [interfaces/schema.interface.ts:54](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L54)*
+*Defined in [interfaces/schema.interface.ts:54](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/interfaces/schema.interface.ts#L54)*
 
 ___
 <a id="pattern"></a>
@@ -93,7 +93,7 @@ ___
 
 **● pattern**: *`undefined` \| `string`*
 
-*Defined in [interfaces/schema.interface.ts:56](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L56)*
+*Defined in [interfaces/schema.interface.ts:56](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/interfaces/schema.interface.ts#L56)*
 
 ___
 <a id="type"></a>
@@ -102,7 +102,7 @@ ___
 
 **● type**: *"string" \| "null" \| `Array`<"string" \| "null">*
 
-*Defined in [interfaces/schema.interface.ts:53](https://github.com/simplitech/simpli-web-sdk/blob/77f6425/src/interfaces/schema.interface.ts#L53)*
+*Defined in [interfaces/schema.interface.ts:53](https://github.com/simplitech/simpli-web-sdk/blob/2a29ffa/src/interfaces/schema.interface.ts#L53)*
 
 ___
 
