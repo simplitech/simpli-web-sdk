@@ -1,13 +1,17 @@
 const template = `
-  <div class="form-group" :class="{ required: !!required }">
-    <label class="multiselect-label">
+  <div class="input-group" :class="{ required: !!required }">
+    <label :for="\`input-select\${_uid}\`" class="input-label">
       {{ label }}
       <slot></slot>
     </label>
-    <multiselect v-model="computedModel"
+
+    <multiselect :id="\`input-select\${_uid}\`"
+                 v-model="computedModel"
+                 v-bind="vBind"
+                 v-on="vOn"
                  :options="options"
-                 track-by="$id"
-                 label="$tag"
+                 :track-by="idKey"
+                 :label="tagKey"
                  :placeholder="placeholder"
                  :tagPlaceholder="tagPlaceholder"
                  :selectLabel="selectLabel"
@@ -18,6 +22,8 @@ const template = `
                  :disabled="isDisabled"
                  :close-on-select="isCloseOnSelect"
                  :hide-selected="isHideSelected"
+                 :class="inputClass"
+                 class="input-select"
                  @tag="tagEvent"
                  @remove="removeEvent"
     >
@@ -29,7 +35,7 @@ const template = `
 
 import { plainToClassFromExist } from 'class-transformer'
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
-import { ID, TAG, IResource } from '../../misc'
+import { ID, TAG, IResource } from '../../interfaces'
 import { buildResource } from '../../helpers'
 
 type InputModel = IResource | null | IResource[]
@@ -39,30 +45,51 @@ const build = ($id: ID, $tag: TAG) => buildResource($id, $tag) as IResource
 
 @Component({ template })
 export class InputSelect extends Vue {
-  @Prop({ type: Boolean })
-  required?: boolean
   @Prop({ type: String })
   label?: string
-  @Prop({ type: Boolean })
-  disabled?: boolean
+
   @Prop({ type: [Array, Object] })
   value?: InputModel
+
+  @Prop({ type: String })
+  inputClass?: string
+
+  @Prop({ type: Boolean })
+  required?: boolean
+
+  @Prop({ type: Boolean })
+  disabled?: boolean
+
+  @Prop({ type: String, default: '$id' })
+  idKey!: string
+
+  @Prop({ type: String, default: '$tag' })
+  tagKey!: string
+
   @Prop({ type: Array, default: () => [] })
   items!: InputItems
+
   @Prop({ type: Boolean })
   taggable?: boolean
+
   @Prop({ type: String, default: '' })
   placeholder!: string
+
   @Prop({ type: String, default: '' })
   tagPlaceholder!: string
+
   @Prop({ type: String, default: '' })
   selectLabel!: string
+
   @Prop({ type: String, default: '' })
   selectedLabel!: string
+
   @Prop({ type: String, default: '' })
   deselectLabel!: string
+
   @Prop({ type: String, default: null })
   noResultLabel!: string | null
+
   @Prop({ type: String, default: null })
   noOptionsLabel!: string | null
 
@@ -85,6 +112,16 @@ export class InputSelect extends Vue {
     if (!this.isTaggable) {
       this.options = val.map((item: IResource | null) => item || this.emptyResource)
     }
+  }
+
+  get vBind() {
+    return { ...this.$attrs }
+  }
+
+  get vOn() {
+    const listeners = { ...this.$listeners }
+    delete listeners.input
+    return { ...listeners }
   }
 
   get computedModel() {

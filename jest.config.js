@@ -1,12 +1,5 @@
 module.exports = {
-  moduleFileExtensions: [
-    'js',
-    'jsx',
-    'json',
-    'vue',
-    'ts',
-    'tsx'
-  ],
+  moduleFileExtensions: ['js', 'jsx', 'json', 'vue', 'ts', 'tsx'],
   coveragePathIgnorePatterns: [
     "<rootDir>/node_modules/",
     "<rootDir>/lib/",
@@ -16,21 +9,23 @@ module.exports = {
   ],
   transform: {
     '^.+\\.vue$': 'vue-jest',
-    '^.+\\.tsx?$': 'ts-jest'
+    '^.+\\.tsx?$': 'ts-jest',
   },
+  transformIgnorePatterns: ['/node_modules/'],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1'
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
-  snapshotSerializers: [
-    'jest-serializer-vue'
-  ],
+  snapshotSerializers: ['jest-serializer-vue'],
   testMatch: [
-    '**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'
+    '**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)',
   ],
   testURL: 'http://localhost/',
   globals: {
     'ts-jest': {
-      babelConfig: true
-    }
-  }
+      babelConfig: true,
+      tsConfig: {
+        module: 'commonjs',
+      },
+    },
+  },
 }

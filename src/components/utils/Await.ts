@@ -22,21 +22,28 @@ const template = `
 
 import { Component as Comp, AsyncComponent as AsyncComp } from 'vue/types'
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { sleep } from '../../helpers/index'
+import { Dictionary } from '../../interfaces'
+import { sleep } from '../../helpers'
 import { $ } from '../../simpli'
 
+/**
+ * @hidden
+ */
 export type CP = Comp<any, any, any, any> | AsyncComp<any, any, any, any>
-export interface Loader {
-  [key: string]: CP
-}
 
+/**
+ * @hidden
+ */
+export const Event = new Vue()
+
+/**
+ * @hidden
+ */
 export enum View {
   DEFAULT,
   LOADING,
   ERROR,
 }
-
-export const Event = new Vue()
 
 export class AwaitController {
   defaultTransition: string | null = null
@@ -45,7 +52,7 @@ export class AwaitController {
   defaultSpinnerPadding = '10px'
   defaultSpinnerScale = 1
 
-  loaders: Loader = {}
+  loaders: Dictionary<CP> = {}
 
   addLoader(name: string, component: CP) {
     this.loaders = Object.assign(this.loaders, { [name]: component })
@@ -61,7 +68,7 @@ export class AwaitController {
     Event.$emit('toggle', name, View.ERROR)
   }
 
-  async run<T>(func: (...args: any[]) => Promise<T>, name?: string, delay?: number): Promise<T> {
+  async run<T>(name: string, func: (...args: any[]) => Promise<T>, delay?: number): Promise<T> {
     try {
       this.init(name)
       if (delay) await sleep(delay)
@@ -79,16 +86,22 @@ export class AwaitController {
 export class Await extends Vue {
   @Prop({ type: String })
   name?: string
+
   @Prop({ type: String })
   effect?: string
+
   @Prop({ type: String })
   spinner?: string
+
   @Prop({ type: String })
   spinnerColor?: string
+
   @Prop({ type: String })
   spinnerPadding?: string
+
   @Prop({ type: Number })
   spinnerScale?: number
+
   @Prop({ type: Boolean })
   init?: boolean
 

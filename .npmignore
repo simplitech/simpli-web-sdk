@@ -10,6 +10,7 @@ __tests__
 coverage
 node_modules
 docs
+typedocs
 src
 tests
 

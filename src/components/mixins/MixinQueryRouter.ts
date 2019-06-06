@@ -1,30 +1,29 @@
 import { Component, Watch, Vue } from 'vue-property-decorator'
 import { $ } from '../../simpli'
 import { PageCollection, Resource } from '../../app'
-import { QueryRouter } from '../../misc'
+import { QueryRouter } from '../../interfaces'
 
 @Component
 export class MixinQueryRouter extends Vue {
   collection?: PageCollection<Resource>
 
   async query(query?: QueryRouter) {
-    const { q, page, order, asc } = query || this.$route.query
-    if (!this.collection) return
+    const { q, page, order, asc } = query || (this.$route.query as QueryRouter)
+    const { collection } = this
 
-    this.collection.querySearch = (q as string) || ''
-    this.collection.currentPage = (Number(page) || 1) - 1
-    this.collection.orderBy = (order as string) || ''
-    this.collection.asc = asc !== undefined ? !!Number(asc) : true
+    if (!collection) return
 
-    const fetch = async () => {
-      if (this.collection) return await this.collection.search()
-    }
+    collection
+      .setSearch(q || '')
+      .setCurrentPage((Number(page) || 1) - 1)
+      .setOrderBy(order || '')
+      .setAsc(asc !== undefined ? !!Number(asc) : true)
 
-    return await $.await.run(fetch, 'query')
+    return await $.await.run('query', () => collection.queryAsPage())
   }
 
-  @Watch('collection.querySearch')
-  querySearchEvent(querySearch?: string) {
+  @Watch('collection.search')
+  private querySearchEvent(querySearch?: string) {
     const query = { ...this.$route.query }
 
     if (querySearch) query.q = `${querySearch}`
@@ -34,7 +33,7 @@ export class MixinQueryRouter extends Vue {
   }
 
   @Watch('collection.currentPage')
-  currentPageEvent(currentPage?: number) {
+  private currentPageEvent(currentPage?: number) {
     const query = { ...this.$route.query }
 
     if (currentPage) query.page = `${currentPage + 1}`
@@ -44,7 +43,7 @@ export class MixinQueryRouter extends Vue {
   }
 
   @Watch('collection.orderBy')
-  orderByEvent(orderBy?: string) {
+  private orderByEvent(orderBy?: string) {
     const query = { ...this.$route.query }
     const asc = this.collection ? this.collection.asc : false
 
@@ -60,7 +59,7 @@ export class MixinQueryRouter extends Vue {
   }
 
   @Watch('collection.asc')
-  ascEvent(asc?: boolean) {
+  private ascEvent(asc?: boolean) {
     const query = { ...this.$route.query }
     const orderBy = this.collection ? this.collection.orderBy : ''
 

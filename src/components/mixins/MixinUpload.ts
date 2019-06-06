@@ -1,12 +1,11 @@
 import { Component, Watch, Vue } from 'vue-property-decorator'
 import FileUpload from 'vue-upload-component'
 import Cropper from 'cropperjs'
-import ImageCompressor, { ImgComp, FileObject } from 'image-compressor.js'
+import Compressor from 'compressorjs'
 import { $ } from '../../simpli'
-import { HttpBody } from '../../app'
-import { Resp } from '../../misc'
-import { UploadConfig } from '../../app'
-import * as Helper from '../../helpers'
+import { Request, UploadConfig } from '../../app'
+import { FileObject } from '../../interfaces'
+import { Helper } from '../../main'
 
 /**
  * This class should be used as an extended class
@@ -68,12 +67,14 @@ export class MixinUpload extends Vue {
     return ''
   }
 
-  get resources(): Array<Promise<Resp<String>>> {
+  get resources() {
     return this.files.map((file: FileObject) => {
       const params = {
         fileName: `${Helper.uid()}${this.extension(file)}`,
       }
-      return new HttpBody(String).GET(this.UPLOAD_CONFIG.endpoint, { params })
+      return Request.get(this.UPLOAD_CONFIG.endpoint, { params })
+        .asString()
+        .getResponse()
     })
   }
 
@@ -175,14 +176,20 @@ export class MixinUpload extends Vue {
   }
 
   async compressImage(newFile: FileObject) {
+    const compress = (file: File, options: Compressor.Options) =>
+      new Promise<Blob>(resolve => {
+        const success = (file: Blob) => resolve(file)
+        return new Compressor(newFile.file, { ...options, ...{ success } })
+      })
+
     const component = this.$refs[this.UPLOAD_REF] as FileUpload
 
     newFile.error = 'compressing'
 
-    const image = new ImageCompressor() as ImgComp
+    await Helper.sleep(1000)
+
     try {
-      await Helper.sleep(1000)
-      const blob: Blob = await image.compress(newFile.file, this.COMPRESS_CONFIG)
+      const blob = await compress(newFile.file, this.COMPRESS_CONFIG)
       component.update(newFile, { error: '', file: blob, size: blob.size, type: blob.type })
     } catch (e) {
       component.update(newFile, { error: e.message || 'compress' })
@@ -211,7 +218,7 @@ export class MixinUpload extends Vue {
       const responses = await Promise.all(resources)
 
       responses.forEach((resp, i) => {
-        const fullUrl = resp.data as string
+        const fullUrl = resp.data
         const url = fullUrl.split('?')[0]
 
         // Define PUT Method URL address of each file

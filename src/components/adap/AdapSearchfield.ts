@@ -2,7 +2,7 @@ const template = `
   <input type="text"
          v-if="collection"
          class="adap-searchfield form-control"
-         v-model="collection.querySearch"
+         v-model="collection.search"
          @keyup="debounce()"
   />
 `
@@ -16,13 +16,15 @@ import { $ } from '../../simpli'
 export class AdapSearchfield extends Vue {
   @Prop({ required: true })
   collection!: PageCollection<Resource>
+
   @Prop({ type: Number, default: 500 })
   debounceTimer!: number
+
   @Prop({ type: String, default: 'adapQuery' })
   spinner!: string
 
   get debounce() {
-    const fetch = async () => await $.await.run(() => this.collection.searchByQuery(), this.spinner)
+    const fetch = async () => await $.await.run(this.spinner, () => this.collection.querySearch())
     return debounce(fetch, this.debounceTimer)
   }
 }

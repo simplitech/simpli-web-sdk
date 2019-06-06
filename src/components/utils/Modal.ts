@@ -8,7 +8,7 @@ const template = `
               <div class="modal-title">
                 {{title}}
               </div>
-              <a v-if="$closable" class="close-icon" @click="close"></a>
+              <a v-if="$closable" class="close-icon" @click="closeAction"></a>
             </div>
             <div class="modal-body">
               <slot></slot>
@@ -26,8 +26,14 @@ const template = `
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import { $ } from '../../simpli'
 
+/**
+ * @hidden
+ */
 export const Event = new Vue()
 
+/**
+ * @hidden
+ */
 export enum State {
   HIDDEN,
   SHOWN,
@@ -61,18 +67,27 @@ export class ModalController {
 export class Modal extends Vue {
   @Prop({ type: String })
   name?: string
+
   @Prop({ type: String })
   title?: string
+
   @Prop({ type: String })
   innerClass?: string
+
   @Prop({ type: String })
   effect?: string
+
   @Prop({ type: String })
   backgroundEffect?: string
+
   @Prop({ type: Boolean, default: undefined })
   closable?: boolean
+
   @Prop({ type: Boolean, default: undefined })
   closeOutside?: boolean
+
+  @Prop()
+  open?: any
 
   state = State.HIDDEN
 
@@ -84,6 +99,14 @@ export class Modal extends Vue {
   body: HTMLElement | null = null
   bodyOverflowY: string | null = null
 
+  @Watch('open', { immediate: true })
+  openEvent(val: any) {
+    if (val !== undefined) {
+      if (val) this.openAction(val)
+      else this.closeAction()
+    }
+  }
+
   @Watch('state')
   stateEvent(val: State) {
     if (val === State.SHOWN) {
@@ -93,12 +116,12 @@ export class Modal extends Vue {
     }
   }
 
-  open(payload: any) {
+  openAction(payload: any) {
     this.state = State.SHOWN
     this.$emit('open', payload)
   }
 
-  close(force: boolean = false) {
+  closeAction(force: boolean = false) {
     if (this.$closable || force) {
       this.state = State.HIDDEN
       this.$emit('close')
@@ -107,7 +130,7 @@ export class Modal extends Vue {
 
   closeFromView(e: Event) {
     if (e.target === this.$refs.view && this.$closeOutside) {
-      this.close()
+      this.closeAction()
     }
   }
 
@@ -121,22 +144,22 @@ export class Modal extends Vue {
     this.bodyOverflowY = this.body.style.overflowY
 
     Event.$on('open', (name?: string, payload?: any) => {
-      if (name === this.name) this.open(payload)
+      if (name === this.name) this.openAction(payload)
     })
 
     Event.$on('close', (name?: string) => {
-      if (name === this.name) this.close(true)
+      if (name === this.name) this.closeAction(true)
     })
 
     Event.$on('toggle', (name?: string, payload?: any) => {
       if (name === this.name) {
-        if (this.state === State.SHOWN) this.close(true)
-        else if (this.state === State.HIDDEN) this.open(payload)
+        if (this.state === State.SHOWN) this.closeAction(true)
+        else if (this.state === State.HIDDEN) this.openAction(payload)
       }
     })
 
     Event.$on('closeAll', () => {
-      this.close(true)
+      this.closeAction(true)
     })
   }
 }

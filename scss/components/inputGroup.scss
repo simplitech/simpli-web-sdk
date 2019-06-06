@@ -1,0 +1,19 @@
+@import "../variables/main";
+
+.input-group {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-bottom: #{$padding-base * 2};
+  border-bottom: none;
+
+  &.required {
+    .input-label:after {
+      content: "*";
+      color: #b71c1c;
+    }
+  }
+
+  .input-text, .input-textarea {
+    width: 100%;
+  }
+}

@@ -1,13 +1,15 @@
 @import "../variables/main";
+@import "~vue-multiselect/dist/vue-multiselect.min.css";
 
 .multiselect {
   color: rgba(0, 0, 0, 0.7);
   min-height: unset !important;
 
   .multiselect__select {
-    height: 43px;
+    height: 35px;
     top: auto;
     bottom: 0;
+    padding: 0px 8px;
   }
 
   .multiselect__tags {
@@ -38,18 +40,17 @@
       color: white;
       background: $primary-color;
       position: absolute;
-      top: 7px;
-      bottom: 7px;
-      left: 7px;
+      top: 4px;
+      bottom: 4px;
+      left: 4px;
       width: calc(100% - 50px);
-      line-height: 31px;
-      height: 31px;
+      line-height: 27px;
+      height: 27px;
       padding: 0 8px;
       margin: 0;
       border: none;
       outline: none;
       font-size: 16px;
-      font-weight: 600;
     }
 
     .multiselect__tag {
@@ -83,17 +84,19 @@
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
 
     &::-webkit-scrollbar {
+      height: 15px;
       width: 15px;
     }
 
     &::-webkit-scrollbar-track {
-      background: rgba(0, 0, 0, 0.1);
+      background: #eeeef7;
       border-radius: 0 $radius-base $radius-base 0;
     }
 
     &::-webkit-scrollbar-thumb {
-      background: rgba(0, 0, 0, 0.4);
-      border-radius: 0 $radius-base $radius-base 0;
+      background: $primary-color;
+      border: solid 3px #eeeef7;
+      border-radius: 10px;
     }
 
     ul.multiselect__content {

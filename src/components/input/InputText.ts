@@ -1,169 +1,96 @@
 const template = `
-  <div class="form-group" :class="{ required: !!required }">
-    <label :for="\`input-group\${_uid}\`" class="control-label">
+  <div class="input-group" :class="{ required: !!required }">
+    <label :for="\`input-text\${_uid}\`" class="input-label">
       {{ label }}
       <slot></slot>
     </label>
+    
+    <!--Mask input-->
+    <the-mask :id="\`input-text\${_uid}\`"
+              v-if="type === 'mask'"
+              v-model="computedModel"
+              v-bind="vBind"
+              v-on="vOn"
+              :class="innerClass"
+              class="input-text"
+              @focus.native="focusEvent"
+              @blur.native="blurEvent"
+              :key="1"/>
 
-    <!--Text input-->
-    <input :id="\`input-group\${_uid}\`"
-           v-if="type === 'text'"
-           type="text"
-           :maxlength="maxlength"
-           :required="!!required"
-           :placeholder="placeholder"
+    <!--Currency input-->
+    <money :id="\`input-text\${_uid}\`"
+           v-else-if="type === 'currency'"
            v-model="computedModel"
-           :disabled="disabled"
-           class="form-control"
-           :class="{valid: valid === true, invalid: valid === false}"
-           @focus="focusEvent"
-           @blur="blurEvent"
-           :key="1"/>
-
-    <!--Email input-->
-    <input :id="\`input-group\${_uid}\`"
-           v-else-if="type === 'email'"
-           type="email"
-           :maxlength="maxlength"
-           :required="!!required"
-           :placeholder="placeholder"
-           v-model="computedModel"
-           :disabled="disabled"
-           class="form-control"
-           :class="{valid: valid === true, invalid: valid === false}"
-           @focus="focusEvent"
-           @blur="blurEvent"
+           v-bind="vBind"
+           v-on="vOn"
+           :class="innerClass"
+           class="input-text"
+           @focus.native="focusEvent"
+           @blur.native="blurEvent"
            :key="2"/>
 
-    <!--Password input-->
-    <input :id="\`input-group\${_uid}\`"
-           v-else-if="type === 'password'"
-           type="password"
-           :maxlength="maxlength"
-           :required="!!required"
-           :placeholder="placeholder"
-           v-model="computedModel"
-           :disabled="disabled"
-           class="form-control"
-           :class="{valid: valid === true, invalid: valid === false}"
-           @focus="focusEvent"
-           @blur="blurEvent"
-           :key="3"/>
+    <!--Textarea input-->
+    <textarea :id="\`input-text\${_uid}\`"
+              v-else-if="type === 'textarea'"
+              v-model="computedModel"
+              v-bind="vBind"
+              v-on="vOn"
+              :class="innerClass"
+              class="input-textarea"
+              @focus="focusEvent"
+              @blur="blurEvent"
+              :key="3"/>
 
-    <!--Number input-->
-    <input :id="\`input-group\${_uid}\`"
-           v-else-if="type === 'number'"
-           type="number"
-           :required="!!required"
-           :step="\`\${step}\`"
-           :min="\`\${min}\`"
-           :max="\`\${max}\`"
-           :placeholder="placeholder"
-           v-model.number="computedModel"
-           :disabled="disabled"
-           class="form-control"
-           :class="{valid: valid === true, invalid: valid === false}"
+    <!--Text input-->
+    <input :id="\`input-text\${_uid}\`"
+           v-else
+           :type="type"
+           v-model="computedModel"
+           v-bind="vBind"
+           v-on="vOn"
+           :class="innerClass"
+           class="input-text"
            @focus="focusEvent"
            @blur="blurEvent"
            :key="4"/>
-
-    <!--Masked input-->
-    <the-mask :id="\`input-group\${_uid}\`"
-           v-else-if="type === 'mask'"
-           type="text"
-           :required.native="!!required"
-           :placeholder="placeholder"
-           :mask="presetMasked || mask"
-           :masked="masked"
-           :tokens="tokens"
-           v-model="computedModel"
-           :disabled.native="disabled"
-           class="form-control"
-           :class="{valid: valid === true, invalid: valid === false}"
-           @focus.native="focusEvent"
-           @blur.native="blurEvent"
-           :key="5"/>
-
-    <!--Currency input-->
-    <money :id="\`input-group\${_uid}\`"
-           v-else-if="type === 'money'"
-           v-model="computedModel"
-           :maxlength="maxlength"
-           :required="!!required"
-           :placeholder="placeholder"
-           :disabled="disabled"
-           class="form-control"
-           :class="{valid: valid === true, invalid: valid === false}"
-           @focus.native="focusEvent"
-           @blur.native="blurEvent"
-           :key="6"/>
-
-    <!--Special input for date, datetime, cpf, cnpj, rg, phone, cep-->
-    <!--Note: In order to avoid glitch on android devices, the type is set to "tel"-->
-    <input :id="\`input-group\${_uid}\`"
-           v-else
-           type="tel"
-           :required="!!required"
-           :placeholder="placeholder"
-           v-mask="presetMasked"
-           v-model="computedModel"
-           :disabled="disabled"
-           class="form-control"
-           :class="{valid: valid === true, invalid: valid === false}"
-           @focus="focusEvent"
-           @blur="blurEvent"
-           :key="7"/>
 
   </div>
 `
 
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
-import moment from 'moment'
-import { $ } from '../../simpli'
-import * as Helper from '../../helpers'
-
-type InputType = string | number | null
+import { Dictionary, ClassType, InputType } from '../../interfaces'
+import { MaskPresetConfig } from '../../app/config/MaskPresetConfig'
+import { CnpjMaskPreset } from '../../app/preset/CnpjMaskPreset'
+import { CpfCnpjMaskPreset } from '../../app/preset/CpfCnpjMaskPreset'
+import { CpfMaskPreset } from '../../app/preset/CpfMaskPreset'
+import { DateMaskPreset } from '../../app/preset/DateMaskPreset'
+import { DatetimeMaskPreset } from '../../app/preset/DatetimeMaskPreset'
+import { PhoneMaskPreset } from '../../app/preset/PhoneMaskPreset'
+import { RgMaskPreset } from '../../app/preset/RgMaskPreset'
+import { ZipcodeMaskPreset } from '../../app/preset/ZipcodeMaskPreset'
 
 @Component({ template })
 export class InputText extends Vue {
   @Prop({ type: [String, Number], default: null })
   value!: InputType
 
-  @Prop({ type: String, required: true, default: 'text' })
+  @Prop({ type: String })
+  label?: string
+
+  @Prop({ type: String })
   type!: string
 
   @Prop({ type: Boolean })
   required?: boolean
 
-  @Prop({ type: [String, Number] })
-  maxlength?: string | number
-
-  @Prop({ type: String })
-  label?: string
-
-  @Prop({ type: [String, Number] })
-  step?: string | number
-
-  @Prop({ type: [String, Number] })
-  min?: string | number
-
-  @Prop({ type: [String, Number] })
-  max?: string | number
-
-  @Prop({ type: String })
-  placeholder?: string
-
-  @Prop({ type: Boolean })
-  autofocus?: boolean
-
   @Prop({ type: Boolean })
   selectall?: boolean
 
-  @Prop({ type: Boolean })
-  disabled?: boolean
+  @Prop({ type: String })
+  inputClass?: string
 
   @Prop({ type: String })
-  preset?: string
+  maskPreset?: string
 
   @Prop({ type: [String, Array] })
   mask?: string | string[]
@@ -174,58 +101,100 @@ export class InputText extends Vue {
   @Prop({ type: Object })
   tokens?: any
 
-  valid: boolean | null = null
+  preset: MaskPresetConfig = new class extends MaskPresetConfig {
+    mask = []
+  }()
 
-  get presetMasked(): string | string[] {
-    const preset = this.type === 'mask' ? this.preset : this.type
-
-    if (preset === 'date') return $.t('dateFormat.datemask')
-    else if (preset === 'datetime') return $.t('dateFormat.datetimemask')
-    else if (preset === 'cpf') return $.t('format.cpf')
-    else if (preset === 'cnpj') return $.t('format.cnpj')
-    else if (preset === 'cpfCnpj') return [$.t('format.cpf'), $.t('format.cnpj')]
-    else if (preset === 'rg') return $.t('format.rg')
-    else if (preset === 'phone') return [$.t('format.phone'), $.t('format.phoneAlt')]
-    else if (preset === 'cep') return $.t('format.cep')
-
-    return ''
+  private static defaultPreset: Dictionary<ClassType<MaskPresetConfig>> = {
+    date: DateMaskPreset,
+    datetime: DatetimeMaskPreset,
+    phone: PhoneMaskPreset,
+    zipcode: ZipcodeMaskPreset,
+    cpf: CpfMaskPreset,
+    cnpj: CnpjMaskPreset,
+    cpfCnpj: CpfCnpjMaskPreset,
+    rg: RgMaskPreset,
   }
 
-  get reservedMasks() {
-    return ['cpf', 'cnpj', 'cpfCnpj', 'rg', 'phone', 'cep']
+  static addPreset(name: string, maskPreset: ClassType<MaskPresetConfig>) {
+    InputText.defaultPreset = { ...InputText.defaultPreset, ...{ [name]: maskPreset } }
   }
 
-  get computedModel(): InputType {
-    const { type, reservedMasks } = this
-
-    if (type === 'date') {
-      return this.inputDate
-    } else if (type === 'datetime') {
-      return this.inputDatetime
-    } else if (reservedMasks.includes(type)) {
-      return this.inputMasked
-    } else if (type === 'money') {
-      return this.input || 0
+  @Watch('maskPreset', { immediate: true })
+  maskPresetEvent(val: string | undefined) {
+    if (val) {
+      const constructor = InputText.defaultPreset[val]
+      if (constructor) {
+        this.preset = new constructor()
+      }
     } else {
-      return this.input
+      this.preset = new class extends MaskPresetConfig {
+        mask = []
+      }()
     }
   }
 
-  set computedModel(input: InputType) {
-    const { type, reservedMasks } = this
+  get attrs() {
+    return { ...this.$attrs }
+  }
 
-    if (type === 'date') {
-      this.inputDate = input
-    } else if (type === 'datetime') {
-      this.inputDatetime = input
-    } else if (reservedMasks.includes(type)) {
-      this.inputMasked = input
+  get listeners() {
+    const listeners = { ...this.$listeners }
+    delete listeners.input
+    return listeners
+  }
+
+  get vBind() {
+    const { type, attrs } = this
+
+    let extra = {}
+
+    if (type === 'mask' && this.mask) {
+      const { mask, masked, tokens } = this
+      extra = { mask, masked, tokens }
+    }
+
+    if (type === 'mask' && this.maskPreset) {
+      const { mask, masked, tokens } = this.preset
+      extra = { mask, masked, tokens }
+    }
+
+    return { ...attrs, ...extra }
+  }
+
+  get vOn() {
+    const { listeners } = this
+    return { ...listeners }
+  }
+
+  get innerClass() {
+    const valid = this.preset.isValid === true ? 'valid' : ''
+    const invalid = this.preset.isValid === false ? 'invalid' : ''
+    return `${this.inputClass || ''} ${valid} ${invalid}`.trim() || ''
+  }
+
+  get computedModel(): InputType {
+    if (this.maskPreset) {
+      return this.preset.getterTransform(this.input)
+    }
+    return this.input
+  }
+
+  set computedModel(input: InputType) {
+    if (this.maskPreset) {
+      const value = this.preset.setterTransform(input)
+      if (value !== undefined) {
+        this.input = value
+      }
     } else {
       this.input = input
     }
   }
 
   get input() {
+    if (this.type === 'currency') {
+      return this.value || 0
+    }
     return this.value
   }
 
@@ -237,82 +206,12 @@ export class InputText extends Vue {
     }
   }
 
-  get inputMasked() {
-    const { type } = this
-    const input = this.input
-
-    if (type === 'cpf') return Helper.cpf(input)
-    else if (type === 'cnpj') return Helper.cnpj(input)
-    else if (type === 'cpfCnpj') return Helper.cpfOrCnpj(input)
-    else if (type === 'rg') return Helper.rg(input)
-    else if (type === 'phone') return Helper.phone(input)
-    else if (type === 'cep') return Helper.cep(input)
-
-    return input
-  }
-
-  set inputMasked(input: InputType) {
-    this.input = $.filter.removeDelimiters(Helper.toString(input))
-  }
-
-  date: InputType = null
-  get inputDate() {
-    return this.date
-  }
-
-  set inputDate(input: InputType) {
-    const value = Helper.toString(input)
-    const date = moment(value, $.t('dateFormat.date') as string)
-    this.date = value
-
-    if (value.length < 10) {
-      this.input = null
-      this.valid = value.length === 0 ? null : false
-    } else if (date.isValid()) {
-      this.input = date.format()
-      this.valid = true
-    }
-  }
-
-  datetime: InputType = null
-  get inputDatetime() {
-    return this.datetime
-  }
-
-  set inputDatetime(input: InputType) {
-    const value = Helper.toString(input)
-    const date = moment(value, $.t('dateFormat.datetime') as string)
-    this.datetime = value
-
-    if (value.length !== 10 && value.length !== 11 && value.length < 16) {
-      this.input = null
-      this.valid = value.length === 0 ? null : false
-    } else if (date.isValid()) {
-      this.input = date.format()
-      this.valid = true
-    }
-  }
-
   created() {
-    const { value, type } = this
-
-    if (value === null) {
-      this.input = value
+    if (this.required && this.input === null) {
+      this.input = ''
+    } else if (!this.required && this.input === '') {
+      this.input = null
     }
-
-    if (type === 'date' || type === 'datetime') {
-      const date = value ? moment(value) : null
-
-      if (date && date.isValid()) {
-        this.date = date.format($.t('dateFormat.date') as string)
-        this.datetime = date.format($.t('dateFormat.datetime') as string)
-      }
-    }
-  }
-
-  mounted() {
-    const el = this.$el.getElementsByTagName('input')[0] as HTMLInputElement
-    if (el && this.autofocus) el.focus()
   }
 
   focusEvent() {

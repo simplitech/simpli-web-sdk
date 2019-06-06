@@ -12,8 +12,14 @@ const template = `
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import { $ } from '../../simpli'
 
+/**
+ * @hidden
+ */
 export const Event = new Vue()
 
+/**
+ * @hidden
+ */
 export enum State {
   HIDDEN,
   SHOWN,
@@ -46,14 +52,19 @@ export class TipController {
 export class Tip extends Vue {
   @Prop({ type: String })
   name?: string
+
   @Prop({ type: String })
   message?: string
+
   @Prop({ type: String })
   effect?: string
+
   @Prop({ type: [String, Number] })
   width?: string
+
   @Prop({ type: Number })
   offset?: number
+
   @Prop({ type: String })
   innerClass?: string
 
