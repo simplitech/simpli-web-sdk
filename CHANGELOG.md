@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.0.0-beta.0](https://github.com/simplitech/simpli-web-sdk/compare/v1.10.3...v2.0.0-beta.0) (2019-06-06)
+
+
+### Bug Fixes
+
+* Fixed Resource issue ([0fe5902](https://github.com/simplitech/simpli-web-sdk/commit/0fe5902))
+
+
+### Features
+
+* **v2.x:** More flexible resource-input and resource-render ([c69a5f0](https://github.com/simplitech/simpli-web-sdk/commit/c69a5f0)), closes [#2](https://github.com/simplitech/simpli-web-sdk/issues/2)
+* **v2.x:** Replace VueResource by Axios ([2331963](https://github.com/simplitech/simpli-web-sdk/commit/2331963)), closes [#5](https://github.com/simplitech/simpli-web-sdk/issues/5) [#4](https://github.com/simplitech/simpli-web-sdk/issues/4)
+
+
+### BREAKING CHANGES
+
+* **v2.x:** Refactored bootstrap settings, HTTP classes(Resource, Collection, etc.) and HTTP
+request system
+
+
+
 <a name="1.10.3"></a>
 ## [1.10.3](https://github.com/simplitech/simpli-web-sdk/compare/v1.10.2...v1.10.3) (2019-03-29)
 
