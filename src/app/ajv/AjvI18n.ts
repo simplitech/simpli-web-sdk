@@ -1,5 +1,6 @@
+import { ErrorObject } from 'ajv'
 import { Lang } from '../../enums'
-import { Dictionary, ErrorObject } from '../../interfaces'
+import { Dictionary } from '../../interfaces'
 
 export class AjvI18n {
   constructor(locale: Lang, messages?: Dictionary<(e: ErrorObject[]) => void>) {

@@ -1,4 +1,3 @@
-import moment from 'moment'
 import { $ } from '../../simpli'
 import { Helper } from '../../main'
 import { InputType } from '../../interfaces'

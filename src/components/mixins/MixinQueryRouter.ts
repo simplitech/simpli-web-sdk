@@ -1,17 +1,18 @@
 import { Component, Watch, Vue } from 'vue-property-decorator'
+import { AxiosResponse } from 'axios'
 import { $ } from '../../simpli'
-import { PageCollection, Resource } from '../../app'
+import { PageCollection } from '../../app'
 import { QueryRouter } from '../../interfaces'
 
 @Component
 export class MixinQueryRouter extends Vue {
-  collection?: PageCollection<Resource>
+  collection?: PageCollection<any>
 
-  async query(query?: QueryRouter) {
+  async query(query?: QueryRouter): Promise<AxiosResponse<PageCollection<any>> | null> {
     const { q, page, order, asc } = query || (this.$route.query as QueryRouter)
     const { collection } = this
 
-    if (!collection) return
+    if (!collection) return null
 
     collection
       .setSearch(q || '')
