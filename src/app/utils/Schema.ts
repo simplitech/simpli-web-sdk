@@ -1,9 +1,10 @@
 import { mapValues, mapKeys, snakeCase } from 'lodash'
 import { unparse } from 'papaparse'
+import { ErrorObject } from 'ajv'
 import { SchemaBuilder } from '../'
 import { $ } from '../../simpli'
 import { Helper } from '../../main'
-import { Dictionary, ErrorObject, FieldSet, FieldData, FieldValidation, DictionaryOfValidation } from '../../interfaces'
+import { Dictionary, FieldSet, FieldData, FieldValidation, DictionaryOfValidation } from '../../interfaces'
 
 export abstract class Schema {
   static defaultI18nPath = 'schema.{schemaName}.{fieldName}'

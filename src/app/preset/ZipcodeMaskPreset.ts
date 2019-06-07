@@ -1,6 +1,4 @@
-import moment from 'moment'
 import { $ } from '../../simpli'
-import { InputType } from '../../interfaces'
 import { MaskPresetConfig } from '../config/MaskPresetConfig'
 
 export class ZipcodeMaskPreset extends MaskPresetConfig {

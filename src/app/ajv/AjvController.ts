@@ -1,9 +1,8 @@
-import AnotherJsonValidator from 'ajv'
-import { AjvType } from './AjvType'
+import AnotherJsonValidator, { ErrorObject } from 'ajv'
 import { AjvI18n } from './AjvI18n'
 import { $ } from '../../simpli'
 import { Lang } from '../../enums'
-import { Dictionary, ErrorObject } from '../../interfaces'
+import { Dictionary } from '../../interfaces'
 
 export class AjvController {
   constructor(locale: Lang, messages?: Dictionary<(e: ErrorObject[]) => void>) {
