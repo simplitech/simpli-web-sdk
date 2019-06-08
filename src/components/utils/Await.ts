@@ -46,25 +46,43 @@ export enum View {
 }
 
 export class AwaitController {
+  private cacheInAction: Dictionary<boolean> = {}
+  private cacheLoader: Dictionary<CP> = {}
+
   defaultTransition: string | null = null
   defaultSpinner: string | null = null
   defaultSpinnerColor = '#42b983'
   defaultSpinnerPadding = '10px'
   defaultSpinnerScale = 1
 
-  loaders: Dictionary<CP> = {}
+  get loader() {
+    return this.cacheLoader
+  }
 
   addLoader(name: string, component: CP) {
-    this.loaders = Object.assign(this.loaders, { [name]: component })
+    this.cacheLoader[name] = component
+  }
+
+  inAction(name: string) {
+    return Boolean(this.cacheInAction[name])
   }
 
   init(name?: string) {
+    if (name) {
+      this.cacheInAction[name] = true
+    }
     Event.$emit('toggle', name, View.LOADING)
   }
   done(name?: string) {
+    if (name) {
+      delete this.cacheInAction[name]
+    }
     Event.$emit('toggle', name, View.DEFAULT)
   }
   error(name?: string) {
+    if (name) {
+      delete this.cacheInAction[name]
+    }
     Event.$emit('toggle', name, View.ERROR)
   }
 
@@ -122,16 +140,24 @@ export class Await extends Vue {
     return this.$slots.hasOwnProperty('error')
   }
 
+  get inAction() {
+    return Boolean(this.name && $.await.inAction(this.name))
+  }
+
   get minHeight() {
     return `${this.height}px` || 'unset'
   }
 
   mounted() {
-    if (this.$refs.defaultRef) this.height = (this.$refs.defaultRef as HTMLElement).offsetHeight
+    if (this.$refs.defaultRef) {
+      this.height = (this.$refs.defaultRef as HTMLElement).offsetHeight
+    }
   }
 
   beforeMount() {
-    if (this.init) this.view = View.LOADING
+    if (this.init || this.inAction) {
+      this.view = View.LOADING
+    }
 
     this.$effect = this.effect || $.await.defaultTransition
     this.$spinner = this.spinner || $.await.defaultSpinner
@@ -139,7 +165,7 @@ export class Await extends Vue {
     this.$spinnerPadding = this.spinnerPadding || $.await.defaultSpinnerPadding
     this.$spinnerScale = this.spinnerScale || $.await.defaultSpinnerScale
 
-    this.$options.components = Object.assign(this.$options.components, $.await.loaders)
+    Object.assign(this.$options.components, $.await.loader)
 
     Event.$on('toggle', (name?: string, view: View = View.DEFAULT) => {
       if (name === this.name) {
