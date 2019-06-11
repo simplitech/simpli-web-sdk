@@ -76,7 +76,7 @@ export class PageCollection<R extends Resource> extends ResourceCollection<R> {
       .query(this.params)
       .name(this.spinnerName)
       .as(this)
-      .getResponse(() => (this.items = []))
+      .getResponse()
   }
 
   async querySearch(): Promise<AxiosResponse<this> | void> {

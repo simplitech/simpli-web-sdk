@@ -13,11 +13,13 @@ import {
   IResourceCollection,
   QueryFilter,
   ResponseType,
+  ResponseEvent,
 } from '../../interfaces'
 import { $ } from '../../simpli'
 import { Helper } from '../../main'
 
-export class ResourceCollection<R extends Resource> extends Collection<R> implements IResourceCollection {
+export class ResourceCollection<R extends Resource> extends Collection<R>
+  implements IResourceCollection, ResponseEvent {
   constructor(classType: ClassType<R>, items?: R[]) {
     super(items)
     this.classType = classType
@@ -52,7 +54,7 @@ export class ResourceCollection<R extends Resource> extends Collection<R> implem
       .query(this.params)
       .name(this.spinnerName)
       .as(this.items)
-      .getResponse(() => (this.items = []))
+      .getResponse()
   }
 
   async queryAs<T>(responseType: ResponseType<T>): Promise<AxiosResponse<T>> {
@@ -121,5 +123,9 @@ export class ResourceCollection<R extends Resource> extends Collection<R> implem
   appendResource(id: ID, tag: TAG): this {
     Helper.appendResource(this.items, Helper.buildResource(id, tag))
     return this
+  }
+
+  onBeforeSerialization() {
+    this.items = []
   }
 }
