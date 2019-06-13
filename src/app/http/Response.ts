@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios'
 import { plainToClass, plainToClassFromExist } from 'class-transformer'
 import { Request } from './Request'
 import { $ } from '../../simpli'
-import { ClassType, ResponseType } from '../../interfaces'
+import { ClassType, ResponseType, ResponseEvent } from '../../interfaces'
 
 /**
  * The Response is an auxiliary class of [[Request]].
@@ -163,15 +163,21 @@ export class Response<T = any> {
    *     .getResponse()
    * }
    * ```
-   * @param onResponse Special callback when you have to handle the data before the serialization
    */
-  async getResponse(onResponse?: (resp: AxiosResponse<T>) => void): Promise<AxiosResponse<T>> {
+  async getResponse(): Promise<AxiosResponse<T>> {
     const { axiosConfig, responseType, requestName, requestDelay, endpoint } = this
+    const event = responseType as ResponseEvent<T>
+
+    if (event && typeof event.onBeforeResponse === 'function') {
+      event.onBeforeResponse(this)
+    }
 
     const request = () => $.axios.request(axiosConfig)
     const resp = await $.await.run(requestName || endpoint, request, requestDelay)
 
-    if (onResponse) onResponse(resp)
+    if (event && typeof event.onBeforeSerialization === 'function') {
+      event.onBeforeSerialization(resp, this)
+    }
 
     if (resp.data === undefined) {
       resp.data = JSON.parse(resp.request.response || '{}')
@@ -189,6 +195,10 @@ export class Response<T = any> {
       // Class constructor (CustomClass, Number, String, Boolean, etc.)
       resp.data = plainToClass(responseType as ClassType<T>, resp.data)
     } else throw Error('Error: Entity should be either a Class or ClassObject')
+
+    if (event && typeof event.onAfterSerialization === 'function') {
+      event.onAfterSerialization(resp, this)
+    }
 
     return resp
   }

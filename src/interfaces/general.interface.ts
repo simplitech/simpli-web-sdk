@@ -1,3 +1,6 @@
+import { AxiosResponse } from 'axios'
+import { Response } from '../app'
+
 export declare type ClassType<T> = {
   new (...args: any[]): T
 }
@@ -10,6 +13,12 @@ export type InputType = string | number | null
 
 export interface Dictionary<T> {
   [k: string]: T
+}
+
+export interface ResponseEvent<T = any> {
+  onBeforeResponse?: (responseConfig: Response) => void
+  onBeforeSerialization?: (response: AxiosResponse<T>, responseConfig: Response) => void
+  onAfterSerialization?: (response: AxiosResponse<T>, responseConfig: Response) => void
 }
 
 export type QueryFilter = Dictionary<any>

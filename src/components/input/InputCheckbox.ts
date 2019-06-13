@@ -1,5 +1,5 @@
 const template = `
-  <div class="input-group">
+  <div class="input-group input-group--checkbox">
     <label>
       <input
         :type="radio ? 'radio' : 'checkbox'"
@@ -7,11 +7,11 @@ const template = `
         v-bind="vBind"
         v-on="vOn"
         :class="inputClass"
-        class="input-checkbox"
+        class="input-group__input"
         @focus="focusEvent"
         @blur="blurEvent"
       />
-      <span :class="labelClass">
+      <span class="input-group__text" :class="labelClass">
         {{ label }}
         <slot></slot>
       </span>

@@ -1,24 +1,24 @@
 const template = `
   <div class="modal">
     <transition :name="$effect" mode="out-in">
-      <div v-if="state === 1" class="modal-scroll">
-        <div class="modal-view" @click="closeFromView" ref="view">
-          <div class="modal-content" :class="innerClass">
-            <div class="modal-header">
-              <div class="modal-title">
-                {{title}}
+      <div v-if="openPayload" class="modal__scroll">
+        <div class="modal__view" @click="closeFromView" ref="view">
+          <div class="modal__frame" :class="innerClass">
+              <div class="modal__header">
+                <div class="modal__title">
+                  {{title}}
+                </div>
+                <a v-if="$closable" class="modal__close-icon" @click="closeAction"></a>
               </div>
-              <a v-if="$closable" class="close-icon" @click="closeAction"></a>
+              <div class="modal__body">
+                <slot></slot>
+              </div>
             </div>
-            <div class="modal-body">
-              <slot></slot>
-            </div>
-          </div>
         </div>
       </div>
     </transition>
     <transition :name="$backgroundEffect" mode="out-in">
-      <div v-if="state === 1" class="modal-bg"></div>
+      <div v-if="openPayload" class="modal__bg"></div>
     </transition>
   </div>
 `
@@ -26,18 +26,7 @@ const template = `
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import { $ } from '../../simpli'
 
-/**
- * @hidden
- */
 export const Event = new Vue()
-
-/**
- * @hidden
- */
-export enum State {
-  HIDDEN,
-  SHOWN,
-}
 
 export class ModalController {
   defaultBody: HTMLElement = document.body
@@ -65,6 +54,9 @@ export class ModalController {
 
 @Component({ template })
 export class Modal extends Vue {
+  @Prop()
+  value?: any
+
   @Prop({ type: String })
   name?: string
 
@@ -86,11 +78,6 @@ export class Modal extends Vue {
   @Prop({ type: Boolean, default: undefined })
   closeOutside?: boolean
 
-  @Prop()
-  open?: any
-
-  state = State.HIDDEN
-
   private $effect: string | null = null
   private $backgroundEffect: string | null = null
   private $closable: boolean = true
@@ -99,32 +86,42 @@ export class Modal extends Vue {
   body: HTMLElement | null = null
   bodyOverflowY: string | null = null
 
-  @Watch('open', { immediate: true })
-  openEvent(val: any) {
-    if (val !== undefined) {
-      if (val) this.openAction(val)
-      else this.closeAction()
+  valueFallback: any = null // used only if the v-model is undefined
+
+  get openPayload() {
+    return this.value || this.valueFallback
+  }
+
+  set openPayload(val: any) {
+    if (this.value === undefined) {
+      this.valueFallback = val
+    }
+
+    this.$emit('input', val)
+
+    if (val !== null) {
+      this.$emit('open', val !== 'payload_sentinel' ? val : undefined)
+    } else {
+      this.$emit('close')
     }
   }
 
-  @Watch('state')
-  stateEvent(val: State) {
-    if (val === State.SHOWN) {
+  @Watch('openPayload')
+  stateEvent(val: boolean) {
+    if (val) {
       document.body.style.overflowY = 'hidden'
-    } else if (val === State.HIDDEN) {
+    } else {
       document.body.style.overflowY = this.bodyOverflowY
     }
   }
 
   openAction(payload: any) {
-    this.state = State.SHOWN
-    this.$emit('open', payload)
+    this.openPayload = payload != null ? payload : 'payload_sentinel'
   }
 
   closeAction(force: boolean = false) {
     if (this.$closable || force) {
-      this.state = State.HIDDEN
-      this.$emit('close')
+      this.openPayload = null
     }
   }
 
@@ -144,22 +141,29 @@ export class Modal extends Vue {
     this.bodyOverflowY = this.body.style.overflowY
 
     Event.$on('open', (name?: string, payload?: any) => {
-      if (name === this.name) this.openAction(payload)
+      if (name === this.name) {
+        this.openAction(payload)
+      }
     })
 
     Event.$on('close', (name?: string) => {
-      if (name === this.name) this.closeAction(true)
+      if (name === this.name) {
+        this.openPayload = null
+      }
     })
 
     Event.$on('toggle', (name?: string, payload?: any) => {
       if (name === this.name) {
-        if (this.state === State.SHOWN) this.closeAction(true)
-        else if (this.state === State.HIDDEN) this.openAction(payload)
+        if (this.openPayload) {
+          this.openPayload = null
+        } else {
+          this.openAction(payload)
+        }
       }
     })
 
     Event.$on('closeAll', () => {
-      this.closeAction(true)
+      this.openPayload = null
     })
   }
 }

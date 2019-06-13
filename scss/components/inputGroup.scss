@@ -1,19 +1,17 @@
-@import "../variables/main";
-
 .input-group {
   display: flex;
   flex-flow: column nowrap;
-  margin-bottom: #{$padding-base * 2};
+  margin-bottom: 16px;
   border-bottom: none;
 
-  &.required {
-    .input-label:after {
+  &.input-group--required {
+    .input-group__label:after {
       content: "*";
       color: #b71c1c;
     }
   }
 
-  .input-text, .input-textarea {
+  &.input-group--text .input-group__input {
     width: 100%;
   }
 }

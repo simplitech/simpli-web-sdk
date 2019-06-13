@@ -1,7 +1,6 @@
-@import "../variables/main";
 
 .tip {
-  .tip-content {
+  .tip__content {
     user-select: none;
     position: absolute;
     bottom: 110%;
@@ -14,32 +13,6 @@
     text-align: center;
     padding: 5px;
     color: rgba(255, 255, 255, 0.7);
-
-    &.auto {
-      left: 0;
-      right: 0;
-
-      &.compress-small {
-        margin: 0 20px;
-      }
-      &.compress-medium {
-        margin: 0 50px;
-      }
-      &.compress-large {
-        margin: 0 80px;
-      }
-
-      &.extend-small {
-        margin: 0 -20px;
-      }
-      &.extend-medium {
-        margin: 0 -50px;
-      }
-      &.extend-large {
-        margin: 0 -80px;
-      }
-    }
-
   }
 }
 

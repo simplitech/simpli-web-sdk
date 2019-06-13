@@ -2,6 +2,7 @@ import { AxiosResponse } from 'axios'
 import { Helper } from '../../main'
 import { Request } from '..'
 import { Schema } from './Schema'
+import { HttpExclude } from '../../decorators'
 import { Dictionary, FieldData, ISchema, SchemaSet } from '../../interfaces'
 
 /**
@@ -29,6 +30,7 @@ export abstract class Model implements ISchema {
    * }
    * ```
    */
+  @HttpExclude()
   readonly $schemaSet: SchemaSet = {}
 
   /**

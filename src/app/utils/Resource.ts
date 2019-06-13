@@ -1,6 +1,7 @@
 import { AxiosResponse, AxiosRequestConfig } from 'axios'
 import { Request } from '../'
 import { Model } from './Model'
+import { HttpExclude } from '../../decorators'
 import { ID, TAG, ResourceAction, ResourceActionConfig, IResource } from '../../interfaces'
 
 export abstract class Resource extends Model implements IResource {
@@ -14,10 +15,13 @@ export abstract class Resource extends Model implements IResource {
     /**/
   }
 
+  @HttpExclude()
   readonly $endpoint: string = ''
 
+  @HttpExclude()
   readonly $customActionConfig: ResourceActionConfig = {}
 
+  @HttpExclude()
   readonly $axiosConfig: AxiosRequestConfig = {}
 
   get $action() {

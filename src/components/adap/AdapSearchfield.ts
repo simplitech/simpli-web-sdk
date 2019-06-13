@@ -1,7 +1,7 @@
 const template = `
   <input type="text"
          v-if="collection"
-         class="adap-searchfield form-control"
+         class="adap-searchfield"
          v-model="collection.search"
          @keyup="debounce()"
   />

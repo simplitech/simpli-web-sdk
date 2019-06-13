@@ -1,5 +1,5 @@
 const template = `
-  <div>
+  <div class="render">
     <div :class="innerClass">
       {{content || value}}
     </div>
