@@ -3,22 +3,22 @@
   flex-flow: row nowrap;
   cursor: pointer;
 
-  .caret {
+  .adap-orderby__caret {
     margin-left: 10px;
     align-self: center;
-  }
 
-  &.asc > .caret {
-    font-family: "simple-line-icons";
-    &:before {
-      content: '\E604';
+    &.adap-orderby__caret--asc {
+      font-family: "simple-line-icons";
+      &:before {
+        content: '\E604';
+      }
     }
-  }
 
-  &.desc > .caret {
-    font-family: "simple-line-icons";
-    &:before {
-      content: '\E607';
+    &.adap-orderby__caret--desc {
+      font-family: "simple-line-icons";
+      &:before {
+        content: '\E607';
+      }
     }
   }
 }

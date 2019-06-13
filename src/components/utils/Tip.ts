@@ -1,7 +1,7 @@
 const template = `
   <div class="tip">
     <transition :name="$effect" mode="out-in">
-      <div ref="content" v-if="state === 1" class="tip-content" :innerClass="innerClass">
+      <div ref="content" v-if="state === 1" class="tip__content" :class="innerClass">
         {{$message}}
         <slot></slot>
       </div>

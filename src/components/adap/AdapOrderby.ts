@@ -1,11 +1,14 @@
 const template = `
   <div v-if="collection"
        @click="orderBy"
-       class="adap-orderby"
-       :class="{ 'asc': collection.asc, 'desc': !collection.asc }">
+       class="adap-orderby">
     {{ label }}
     <slot></slot>
-    <span :class="{ 'caret': collection.orderBy === name }"></span>
+    <span :class="{
+    'adap-orderby__caret': collection.orderBy === name, 
+    'adap-orderby__caret--asc': collection.asc, 
+    'adap-orderby__caret--desc': !collection.asc 
+    }"></span>
   </div>
 `
 

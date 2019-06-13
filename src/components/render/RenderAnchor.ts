@@ -1,5 +1,5 @@
 const template = `
-  <div class="anchor-render">
+  <div class="render-anchor">
     <a :href="href" :target="target" :class="innerClass" v-if="href">
       {{label || href}}
     </a>

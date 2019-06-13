@@ -1,10 +1,10 @@
 const template = `
-  <transition :name="$effect" mode="out-in">
-    <div v-if="view === 0" :key="0" class="await-default" ref="defaultRef">
+  <transition :name="$effect" mode="out-in" class="await">
+    <div v-if="view === 0" :key="0" class="await__default" ref="defaultRef">
       <slot></slot>
     </div>
 
-    <div v-else-if="view === 1" :key="1" class="await-spinner" :style="{minHeight}">
+    <div v-else-if="view === 1" :key="1" class="await__spinner" :style="{minHeight}">
       <component
         v-if="$spinner && $spinner !== 'none' && !hasLoadingSlot"
         :is="$spinner"
@@ -14,7 +14,7 @@ const template = `
       <slot name="loading" v-else></slot>
     </div>
 
-    <div v-else-if="view === 2" :key="2" class="await-error">
+    <div v-else-if="view === 2" :key="2" class="await__error">
       <slot name="error"></slot>
     </div>
   </transition>

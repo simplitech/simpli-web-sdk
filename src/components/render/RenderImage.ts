@@ -1,5 +1,5 @@
 const template = `
-  <div class="image-render">
+  <div class="render-image">
     <img :src="src" :alt="alt" :class="innerClass" v-if="src"/>
   </div>
 `

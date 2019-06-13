@@ -1,6 +1,6 @@
 const template = `
-  <div class="input-group" :class="{ required: !!required }">
-    <label :for="\`input-select\${_uid}\`" class="input-label">
+  <div class="input-group input-group--select" :class="{ 'input-group--required': !!required }">
+    <label :for="\`input-select\${_uid}\`" class="input-group__label">
       {{ label }}
       <slot></slot>
     </label>
@@ -23,7 +23,7 @@ const template = `
                  :close-on-select="isCloseOnSelect"
                  :hide-selected="isHideSelected"
                  :class="inputClass"
-                 class="input-select"
+                 class="input-group__input"
                  @tag="tagEvent"
                  @remove="removeEvent"
     >

@@ -1,6 +1,6 @@
 const template = `
-  <div class="input-group" :class="{ required: !!required }">
-    <label :for="\`input-text\${_uid}\`" class="input-label">
+  <div class="input-group input-group--text" :class="{ 'input-group--required': !!required }">
+    <label :for="\`input-text\${_uid}\`" class="input-group__label">
       {{ label }}
       <slot></slot>
     </label>
@@ -12,7 +12,7 @@ const template = `
               v-bind="vBind"
               v-on="vOn"
               :class="innerClass"
-              class="input-text"
+              class="input-group__input input-group__input--mask"
               @focus.native="focusEvent"
               @blur.native="blurEvent"
               :key="1"/>
@@ -24,7 +24,7 @@ const template = `
            v-bind="vBind"
            v-on="vOn"
            :class="innerClass"
-           class="input-text"
+           class="input-group__input input-group__input--money"
            @focus.native="focusEvent"
            @blur.native="blurEvent"
            :key="2"/>
@@ -36,7 +36,7 @@ const template = `
               v-bind="vBind"
               v-on="vOn"
               :class="innerClass"
-              class="input-textarea"
+              class="input-group__input input-group__input--textarea"
               @focus="focusEvent"
               @blur="blurEvent"
               :key="3"/>
@@ -48,8 +48,8 @@ const template = `
            v-model="computedModel"
            v-bind="vBind"
            v-on="vOn"
-           :class="innerClass"
-           class="input-text"
+           class="input-group__input"
+           :class="[innerClass, \`input-group__input--\${type}\`]"
            @focus="focusEvent"
            @blur="blurEvent"
            :key="4"/>
