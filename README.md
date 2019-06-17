@@ -43,6 +43,7 @@ or...
 Importing CSS in SCSS
 ```scss
 @import "~simpli-web-sdk/scss/main";
+@import "~simpli-web-sdk/scss/effect"; // for transition effects (optional)
 ```
 
 You may also get this package installed and ready-to-use by running our boilerplate generator [Simpli CLI](https://github.com/simplitech/simpli-cli).  

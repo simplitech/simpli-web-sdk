@@ -61,8 +61,8 @@ export default {
 
   dateFormat: {
     date: 'MM/DD/YYYY',
-    datetime: 'MM/DD/YYYY hh:mm',
-    time: 'hh:mm',
+    datetime: 'MM/DD/YYYY HH:mm',
+    time: 'HH:mm',
   },
 
   mask: {

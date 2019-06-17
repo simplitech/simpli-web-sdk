@@ -9,7 +9,7 @@ export function pushByName(name: string, ...ids: ID[]) {
   const params: any = {}
 
   if (ids.length > 1) {
-    ids.forEach((id, index) => (params[`id${index}`] = id))
+    ids.forEach((id, index) => (params[`id${index + 1}`] = id))
   } else if (ids.length === 1) {
     params.id = ids[0]
   }

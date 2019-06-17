@@ -538,7 +538,7 @@ export class Simpli {
     const $filter = { ...DefaultConfig.filters, ...Simpli.filters }
 
     const $router = new VueRouter(Simpli.router)
-    const $i18n = new VueI18n({ locale: Simpli.lang, messages: merge(Simpli.locale, Simpli.defaultLocale) })
+    const $i18n = new VueI18n({ locale: Simpli.lang, messages: merge(Simpli.defaultLocale, Simpli.locale) })
     const $bus = new Vue({ router: $router, i18n: $i18n })
 
     const $route = $bus.$route

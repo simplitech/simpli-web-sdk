@@ -10,7 +10,8 @@ module.exports = {
   entry: {
     [packageName]: [
       resolve(__dirname, 'src/main.ts'),
-      resolve(__dirname, 'scss/main.scss')
+      resolve(__dirname, 'scss/main.scss'),
+      resolve(__dirname, 'scss/effect.scss'),
     ],
   },
   // Here the application starts executing
