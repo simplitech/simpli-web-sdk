@@ -105,20 +105,5 @@
     min-height: 100vh;
     z-index: $modal-depth;
   }
-
-  &.modal--primary-header {
-    .modal__header {
-      background: $primary-color;
-      border-bottom: 3px solid darken($primary-color, 10);
-    }
-
-    .modal__title {
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .modal__close-icon {
-      color: white;
-    }
-  }
 }
 

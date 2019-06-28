@@ -17,6 +17,7 @@
     border: none;
     padding: 0;
     min-height: 35px;
+    background: transparent;
 
     .multiselect__tags-wrap {
       .multiselect__tag {
@@ -30,6 +31,7 @@
       padding: 0 8px !important;
       display: block;
       margin: 0;
+      background: transparent;
     }
 
     .multiselect__single {
@@ -61,7 +63,8 @@
         line-height: 20px;
 
         &:hover {
-          background: lighten($primary-color, 15%) !important;
+          background: $primary-color;
+          opacity: .65;
         }
 
         &:after {
@@ -107,7 +110,8 @@
 
           &.multiselect__option--highlight {
             transition: all 100ms ease-in-out;
-            background: lighten($primary-color, 10%);
+            background: $primary-color;
+            opacity: .7;
           }
 
           &.multiselect__option--selected {
@@ -116,7 +120,8 @@
           }
 
           &:hover {
-            background: lighten($primary-color, 10%);
+            background: $primary-color;
+            opacity: .7;
           }
 
           &:after {
