@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.1](https://github.com/simplitech/simpli-web-sdk/compare/v2.1.0...v2.1.1) (2019-07-01)
+
+
+### Bug Fixes
+
+* **css:** make css more flexible ([db3039b](https://github.com/simplitech/simpli-web-sdk/commit/db3039b))
+
+
+
 # [2.1.0](https://github.com/simplitech/simpli-web-sdk/compare/v2.1.0-0...v2.1.0) (2019-06-17)
 
 
