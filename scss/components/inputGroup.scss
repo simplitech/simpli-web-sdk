@@ -1,16 +1,28 @@
 .input-group {
-  display: flex;
-  flex-flow: column nowrap;
-  border-bottom: none;
+  .input-group__label{
+    user-select: none;
+  }
 
   &.input-group--required {
-    .input-group__label:after {
-      content: "*";
-      color: #b71c1c;
+    .input-group__label {
+      &:after {
+        content: "*";
+        color: #b71c1c;
+      }
     }
   }
 
-  &.input-group--text .input-group__input {
-    width: 100%;
+  &.input-group--checkbox {
+    .input-group__input {
+      vertical-align: baseline;
+    }
+  }
+
+  &.input-group--text {
+    line-height: 2em;
+
+    .input-group__input {
+      width: 100%;
+    }
   }
 }

@@ -1,21 +1,22 @@
 const template = `
   <div class="input-group input-group--checkbox">
-    <label>
-      <input
-        :type="radio ? 'radio' : 'checkbox'"
-        v-model="computedModel"
-        v-bind="vBind"
-        v-on="vOn"
-        :class="inputClass"
-        class="input-group__input"
-        @focus="focusEvent"
-        @blur="blurEvent"
-      />
-      <span class="input-group__text" :class="labelClass">
+    <input
+      :id="\`input-checkbox\${_uid}\`"
+      :type="radio ? 'radio' : 'checkbox'"
+      v-model="computedModel"
+      v-bind="vBind"
+      v-on="vOn"
+      :class="inputClass"
+      class="input-group__input"
+      @focus="focusEvent"
+      @blur="blurEvent"
+    />
+    <span class="input-group__label" :class="labelClass">
+      <label :for="\`input-checkbox\${_uid}\`" >
         {{ label }}
         <slot></slot>
-      </span>
-    </label>
+      </label>
+    </span>
   </div>
 `
 
