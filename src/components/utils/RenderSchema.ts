@@ -1,14 +1,14 @@
 const template = `
-  <div class="render-schema">
-    <component
-      v-if="isComponent"
-      :is="is"
-      v-model="value[fieldName]"
-      v-bind="vBind"
-      v-on="vOn"
-    />
-    <div v-else-if="fieldContent !== undefined && fieldContent !== null" v-html="fieldContent"></div>
-  </div>
+  <component
+    v-if="isComponent"
+    :is="is"
+    v-model="value[fieldName]"
+    v-bind="vBind"
+    v-on="vOn"
+  >
+    <slot></slot>
+  </component>
+  <div v-else-if="fieldContent !== undefined && fieldContent !== null" v-html="fieldContent"></div>
 `
 
 import { Component, Prop, Vue } from 'vue-property-decorator'

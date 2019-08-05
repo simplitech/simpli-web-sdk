@@ -4,26 +4,204 @@ import { Model } from './Model'
 import { HttpExclude } from '../../decorators'
 import { ID, TAG, ResourceAction, ResourceActionConfig, IResource } from '../../interfaces'
 
+/**
+ * Usage for processing of sending/receiving data and render data.
+ * This is a special Model that handles CRUDs (create, read, update and delete).
+ */
 export abstract class Resource extends Model implements IResource {
+  /**
+   * The getter of identifier of the primary key.
+   * ```typescript
+   * import {ID, Resource} from 'simpli-web-sdk'
+   *
+   * export class User extends Resource {
+   *   get $id() {
+   *     return this.idUserPk
+   *   }
+   *   set $id(val: ID) {
+   *     this.idUserPk = val
+   *   }
+   *   idUserPk: ID = 0
+   * }
+   * ```
+   */
   abstract get $id()
+
+  /**
+   * The setter of identifier of the primary key.
+   * ```typescript
+   * import {ID, Resource} from 'simpli-web-sdk'
+   *
+   * export class User extends Resource {
+   *   get $id() {
+   *     return this.idUserPk
+   *   }
+   *   set $id(val: ID) {
+   *     this.idUserPk = val
+   *   }
+   *   idUserPk: number = 0
+   * }
+   * ```
+   */
   abstract set $id(val: ID)
 
+  /**
+   * The getter that represents a tag (optional).
+   * Used in [[InputSelect]] component.
+   * ```typescript
+   * import {TAG, Resource} from 'simpli-web-sdk'
+   *
+   * export class User extends Resource {
+   *   ...
+   *   get $tag() {
+   *     return this.name
+   *   }
+   *   set $tag(val: TAG) {
+   *     this.name = val
+   *   }
+   *   name: string | null = null
+   * }
+   * ```
+   */
   get $tag() {
     return this.$id.toString()
   }
+
+  /**
+   * The setter that represents a tag (optional).
+   * Used in [[InputSelect]] component.
+   * ```typescript
+   * import {TAG, Resource} from 'simpli-web-sdk'
+   *
+   * export class User extends Resource {
+   *   ...
+   *   get $tag() {
+   *     return this.name
+   *   }
+   *   set $tag(val: TAG) {
+   *     this.name = val
+   *   }
+   *   name: string | null = null
+   * }
+   * ```
+   */
   set $tag(val: TAG) {
     /**/
   }
 
+  /**
+   * The endpoint of this resource.
+   * It is possible to use paths inside brackets in order to use dynamic endpoints.
+   * ```typescript
+   * import {Resource} from 'simpli-web-sdk'
+   *
+   * export class User extends Resource {
+   *   $endpoint: string = '/user{/id}'
+   *   ...
+   * }
+   *
+   * async function example() {
+   *   const user = new User()
+   *   await user.$action
+   *     .query({id: 1}) // generates a Request instance equivalent of: GET /user/1
+   *     .as(user)
+   *     .getResponse()
+   * }
+   * ```
+   */
   @HttpExclude()
   readonly $endpoint: string = ''
 
+  /**
+   * The configuration of custom actions which provides the methods (GET, POST, etc.) and the URL.
+   * This config is applied in $action.
+   * ```typescript
+   * import {Resource} from 'simpli-web-sdk'
+   * import {Friend} from '@/model/Friend'
+   *
+   * export class User extends Resource {
+   *   $endpoint: string = '/user{/id}'
+   *   $customActionConfig = {
+   *     getFriend: {
+   *       methods: 'GET',
+   *       url: '/user{/id}/friend{/idFriend}',
+   *     },
+   *   }
+   *   ...
+   * }
+   *
+   * async function example() {
+   *   const user = new User()
+   *   const friend = new Friend()
+   *   await user.$action
+   *     .getFriend({id: 1, idFriend: 2}) // generates a Request instance equivalent of: GET /user/1/friend/2
+   *     .as(friend)
+   *     .getResponse()
+   * }
+   * ```
+   */
   @HttpExclude()
   readonly $customActionConfig: ResourceActionConfig = {}
 
+  /**
+   * Any extra configuration from axios.
+   * https://github.com/axios/axios#request-config
+   * ```typescript
+   * import {Resource} from 'simpli-web-sdk'
+   *
+   * export class User extends Resource {
+   *   $axiosConfig = {
+   *     // `headers` are custom headers to be sent
+   *     headers: {'X-Requested-With': 'XMLHttpRequest'},
+   *   }
+   *   ...
+   * }
+   * ```
+   */
   @HttpExclude()
   readonly $axiosConfig: AxiosRequestConfig = {}
 
+  /**
+   * Invokes a request based on the $endpoint and the $customActionConfig.
+   * There are four default action:
+   * - query: { method: 'GET', url: $endpoint },
+   * - save: { method: 'POST', url: $endpoint },
+   * - update: { method: 'PUT', url: $endpoint },
+   * - remove: { method: 'DELETE', url: $endpoint },
+   * ```typescript
+   * import {ID, Resource} from 'simpli-web-sdk'
+   *
+   * export class User extends Resource {
+   *   $endpoint: string = '/user{/id}'
+   *   get $id() {
+   *     return this.id || 0
+   *   }
+   *   set $id(val: ID) {
+   *     this.id = val
+   *   }
+   *
+   *   id: ID = 0
+   *   name: string | null = null
+   * }
+   *
+   * async function example1() {
+   *   const user = new User()
+   *   await user.$action
+   *     .query({id: 1}) // generates a Request instance equivalent of: GET /user/1
+   *     .as(user)
+   *     .getResponse()
+   * }
+   *
+   * async function example2() {
+   *   const user = new User()
+   *   user.name = 'Michael Jackson'
+   *   await user.$action
+   *     .save(user) // generates a Request instance equivalent of: POST /user
+   *     .asAny()
+   *     .getResponse()
+   * }
+   * ```
+   */
   get $action() {
     const endpoint = this.$endpoint
     const customActionConfig = this.$customActionConfig
@@ -102,6 +280,22 @@ export abstract class Resource extends Model implements IResource {
     return action as ResourceAction
   }
 
+  /**
+   * Gets all param keys from the endpoint
+   * ```typescript
+   * import {Resource} from 'simpli-web-sdk'
+   *
+   * export class User extends Resource {
+   *   $endpoint: string = '/user{/id1}{/id2}'
+   *   ...
+   * }
+   *
+   * async function example() {
+   *   const user = new User()
+   *   console.log(user.$allParamKeys) // ['id1', 'id2']
+   * }
+   * ```
+   */
   get $allParamKeys(): string[] {
     const allParamKeys: string[] = []
 
@@ -116,6 +310,22 @@ export abstract class Resource extends Model implements IResource {
     return allParamKeys
   }
 
+  /**
+   * Gets the first param key from the endpoint
+   * ```typescript
+   * import {Resource} from 'simpli-web-sdk'
+   *
+   * export class User extends Resource {
+   *   $endpoint: string = '/user{/id1}{/id2}'
+   *   ...
+   * }
+   *
+   * async function example() {
+   *   const user = new User()
+   *   console.log(user.$firstParamKey) // 'id1'
+   * }
+   * ```
+   */
   get $firstParamKey() {
     return this.$allParamKeys[0] || null
   }

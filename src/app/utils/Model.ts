@@ -12,13 +12,12 @@ export abstract class Model implements ISchema {
   /**
    * Associates instances of Schema into a model.
    * ```typescript
-   * import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk'
+   * import {Model, SchemaSet} from 'simpli-web-sdk'
    * import {InputUserSchema} from '@/schema/User/InputUserSchema'
    * import {ListUserSchema} from '@/schema/User/ListUserSchema'
    * import {CsvUserSchema} from '@/schema/User/CsvUserSchema'
    *
    * export class User extends Model {
-   *   \@RequestExclude() // Exclude this field from request
    *   readonly $schemaSet: SchemaSet = {
    *     input: new InputUserSchema(),
    *     list: new ListUserSchema(),
@@ -193,11 +192,10 @@ export abstract class Model implements ISchema {
    * Returns null if it is not found.
    *
    * ```typescript
-   * import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk'
+   * import {Model, SchemaSet} from 'simpli-web-sdk'
    * import {InputUserSchema} from '@/schema/User/InputUserSchema'
    *
    * export class User extends Model {
-   *   \@RequestExclude() // Exclude this field from request
    *   readonly $schemaSet: SchemaSet = {
    *     input: new InputUserSchema(),
    *   }
@@ -222,11 +220,10 @@ export abstract class Model implements ISchema {
    * Alias of `this.$getSchema(schemaRef).name`
    *
    * ```typescript
-   * import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk'
+   * import {Model, SchemaSet} from 'simpli-web-sdk'
    * import {InputUserSchema} from '@/schema/User/InputUserSchema'
    *
    * export class User extends Model {
-   *   \@RequestExclude() // Exclude this field from request
    *   readonly $schemaSet: SchemaSet = {
    *     input: new InputUserSchema(),
    *   }
@@ -251,11 +248,10 @@ export abstract class Model implements ISchema {
    * Alias of `this.$getSchema(schemaRef).allFields`
    *
    * ```typescript
-   * import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk'
+   * import {Model, SchemaSet} from 'simpli-web-sdk'
    * import {InputUserSchema} from '@/schema/User/InputUserSchema'
    *
    * export class User extends Model {
-   *   \@RequestExclude() // Exclude this field from request
    *   readonly $schemaSet: SchemaSet = {
    *     input: new InputUserSchema(),
    *   }
@@ -280,11 +276,10 @@ export abstract class Model implements ISchema {
    * Alias of `this.$getSchema(schemaRef).allHeaders`
    *
    * ```typescript
-   * import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk'
+   * import {Model, SchemaSet} from 'simpli-web-sdk'
    * import {InputUserSchema} from '@/schema/User/InputUserSchema'
    *
    * export class User extends Model {
-   *   \@RequestExclude() // Exclude this field from request
    *   readonly $schemaSet: SchemaSet = {
    *     input: new InputUserSchema(),
    *   }
@@ -309,11 +304,10 @@ export abstract class Model implements ISchema {
    * Alias of `this.$getSchema(schemaRef).header`
    *
    * ```typescript
-   * import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk'
+   * import {Model, SchemaSet} from 'simpli-web-sdk'
    * import {InputUserSchema} from '@/schema/User/InputUserSchema'
    *
    * export class User extends Model {
-   *   \@RequestExclude() // Exclude this field from request
    *   readonly $schemaSet: SchemaSet = {
    *     input: new InputUserSchema(),
    *   }
@@ -338,11 +332,10 @@ export abstract class Model implements ISchema {
    * Alias of `this.$getSchema(schemaRef).getModelData(this)`
    *
    * ```typescript
-   * import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk'
+   * import {Model, SchemaSet} from 'simpli-web-sdk'
    * import {InputUserSchema} from '@/schema/User/InputUserSchema'
    *
    * export class User extends Model {
-   *   \@RequestExclude() // Exclude this field from request
    *   readonly $schemaSet: SchemaSet = {
    *     input: new InputUserSchema(),
    *   }
@@ -367,11 +360,10 @@ export abstract class Model implements ISchema {
    * Alias of `this.$getSchema(schemaRef).translateFrom(fieldName)`
    *
    * ```typescript
-   * import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk'
+   * import {Model, SchemaSet} from 'simpli-web-sdk'
    * import {InputUserSchema} from '@/schema/User/InputUserSchema'
    *
    * export class User extends Model {
-   *   \@RequestExclude() // Exclude this field from request
    *   readonly $schemaSet: SchemaSet = {
    *     input: new InputUserSchema(),
    *   }
@@ -397,11 +389,10 @@ export abstract class Model implements ISchema {
    * Alias of `this.$getSchema(schemaRef).validate(this, showErrorMessage)`
    *
    * ```typescript
-   * import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk'
+   * import {Model, SchemaSet} from 'simpli-web-sdk'
    * import {InputUserSchema} from '@/schema/User/InputUserSchema'
    *
    * export class User extends Model {
-   *   \@RequestExclude() // Exclude this field from request
    *   readonly $schemaSet: SchemaSet = {
    *     input: new InputUserSchema(),
    *   }
@@ -426,12 +417,11 @@ export abstract class Model implements ISchema {
    * Alias of `Helper.clone(this)`
    *
    * ```typescript
-   * import {Model, SchemaSet, RequestExclude} from 'simpli-web-sdk'
    * import {User} from '@/model/User'
    *
    * function example() {
    *   const user = new User()
-   *   const clonedUser = user.$clone()
+   *   const clonedUser = user.$clone() // a copy of user instance
    * }
    */
   $clone(): this {
