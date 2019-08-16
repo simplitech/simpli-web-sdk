@@ -1,5 +1,5 @@
 const template = `
-  <div class="input-group input-group--text" :class="{ 'input-group--required': !!required }">
+  <div class="input-group input-group--text" :class="{ 'input-group--required': !!required, 'input-group--invalid': isInvalid }">
     <label :for="\`input-text\${_uid}\`" class="input-group__label">
       {{ label }}
       <slot></slot>
@@ -11,11 +11,13 @@ const template = `
               v-model="computedModel"
               v-bind="vBind"
               v-on="vOn"
-              :class="innerClass"
+              :class="inputClass"
               class="input-group__input input-group__input--mask"
               @focus.native="focusEvent"
               @blur.native="blurEvent"
-              :key="1"/>
+              :key="1"
+              v-validate="validation"
+              :name="label"/>
 
     <!--Currency input-->
     <money :id="\`input-text\${_uid}\`"
@@ -23,11 +25,13 @@ const template = `
            v-model="computedModel"
            v-bind="vBind"
            v-on="vOn"
-           :class="innerClass"
+           :class="inputClass"
            class="input-group__input input-group__input--money"
            @focus.native="focusEvent"
            @blur.native="blurEvent"
-           :key="2"/>
+           :key="2"
+           v-validate="validation"
+           :name="label"/>
 
     <!--Textarea input-->
     <textarea :id="\`input-text\${_uid}\`"
@@ -35,11 +39,13 @@ const template = `
               v-model="computedModel"
               v-bind="vBind"
               v-on="vOn"
-              :class="innerClass"
+              :class="inputClass"
               class="input-group__input input-group__input--textarea"
               @focus="focusEvent"
               @blur="blurEvent"
-              :key="3"/>
+              :key="3"
+              v-validate="validation"
+              :name="label"/>
 
     <!--Text input-->
     <input :id="\`input-text\${_uid}\`"
@@ -49,11 +55,15 @@ const template = `
            v-bind="vBind"
            v-on="vOn"
            class="input-group__input"
-           :class="[innerClass, \`input-group__input--\${type}\`]"
+           :class="[inputClass, \`input-group__input--\${type}\`]"
            @focus="focusEvent"
            @blur="blurEvent"
-           :key="4"/>
-
+           :key="4"
+           v-validate="validation"
+           :name="label"/>
+    <transition name="slide">
+      <div class="input-group__error-message" v-if="isInvalid">{{ errors.first(label) }}</div>
+    </transition>
   </div>
 `
 
@@ -100,6 +110,9 @@ export class InputText extends Vue {
 
   @Prop({ type: Object })
   tokens?: any
+
+  @Prop({ default: null })
+  validation!: any
 
   preset: MaskPresetConfig = new class extends MaskPresetConfig {
     mask = []
@@ -167,10 +180,9 @@ export class InputText extends Vue {
     return { ...listeners }
   }
 
-  get innerClass() {
-    const valid = this.preset.isValid === true ? 'valid' : ''
-    const invalid = this.preset.isValid === false ? 'invalid' : ''
-    return `${this.inputClass || ''} ${valid} ${invalid}`.trim() || ''
+  get isInvalid() {
+    // @ts-ignore
+    return this.preset.isValid === false || this.errors.first(this.label)
   }
 
   get computedModel(): InputType {
