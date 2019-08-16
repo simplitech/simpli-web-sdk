@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.2.0](https://github.com/simplitech/simpli-web-sdk/compare/v2.1.3...v2.2.0) (2019-08-16)
+
+
+### Bug Fixes
+
+* **helpers:** use await on router push ([ae1aff8](https://github.com/simplitech/simpli-web-sdk/commit/ae1aff8))
+
+
+### Features
+
+* **InputDate:** implement input-date component to make use of input type=date ([fb3c8ac](https://github.com/simplitech/simpli-web-sdk/commit/fb3c8ac)), closes [#15](https://github.com/simplitech/simpli-web-sdk/issues/15)
+* **vee-validate:** implement vee-validate on input components ([b0da1c7](https://github.com/simplitech/simpli-web-sdk/commit/b0da1c7))
+
+
+
 ## [2.1.3](https://github.com/simplitech/simpli-web-sdk/compare/v2.1.2...v2.1.3) (2019-08-05)
 
 
