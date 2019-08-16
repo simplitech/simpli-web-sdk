@@ -7,7 +7,7 @@ export function success(body: string, title?: string, useI18n = true, config: Sn
   else $.snotify.success(body, title || '', config)
 }
 
-export function successAndPush(
+export async function successAndPush(
   body: string,
   uri: string,
   title?: string,
@@ -15,7 +15,7 @@ export function successAndPush(
   config?: SnotifyToastConfig
 ) {
   success(body, title, useI18n, config)
-  push(uri)
+  await push(uri)
 }
 
 export function error(body: string, title?: string, useI18n = true, config: SnotifyToastConfig = {}) {
@@ -27,7 +27,7 @@ export function errorValidation(message: string) {
   error(message, $.t('system.error.validation') as string, false)
 }
 
-export function errorAndPush(
+export async function errorAndPush(
   body: string,
   uri: string,
   title?: string,
@@ -35,7 +35,7 @@ export function errorAndPush(
   config?: SnotifyToastConfig
 ) {
   error(body, title, useI18n, config)
-  push(uri)
+  await push(uri)
 }
 
 export function abort(body: string, title?: string, useI18n = true, config: SnotifyToastConfig = {}) {
@@ -48,7 +48,7 @@ export function warning(body: string, title?: string, useI18n = true, config: Sn
   else $.snotify.warning(body, title || '', config)
 }
 
-export function warningAndPush(
+export async function warningAndPush(
   body: string,
   uri: string,
   title?: string,
@@ -56,7 +56,7 @@ export function warningAndPush(
   config?: SnotifyToastConfig
 ) {
   warning(body, title, useI18n, config)
-  push(uri)
+  await push(uri)
 }
 
 export function info(body: string, title?: string, useI18n = true, config: SnotifyToastConfig = {}) {
@@ -64,7 +64,7 @@ export function info(body: string, title?: string, useI18n = true, config: Snoti
   else $.snotify.info(body, title || '', config)
 }
 
-export function infoAndPush(
+export async function infoAndPush(
   body: string,
   uri: string,
   title?: string,
@@ -72,5 +72,5 @@ export function infoAndPush(
   config?: SnotifyToastConfig
 ) {
   info(body, title, useI18n, config)
-  push(uri)
+  await push(uri)
 }

@@ -3,6 +3,10 @@
     user-select: none;
   }
 
+  .input-group__error-message {
+    color: $danger-color;
+  }
+
   &.input-group--required {
     .input-group__label {
       &:after {
@@ -24,5 +28,11 @@
     .input-group__input {
       width: 100%;
     }
+  }
+
+  input[type=date]::-webkit-inner-spin-button,
+  input[type=date]::-webkit-clear-button {
+    display: none;
+    -webkit-appearance: none;
   }
 }

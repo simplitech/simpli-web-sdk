@@ -1,5 +1,5 @@
 const template = `
-  <div class="input-group input-group--text" :class="{ 'input-group--required': required }">
+  <div class="input-group input-group--text" :class="{ 'input-group--required': required, 'input-group--invalid': isInvalid }">
     <label :for="\`input-text\${_uid}\`" class="input-group__label">
       {{ label }}
       <slot></slot>
@@ -9,9 +9,14 @@ const template = `
              type="date"
              v-model="valueAsInput"
              class="input-group__input input-group__input--date weight-1 mr-2"
-             :class="innerClass"/>
+             :class="inputClass"
+             v-validate="validation"
+             :name="label"/>
       <a class="icon icon-close" v-show="valueAsInput" @click="emitEmpty"></a>
     </div>
+    <transition name="slide">
+      <div class="input-group__error-message" v-if="isInvalid">{{ errors.first(label) }}</div>
+    </transition>
   </div>
 `
 
@@ -27,7 +32,9 @@ export class InputDate extends Vue {
   @Prop({ type: Boolean, default: false })
   required!: boolean
   @Prop({ type: String, default: '' })
-  innerClass!: string
+  inputClass!: string
+  @Prop({ default: null })
+  validation!: any
 
   inputFromDt(dt: string | null) {
     return dt ? moment(dt).format('YYYY-MM-DD') : null // html input format
@@ -61,6 +68,11 @@ export class InputDate extends Vue {
     if (dt) {
       this.$emit('input', dt)
     }
+  }
+
+  get isInvalid() {
+    // @ts-ignore
+    return this.errors.first(this.label)
   }
 
   emitEmpty() {

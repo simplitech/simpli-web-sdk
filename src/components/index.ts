@@ -9,6 +9,7 @@ export { AdapSearchfield } from './adap/AdapSearchfield'
 export { InputCheckbox } from './input/InputCheckbox'
 export { InputSelect } from './input/InputSelect'
 export { InputText } from './input/InputText'
+export { InputDate } from './input/InputDate'
 
 // mixins
 export { MixinQueryRouter } from './mixins/MixinQueryRouter'

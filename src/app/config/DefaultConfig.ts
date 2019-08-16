@@ -16,6 +16,7 @@ export abstract class DefaultConfig {
     InputCheckbox: Component.InputCheckbox,
     InputSelect: Component.InputSelect,
     InputText: Component.InputText,
+    InputDate: Component.InputDate,
     RenderAnchor: Component.RenderAnchor,
     RenderImage: Component.RenderImage,
   }

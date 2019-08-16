@@ -1,5 +1,5 @@
 const template = `
-  <div class="input-group input-group--select" :class="{ 'input-group--required': !!required }">
+  <div class="input-group input-group--select" :class="{ 'input-group--required': !!required, 'input-group--invalid': isInvalid }">
     <label :for="\`input-select\${_uid}\`" class="input-group__label">
       {{ label }}
       <slot></slot>
@@ -26,10 +26,16 @@ const template = `
                  class="input-group__input"
                  @tag="tagEvent"
                  @remove="removeEvent"
+                 v-validate="validation"
+                 :name="label"
     >
       <div slot="noResult">{{ noResultLabel || $t('app.noResultFound') }}</div>
       <div slot="noOptions">{{ noOptionsLabel || $t('app.emptyList') }}</div>
     </multiselect>
+    
+    <transition name="slide">
+      <div class="input-group__error-message" v-if="isInvalid">{{ errors.first(label) }}</div>
+    </transition>
   </div>
 `
 
@@ -93,10 +99,18 @@ export class InputSelect extends Vue {
   @Prop({ type: String, default: null })
   noOptionsLabel!: string | null
 
+  @Prop({ default: null })
+  validation!: any
+
   readonly emptyResource = build(0, '')
 
   model: IResource | IResource[] = []
   options: InputItems = []
+
+  get isInvalid() {
+    // @ts-ignore
+    return this.errors.first(this.label)
+  }
 
   @Watch('value', { immediate: true })
   valueEvent(val: InputItems) {

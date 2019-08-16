@@ -10,6 +10,8 @@ import VueI18n from 'vue-i18n'
 import VueTheMask from 'vue-the-mask'
 // @ts-ignore
 import VueMoney from 'v-money'
+import VeeValidate from 'vee-validate'
+
 import socket from './app/socket'
 import { DefaultConfig, AjvController } from './app'
 import { Lang, Currency } from './enums'
@@ -424,6 +426,22 @@ export class Simpli {
   static localeAjv?: LocaleOptions
 
   /**
+   * Setup of validation for vee-validate
+   *
+   * ```typescript
+   * import Simpli, {Lang} from 'simpli-web-sdk'
+   *
+   * export const localeVeeValidate: LocaleOptions = {
+   *   [Lang.EN_US]: require('vee-validate/dist/locale/en'),
+   *   [Lang.PT_BR]: require('vee-validate/dist/locale/pt_BR'),
+   * }
+   *
+   * Simpli.install()
+   * ```
+   */
+  static localeVeeValidate?: LocaleOptions
+
+  /**
    * Setups the `router` variable from [vue-router](https://router.vuejs.org/) module.
    *
    * ```typescript
@@ -540,6 +558,11 @@ export class Simpli {
     const $router = new VueRouter(Simpli.router)
     const $i18n = new VueI18n({ locale: Simpli.lang, messages: merge(Simpli.defaultLocale, Simpli.locale) })
     const $bus = new Vue({ router: $router, i18n: $i18n })
+    Vue.use(VeeValidate, {
+      i18n: $i18n,
+      useConstraintAttrs: false,
+      dictionary: merge(Simpli.localeVeeValidate, Simpli.locale),
+    })
 
     const $route = $bus.$route
 
