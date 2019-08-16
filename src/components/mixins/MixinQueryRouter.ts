@@ -24,27 +24,27 @@ export class MixinQueryRouter extends Vue {
   }
 
   @Watch('collection.search')
-  private querySearchEvent(querySearch?: string) {
+  private async querySearchEvent(querySearch?: string) {
     const query = { ...this.$route.query }
 
     if (querySearch) query.q = `${querySearch}`
     else delete query.q
 
-    this.$router.replace({ query })
+    await this.$router.replace({ query })
   }
 
   @Watch('collection.currentPage')
-  private currentPageEvent(currentPage?: number) {
+  private async currentPageEvent(currentPage?: number) {
     const query = { ...this.$route.query }
 
     if (currentPage) query.page = `${currentPage + 1}`
     else delete query.page
 
-    this.$router.replace({ query })
+    await this.$router.replace({ query })
   }
 
   @Watch('collection.orderBy')
-  private orderByEvent(orderBy?: string) {
+  private async orderByEvent(orderBy?: string) {
     const query = { ...this.$route.query }
     const asc = this.collection ? this.collection.asc : false
 
@@ -56,11 +56,11 @@ export class MixinQueryRouter extends Vue {
       delete query.asc
     }
 
-    this.$router.replace({ query })
+    await this.$router.replace({ query })
   }
 
   @Watch('collection.asc')
-  private ascEvent(asc?: boolean) {
+  private async ascEvent(asc?: boolean) {
     const query = { ...this.$route.query }
     const orderBy = this.collection ? this.collection.orderBy : ''
 
@@ -70,6 +70,6 @@ export class MixinQueryRouter extends Vue {
       delete query.asc
     }
 
-    this.$router.replace({ query })
+    await this.$router.replace({ query })
   }
 }

@@ -5,7 +5,7 @@ export function push(uri: string) {
   return $.router.push(uri)
 }
 
-export function pushByName(name: string, ...ids: ID[]) {
+export async function pushByName(name: string, ...ids: ID[]) {
   const params: any = {}
 
   if (ids.length > 1) {
@@ -14,7 +14,7 @@ export function pushByName(name: string, ...ids: ID[]) {
     params.id = ids[0]
   }
 
-  $.router.push({ name, params })
+  await $.router.push({ name, params })
 }
 
 export function openUrl(url: string, targetBlank?: boolean) {
