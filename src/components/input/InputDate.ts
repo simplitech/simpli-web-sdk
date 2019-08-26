@@ -11,7 +11,9 @@ const template = `
              class="input-group__input input-group__input--date weight-1 mr-2"
              :class="inputClass"
              v-validate="validation"
-             :name="label"/>
+             :name="label"
+             :min="min"
+             :max="max"/>
       <a class="icon icon-close" v-show="valueAsInput" @click="emitEmpty"></a>
     </div>
     <transition name="slide">
@@ -33,6 +35,10 @@ export class InputDate extends Vue {
   required!: boolean
   @Prop({ type: String, default: '' })
   inputClass!: string
+  @Prop({ type: String, default: null })
+  min!: string
+  @Prop({ type: String, default: null })
+  max!: string
   @Prop({ default: null })
   validation!: any
 
