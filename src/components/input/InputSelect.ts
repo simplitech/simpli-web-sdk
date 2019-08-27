@@ -40,7 +40,7 @@ const template = `
 `
 
 import { plainToClassFromExist } from 'class-transformer'
-import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
+import { Component, Prop, Watch, Vue, Inject } from 'vue-property-decorator'
 import { ID, TAG, IResource } from '../../interfaces'
 import { buildResource } from '../../helpers'
 
@@ -101,6 +101,9 @@ export class InputSelect extends Vue {
 
   @Prop({ default: null })
   validation!: any
+
+  @Inject({ from: 'validator', default: null })
+  validator: any
 
   readonly emptyResource = build(0, '')
 
@@ -200,6 +203,12 @@ export class InputSelect extends Vue {
 
   get isHideSelected() {
     return this.isMultipleNotTaggable
+  }
+
+  created() {
+    if (this.validator) {
+      this.$validator = this.validator
+    }
   }
 
   tagEvent(val: string) {
