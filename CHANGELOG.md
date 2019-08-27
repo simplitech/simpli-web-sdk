@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.3](https://github.com/simplitech/simpli-web-sdk/compare/v2.2.2...v2.2.3) (2019-08-27)
+
+
+### Bug Fixes
+
+* Fixed Render not supporting html ([b278bbf](https://github.com/simplitech/simpli-web-sdk/commit/b278bbf))
+
+
+
 ## [2.2.2](https://github.com/simplitech/simpli-web-sdk/compare/v2.2.1...v2.2.2) (2019-08-27)
 
 
