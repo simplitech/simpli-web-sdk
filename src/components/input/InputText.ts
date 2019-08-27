@@ -67,7 +67,7 @@ const template = `
   </div>
 `
 
-import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
+import { Component, Prop, Watch, Vue, Inject } from 'vue-property-decorator'
 import { Dictionary, ClassType, InputType } from '../../interfaces'
 import { MaskPresetConfig } from '../../app/config/MaskPresetConfig'
 import { CnpjMaskPreset } from '../../app/preset/CnpjMaskPreset'
@@ -113,6 +113,9 @@ export class InputText extends Vue {
 
   @Prop({ default: null })
   validation!: any
+
+  @Inject({ from: 'validator', default: null })
+  validator: any
 
   preset: MaskPresetConfig = new class extends MaskPresetConfig {
     mask = []
@@ -219,6 +222,10 @@ export class InputText extends Vue {
   }
 
   created() {
+    if (this.validator) {
+      this.$validator = this.validator
+    }
+
     if (this.required && this.input === null) {
       this.input = ''
     } else if (!this.required && this.input === '') {

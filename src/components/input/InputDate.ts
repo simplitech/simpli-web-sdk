@@ -22,7 +22,7 @@ const template = `
   </div>
 `
 
-import { Component, Prop, Vue, Model, Emit } from 'vue-property-decorator'
+import { Component, Prop, Vue, Model, Emit, Inject } from 'vue-property-decorator'
 import moment from 'moment'
 
 @Component({ template })
@@ -41,6 +41,8 @@ export class InputDate extends Vue {
   max!: string
   @Prop({ default: null })
   validation!: any
+  @Inject({ from: 'validator', default: null })
+  validator: any
 
   inputFromDt(dt: string | null) {
     return dt ? moment(dt).format('YYYY-MM-DD') : null // html input format
@@ -79,6 +81,12 @@ export class InputDate extends Vue {
   get isInvalid() {
     // @ts-ignore
     return this.errors.first(this.label)
+  }
+
+  created() {
+    if (this.validator) {
+      this.$validator = this.validator
+    }
   }
 
   emitEmpty() {

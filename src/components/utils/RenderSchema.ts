@@ -11,7 +11,7 @@ const template = `
   <div v-else-if="fieldContent !== undefined && fieldContent !== null" v-html="fieldContent"></div>
 `
 
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue, Inject } from 'vue-property-decorator'
 import { Schema } from '../../app'
 import { FieldComponent, ISchema } from '../../interfaces'
 
@@ -25,6 +25,9 @@ export class RenderSchema extends Vue {
 
   @Prop({ type: String, required: true })
   field!: string
+
+  @Inject({ from: 'validator', default: null })
+  validator: any
 
   get fieldContent() {
     const { value, schema, field, attrs, listeners } = this
