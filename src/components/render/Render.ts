@@ -3,7 +3,7 @@ const template = `
     <div :class="innerClass" v-if="!html">
       {{content || value}}
     </div>
-    <div :class="innerClass" v-else v-html="html">
+    <div :class="innerClass" v-else v-html="html"></div>
   </div>
 `
 
