@@ -8,13 +8,17 @@ const template = `
       <input :id="\`input-text\${_uid}\`"
              type="date"
              v-model="valueAsInput"
-             class="input-group__input input-group__input--date weight-1 mr-2"
+             class="input-group__input input-group__input--date weight-1"
              :class="inputClass"
              v-validate="validation"
              :name="label"
              :min="min"
-             :max="max"/>
-      <a class="icon icon-close" v-show="valueAsInput" @click="emitEmpty"></a>
+             :max="max"
+             v-bind="vBind"
+             v-on="vOn"
+             @focus="focusEvent"
+             @blur="blurEvent" />
+      <a class="icon icon-close ml-2" v-show="valueAsInput" @click="emitEmpty"></a>
     </div>
     <transition name="slide">
       <div class="input-group__error-message" v-if="isInvalid">{{ errors.first(label) }}</div>
@@ -89,7 +93,29 @@ export class InputDate extends Vue {
     }
   }
 
+  get listeners() {
+    const listeners = { ...this.$listeners }
+    delete listeners.input
+    return listeners
+  }
+
+  get vBind() {
+    return { ...this.$attrs }
+  }
+
+  get vOn() {
+    return { ...this.listeners }
+  }
+
   emitEmpty() {
     this.$emit('input', null)
+  }
+
+  focusEvent() {
+    this.$emit('focus')
+  }
+
+  blurEvent() {
+    this.$emit('blur')
   }
 }
