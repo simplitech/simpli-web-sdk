@@ -30,7 +30,11 @@ export class MixinQueryRouter extends Vue {
     if (querySearch) query.q = `${querySearch}`
     else delete query.q
 
-    await this.$router.replace({ query })
+    try {
+      await this.$router.replace({ query })
+    } catch (e) {
+      /**/
+    }
   }
 
   @Watch('collection.currentPage')
@@ -40,7 +44,11 @@ export class MixinQueryRouter extends Vue {
     if (currentPage) query.page = `${currentPage + 1}`
     else delete query.page
 
-    await this.$router.replace({ query })
+    try {
+      await this.$router.replace({ query })
+    } catch (e) {
+      /**/
+    }
   }
 
   @Watch('collection.orderBy')
@@ -56,7 +64,11 @@ export class MixinQueryRouter extends Vue {
       delete query.asc
     }
 
-    await this.$router.replace({ query })
+    try {
+      await this.$router.replace({ query })
+    } catch (e) {
+      /**/
+    }
   }
 
   @Watch('collection.asc')
@@ -70,6 +82,10 @@ export class MixinQueryRouter extends Vue {
       delete query.asc
     }
 
-    await this.$router.replace({ query })
+    try {
+      await this.$router.replace({ query })
+    } catch (e) {
+      /**/
+    }
   }
 }
