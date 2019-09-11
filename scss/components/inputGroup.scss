@@ -30,6 +30,33 @@
     }
   }
 
+  .input-group__input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    & > * {
+      flex-shrink: 0;
+    }
+  }
+
+  .input-group__input--date {
+    flex-grow: 1;
+    flex-shrink: unset;
+    flex-basis: 0;
+  }
+
+  .input-group__clear {
+    margin-left: 8px;
+    opacity: .6;
+    &:before {
+      font-size: 26px;
+      content: '×';
+    }
+    &:hover {
+      opacity: .9;
+    }
+  }
+
   input[type=date]::-webkit-inner-spin-button,
   input[type=date]::-webkit-clear-button {
     display: none;

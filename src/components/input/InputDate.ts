@@ -4,13 +4,13 @@ const template = `
       {{ label }}
       <slot></slot>
     </label>
-    <div class="horiz items-center">
+    <div class="input-group__input-container">
       <input :id="\`input-text\${_uid}\`"
              type="date"
              v-model="valueAsInput"
              v-validate="validation"
              :name="computedName"
-             class="input-group__input input-group__input--date weight-1"
+             class="input-group__input input-group__input--date"
              :class="inputClass"
              :min="min"
              :max="max"
@@ -20,7 +20,7 @@ const template = `
              @blur="blurEvent"
       />
 
-      <a class="icon icon-close ml-2" v-show="valueAsInput" @click="emitEmpty"></a>
+      <a class="input-group__clear" v-show="cleanable && valueAsInput" @click="emitEmpty"></a>
     </div>
     <transition name="slide">
       <div class="input-group__error-message" v-if="isInvalid">{{ errors.first(label) }}</div>
@@ -53,6 +53,9 @@ export class InputDate extends Vue {
 
   @Prop({ type: String, default: null })
   max!: string
+
+  @Prop({ type: Boolean, default: true })
+  cleanable!: boolean
 
   @Prop({ default: null })
   validation!: any
