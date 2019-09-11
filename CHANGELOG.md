@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.8](https://github.com/simplitech/simpli-web-sdk/compare/v2.2.7...v2.2.8) (2019-09-11)
+
+
+### Bug Fixes
+
+* **InputDate:** replace tailwind by css and add option to hide clear icon ([e001507](https://github.com/simplitech/simpli-web-sdk/commit/e001507)), closes [#32](https://github.com/simplitech/simpli-web-sdk/issues/32)
+
+
+
 ## [2.2.7](https://github.com/simplitech/simpli-web-sdk/compare/v2.2.6...v2.2.7) (2019-09-11)
 
 
