@@ -558,6 +558,7 @@ export class Simpli {
     const $router = new VueRouter(Simpli.router)
     const $i18n = new VueI18n({ locale: Simpli.lang, messages: merge(Simpli.defaultLocale, Simpli.locale) })
     const $bus = new Vue({ router: $router, i18n: $i18n })
+
     Vue.use(VeeValidate, {
       i18n: $i18n,
       useConstraintAttrs: false,

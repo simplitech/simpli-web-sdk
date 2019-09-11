@@ -11,13 +11,14 @@ const template = `
               v-model="computedModel"
               v-bind="vBind"
               v-on="vOn"
+              v-validate="validation"
+              :name="computedName"
               :class="inputClass"
               class="input-group__input input-group__input--mask"
               @focus.native="focusEvent"
               @blur.native="blurEvent"
               :key="1"
-              v-validate="validation"
-              :name="label"/>
+    />
 
     <!--Currency input-->
     <money :id="\`input-text\${_uid}\`"
@@ -25,13 +26,14 @@ const template = `
            v-model="computedModel"
            v-bind="vBind"
            v-on="vOn"
+           v-validate="validation"
+           :name="computedName"
            :class="inputClass"
            class="input-group__input input-group__input--money"
            @focus.native="focusEvent"
            @blur.native="blurEvent"
            :key="2"
-           v-validate="validation"
-           :name="label"/>
+    />
 
     <!--Textarea input-->
     <textarea :id="\`input-text\${_uid}\`"
@@ -39,13 +41,14 @@ const template = `
               v-model="computedModel"
               v-bind="vBind"
               v-on="vOn"
+              v-validate="validation"
+              :name="computedName"
               :class="inputClass"
               class="input-group__input input-group__input--textarea"
               @focus="focusEvent"
               @blur="blurEvent"
               :key="3"
-              v-validate="validation"
-              :name="label"/>
+    />
 
     <!--Text input-->
     <input :id="\`input-text\${_uid}\`"
@@ -54,13 +57,14 @@ const template = `
            v-model="computedModel"
            v-bind="vBind"
            v-on="vOn"
+           v-validate="validation"
+           :name="computedName"
            class="input-group__input"
            :class="[inputClass, \`input-group__input--\${type}\`]"
            @focus="focusEvent"
            @blur="blurEvent"
            :key="4"
-           v-validate="validation"
-           :name="label"/>
+    />
     <transition name="slide">
       <div class="input-group__error-message" v-if="isInvalid">{{ errors.first(label) }}</div>
     </transition>
@@ -86,6 +90,9 @@ export class InputText extends Vue {
 
   @Prop({ type: String })
   label?: string
+
+  @Prop({ type: String })
+  name?: string
 
   @Prop({ type: String })
   type!: string
@@ -186,6 +193,10 @@ export class InputText extends Vue {
   get isInvalid() {
     // @ts-ignore
     return this.preset.isValid === false || this.errors.first(this.label)
+  }
+
+  get computedName() {
+    return this.name || this.label || '-'
   }
 
   get computedModel(): InputType {

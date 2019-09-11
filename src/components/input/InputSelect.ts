@@ -9,6 +9,8 @@ const template = `
                  v-model="computedModel"
                  v-bind="vBind"
                  v-on="vOn"
+                 v-validate="validation"
+                 :name="computedName"
                  :options="options"
                  :track-by="idKey"
                  :label="tagKey"
@@ -26,8 +28,6 @@ const template = `
                  class="input-group__input"
                  @tag="tagEvent"
                  @remove="removeEvent"
-                 v-validate="validation"
-                 :name="label"
     >
       <div slot="noResult">{{ noResultLabel || $t('app.noResultFound') }}</div>
       <div slot="noOptions">{{ noOptionsLabel || $t('app.emptyList') }}</div>
@@ -53,6 +53,9 @@ const build = ($id: ID, $tag: TAG) => buildResource($id, $tag) as IResource
 export class InputSelect extends Vue {
   @Prop({ type: String })
   label?: string
+
+  @Prop({ type: String })
+  name?: string
 
   @Prop({ type: [Array, Object] })
   value?: InputModel
@@ -113,6 +116,10 @@ export class InputSelect extends Vue {
   get isInvalid() {
     // @ts-ignore
     return this.errors.first(this.label)
+  }
+
+  get computedName() {
+    return this.name || this.label || '-'
   }
 
   @Watch('value', { immediate: true })

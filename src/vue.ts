@@ -3,6 +3,7 @@ import { Route } from 'vue-router'
 import { VueRouter } from 'vue-router/types/router'
 import VueI18n, { IVueI18n } from 'vue-i18n'
 import { SnotifyService } from 'vue-snotify/SnotifyService'
+import { Validator } from 'vee-validate'
 import { SocketInstance } from './interfaces'
 import { AjvController } from './app'
 import { AwaitController } from './components/utils/Await'
@@ -33,5 +34,7 @@ declare module 'vue/types/vue' {
     $await: AwaitController
     $modal: ModalController
     $tip: TipController
+
+    $validator: Validator
   }
 }

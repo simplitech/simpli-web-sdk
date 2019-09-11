@@ -8,16 +8,18 @@ const template = `
       <input :id="\`input-text\${_uid}\`"
              type="date"
              v-model="valueAsInput"
+             v-validate="validation"
+             :name="computedName"
              class="input-group__input input-group__input--date weight-1"
              :class="inputClass"
-             v-validate="validation"
-             :name="label"
              :min="min"
              :max="max"
              v-bind="vBind"
              v-on="vOn"
              @focus="focusEvent"
-             @blur="blurEvent" />
+             @blur="blurEvent"
+      />
+
       <a class="icon icon-close ml-2" v-show="valueAsInput" @click="emitEmpty"></a>
     </div>
     <transition name="slide">
@@ -33,18 +35,28 @@ import moment from 'moment'
 export class InputDate extends Vue {
   @Prop({ type: String, default: null })
   value!: string | null
+
   @Prop({ type: String, default: null })
   label!: string | null
+
+  @Prop({ type: String })
+  name?: string
+
   @Prop({ type: Boolean, default: false })
   required!: boolean
+
   @Prop({ type: String, default: '' })
   inputClass!: string
+
   @Prop({ type: String, default: null })
   min!: string
+
   @Prop({ type: String, default: null })
   max!: string
+
   @Prop({ default: null })
   validation!: any
+
   @Inject({ from: 'validator', default: null })
   validator: any
 
@@ -85,6 +97,10 @@ export class InputDate extends Vue {
   get isInvalid() {
     // @ts-ignore
     return this.errors.first(this.label)
+  }
+
+  get computedName() {
+    return this.name || this.label || '-'
   }
 
   created() {
