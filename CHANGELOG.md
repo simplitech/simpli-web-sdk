@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.9](https://github.com/simplitech/simpli-web-sdk/compare/v2.2.8...v2.2.9) (2019-09-17)
+
+
+### Bug Fixes
+
+* Fixed Modal reactivity ([1a4a739](https://github.com/simplitech/simpli-web-sdk/commit/1a4a739))
+
+
+
 ## [2.2.8](https://github.com/simplitech/simpli-web-sdk/compare/v2.2.7...v2.2.8) (2019-09-11)
 
 

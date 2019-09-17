@@ -1,6 +1,6 @@
 {
   "name": "simpli-web-sdk",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "description": "A framework to easily build projects in Vue",
   "main": "lib/main.js",
   "typings": "lib/main.d.ts",
