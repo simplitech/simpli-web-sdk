@@ -131,11 +131,19 @@ export class Modal extends Vue {
     }
   }
 
-  beforeMount() {
+  @Watch('effect')
+  @Watch('backgroundEffect')
+  @Watch('closable')
+  @Watch('closeOutside')
+  applyProps() {
     this.$effect = this.effect || $.modal.defaultTransition
     this.$backgroundEffect = this.backgroundEffect || $.modal.defaultBackgroundTransition
     this.$closable = this.closable !== undefined ? this.closable : $.modal.defaultClosable
     this.$closeOutside = this.closeOutside !== undefined ? this.closeOutside : $.modal.defaultCloseOutside
+  }
+
+  beforeMount() {
+    this.applyProps()
 
     this.body = $.modal.defaultBody
     this.bodyOverflowY = this.body.style.overflowY
