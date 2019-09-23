@@ -6,6 +6,12 @@ const template = `
         <slot></slot>
       </div>
     </transition>
+
+    <template v-if="useOuterBackground">
+      <transition :name="$backgroundEffect" mode="out-in">
+        <div v-if="state === 1" @click="clickOutsideEvent" class="tip__bg"></div>
+      </transition>
+    </template>
   </div>
 `
 
@@ -28,6 +34,7 @@ export enum State {
 export class TipController {
   defaultMessage: string | null = ''
   defaultTransition: string | null = 'fade'
+  defaultBackgroundTransition: string | null = 'fade'
   defaultWidth: string | number | null = 'auto'
   defaultOffset: number | null = 0
 
@@ -59,6 +66,9 @@ export class Tip extends Vue {
   @Prop({ type: String })
   effect?: string
 
+  @Prop({ type: String })
+  backgroundEffect?: string
+
   @Prop({ type: [String, Number] })
   width?: string
 
@@ -68,10 +78,14 @@ export class Tip extends Vue {
   @Prop({ type: String })
   innerClass?: string
 
+  @Prop({ type: Boolean })
+  useOuterBackground?: boolean
+
   state = State.HIDDEN
 
   private $message: string | null = null
   private $effect: string | null = null
+  private $backgroundEffect: string | null = null
   private $width: string | number | null = null
   private $offset: number | null = null
 
@@ -106,9 +120,14 @@ export class Tip extends Vue {
     this.$emit('hide')
   }
 
+  clickOutsideEvent() {
+    this.$emit('clickOutside')
+  }
+
   beforeMount() {
     this.$message = this.message || $.tip.defaultMessage
     this.$effect = this.effect || $.tip.defaultTransition
+    this.$backgroundEffect = this.backgroundEffect || $.tip.defaultBackgroundTransition
     this.$width = this.width || $.tip.defaultWidth
     this.$offset = this.offset || $.tip.defaultOffset
 

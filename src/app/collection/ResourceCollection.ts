@@ -17,6 +17,7 @@ import {
 } from '../../interfaces'
 import { $ } from '../../simpli'
 import { Helper } from '../../main'
+import { deprecate } from 'util'
 
 export class ResourceCollection<R extends Resource> extends Collection<R>
   implements IResourceCollection, ResponseEvent {
@@ -70,6 +71,14 @@ export class ResourceCollection<R extends Resource> extends Collection<R>
     return this
   }
 
+  clearFilters() {
+    this.filters = []
+    return this
+  }
+
+  /**
+   * @deprecated Use clearFilters instead
+   */
   cleanFilters() {
     this.filters = []
     return this

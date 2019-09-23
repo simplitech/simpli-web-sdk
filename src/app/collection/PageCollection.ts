@@ -42,6 +42,13 @@ export class PageCollection<R extends Resource> extends ResourceCollection<R> {
     return Math.floor(Math.max((this.total || 0) - 1, 0) / (this.perPage || 1))
   }
 
+  noPagination() {
+    return this.setCurrentPage(null).setPerPage(null)
+  }
+
+  /**
+   * @deprecated Use noPagination instead
+   */
   whole() {
     return this.setCurrentPage(null).setPerPage(null)
   }
