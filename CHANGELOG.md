@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.3.0](https://github.com/simplitech/simpli-web-sdk/compare/v2.2.9...v2.3.0) (2019-09-23)
+
+
+### Features
+
+* Improved Tip Component, deprecated some methods ([5e43364](https://github.com/simplitech/simpli-web-sdk/commit/5e43364))
+
+
+
 ## [2.2.9](https://github.com/simplitech/simpli-web-sdk/compare/v2.2.8...v2.2.9) (2019-09-17)
 
 
