@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.1](https://github.com/simplitech/simpli-web-sdk/compare/v2.3.0...v2.3.1) (2019-09-23)
+
+
+### Bug Fixes
+
+* Fixed issue ([86846c2](https://github.com/simplitech/simpli-web-sdk/commit/86846c2))
+
+
+
 # [2.3.0](https://github.com/simplitech/simpli-web-sdk/compare/v2.2.9...v2.3.0) (2019-09-23)
 
 
