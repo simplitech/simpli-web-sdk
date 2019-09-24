@@ -96,10 +96,25 @@ export class Tip extends Vue {
 
       const el = this.$refs.content as HTMLElement
       const width = Number(this.$width)
+      const areaWidth = this.$el.scrollWidth
 
       if (!isNaN(width)) {
+        const left = (areaWidth - width) / 2
+
         el.style.width = `${width}px`
-        el.style.left = `calc(50% - ${width / 2}px)`
+        el.style.left = `${left}px`
+
+        await this.$nextTick()
+
+        const screenRect = document.body.getBoundingClientRect() as DOMRect
+        const elRect = el.getBoundingClientRect() as DOMRect
+        const xOffset = Math.abs(elRect.x - screenRect.x)
+
+        if (elRect.x < screenRect.x) {
+          el.style.left = `${left + xOffset}px`
+        } else if (elRect.x > screenRect.x) {
+          el.style.left = `${left - xOffset}px`
+        }
       } else {
         el.style.left = '0'
         el.style.right = '0'
