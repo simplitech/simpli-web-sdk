@@ -72,7 +72,7 @@ export class Tip extends Vue {
   @Prop({ type: [String, Number] })
   width?: string
 
-  @Prop({ type: Number })
+  @Prop({ type: Number, default: 5 })
   offset?: number
 
   @Prop({ type: String })
@@ -104,24 +104,28 @@ export class Tip extends Vue {
         el.style.width = `${width}px`
         el.style.left = `${left}px`
 
-        await this.$nextTick()
-
         const screenRect = document.body.getBoundingClientRect() as DOMRect
         const elRect = el.getBoundingClientRect() as DOMRect
-        const xOffset = Math.abs(elRect.x - screenRect.x)
 
-        if (elRect.x < screenRect.x) {
+        const xMin = elRect.x
+        const xMinScreen = screenRect.x
+        const xMax = elRect.x + elRect.width + (this.offset || 0) * 2
+        const xMaxScreen = screenRect.x + screenRect.width
+
+        el.style.marginLeft = `${this.offset}px`
+        el.style.marginRight = `${this.offset}px`
+
+        if (xMin < xMinScreen) {
+          const xOffset = Math.abs(xMin - xMinScreen)
           el.style.left = `${left + xOffset}px`
-        } else if (elRect.x > screenRect.x) {
+        } else if (xMax > xMaxScreen) {
+          const xOffset = Math.abs(xMax - xMaxScreen)
           el.style.left = `${left - xOffset}px`
         }
       } else {
         el.style.left = '0'
         el.style.right = '0'
       }
-
-      el.style.marginLeft = `${this.offset}px`
-      el.style.marginRight = `${this.offset}px`
     }
   }
 
