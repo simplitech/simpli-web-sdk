@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.4.0](https://github.com/simplitech/simpli-web-sdk/compare/v2.3.3...v2.4.0) (2019-10-04)
+
+
+### Features
+
+* Added debounce in Request & added new functions in Collection ([5b5ca29](https://github.com/simplitech/simpli-web-sdk/commit/5b5ca29))
+
+
+
 ## [2.3.3](https://github.com/simplitech/simpli-web-sdk/compare/v2.3.2...v2.3.3) (2019-09-24)
 
 
