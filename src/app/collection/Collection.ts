@@ -5,7 +5,7 @@ export class Collection<T = any> {
     this.items = items
   }
 
-  protected readonly items: T[]
+  protected items: T[]
 
   get lodash() {
     return _.chain(this.items)
@@ -35,6 +35,14 @@ export class Collection<T = any> {
     }
   }
 
+  addAll(list: T[], index?: number) {
+    if (index !== undefined) {
+      this.items.splice(index, 0, ...list)
+    } else {
+      this.items.push(...list)
+    }
+  }
+
   remove(item: T) {
     const index = this.items.indexOf(item)
     if (index >= 0) {
@@ -52,5 +60,9 @@ export class Collection<T = any> {
 
   isNotEmpty() {
     return !!this.items.length
+  }
+
+  clear() {
+    this.items = []
   }
 }

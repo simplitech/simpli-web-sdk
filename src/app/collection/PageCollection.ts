@@ -38,6 +38,11 @@ export class PageCollection<R extends Resource> extends ResourceCollection<R> {
   @ResponseExpose('total')
   readonly total: number | null = null
 
+  get isLastPage() {
+    const page = this.currentPage || 0
+    return page === this.lastPage
+  }
+
   get lastPage() {
     return Math.floor(Math.max((this.total || 0) - 1, 0) / (this.perPage || 1))
   }

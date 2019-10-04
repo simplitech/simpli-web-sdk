@@ -1,5 +1,6 @@
 import { AxiosResponse } from 'axios'
 import { plainToClass, plainToClassFromExist } from 'class-transformer'
+import debounce from 'lodash/debounce'
 import { Request } from './Request'
 import { $ } from '../../simpli'
 import { ClassType, ResponseType, ResponseEvent } from '../../interfaces'
@@ -98,6 +99,14 @@ export class Response<T = any> {
   }
 
   /**
+   * Get the debounce of the provided [[Request]].
+   * @hidden
+   */
+  get requestDebounce() {
+    return this.request.requestDebounce
+  }
+
+  /**
    * Get the endpoint of the provided [[Request]].
    * @hidden
    */
@@ -165,15 +174,24 @@ export class Response<T = any> {
    * ```
    */
   async getResponse(): Promise<AxiosResponse<T>> {
-    const { axiosConfig, responseType, requestName, requestDelay, endpoint } = this
+    const { axiosConfig, responseType, requestName, requestDelay, requestDebounce, endpoint } = this
     const event = responseType as ResponseEvent<T>
 
     if (event && typeof event.onBeforeResponse === 'function') {
       event.onBeforeResponse(this)
     }
 
-    const request = () => $.axios.request(axiosConfig)
-    const resp = await $.await.run(requestName || endpoint, request, requestDelay)
+    const request = () => $.axios.request<T>(axiosConfig)
+
+    const run = () => $.await.run(requestName || endpoint, request, requestDelay)
+    const runWithDebounce = debounce(run, requestDebounce)
+
+    let resp: AxiosResponse<T>
+    if (requestDebounce) {
+      resp = await runWithDebounce()
+    } else {
+      resp = await run()
+    }
 
     if (event && typeof event.onBeforeSerialization === 'function') {
       event.onBeforeSerialization(resp, this)

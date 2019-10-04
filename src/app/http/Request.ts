@@ -75,6 +75,12 @@ export class Request {
   requestDelay?: number
 
   /**
+   * The debounce of this request.
+   * @hidden
+   */
+  requestDebounce?: number
+
+  /**
    * Creates a Request instance with the HTTP GET methods preset.
    *
    * ```typescript
@@ -223,7 +229,7 @@ export class Request {
    * ```html
    * <!-- html file -->
    * <await name="foo">
-   *  <!-- the content is shown after the response is provided -->
+   *   <!-- the content is shown after the response is provided -->
    * </await>
    * ```
    * @param requestName The request name
@@ -250,6 +256,28 @@ export class Request {
    */
   delay(requestDelay: number) {
     this.requestDelay = Math.max(requestDelay, 0)
+    return this
+  }
+
+  /**
+   * Provides a debounce of any request from this instance.
+   * Like the delay, the request will be executed after the given time.
+   * However, the debounce prevents multiple requests inside this space of time.
+   *
+   * ```typescript
+   * import {Request} from 'simpli-web-sdk'
+   *
+   * async function example() {
+   *   return await Request.get('/path/to/url')
+   *     .debounce(1000)
+   *     .asAny()
+   *     .getResponse()
+   * }
+   * ```
+   * @param requestDebounce The debounce in milliseconds
+   */
+  debounce(requestDebounce: number) {
+    this.requestDebounce = Math.max(requestDebounce, 0)
     return this
   }
 

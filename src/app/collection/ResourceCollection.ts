@@ -27,8 +27,6 @@ export class ResourceCollection<R extends Resource> extends Collection<R>
     this.instance = new classType()
   }
 
-  protected items: R[] = []
-
   protected filters: QueryFilter[] = []
 
   readonly classType: ClassType<R>
@@ -135,6 +133,6 @@ export class ResourceCollection<R extends Resource> extends Collection<R>
   }
 
   onBeforeSerialization() {
-    this.items = []
+    this.clear()
   }
 }

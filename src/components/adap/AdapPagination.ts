@@ -14,10 +14,10 @@ const template = `
     <li v-if="current > first + gap + 1"
         class="adap-pagination__gap"><a>...</a></li>
 
-    <li v-for="n in gap*2 + 1" v-if="index(n) > first && index(n) < last" 
+    <li v-for="n in gap * 2 + 1" v-if="index(n) > first && index(n) < last" 
         class="adap-pagination__number"
         :class="{ 'adap-pagination__number--active': current === index(n) }">
-      <a @click="goto(index(n))">{{ index(n) }}</a>
+      <a @click="goto(index(n))">{{index(n)}}</a>
     </li>
 
     <li v-if="current < last - gap - 1"
@@ -78,10 +78,10 @@ export class AdapPagination extends Vue {
   index(n: number) {
     let pos = this.current
 
-    if (this.current < 1 + this.gap!) {
-      pos = 1 + this.gap!
-    } else if (this.current > this.last - this.gap!) {
-      pos = this.last - this.gap!
+    if (this.current < 1 + this.gap) {
+      pos = 1 + this.gap
+    } else if (this.current > this.last - this.gap) {
+      pos = this.last - this.gap
     }
 
     return n + pos - this.gap - 1
