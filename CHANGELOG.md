@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.3](https://github.com/simplitech/simpli-web-sdk/compare/v2.4.2...v2.4.3) (2019-10-08)
+
+
+### Bug Fixes
+
+* Fixed Tooltip position and alignment ([0310e39](https://github.com/simplitech/simpli-web-sdk/commit/0310e39))
+
+
+
 ## [2.4.2](https://github.com/simplitech/simpli-web-sdk/compare/v2.4.1...v2.4.2) (2019-10-04)
 
 
