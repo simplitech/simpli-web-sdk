@@ -4,7 +4,6 @@
   .tip__content {
     user-select: none;
     position: absolute;
-    bottom: 110%;
     z-index: $tip-depth + 1;
 
     background: rgba(0, 0, 0, 0.8);

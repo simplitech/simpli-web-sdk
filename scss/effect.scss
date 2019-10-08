@@ -41,7 +41,7 @@
 }
 .fade-right-enter, .fade-right-leave-to {
   opacity: 0;
-  transform: translateX(-$effect-fade-right-duration);
+  transform: translateX(-$effect-fade-right-length);
 }
 
 /* Fade-Up-Big Effect */
