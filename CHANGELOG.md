@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.4](https://github.com/simplitech/simpli-web-sdk/compare/v2.4.3...v2.4.4) (2019-10-17)
+
+
+### Features
+
+* **InputDate:** allow setting container class ([ee39b12](https://github.com/simplitech/simpli-web-sdk/commit/ee39b12))
+
+
+
 ## [2.4.3](https://github.com/simplitech/simpli-web-sdk/compare/v2.4.2...v2.4.3) (2019-10-08)
 
 
