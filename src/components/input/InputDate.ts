@@ -4,7 +4,7 @@ const template = `
       {{ label }}
       <slot></slot>
     </label>
-    <div class="input-group__input-container">
+    <div class="input-group__input-container" :class="containerClass">
       <input :id="\`input-text\${_uid}\`"
              type="date"
              v-model="valueAsInput"
@@ -47,6 +47,9 @@ export class InputDate extends Vue {
 
   @Prop({ type: String, default: '' })
   inputClass!: string
+
+  @Prop({ type: String, default: '' })
+  containerClass!: string
 
   @Prop({ type: String, default: null })
   min!: string
