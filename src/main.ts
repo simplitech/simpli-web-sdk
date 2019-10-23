@@ -8,6 +8,7 @@ import * as Decorator from './decorators'
 import * as Enum from './enums'
 import * as Helper from './helpers'
 import * as Interface from './interfaces'
+import * as VeeValidate from 'vee-validate'
 
 export { Simpli as default, $ } from './simpli'
 
@@ -18,4 +19,4 @@ export * from './enums'
 export * from './helpers'
 export * from './interfaces'
 
-export { App, Component, Decorator, Enum, Helper, Interface }
+export { App, Component, Decorator, Enum, Helper, Interface, VeeValidate }
