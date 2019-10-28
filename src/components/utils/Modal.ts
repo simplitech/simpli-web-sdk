@@ -108,10 +108,12 @@ export class Modal extends Vue {
 
   @Watch('openPayload')
   stateEvent(val: boolean) {
-    if (val) {
-      document.body.style.overflowY = 'hidden'
-    } else {
-      document.body.style.overflowY = this.bodyOverflowY
+    if (this.body) {
+      if (val) {
+        this.body.style.overflowY = 'hidden'
+      } else {
+        this.body.style.overflowY = this.bodyOverflowY
+      }
     }
   }
 
