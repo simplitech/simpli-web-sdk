@@ -142,9 +142,11 @@ export class Tip extends Vue {
     if (val === State.SHOWN) {
       await this.$nextTick()
 
+      const screenRect = document.body.getBoundingClientRect() as DOMRect
+
       const el = this.$refs.content as HTMLElement
       const offset = this.offset || 0
-      const width = Number(this.$width)
+      const width = Math.min(Number(this.$width), screenRect.width - 2 * offset)
       const areaWidth = this.$el.scrollWidth
 
       switch (this.$position) {
@@ -163,19 +165,10 @@ export class Tip extends Vue {
         el.style.left = `${xCenter}px`
         el.style.right = 'auto'
 
-        const screenRect = document.body.getBoundingClientRect() as DOMRect
         const elRect = el.getBoundingClientRect() as DOMRect
 
         el.style.marginLeft = `${offset}px`
         el.style.marginRight = `${offset}px`
-
-        const xMin = elRect.x
-        const xMinScreen = screenRect.x
-        const xMax = elRect.x + elRect.width + offset * 2
-        const xMaxScreen = screenRect.x + screenRect.width
-
-        const hasReachedLeftBoundary = xMin < xMinScreen
-        const hasReachedRightBoundary = xMax > xMaxScreen
 
         if (this.$position === Position.TOP || this.$position === Position.BOTTOM) {
           switch (this.$align) {
@@ -212,12 +205,28 @@ export class Tip extends Vue {
           }
         }
 
+        const postElRect = el.getBoundingClientRect() as DOMRect
+
+        let xMin = elRect.x
+        let xMax = elRect.x + elRect.width + offset * 2
+        if (this.$position === Position.LEFT || this.$position === Position.RIGHT) {
+          xMin = postElRect.x
+          xMax = postElRect.x + postElRect.width + offset * 2
+        }
+
+        const xMinScreen = screenRect.x
+        const xMaxScreen = screenRect.x + screenRect.width
+
+        const hasReachedLeftBoundary = xMin < xMinScreen
+        const hasReachedRightBoundary = xMax > xMaxScreen
+
         if (hasReachedLeftBoundary) {
           const xOffset = Math.abs(xMin - xMinScreen)
           this.setX(`${xCenter + xOffset}px`, 'auto')
 
           if (this.$position === Position.LEFT) {
             let effect = 'fade-up'
+            this.setX('0', 'auto')
 
             switch (this.$align) {
               case Align.START:
@@ -240,6 +249,7 @@ export class Tip extends Vue {
 
           if (this.$position === Position.RIGHT) {
             let effect = 'fade-up'
+            this.setX('auto', '0')
 
             switch (this.$align) {
               case Align.START:
