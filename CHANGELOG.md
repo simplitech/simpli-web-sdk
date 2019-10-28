@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.7](https://github.com/simplitech/simpli-web-sdk/compare/v2.4.4...v2.4.7) (2019-10-28)
+
+
+### Bug Fixes
+
+* Fixed Tip Component ([cb4b6db](https://github.com/simplitech/simpli-web-sdk/commit/cb4b6db))
+* **Validation:** expose VeeValidate ([afa76af](https://github.com/simplitech/simpli-web-sdk/commit/afa76af))
+
+
+
 ## [2.4.6](https://github.com/simplitech/simpli-web-sdk/compare/v2.4.5...v2.4.6) (2019-10-23)
 
 
