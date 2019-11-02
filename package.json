@@ -1,6 +1,6 @@
 {
   "name": "simpli-web-sdk",
-  "version": "2.4.9",
+  "version": "2.5.0",
   "description": "A framework to easily build projects in Vue",
   "main": "lib/main.js",
   "typings": "lib/main.d.ts",
@@ -96,7 +96,8 @@
     "vue-router": "^3.0.2",
     "vue-snotify": "^3.0.4",
     "vue-the-mask": "^0.11.1",
-    "vue-upload-component": "^2.8.20"
+    "vue-upload-component": "^2.8.20",
+    "@brazilian-utils/validators": "^0.1.9"
   },
   "devDependencies": {
     "@types/jest": "24.0.11",

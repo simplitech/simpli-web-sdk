@@ -11,6 +11,8 @@ import VueTheMask from 'vue-the-mask'
 // @ts-ignore
 import VueMoney from 'v-money'
 import VeeValidate from 'vee-validate'
+// @ts-ignore
+import * as validators from '@brazilian-utils/validators'
 
 import socket from './app/socket'
 import { DefaultConfig, AjvController } from './app'
@@ -564,6 +566,12 @@ export class Simpli {
       useConstraintAttrs: false,
       dictionary: merge(Simpli.localeVeeValidate, Simpli.locale),
     })
+
+    VeeValidate.Validator.extend('cpf', { validate: (value?: string) => validators.isValidCpf(value) })
+    VeeValidate.Validator.extend('cnpj', { validate: (value?: string) => validators.isValidCnpj(value) })
+    VeeValidate.Validator.extend('phone', { validate: (value?: string) => validators.isValidPhone(value) })
+    VeeValidate.Validator.extend('cep', { validate: (value?: string) => validators.isValidCep(value) })
+    VeeValidate.Validator.extend('boleto', { validate: (value?: string) => validators.isValidBoleto(value) })
 
     const $route = $bus.$route
 
