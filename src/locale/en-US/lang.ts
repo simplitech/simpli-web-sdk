@@ -45,8 +45,16 @@ export default {
 
   system: {
     error: {
-      validation: 'Validation error',
+      validation: 'There are fields with validation errors',
     },
+  },
+
+  messages: {
+    cpf: (field: string, props: any[]) => `The field ${field} must be a valid CPF`,
+    cnpj: (field: string, props: any[]) => `The field ${field} must be a valid CNPJ`,
+    phone: (field: string, props: any[]) => `The field ${field} must be a valid phone number`,
+    cep: (field: string, props: any[]) => `The field ${field} must be a valid CEP`,
+    boleto: (field: string, props: any[]) => `The field ${field} must be a valid Boleto`,
   },
 
   app: {
