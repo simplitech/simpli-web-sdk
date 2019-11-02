@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.5.0](https://github.com/simplitech/simpli-web-sdk/compare/v2.4.6...v2.5.0) (2019-11-02)
+
+
+### Features
+
+* **validation:** cpf, cnpj, phone, cep, boleto validations ([9cfd701](https://github.com/simplitech/simpli-web-sdk/commit/9cfd701))
+
+
+
 ## [2.4.6](https://github.com/simplitech/simpli-web-sdk/compare/v2.4.5...v2.4.6) (2019-10-23)
 
 
