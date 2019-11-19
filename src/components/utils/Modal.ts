@@ -2,7 +2,7 @@ const template = `
   <div class="modal">
     <transition :name="$effect" mode="out-in">
       <div v-if="openPayload" class="modal__scroll">
-        <div class="modal__view" @click="closeFromView" ref="view">
+        <div class="modal__view" @mousedown="closeFromView" ref="view">
           <div class="modal__frame" :class="innerClass">
               <div class="modal__header">
                 <div class="modal__title">
