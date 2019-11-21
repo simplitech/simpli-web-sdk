@@ -18,8 +18,11 @@ export default {
           element.style.visibility = 'hidden'
           element.style.height = 'auto'
           const { height } = getComputedStyle(element)
+          // @ts-ignore
           element.style.width = null
+          // @ts-ignore
           element.style.position = null
+          // @ts-ignore
           element.style.visibility = null
           element.style.height = '0'
           // Force repaint to make sure the animation is triggered correctly.

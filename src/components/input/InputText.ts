@@ -236,12 +236,6 @@ export class InputText extends Vue {
     if (this.validator) {
       this.$validator = this.validator
     }
-
-    if (this.required && this.input === null) {
-      this.input = ''
-    } else if (!this.required && this.input === '') {
-      this.input = null
-    }
   }
 
   focusEvent() {

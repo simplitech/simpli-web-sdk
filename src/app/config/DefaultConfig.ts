@@ -1,6 +1,7 @@
 import { $ } from '../../simpli'
-import { ComponentOptions, FilterOptions } from '../../interfaces'
+import { ComponentOptions, FilterOptions, InputType } from '../../interfaces'
 import * as Component from '../../components'
+import * as Helper from '../../helpers'
 
 export abstract class DefaultConfig {
   static readonly components: ComponentOptions = {
@@ -9,7 +10,6 @@ export abstract class DefaultConfig {
     Modal: Component.Modal,
     Tip: Component.Tip,
     RenderSchema: Component.RenderSchema,
-    TransitionExpand: Component.TransitionExpand,
     AdapOrderby: Component.AdapOrderby,
     AdapPagination: Component.AdapPagination,
     AdapSearchfield: Component.AdapSearchfield,
@@ -19,79 +19,76 @@ export abstract class DefaultConfig {
     InputDate: Component.InputDate,
     RenderAnchor: Component.RenderAnchor,
     RenderImage: Component.RenderImage,
+    TransitionExpand: Component.TransitionExpand as any,
   }
 
   static readonly filters: FilterOptions = {
-    truncate: (value?: string, length?: number): string => {
-      if (!value) return ''
+    truncate(input?: InputType, length?: number) {
+      const value = Helper.toString(input)
       if (value.length > (length || 0)) {
         return `${value.substring(0, length)}...`
       }
       return value
     },
 
-    removeDelimiters: (value?: string): string => {
-      if (!value) return ''
-      return value.replace(/[. ,:\-/]+/g, '')
+    stripHtml(input?: InputType) {
+      const value = Helper.toString(input)
+      const doc = new DOMParser().parseFromString(value, 'text/html')
+      return doc.body.textContent || ''
     },
 
-    phone: (value?: string): string => {
-      if (!value) return ''
-      let v = value.replace(/\D/g, '')
-      v = v.replace(new RegExp($.t('filter.phone.regex') as string), $.t('filter.phone.format') as string)
-      return v
+    removeDelimiters(input?: InputType) {
+      return Helper.toString(input).replace(/[. ,:\-/]+/g, '')
     },
 
-    zipcode: (value?: string): string => {
-      if (!value) return ''
-      let v = value.replace(/\D/g, '')
-      v = v.replace(new RegExp($.t('filter.zipcode.regex') as string), $.t('filter.zipcode.format') as string)
-      return v
+    phone(input?: InputType) {
+      return Helper.toString(input)
+        .replace(/\D/g, '')
+        .replace(new RegExp($.t('filter.phone.regex') as string), $.t('filter.phone.format') as string)
     },
 
-    rg: (value?: string): string => {
-      if (!value) return ''
-      let v = value.replace(/\D/g, '')
-      v = v.replace(/(\d{2})(\d{3})(\d{3})(\d{1})$/, '$1.$2.$3-$4')
-      return v
+    zipcode(input?: InputType) {
+      return Helper.toString(input)
+        .replace(/\D/g, '')
+        .replace(new RegExp($.t('filter.zipcode.regex') as string), $.t('filter.zipcode.format') as string)
     },
 
-    cpf: (value?: string): string => {
-      if (!value) return ''
-      let v = value.replace(/\D/g, '')
-      v = v.replace(/(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4')
-      return v
+    rg(input?: InputType) {
+      return Helper.toString(input)
+        .replace(/\D/g, '')
+        .replace(/(\d{2})(\d{3})(\d{3})(\d{1})$/, '$1.$2.$3-$4')
     },
 
-    cnpj: (value?: string): string => {
-      if (!value) return ''
-      let v = value.replace(/\D/g, '')
-      v = v.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5')
-      return v
+    cpf(input?: InputType) {
+      return Helper.toString(input)
+        .replace(/\D/g, '')
+        .replace(/(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4')
     },
 
-    cpfOrCnpj(val?: string): string {
-      if (val) {
-        const str = val.replace(/\D/g, '')
+    cnpj(input?: InputType) {
+      return Helper.toString(input)
+        .replace(/\D/g, '')
+        .replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5')
+    },
 
-        if (str.length === 11) {
-          return str.replace(/(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4')
-        }
+    cpfOrCnpj(input?: InputType) {
+      const value = Helper.toString(input).replace(/\D/g, '')
 
-        if (str.length === 14) {
-          return str.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5')
-        }
-
-        return str
+      if (value.length === 11) {
+        return value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4')
       }
 
-      return ''
+      if (value.length === 14) {
+        return value.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5')
+      }
+
+      return value
     },
 
-    pad: (value?: string, length = 2): string => {
-      let str = `${value || ''}`
-      while (str.length < length) str = `0${str}`
-      return str
+    pad(input?: InputType, length = 2) {
+      let value = Helper.toString(input)
+      while (value.length < length) value = `0${value}`
+      return value
     },
   }
 }

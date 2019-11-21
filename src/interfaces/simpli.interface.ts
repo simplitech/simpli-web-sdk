@@ -7,10 +7,11 @@ import { AjvController } from '../app'
 import { AwaitController } from '../components/utils/Await'
 import { ModalController } from '../components/utils/Modal'
 import { TipController } from '../components/utils/Tip'
+import { InputType } from './general.interface'
 import { SocketInstance } from './socket.interface'
 
 export interface FilterOptions {
-  readonly [key: string]: (val?: string, ...params: any[]) => string
+  readonly [key: string]: (input?: InputType, ...params: any[]) => string
 }
 
 export interface LocaleOptions {
@@ -18,7 +19,7 @@ export interface LocaleOptions {
 }
 
 export interface ComponentOptions {
-  readonly [key: string]: any
+  readonly [key: string]: typeof Vue
 }
 
 export interface $Prototype {

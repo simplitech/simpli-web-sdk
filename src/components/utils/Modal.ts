@@ -112,7 +112,7 @@ export class Modal extends Vue {
       if (val) {
         this.body.style.overflowY = 'hidden'
       } else {
-        this.body.style.overflowY = this.bodyOverflowY
+        this.body.style.overflowY = this.bodyOverflowY || 'unset'
       }
     }
   }

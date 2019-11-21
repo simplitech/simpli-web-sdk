@@ -99,14 +99,6 @@ export class Response<T = any> {
   }
 
   /**
-   * Get the debounce of the provided [[Request]].
-   * @hidden
-   */
-  get requestDebounce() {
-    return this.request.requestDebounce
-  }
-
-  /**
    * Get the endpoint of the provided [[Request]].
    * @hidden
    */
@@ -174,7 +166,7 @@ export class Response<T = any> {
    * ```
    */
   async getResponse(): Promise<AxiosResponse<T>> {
-    const { axiosConfig, responseType, requestName, requestDelay, requestDebounce, endpoint } = this
+    const { axiosConfig, responseType, requestName, requestDelay, endpoint } = this
     const event = responseType as ResponseEvent<T>
 
     if (event && typeof event.onBeforeResponse === 'function') {
@@ -182,42 +174,33 @@ export class Response<T = any> {
     }
 
     const request = () => $.axios.request<T>(axiosConfig)
-
-    const run = () => $.await.run(requestName || endpoint, request, requestDelay)
-    const runWithDebounce = debounce(run, requestDebounce)
-
-    let resp: AxiosResponse<T>
-    if (requestDebounce) {
-      resp = await runWithDebounce()
-    } else {
-      resp = await run()
-    }
+    const response = await $.await.run(requestName || endpoint, request, requestDelay)
 
     if (event && typeof event.onBeforeSerialization === 'function') {
-      event.onBeforeSerialization(resp, this)
+      event.onBeforeSerialization(response, this)
     }
 
-    if (resp.data === undefined) {
-      resp.data = JSON.parse(resp.request.response || '{}')
+    if (response.data === undefined) {
+      response.data = JSON.parse(response.request.response || '{}')
     }
 
     if (responseType === undefined) {
-      return resp
+      return response
     }
 
     if (typeof responseType === 'object') {
       // Class object instance from constructor (new CustomClass())
       // The instance will be automatically populated
-      resp.data = plainToClassFromExist(responseType as T, resp.data)
+      response.data = plainToClassFromExist(responseType as T, response.data)
     } else if (typeof responseType === 'function') {
       // Class constructor (CustomClass, Number, String, Boolean, etc.)
-      resp.data = plainToClass(responseType as ClassType<T>, resp.data)
+      response.data = plainToClass(responseType as ClassType<T>, response.data)
     } else throw Error('Error: Entity should be either a Class or ClassObject')
 
     if (event && typeof event.onAfterSerialization === 'function') {
-      event.onAfterSerialization(resp, this)
+      event.onAfterSerialization(response, this)
     }
 
-    return resp
+    return response
   }
 }

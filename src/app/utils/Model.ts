@@ -1,4 +1,5 @@
 import { AxiosResponse } from 'axios'
+import { ClassTransformOptions } from 'class-transformer'
 import { Helper } from '../../main'
 import { Request } from '..'
 import { Schema } from './Schema'
@@ -424,7 +425,7 @@ export abstract class Model implements ISchema {
    *   const clonedUser = user.$clone() // a copy of user instance
    * }
    */
-  $clone(): this {
-    return Helper.clone(this)
+  $clone(options?: ClassTransformOptions): this {
+    return Helper.clone(this, options)
   }
 }

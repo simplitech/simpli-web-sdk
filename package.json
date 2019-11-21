@@ -72,6 +72,7 @@
     ]
   },
   "dependencies": {
+    "@brazilian-utils/validators": "^0.1.9",
     "@types/lodash": "^4.14.123",
     "@types/papaparse": "^4.5.9",
     "ajv": "^6.10.0",
@@ -96,8 +97,7 @@
     "vue-router": "^3.0.2",
     "vue-snotify": "^3.0.4",
     "vue-the-mask": "^0.11.1",
-    "vue-upload-component": "^2.8.20",
-    "@brazilian-utils/validators": "^0.1.9"
+    "vue-upload-component": "^2.8.20"
   },
   "devDependencies": {
     "@types/jest": "24.0.11",

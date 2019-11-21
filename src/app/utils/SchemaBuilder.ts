@@ -1,5 +1,5 @@
 import { Schema } from '../'
-import { ClassType, FieldComponent, FieldContent, FieldData, FieldValidation, SchemaResult } from '../../interfaces'
+import { FieldComponent, FieldContent, FieldData, FieldValidation, SchemaResult } from '../../interfaces'
 
 export class SchemaBuilder<M = any> implements SchemaResult<M> {
   constructor(schema: Schema, model: M, fieldName: string) {

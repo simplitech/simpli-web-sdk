@@ -1,7 +1,7 @@
 import { SnotifyGlobalConfig, SnotifyPosition, SnotifyToastConfig } from 'vue-snotify'
 
 export abstract class ToastConfig {
-  static ToastDefaultStyle = 'vue-notify--material'
+  static ToastDefaultStyle: 'vue-notify--material' | 'vue-notify--simple' | 'vue-notify--dark' = 'vue-notify--material'
 
   static ToastGlobalConfig: SnotifyGlobalConfig = {
     newOnTop: true, // true = stack, false = queue

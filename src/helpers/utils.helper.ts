@@ -1,5 +1,5 @@
 import { $ } from '../simpli'
-import { classToClass } from 'class-transformer'
+import { classToClass, ClassTransformOptions } from 'class-transformer'
 import Papa, { ParseError, ParseResult } from 'papaparse'
 import { ID, TAG, Dictionary, IResource, DataBlueprint, NormalizedItem } from '../interfaces'
 const shortid = require('shortid')
@@ -14,8 +14,8 @@ export function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-export function clone<T>(fromEntity: T): T {
-  return classToClass(fromEntity)
+export function clone<T>(fromEntity: T, options?: ClassTransformOptions): T {
+  return classToClass(fromEntity, options)
 }
 
 export function buildResource($id: ID, $tag: TAG): IResource {

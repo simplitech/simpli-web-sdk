@@ -5,6 +5,10 @@ export function push(uri: string) {
   return $.router.push(uri)
 }
 
+export function replace(uri: string) {
+  return $.router.replace(uri)
+}
+
 export async function pushByName(name: string, ...ids: ID[]) {
   const params: any = {}
 

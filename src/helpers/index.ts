@@ -1,3 +1,4 @@
+export * from './file.helper'
 export * from './filter.helper'
 export * from './resource.helper'
 export * from './router.helper'
