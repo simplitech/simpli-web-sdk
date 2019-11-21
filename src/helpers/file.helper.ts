@@ -9,7 +9,7 @@ export function fileOrBlobToArrBuffer(file: File | Blob): Promise<ArrayBuffer | 
   })
 }
 
-export function fileToUrl(file: File) {
+export function fileToUrl(file: File): Promise<string | ArrayBuffer | null> {
   return new Promise(resolve => {
     const reader = new FileReader()
     reader.onload = () => {
