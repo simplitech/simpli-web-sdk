@@ -9,11 +9,11 @@ export function fileOrBlobToArrBuffer(file: File | Blob): Promise<ArrayBuffer | 
   })
 }
 
-export function fileToUrl(file: File): Promise<string | ArrayBuffer | null> {
+export function fileToUrl(file: File | Blob): Promise<string> {
   return new Promise(resolve => {
     const reader = new FileReader()
     reader.onload = () => {
-      resolve(reader.result)
+      resolve(reader.result as string)
     }
     reader.readAsDataURL(file)
   })
@@ -59,6 +59,11 @@ export function urlToArrayBuffer(dataURI: string) {
   return fileOrBlobToArrBuffer(blob)
 }
 
+export async function fileToImg(file: File | Blob) {
+  const url = await fileToUrl(file)
+  return await urlToImg(url)
+}
+
 export function calcRectSize(originalW: number, originalH: number, maxDimension: number) {
   const scale = Math.min(1, maxDimension / (originalW > originalH ? originalW : originalH))
 
@@ -87,7 +92,7 @@ export function compressImageToUrl(img: HTMLImageElement, fileType: string, widt
   return canvas.toDataURL(fileType, 0.5)
 }
 
-export function promptForSingleFile(accept: string | null = null): Promise<File | null> {
+export function promptForMultipleFiles(accept: string | null = null): Promise<File[] | null> {
   return new Promise(resolve => {
     const input = document.createElement('input')
     input.type = 'file'
@@ -96,9 +101,17 @@ export function promptForSingleFile(accept: string | null = null): Promise<File 
     }
 
     input.onchange = (e: any) => {
-      resolve(e.target.files[0])
+      resolve(e.target.files)
     }
 
     input.click()
   })
+}
+
+export async function promptForSingleFile(accept: string | null = null): Promise<File | null> {
+  const files: File[] | null = await promptForMultipleFiles(accept)
+  if (!files || !files.length) {
+    return null
+  }
+  return files[0]
 }
