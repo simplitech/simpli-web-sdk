@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.4](https://github.com/simplitech/simpli-web-sdk/compare/v2.6.3...v2.6.4) (2019-12-02)
+
+
+### Bug Fixes
+
+* **file.helper:** add more options to file helper ([14527bf](https://github.com/simplitech/simpli-web-sdk/commit/14527bf))
+
+
+
 ## [2.6.3](https://github.com/simplitech/simpli-web-sdk/compare/v2.6.2...v2.6.3) (2019-12-02)
 
 
