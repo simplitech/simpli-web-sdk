@@ -9,6 +9,14 @@ export function fileOrBlobToArrBuffer(file: File | Blob): Promise<ArrayBuffer | 
   })
 }
 
+export async function fileToArrBuffer(file: File) {
+  return await fileOrBlobToArrBuffer(file)
+}
+
+export async function blobToArrBuffer(blob: Blob) {
+  return await fileOrBlobToArrBuffer(blob)
+}
+
 export function fileToUrl(file: File | Blob): Promise<string> {
   return new Promise(resolve => {
     const reader = new FileReader()
@@ -114,4 +122,25 @@ export async function promptForSingleFile(accept: string | null = null): Promise
     return null
   }
   return files[0]
+}
+
+export async function uploadToS3(
+  uploadUrl: string,
+  arrBuffer: ArrayBuffer,
+  abortController: AbortController | null = null
+) {
+  // @ts-ignore
+  await fetch(uploadUrl, {
+    method: 'PUT',
+    mode: 'cors',
+    credentials: 'omit',
+    headers: {
+      'content-type': 'application/octet-stream',
+      'sec-fetch-mode': 'cors',
+    },
+    signal: abortController ? abortController.signal : null,
+    body: arrBuffer,
+  })
+
+  return uploadUrl.split('?')[0]
 }
