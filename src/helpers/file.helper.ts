@@ -100,12 +100,16 @@ export function compressImageToUrl(img: HTMLImageElement, fileType: string, widt
   return canvas.toDataURL(fileType, 0.5)
 }
 
-export function promptForMultipleFiles(accept: string | null = null): Promise<File[] | null> {
+export function promptForMultipleFiles(accept: string | null = null, multiple: boolean = true): Promise<File[] | null> {
   return new Promise(resolve => {
     const input = document.createElement('input')
     input.type = 'file'
     if (accept) {
       input.accept = accept
+    }
+
+    if (multiple) {
+      input.setAttribute('multiple', 'multiple')
     }
 
     input.onchange = (e: any) => {
@@ -117,7 +121,7 @@ export function promptForMultipleFiles(accept: string | null = null): Promise<Fi
 }
 
 export async function promptForSingleFile(accept: string | null = null): Promise<File | null> {
-  const files: File[] | null = await promptForMultipleFiles(accept)
+  const files: File[] | null = await promptForMultipleFiles(accept, false)
   if (!files || !files.length) {
     return null
   }
