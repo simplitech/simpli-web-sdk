@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.6](https://github.com/simplitech/simpli-web-sdk/compare/v2.6.5...v2.6.6) (2019-12-03)
+
+
+### Bug Fixes
+
+* **file.helper:** prompt for multiple files need to accept multiple files ([5df6c66](https://github.com/simplitech/simpli-web-sdk/commit/5df6c66))
+
+
+
 ## [2.6.5](https://github.com/simplitech/simpli-web-sdk/compare/v2.6.4...v2.6.5) (2019-12-02)
 
 
