@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios'
-import { plainToClass, plainToClassFromExist } from 'class-transformer'
+import { ClassTransformOptions, plainToClass, plainToClassFromExist } from 'class-transformer'
 import debounce from 'lodash/debounce'
 import { Request } from './Request'
 import { $ } from '../../simpli'
@@ -165,7 +165,7 @@ export class Response<T = any> {
    * }
    * ```
    */
-  async getResponse(): Promise<AxiosResponse<T>> {
+  async getResponse(classTransformOptions?: ClassTransformOptions): Promise<AxiosResponse<T>> {
     const { axiosConfig, responseType, requestName, requestDelay, endpoint } = this
     const event = responseType as ResponseEvent<T>
 
@@ -191,10 +191,10 @@ export class Response<T = any> {
     if (typeof responseType === 'object') {
       // Class object instance from constructor (new CustomClass())
       // The instance will be automatically populated
-      response.data = plainToClassFromExist(responseType as T, response.data)
+      response.data = plainToClassFromExist(responseType as T, response.data, classTransformOptions)
     } else if (typeof responseType === 'function') {
       // Class constructor (CustomClass, Number, String, Boolean, etc.)
-      response.data = plainToClass(responseType as ClassType<T>, response.data)
+      response.data = plainToClass(responseType as ClassType<T>, response.data, classTransformOptions)
     } else throw Error('Error: Entity should be either a Class or ClassObject')
 
     if (event && typeof event.onAfterSerialization === 'function') {
