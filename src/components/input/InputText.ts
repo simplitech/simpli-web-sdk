@@ -4,7 +4,7 @@ const template = `
       {{ label }}
       <slot></slot>
     </label>
-    
+
     <!--Mask input-->
     <the-mask :id="\`input-text\${_uid}\`"
               v-if="type === 'mask'"
@@ -42,6 +42,7 @@ const template = `
               v-bind="vBind"
               v-on="vOn"
               v-validate="validation"
+              :ref="computedRef"
               :name="computedName"
               :class="inputClass"
               class="input-group__input input-group__input--textarea"
@@ -58,6 +59,7 @@ const template = `
            v-bind="vBind"
            v-on="vOn"
            v-validate="validation"
+           :ref="computedRef"
            :name="computedName"
            class="input-group__input"
            :class="[inputClass, \`input-group__input--\${type}\`]"
@@ -197,6 +199,10 @@ export class InputText extends Vue {
 
   get computedName() {
     return this.name || this.label || '-'
+  }
+
+  get computedRef() {
+    return this.computedName || undefined
   }
 
   get computedModel(): InputType {

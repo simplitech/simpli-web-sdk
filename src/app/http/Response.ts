@@ -1,6 +1,5 @@
 import { AxiosResponse } from 'axios'
 import { ClassTransformOptions, plainToClass, plainToClassFromExist } from 'class-transformer'
-import debounce from 'lodash/debounce'
 import { Request } from './Request'
 import { $ } from '../../simpli'
 import { ClassType, ResponseType, ResponseEvent } from '../../interfaces'
