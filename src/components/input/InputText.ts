@@ -42,7 +42,6 @@ const template = `
               v-bind="vBind"
               v-on="vOn"
               v-validate="validation"
-              :ref="computedRef"
               :name="computedName"
               :class="inputClass"
               class="input-group__input input-group__input--textarea"
@@ -59,7 +58,6 @@ const template = `
            v-bind="vBind"
            v-on="vOn"
            v-validate="validation"
-           :ref="computedRef"
            :name="computedName"
            class="input-group__input"
            :class="[inputClass, \`input-group__input--\${type}\`]"
@@ -68,7 +66,7 @@ const template = `
            :key="4"
     />
     <transition name="slide">
-      <div class="input-group__error-message" v-if="isInvalid">{{ errors.first(label) }}</div>
+      <div class="input-group__error-message" v-if="isInvalid">{{ invalidMessage }}</div>
     </transition>
   </div>
 `
@@ -104,6 +102,9 @@ export class InputText extends Vue {
 
   @Prop({ type: Boolean })
   selectall?: boolean
+
+  @Prop({ type: String })
+  forceInvalidWithMessage?: string
 
   @Prop({ type: String })
   inputClass?: string
@@ -193,16 +194,17 @@ export class InputText extends Vue {
   }
 
   get isInvalid() {
+    return this.preset.isValid === false || this.invalidMessage
+  }
+
+  get invalidMessage() {
     // @ts-ignore
-    return this.preset.isValid === false || this.errors.first(this.label)
+    const firstErrorMessage = (this.errors && this.errors.first(this.label || '')) || null
+    return this.forceInvalidWithMessage || firstErrorMessage
   }
 
   get computedName() {
     return this.name || this.label || '-'
-  }
-
-  get computedRef() {
-    return this.computedName || undefined
   }
 
   get computedModel(): InputType {
