@@ -1,3 +1,8 @@
+# 📣 DEPRECATED
+This project is deprecated. It was reorganized in [many small packages](https://github.com/simplitech/simpli-web-sdk/issues/47)
+
+---
+
 <p align="center">    
   <img width="256" height="256" src="./logo.png?raw=true" alt="Simpli"/>    
   <br>    
