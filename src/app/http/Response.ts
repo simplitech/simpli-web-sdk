@@ -147,8 +147,8 @@ export class Response<T = any> {
    * }
    * ```
    */
-  async getData() {
-    return (await this.getResponse()).data
+  async getData(classTransformOptions?: ClassTransformOptions) {
+    return (await this.getResponse(classTransformOptions)).data
   }
 
   /**

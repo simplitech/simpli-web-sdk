@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from 'axios'
-import { classToPlain } from 'class-transformer'
+import { classToPlain, ClassTransformOptions } from 'class-transformer'
 import { ResponseType } from '../../interfaces'
 import { Response } from './Response'
 
@@ -149,9 +149,15 @@ export class Request {
    * @param url The URL(or endpoint) of the request
    * @param data The body params
    * @param axiosConfig Custom Axios configuration. More details in [Axios Docs](https://github.com/axios/axios#request-config)
+   * @param classTransformOptions
    */
-  static post(url: string, data?: any, axiosConfig?: AxiosRequestConfig) {
-    const localConfig: AxiosRequestConfig = { method: 'POST', url, data: classToPlain(data) }
+  static post(
+    url: string,
+    data?: any,
+    axiosConfig?: AxiosRequestConfig,
+    classTransformOptions?: ClassTransformOptions
+  ) {
+    const localConfig: AxiosRequestConfig = { method: 'POST', url, data: classToPlain(data, classTransformOptions) }
     return new Request(Object.assign(localConfig, axiosConfig))
   }
 
@@ -170,9 +176,10 @@ export class Request {
    * @param url The URL(or endpoint) of the request
    * @param data The body params
    * @param axiosConfig Custom Axios configuration. More details in [Axios Docs](https://github.com/axios/axios#request-config)
+   * @param classTransformOptions
    */
-  static put(url: string, data?: any, axiosConfig?: AxiosRequestConfig) {
-    const localConfig: AxiosRequestConfig = { method: 'PUT', url, data: classToPlain(data) }
+  static put(url: string, data?: any, axiosConfig?: AxiosRequestConfig, classTransformOptions?: ClassTransformOptions) {
+    const localConfig: AxiosRequestConfig = { method: 'PUT', url, data: classToPlain(data, classTransformOptions) }
     return new Request(Object.assign(localConfig, axiosConfig))
   }
 
@@ -191,9 +198,15 @@ export class Request {
    * @param url The URL(or endpoint) of the request
    * @param data The body params
    * @param axiosConfig Custom Axios configuration. More details in [Axios Docs](https://github.com/axios/axios#request-config)
+   * @param classTransformOptions
    */
-  static patch(url: string, data?: any, axiosConfig?: AxiosRequestConfig) {
-    const localConfig: AxiosRequestConfig = { method: 'PATCH', url, data: classToPlain(data) }
+  static patch(
+    url: string,
+    data?: any,
+    axiosConfig?: AxiosRequestConfig,
+    classTransformOptions?: ClassTransformOptions
+  ) {
+    const localConfig: AxiosRequestConfig = { method: 'PATCH', url, data: classToPlain(data, classTransformOptions) }
     return new Request(Object.assign(localConfig, axiosConfig))
   }
 
