@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.3](https://github.com/simplitech/simpli-web-sdk/compare/v2.7.2...v2.7.3) (2020-05-20)
+
+
+### Bug Fixes
+
+* Fixed missing class-transformer options ([c6f6b3e](https://github.com/simplitech/simpli-web-sdk/commit/c6f6b3e))
+
+
+
 ## [2.7.2](https://github.com/simplitech/simpli-web-sdk/compare/v2.7.1...v2.7.2) (2020-01-17)
 
 
