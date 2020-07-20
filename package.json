@@ -82,7 +82,7 @@
     "compressorjs": "^1.0.5",
     "cropperjs": "^1.5.1",
     "js-sha256": "^0.9.0",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "moment": "^2.24.0",
     "papaparse": "^4.6.3",
     "reflect-metadata": "^0.1.13",
