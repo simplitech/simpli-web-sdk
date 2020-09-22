@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.4](https://github.com/simplitech/simpli-web-sdk/compare/v2.7.3...v2.7.4) (2020-09-22)
+
+
+### Bug Fixes
+
+* SHT-1543 WS - Corrigir comportamento do socket de eventos para que fique aberto por mais tempo ([03ad365](https://github.com/simplitech/simpli-web-sdk/commit/03ad365))
+
+
+
 ## [2.7.3](https://github.com/simplitech/simpli-web-sdk/compare/v2.7.2...v2.7.3) (2020-05-20)
 
 
