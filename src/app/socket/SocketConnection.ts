@@ -24,35 +24,35 @@ export class SocketConnection<T> {
     this.socket.close()
   }
 
-  onOpen(callback: (e: Event) => any) {
+  onOpen(callback: (e: Event, socket: WebSocket) => any) {
     this.socket.onopen = function(this: WebSocket, e: Event) {
-      callback(e)
+      callback(e, this)
     }
   }
 
-  onClose(callback: (e: CloseEvent) => any) {
+  onClose(callback: (e: CloseEvent, socket: WebSocket) => any) {
     this.socket.onclose = function(this: WebSocket, e: CloseEvent) {
-      callback(e)
+      callback(e, this)
     }
   }
 
-  onError(callback: (e: Event) => any) {
+  onError(callback: (e: Event, socket: WebSocket) => any) {
     this.socket.onerror = function(this: WebSocket, e: Event) {
-      callback(e)
+      callback(e, this)
     }
   }
 
-  onData(callback: (resp: T) => any) {
+  onData(callback: (resp: T, socket: WebSocket) => any) {
     const self = this
     this.socket.onmessage = function(this: WebSocket, e: MessageEvent) {
       if (!self.classType) {
-        callback(e.data)
+        callback(e.data, this)
         return
       }
 
       const data = e.data
       const resp = deserialize<T>(self.classType, data)
-      callback(resp)
+      callback(resp, this)
     }
   }
 
