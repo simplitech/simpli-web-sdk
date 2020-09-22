@@ -23,7 +23,7 @@ export class AdapSearchfield extends Vue {
   @Prop({ type: String, default: 'adapQuery' })
   spinner!: string
 
-  get debounce() {
+  get debounce(): Function {
     const fetch = async () => await $.await.run(this.spinner, () => this.collection.querySearch())
     return debounce(fetch, this.debounceTimer)
   }
